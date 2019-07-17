@@ -10,9 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var orlaImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        orlaImageView.clipsToBounds = true
+        orlaImageView.layer.cornerRadius = 30
     }
 
 

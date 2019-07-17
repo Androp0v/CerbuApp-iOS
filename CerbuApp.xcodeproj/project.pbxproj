@@ -15,6 +15,8 @@
 		C404058E22DEA3D100259C86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C404058C22DEA3D100259C86 /* LaunchScreen.storyboard */; };
 		C404059922DEA3D100259C86 /* CerbuAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404059822DEA3D100259C86 /* CerbuAppTests.swift */; };
 		C40405A422DEA3D100259C86 /* CerbuAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40405A322DEA3D100259C86 /* CerbuAppUITests.swift */; };
+		C446941E22DF69FB006027A8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446941D22DF69FB006027A8 /* TableViewController.swift */; };
+		C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		C404059F22DEA3D100259C86 /* CerbuAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CerbuAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40405A322DEA3D100259C86 /* CerbuAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CerbuAppUITests.swift; sourceTree = "<group>"; };
 		C40405A522DEA3D100259C86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C40405B122DF441C00259C86 /* CerbuApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CerbuApp.entitlements; sourceTree = "<group>"; };
+		C446941D22DF69FB006027A8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +104,13 @@
 		C404058022DEA3D000259C86 /* CerbuApp */ = {
 			isa = PBXGroup;
 			children = (
+				C40405B122DF441C00259C86 /* CerbuApp.entitlements */,
 				C404058122DEA3D000259C86 /* AppDelegate.swift */,
 				C404058322DEA3D000259C86 /* SceneDelegate.swift */,
 				C404058522DEA3D000259C86 /* ViewController.swift */,
 				C404058722DEA3D000259C86 /* Main.storyboard */,
+				C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */,
+				C446941D22DF69FB006027A8 /* TableViewController.swift */,
 				C404058A22DEA3D100259C86 /* Assets.xcassets */,
 				C404058C22DEA3D100259C86 /* LaunchScreen.storyboard */,
 				C404058F22DEA3D100259C86 /* Info.plist */,
@@ -261,6 +269,8 @@
 			files = (
 				C404058622DEA3D000259C86 /* ViewController.swift in Sources */,
 				C404058222DEA3D000259C86 /* AppDelegate.swift in Sources */,
+				C446941E22DF69FB006027A8 /* TableViewController.swift in Sources */,
+				C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */,
 				C404058422DEA3D000259C86 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,15 +444,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CerbuApp/CerbuApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 4ND4CZC2FK;
 				INFOPLIST_FILE = CerbuApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -452,15 +466,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CerbuApp/CerbuApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 4ND4CZC2FK;
 				INFOPLIST_FILE = CerbuApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
