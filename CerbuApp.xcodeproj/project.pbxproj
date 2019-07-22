@@ -15,7 +15,9 @@
 		C404058E22DEA3D100259C86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C404058C22DEA3D100259C86 /* LaunchScreen.storyboard */; };
 		C404059922DEA3D100259C86 /* CerbuAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404059822DEA3D100259C86 /* CerbuAppTests.swift */; };
 		C40405A422DEA3D100259C86 /* CerbuAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40405A322DEA3D100259C86 /* CerbuAppUITests.swift */; };
+		C43B49EB22E62A1300DEF572 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43B49EA22E62A1300DEF572 /* Person.swift */; };
 		C446941E22DF69FB006027A8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446941D22DF69FB006027A8 /* TableViewController.swift */; };
+		C463F53622DFDFC3003E2C64 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */; };
 		C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +54,9 @@
 		C40405A322DEA3D100259C86 /* CerbuAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CerbuAppUITests.swift; sourceTree = "<group>"; };
 		C40405A522DEA3D100259C86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40405B122DF441C00259C86 /* CerbuApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CerbuApp.entitlements; sourceTree = "<group>"; };
+		C43B49EA22E62A1300DEF572 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		C446941D22DF69FB006027A8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C463F53622DFDFC3003E2C64 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +93,7 @@
 				C404059722DEA3D100259C86 /* CerbuAppTests */,
 				C40405A222DEA3D100259C86 /* CerbuAppUITests */,
 				C404057F22DEA3D000259C86 /* Products */,
+				C463F53422DFDFAF003E2C64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +117,7 @@
 				C404058722DEA3D000259C86 /* Main.storyboard */,
 				C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */,
 				C446941D22DF69FB006027A8 /* TableViewController.swift */,
+				C43B49EA22E62A1300DEF572 /* Person.swift */,
 				C404058A22DEA3D100259C86 /* Assets.xcassets */,
 				C404058C22DEA3D100259C86 /* LaunchScreen.storyboard */,
 				C404058F22DEA3D100259C86 /* Info.plist */,
@@ -134,6 +141,14 @@
 				C40405A522DEA3D100259C86 /* Info.plist */,
 			);
 			path = CerbuAppUITests;
+			sourceTree = "<group>";
+		};
+		C463F53422DFDFAF003E2C64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C43B49EB22E62A1300DEF572 /* Person.swift in Sources */,
 				C404058622DEA3D000259C86 /* ViewController.swift in Sources */,
 				C404058222DEA3D000259C86 /* AppDelegate.swift in Sources */,
 				C446941E22DF69FB006027A8 /* TableViewController.swift in Sources */,

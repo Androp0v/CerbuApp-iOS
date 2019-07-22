@@ -9,7 +9,13 @@
 import UIKit
 
 class PersonTableViewCell: UITableViewCell {
-
+    
+    //MARK: Properties
+    @IBOutlet var orlaImageView: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var careerLabel: UILabel!
+    @IBOutlet var statusImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
