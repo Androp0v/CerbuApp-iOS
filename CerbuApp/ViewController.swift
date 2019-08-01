@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        orlaImageView.clipsToBounds = true
         orlaImageView.layer.cornerRadius = 30
+
     }
 
 

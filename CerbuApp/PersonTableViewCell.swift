@@ -16,8 +16,11 @@ class PersonTableViewCell: UITableViewCell {
     @IBOutlet var careerLabel: UILabel!
     @IBOutlet var statusImageView: UIImageView!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Make icon image round
+        orlaImageView.layer.cornerRadius = orlaImageView.frame.size.height/2
         // Initialization code
     }
 
