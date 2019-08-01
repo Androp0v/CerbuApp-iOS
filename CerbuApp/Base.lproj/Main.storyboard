@@ -16,70 +16,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iEc-o2-sZT">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NdX-MJ-Zv1">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNN-rP-EPT">
-                                        <rect key="frame" x="20" y="20" width="374" height="248"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iEc-o2-sZT">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orlabackground" translatesAutoresizingMaskIntoConstraints="NO" id="bLj-jn-l4c">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="248"/>
-                                                <accessibility key="accessibilityConfiguration">
-                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                                </accessibility>
-                                                <gestureRecognizers/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNN-rP-EPT">
+                                                <rect key="frame" x="20" y="20" width="374" height="248"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orlabackground" translatesAutoresizingMaskIntoConstraints="NO" id="bLj-jn-l4c">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="248"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                        </accessibility>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="bLj-jn-l4c" secondAttribute="height" multiplier="1920:1273" id="GFB-XH-puG"/>
+                                                        </constraints>
+                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="unspecified" scale="default" weight="unspecified"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="eb9-Ax-JqC" appends="YES" id="Awk-jV-o5X"/>
+                                                        </connections>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orla colegial" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PY-4M-fp7">
+                                                        <rect key="frame" x="18" y="12" width="338" height="36"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="bLj-jn-l4c" secondAttribute="height" multiplier="1920:1273" id="GFB-XH-puG"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bLj-jn-l4c" secondAttribute="bottom" id="00D-p1-YZL"/>
+                                                    <constraint firstItem="bLj-jn-l4c" firstAttribute="leading" secondItem="aNN-rP-EPT" secondAttribute="leading" id="Zdg-vZ-sNm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="bLj-jn-l4c" secondAttribute="trailing" id="bDb-wI-oH7"/>
+                                                    <constraint firstItem="9PY-4M-fp7" firstAttribute="top" secondItem="aNN-rP-EPT" secondAttribute="top" constant="12" id="lRw-Zj-iXT"/>
+                                                    <constraint firstItem="9PY-4M-fp7" firstAttribute="leading" secondItem="aNN-rP-EPT" secondAttribute="leading" constant="18" id="lfC-Ir-fDc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9PY-4M-fp7" secondAttribute="trailing" constant="18" id="pIg-Aq-92F"/>
+                                                    <constraint firstItem="bLj-jn-l4c" firstAttribute="top" secondItem="aNN-rP-EPT" secondAttribute="top" id="yh0-ZM-Pgt"/>
                                                 </constraints>
-                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="unspecified" scale="default" weight="unspecified"/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="eb9-Ax-JqC" appends="YES" id="Awk-jV-o5X"/>
-                                                </connections>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orla colegial" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PY-4M-fp7">
-                                                <rect key="frame" x="18" y="12" width="338" height="36"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3hh-Q8-zJe">
+                                                <rect key="frame" x="20" y="268" width="374" height="486"/>
+                                            </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="bLj-jn-l4c" secondAttribute="bottom" id="00D-p1-YZL"/>
-                                            <constraint firstItem="bLj-jn-l4c" firstAttribute="leading" secondItem="aNN-rP-EPT" secondAttribute="leading" id="Zdg-vZ-sNm"/>
-                                            <constraint firstAttribute="trailing" secondItem="bLj-jn-l4c" secondAttribute="trailing" id="bDb-wI-oH7"/>
-                                            <constraint firstItem="9PY-4M-fp7" firstAttribute="top" secondItem="aNN-rP-EPT" secondAttribute="top" constant="12" id="lRw-Zj-iXT"/>
-                                            <constraint firstItem="9PY-4M-fp7" firstAttribute="leading" secondItem="aNN-rP-EPT" secondAttribute="leading" constant="18" id="lfC-Ir-fDc"/>
-                                            <constraint firstAttribute="trailing" secondItem="9PY-4M-fp7" secondAttribute="trailing" constant="18" id="pIg-Aq-92F"/>
-                                            <constraint firstItem="bLj-jn-l4c" firstAttribute="top" secondItem="aNN-rP-EPT" secondAttribute="top" id="yh0-ZM-Pgt"/>
+                                            <constraint firstItem="3hh-Q8-zJe" firstAttribute="top" secondItem="aNN-rP-EPT" secondAttribute="bottom" id="URY-CF-8im"/>
+                                            <constraint firstAttribute="trailing" secondItem="aNN-rP-EPT" secondAttribute="trailing" constant="20" id="Zm5-Y4-c12"/>
+                                            <constraint firstItem="aNN-rP-EPT" firstAttribute="leading" secondItem="iEc-o2-sZT" secondAttribute="leading" constant="20" id="cDR-Yd-q3S"/>
+                                            <constraint firstItem="aNN-rP-EPT" firstAttribute="top" secondItem="iEc-o2-sZT" secondAttribute="top" constant="20" id="fVS-c0-FRu"/>
                                         </constraints>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hh-Q8-zJe">
-                                        <rect key="frame" x="20" y="268" width="374" height="486"/>
+                                        <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="3hh-Q8-zJe" firstAttribute="top" secondItem="aNN-rP-EPT" secondAttribute="bottom" id="URY-CF-8im"/>
-                                    <constraint firstAttribute="trailing" secondItem="aNN-rP-EPT" secondAttribute="trailing" constant="20" id="Zm5-Y4-c12"/>
-                                    <constraint firstItem="aNN-rP-EPT" firstAttribute="leading" secondItem="iEc-o2-sZT" secondAttribute="leading" constant="20" id="cDR-Yd-q3S"/>
-                                    <constraint firstItem="aNN-rP-EPT" firstAttribute="top" secondItem="iEc-o2-sZT" secondAttribute="top" constant="20" id="fVS-c0-FRu"/>
+                                    <constraint firstItem="iEc-o2-sZT" firstAttribute="width" secondItem="NdX-MJ-Zv1" secondAttribute="width" id="6jN-la-VHK"/>
+                                    <constraint firstAttribute="width" secondItem="NdX-MJ-Zv1" secondAttribute="width" id="BoJ-XG-eIQ"/>
                                 </constraints>
-                                <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
-                            </stackView>
+                                <viewLayoutGuide key="contentLayoutGuide" id="NxG-Da-sOT"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="j2V-bQ-G1B"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="iEc-o2-sZT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2Jq-35-QBi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iEc-o2-sZT" secondAttribute="bottom" id="RVf-Cw-ZZM"/>
-                            <constraint firstItem="iEc-o2-sZT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vkf-Ua-GD3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iEc-o2-sZT" secondAttribute="trailing" id="gHu-8g-TVx"/>
+                            <constraint firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2Jq-35-QBi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NdX-MJ-Zv1" secondAttribute="bottom" id="PQc-N3-dJz"/>
+                            <constraint firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vkf-Ua-GD3"/>
+                            <constraint firstItem="NdX-MJ-Zv1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Xqo-2w-dC7"/>
+                            <constraint firstItem="NdX-MJ-Zv1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aXw-3b-X2d"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NdX-MJ-Zv1" secondAttribute="trailing" id="agE-QC-r9o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="CerbuApp" id="urC-R1-UQs"/>
                     <connections>
-                        <outlet property="orlaImageView" destination="bLj-jn-l4c" id="y7B-G6-e50"/>
+                        <outlet property="orlaImageView" destination="bLj-jn-l4c" id="hFT-LJ-Trd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
