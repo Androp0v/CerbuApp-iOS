@@ -11,20 +11,55 @@ import SQLite3
 
 class TableViewController: UITableViewController {
     
+    func copyDatabaseIfNeeded() {
+        // Move database file from bundle to documents folder
+        
+        let fileManager = FileManager.default
+        
+        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        guard documentsUrl.count != 0 else {
+            return // Could not find documents URL
+        }
+        
+        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent("database.db")
+        
+        if !( (try? finalDatabaseURL.checkResourceIsReachable()) ?? false) {
+            print("DB does not exist in documents folder")
+            
+            let databaseURL = Bundle.main.resourceURL?.appendingPathComponent("database.db")
+            
+            do {
+                try fileManager.copyItem(atPath: (databaseURL?.path)!, toPath: finalDatabaseURL.path)
+            } catch let error as NSError {
+                print("Couldn't copy file to final location! Error:\(error.description)")
+            }
+            
+        } else {
+            print("Database file found at path: \(finalDatabaseURL.path)")
+        }
+        
+    }
+    
     var People = [Person]();
+    var db: OpaquePointer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadSamplePeople()
+        copyDatabaseIfNeeded()
         
+        let fileManager = FileManager.default
         
-        var db: OpaquePointer?
-        let databaseURL = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("database.db")
+        let databaseURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         
-        if sqlite3_open(databaseURL?.path, &db) != SQLITE_OK {
+        let finalDatabaseURL = databaseURL.first!.appendingPathComponent("database.db")
+        
+        if sqlite3_open(finalDatabaseURL.path, &db) != SQLITE_OK {
             print("Error opening database")
         }
+        
+        loadPeopleFromDatabase()
         
     }
     
@@ -77,6 +112,37 @@ class TableViewController: UITableViewController {
     }
     
     private func loadPeopleFromDatabase(){
+        
+        let photo1 = UIImage(named: "nohres")!
+        
+        //this is our select query
+        let queryString = "SELECT * FROM colegiales"
+        
+        //statement pointer
+        var stmt:OpaquePointer?
+        
+        //preparing the query
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert: \(errmsg)")
+            return
+        }
+        
+        //traversing through all the records
+        while(sqlite3_step(stmt) == SQLITE_ROW){
+            let name = String(cString: sqlite3_column_text(stmt, 1))
+            let surname_1 = String(cString: sqlite3_column_text(stmt, 2))
+            let surname_2 = String(cString: sqlite3_column_text(stmt, 3))
+            let career = String(cString: sqlite3_column_text(stmt, 4))
+            let room = String(cString: sqlite3_column_text(stmt, 5))
+            //let beca = String(cString: sqlite3_column_text(stmt, 6)) //TO-DO: Proper handling of nils
+            let _like = sqlite3_column_int(stmt, 7)
+            let floor = sqlite3_column_int(stmt, 8)
+            let _promotion = sqlite3_column_int(stmt, 9)
+            
+            //adding values to list
+            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: "Test", room: room, floor: Int(floor), iconPhoto: photo1)!)
+        }
         
     }
 
