@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SQLite3
 
 class TableViewController: UITableViewController {
     
@@ -16,7 +17,15 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
         loadSamplePeople()
-
+        
+        
+        var db: OpaquePointer?
+        let databaseURL = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("database.db")
+        
+        if sqlite3_open(databaseURL?.path, &db) != SQLITE_OK {
+            print("Error opening database")
+        }
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,6 +73,10 @@ class TableViewController: UITableViewController {
         let person1 = Person(name: "Adrián", surname_1: "Arribas", surname_2: "Vinuesa", career: "Biotecnología", beca: "", room: "409", floor: 400, iconPhoto: photo1)!
         
         People += [person1]
+        
+    }
+    
+    private func loadPeopleFromDatabase(){
         
     }
 
