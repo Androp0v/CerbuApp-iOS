@@ -8,6 +8,15 @@
 
 import UIKit
 
+extension UINavigationController
+{
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        get {
+            return .lightContent
+        }
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet var orlaImageView: UIImageView!
@@ -18,6 +27,4 @@ class ViewController: UIViewController {
 
     }
 
-
 }
-
