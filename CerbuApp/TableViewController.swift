@@ -51,7 +51,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
+        if traitCollection.userInterfaceStyle == .light {
+            segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
+        } else {
+            segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        }
         
         copyDatabaseIfNeeded()
         
