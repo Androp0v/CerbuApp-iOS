@@ -41,6 +41,20 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    func cleanString(rawString: String) -> String{
+        var cleanString = rawString
+        cleanString = cleanString.lowercased()
+        
+        cleanString = cleanString.replacingOccurrences(of: " ", with: "")
+        cleanString = cleanString.replacingOccurrences(of: "á", with: "a")
+        cleanString = cleanString.replacingOccurrences(of: "é", with: "e")
+        cleanString = cleanString.replacingOccurrences(of: "í", with: "i")
+        cleanString = cleanString.replacingOccurrences(of: "ó", with: "o")
+        cleanString = cleanString.replacingOccurrences(of: "ú", with: "u")
+        cleanString = cleanString.replacingOccurrences(of: "ü", with: "u")
+        return cleanString
+    }
+    
     var People = [Person]();
     var db: OpaquePointer?
     @IBOutlet var tableView: UITableView!
@@ -110,15 +124,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //MARK: Private Methods
     
-    private func loadSamplePeople() {
-        let photo1 = UIImage(named: "nohres")!
-        
-        let person1 = Person(name: "Adrián", surname_1: "Arribas", surname_2: "Vinuesa", career: "Biotecnología", beca: "", room: "409", floor: 400, iconPhoto: photo1)!
-        
-        People += [person1]
-        
-    }
-    
     private func loadPeopleFromDatabase(){
         
         let photo1 = UIImage(named: "nohres")!
@@ -147,9 +152,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let _like = sqlite3_column_int(stmt, 7)
             let floor = sqlite3_column_int(stmt, 8)
             let _promotion = sqlite3_column_int(stmt, 9)
+            let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
+            print(cleanString(rawString: name+surname_1))
             
             //adding values to list
-            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: "Test", room: room, floor: Int(floor), iconPhoto: photo1)!)
+            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: "Test", room: room, floor: Int(floor), iconPhoto: iconPhoto)!)
         }
         
     }
