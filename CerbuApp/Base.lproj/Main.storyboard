@@ -104,21 +104,21 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="108.48214285714285"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Orla colegial-->
         <scene sceneID="uo6-u5-NuT">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Nfi-JK-QUC" customClass="TableViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Orla colegial" automaticallyAdjustsScrollViewInsets="NO" id="Nfi-JK-QUC" customClass="TableViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="vWh-Lw-SNL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a0-fF-LoP">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                 <color key="backgroundColor" name="MainAppColor"/>
                                 <items>
                                     <barButtonItem style="plain" id="4er-36-nLU">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6rm-24-dHW">
-                                            <rect key="frame" x="0.0" y="-0.5" width="374" height="1"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" name="ShadowMainAppColor"/>
                                             <segments>
@@ -134,8 +134,8 @@
                                 </items>
                                 <color key="barTintColor" name="MainAppColor"/>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" id="SIX-g0-80Q">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" id="SIX-g0-80Q">
+                                <rect key="frame" x="0.0" y="60" width="414" height="748"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -224,13 +224,14 @@
                         <viewLayoutGuide key="safeArea" id="3fC-xQ-wSv"/>
                     </stackView>
                     <connections>
+                        <outlet property="mainStackView" destination="vWh-Lw-SNL" id="egI-92-Lhd"/>
                         <outlet property="segmentedControl" destination="6rm-24-dHW" id="VuM-5q-4Bv"/>
                         <outlet property="tableView" destination="SIX-g0-80Q" id="JBR-5T-J8m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJ9-bJ-eGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2023" y="108"/>
+            <point key="canvasLocation" x="2021.7391304347827" y="107.8125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rvJ-wv-cAH">

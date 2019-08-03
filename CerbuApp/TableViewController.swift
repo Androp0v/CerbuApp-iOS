@@ -45,8 +45,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var db: OpaquePointer?
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet var mainStackView: UIStackView!
     
     override func viewDidLoad() {
+        self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: -0.5,left: 0,bottom: 0,right: 0)
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
