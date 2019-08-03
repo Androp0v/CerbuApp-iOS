@@ -127,14 +127,14 @@
                                                 <segment title="2ª"/>
                                                 <segment title="3ª"/>
                                                 <segment title="4ª"/>
-                                                <segment title="5ª"/>
+                                                <segment title="5ª+"/>
                                             </segments>
                                         </segmentedControl>
                                     </barButtonItem>
                                 </items>
                                 <color key="barTintColor" name="MainAppColor"/>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SIX-g0-80Q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="SIX-g0-80Q">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -224,6 +224,7 @@
                         <viewLayoutGuide key="safeArea" id="3fC-xQ-wSv"/>
                     </stackView>
                     <connections>
+                        <outlet property="segmentedControl" destination="6rm-24-dHW" id="VuM-5q-4Bv"/>
                         <outlet property="tableView" destination="SIX-g0-80Q" id="JBR-5T-J8m"/>
                     </connections>
                 </viewController>
