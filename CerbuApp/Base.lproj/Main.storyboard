@@ -182,15 +182,11 @@
                                                         </view>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CmO-I6-KrS">
                                                             <rect key="frame" x="344" y="0.0" width="54" height="54"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="CmO-I6-KrS" secondAttribute="height" multiplier="1:1" id="rSo-cx-pPo"/>
-                                                            </constraints>
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="2YX-gk-IUN" firstAttribute="leading" secondItem="3dt-zb-aP3" secondAttribute="leading" id="6SZ-Hy-iMg"/>
                                                         <constraint firstItem="2YX-gk-IUN" firstAttribute="top" secondItem="3dt-zb-aP3" secondAttribute="top" id="Q6v-bz-dRQ"/>
-                                                        <constraint firstItem="CmO-I6-KrS" firstAttribute="width" secondItem="CmO-I6-KrS" secondAttribute="height" multiplier="1:1" id="Utk-Ir-UWP"/>
                                                         <constraint firstItem="CmO-I6-KrS" firstAttribute="leading" secondItem="wxL-WV-xGA" secondAttribute="trailing" id="VcY-kY-QHA"/>
                                                         <constraint firstAttribute="bottom" secondItem="wxL-WV-xGA" secondAttribute="bottom" id="d2c-U6-WWa"/>
                                                         <constraint firstItem="wxL-WV-xGA" firstAttribute="leading" secondItem="2YX-gk-IUN" secondAttribute="trailing" id="emj-2L-uLI"/>
@@ -227,11 +223,61 @@
                         <outlet property="mainStackView" destination="vWh-Lw-SNL" id="egI-92-Lhd"/>
                         <outlet property="segmentedControl" destination="6rm-24-dHW" id="VuM-5q-4Bv"/>
                         <outlet property="tableView" destination="SIX-g0-80Q" id="JBR-5T-J8m"/>
+                        <segue destination="W9g-Aj-Mhi" kind="show" identifier="pushFromCell" id="Bo5-Hx-OhQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJ9-bJ-eGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2021.7391304347827" y="107.8125"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="lOv-BR-0e3">
+            <objects>
+                <viewController id="W9g-Aj-Mhi" customClass="DetailsViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gms-Pm-Q62">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Bbx-mB-Usn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gDc-Yq-DJV">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="gDc-Yq-DJV" secondAttribute="height" multiplier="1:1" id="8gu-uL-mBt"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surname_1 Surname_2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6b-OW-LPt">
+                                        <rect key="frame" x="0.0" y="414" width="414" height="360"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gDc-Yq-DJV" firstAttribute="leading" secondItem="Bbx-mB-Usn" secondAttribute="leading" id="MIM-c7-60B"/>
+                                    <constraint firstItem="gDc-Yq-DJV" firstAttribute="top" secondItem="Bbx-mB-Usn" secondAttribute="top" id="S7X-ZJ-K7Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="gDc-Yq-DJV" secondAttribute="trailing" id="zvS-PI-hdh"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Bbx-mB-Usn" firstAttribute="top" secondItem="2xL-hB-geI" secondAttribute="top" id="47Q-T8-L4h"/>
+                            <constraint firstItem="2xL-hB-geI" firstAttribute="trailing" secondItem="Bbx-mB-Usn" secondAttribute="trailing" id="MPD-9k-dyj"/>
+                            <constraint firstItem="Bbx-mB-Usn" firstAttribute="leading" secondItem="2xL-hB-geI" secondAttribute="leading" id="MpM-Vi-Bp4"/>
+                            <constraint firstItem="2xL-hB-geI" firstAttribute="bottom" secondItem="Bbx-mB-Usn" secondAttribute="bottom" id="p0M-Vw-oVz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2xL-hB-geI"/>
+                    </view>
+                    <connections>
+                        <outlet property="hresPhoto" destination="gDc-Yq-DJV" id="lq6-G5-hyW"/>
+                        <outlet property="nameLabel" destination="p6b-OW-LPt" id="uVG-Gv-Bcg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FQx-MD-6ny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3050.7246376811595" y="108.48214285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rvJ-wv-cAH">

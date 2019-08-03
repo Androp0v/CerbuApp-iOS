@@ -43,4 +43,8 @@ class Person {
         
     }
     
+    func getName() -> String {
+        return self.name
+    }
+    
 }

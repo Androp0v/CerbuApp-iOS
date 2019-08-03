@@ -111,16 +111,35 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView .deselectRow(at: indexPath, animated: true)
+        
+        //let selectedPerson = People[indexPath.row]
+        
+        // Create an instance of DetailViewController and pass the variable
+        //let destinationViewController = DetailsViewController()
+        //destinationViewController.detailedPerson = selectedPerson
+        
+        self.performSegue(withIdentifier: "pushFromCell", sender: indexPath)
+    }
+    
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
+        if (segue.identifier == "pushFromCell") {
+            let controller = (segue.destination as! DetailsViewController)
+            let row = (sender as! NSIndexPath).row; //we know that sender is an NSIndexPath here.
+            let selectedPerson = People[row]
+            controller.detailedPerson = selectedPerson
+        }
         // Pass the selected object to the new view controller.
     }
-    */
+    
     
     //MARK: Private Methods
     
@@ -153,7 +172,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let floor = sqlite3_column_int(stmt, 8)
             let _promotion = sqlite3_column_int(stmt, 9)
             let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
-            print(cleanString(rawString: name+surname_1))
             
             //adding values to list
             People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: "Test", room: room, floor: Int(floor), iconPhoto: iconPhoto)!)
