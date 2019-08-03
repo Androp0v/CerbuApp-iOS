@@ -107,7 +107,7 @@
         <!--Table View Controller-->
         <scene sceneID="uo6-u5-NuT">
             <objects>
-                <tableViewController id="Nfi-JK-QUC" customClass="TableViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nfi-JK-QUC" customClass="TableViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OUM-cD-H3B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,7 +194,10 @@
                             <outlet property="delegate" destination="Nfi-JK-QUC" id="mS6-pa-ojy"/>
                         </connections>
                     </tableView>
-                </tableViewController>
+                    <connections>
+                        <outlet property="tableView" destination="OUM-cD-H3B" id="UwS-3p-5WZ"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJ9-bJ-eGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2023" y="108"/>
