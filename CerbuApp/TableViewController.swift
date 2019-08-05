@@ -55,6 +55,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cleanString
     }
     
+    @objc func onSegmentedControlHapticFeedback(sender: UISegmentedControl){
+        print("This is called")
+        let feedbackGenerator = UISelectionFeedbackGenerator.init()
+        feedbackGenerator.selectionChanged()
+    }
+    
     var People = [Person]();
     var db: OpaquePointer?
     @IBOutlet var tableView: UITableView!
@@ -68,6 +74,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.label], for: .selected)
+        
+        segmentedControl.addTarget(self, action: #selector(TableViewController.onSegmentedControlHapticFeedback(sender:)), for:.valueChanged)
         
         copyDatabaseIfNeeded()
         
