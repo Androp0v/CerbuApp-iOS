@@ -58,6 +58,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc func onSegmentedControlHapticFeedback(sender: UISegmentedControl){
         print("This is called")
         let feedbackGenerator = UISelectionFeedbackGenerator.init()
+        feedbackGenerator.prepare()
         feedbackGenerator.selectionChanged()
     }
     
