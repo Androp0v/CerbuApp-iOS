@@ -92,6 +92,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="CerbuApp" id="urC-R1-UQs"/>
                     <connections>
+                        <outlet property="ContainerView" destination="aNN-rP-EPT" id="uib-xf-udY"/>
                         <outlet property="orlaImageView" destination="bLj-jn-l4c" id="hFT-LJ-Trd"/>
                     </connections>
                 </viewController>
@@ -113,7 +114,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a0-fF-LoP">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                 <color key="backgroundColor" name="MainAppColor"/>
                                 <items>
                                     <barButtonItem style="plain" id="4er-36-nLU">
@@ -133,14 +134,26 @@
                                     </barButtonItem>
                                 </items>
                                 <color key="barTintColor" name="MainAppColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hidesShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" id="SIX-g0-80Q">
-                                <rect key="frame" x="0.0" y="60" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="55" width="414" height="753"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="NRb-Dg-vx3">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <scopeButtonTitles>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                    </scopeButtonTitles>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PersonTableViewCell" rowHeight="70" id="KIQ-aN-OpZ" customClass="PersonTableViewCell" customModule="CerbuApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="84" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KIQ-aN-OpZ" id="lC7-yT-7Rg">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -221,6 +234,7 @@
                     </stackView>
                     <connections>
                         <outlet property="mainStackView" destination="vWh-Lw-SNL" id="egI-92-Lhd"/>
+                        <outlet property="searchBar" destination="NRb-Dg-vx3" id="ckY-IA-5mK"/>
                         <outlet property="segmentedControl" destination="6rm-24-dHW" id="VuM-5q-4Bv"/>
                         <outlet property="tableView" destination="SIX-g0-80Q" id="JBR-5T-J8m"/>
                         <segue destination="W9g-Aj-Mhi" kind="show" identifier="pushFromCell" id="Bo5-Hx-OhQ"/>

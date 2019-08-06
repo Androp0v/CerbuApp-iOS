@@ -77,6 +77,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var mainStackView: UIStackView!
+    @IBOutlet var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: -0.5,left: 0,bottom: 0,right: 0)
@@ -101,6 +102,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         loadPeopleFromDatabase()
+        
+        tableView.scrollToRow(at: NSIndexPath(row: 0, section: 0) as IndexPath, at: UITableView.ScrollPosition.top, animated: false)
         
     }
     
