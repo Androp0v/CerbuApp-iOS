@@ -253,7 +253,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Bbx-mB-Usn">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gDc-Yq-DJV">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
@@ -261,12 +261,6 @@
                                             <constraint firstAttribute="width" secondItem="gDc-Yq-DJV" secondAttribute="height" multiplier="1:1" id="8gu-uL-mBt"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surname_1 Surname_2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6b-OW-LPt">
-                                        <rect key="frame" x="0.0" y="414" width="414" height="360"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="gDc-Yq-DJV" firstAttribute="leading" secondItem="Bbx-mB-Usn" secondAttribute="leading" id="MIM-c7-60B"/>
@@ -274,17 +268,35 @@
                                     <constraint firstAttribute="trailing" secondItem="gDc-Yq-DJV" secondAttribute="trailing" id="zvS-PI-hdh"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surname_1 Surname_2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6b-OW-LPt">
+                                <rect key="frame" x="24" y="438" width="366" height="72"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Career" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYe-pD-Sxg">
+                                <rect key="frame" x="24" y="518" width="366" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="p6b-OW-LPt" firstAttribute="top" secondItem="Bbx-mB-Usn" secondAttribute="bottom" constant="24" id="0WS-ms-WAc"/>
                             <constraint firstItem="Bbx-mB-Usn" firstAttribute="top" secondItem="2xL-hB-geI" secondAttribute="top" id="47Q-T8-L4h"/>
+                            <constraint firstItem="UYe-pD-Sxg" firstAttribute="top" secondItem="p6b-OW-LPt" secondAttribute="bottom" constant="8" id="JXm-9n-mUF"/>
                             <constraint firstItem="2xL-hB-geI" firstAttribute="trailing" secondItem="Bbx-mB-Usn" secondAttribute="trailing" id="MPD-9k-dyj"/>
                             <constraint firstItem="Bbx-mB-Usn" firstAttribute="leading" secondItem="2xL-hB-geI" secondAttribute="leading" id="MpM-Vi-Bp4"/>
-                            <constraint firstItem="2xL-hB-geI" firstAttribute="bottom" secondItem="Bbx-mB-Usn" secondAttribute="bottom" id="p0M-Vw-oVz"/>
+                            <constraint firstItem="2xL-hB-geI" firstAttribute="trailing" secondItem="UYe-pD-Sxg" secondAttribute="trailing" constant="24" id="Xa3-JU-rXO"/>
+                            <constraint firstAttribute="trailing" secondItem="p6b-OW-LPt" secondAttribute="trailing" constant="24" id="i6h-fa-wck"/>
+                            <constraint firstItem="UYe-pD-Sxg" firstAttribute="leading" secondItem="2xL-hB-geI" secondAttribute="leading" constant="24" id="kkK-Xd-k8M"/>
+                            <constraint firstItem="p6b-OW-LPt" firstAttribute="leading" secondItem="Gms-Pm-Q62" secondAttribute="leading" constant="24" id="zQP-jv-ixC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2xL-hB-geI"/>
                     </view>
                     <connections>
+                        <outlet property="careerLabel" destination="UYe-pD-Sxg" id="WtO-UH-AvZ"/>
                         <outlet property="hresPhoto" destination="gDc-Yq-DJV" id="lq6-G5-hyW"/>
                         <outlet property="nameLabel" destination="p6b-OW-LPt" id="uVG-Gv-Bcg"/>
                     </connections>

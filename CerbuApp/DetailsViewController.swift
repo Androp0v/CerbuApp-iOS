@@ -28,6 +28,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet var hresPhoto: UIImageView!
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var careerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class DetailsViewController: UIViewController {
         
         let nameLabelText: String = (detailedPerson?.name ?? "") + " " + (detailedPerson?.surname_1 ?? "")
         nameLabel.text = nameLabelText + " " + (detailedPerson?.surname_2 ?? "")
+        careerLabel.text = detailedPerson?.career
         
         hresPhoto.image = UIImage(named: (cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? "")))) ?? UIImage(named: "nohres")
     }
