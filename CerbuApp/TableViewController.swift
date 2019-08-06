@@ -56,9 +56,18 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @objc func onSegmentedControlHapticFeedback(sender: UISegmentedControl){
-        print("This is called")
         let feedbackGenerator = UISelectionFeedbackGenerator.init()
         feedbackGenerator.prepare()
+        let selectedSegment = segmentedControl.selectedSegmentIndex
+        switch selectedSegment {
+        case 0:
+            loadPeopleFromDatabase()
+        default:
+            loadPeopleFromDatabaseProm(promotion: selectedSegment)
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         feedbackGenerator.selectionChanged()
     }
     
@@ -157,7 +166,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let photo1 = UIImage(named: "nohres")!
         
         //this is our select query
-        let queryString = "SELECT * FROM colegiales"
+        let queryString = "SELECT * FROM colegiales ORDER BY names"
+        
+        //Perform collation on database
+        
         
         //statement pointer
         var stmt:OpaquePointer?
@@ -168,6 +180,51 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             print("error preparing insert: \(errmsg)")
             return
         }
+        
+        //Empty the people list
+        People = [Person]()
+        
+        //traversing through all the records
+        while(sqlite3_step(stmt) == SQLITE_ROW){
+            let name = String(cString: sqlite3_column_text(stmt, 1))
+            let surname_1 = String(cString: sqlite3_column_text(stmt, 2))
+            let surname_2 = String(cString: sqlite3_column_text(stmt, 3))
+            let career = String(cString: sqlite3_column_text(stmt, 4))
+            let room = String(cString: sqlite3_column_text(stmt, 5))
+            //let beca = String(cString: sqlite3_column_text(stmt, 6)) //TO-DO: Proper handling of nils
+            let _like = sqlite3_column_int(stmt, 7)
+            let floor = sqlite3_column_int(stmt, 8)
+            let _promotion = sqlite3_column_int(stmt, 9)
+            let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
+            
+            //adding values to list
+            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: "Test", room: room, floor: Int(floor), iconPhoto: iconPhoto)!)
+        }
+        
+    }
+    
+    private func loadPeopleFromDatabaseProm(promotion: Int){
+        
+        let photo1 = UIImage(named: "nohres")!
+        
+        //this is our select query
+        let queryString = "SELECT * FROM colegiales WHERE promotions = " + String(promotion) + " ORDER BY names"
+        
+        //Perform collation on database
+        
+        
+        //statement pointer
+        var stmt:OpaquePointer?
+        
+        //preparing the query
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert: \(errmsg)")
+            return
+        }
+        
+        //Empty the people list
+        People = [Person]()
         
         //traversing through all the records
         while(sqlite3_step(stmt) == SQLITE_ROW){
