@@ -127,8 +127,15 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         cell.nameLabel.text = person.name + " " + person.surname_1 + " " + person.surname_2
         cell.orlaImageView.image = person.iconPhoto
-        cell.careerLabel.text = person.career
-        
+    
+        if person.beca.isEmpty {
+            cell.careerLabel.text = person.career
+            cell.statusImageView.image = nil
+        }else{
+            cell.careerLabel.text = person.career + " | " + person.beca
+            cell.statusImageView.image = UIImage.init(named: "becario")
+            
+        }
         
         return cell
     }
@@ -195,14 +202,19 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let surname_2 = String(cString: sqlite3_column_text(stmt, 3))
             let career = String(cString: sqlite3_column_text(stmt, 4))
             let room = String(cString: sqlite3_column_text(stmt, 5))
-            //let beca = String(cString: sqlite3_column_text(stmt, 6)) //TO-DO: Proper handling of nils
+            
+            var beca = String("")
+            if sqlite3_column_text(stmt, 6) != nil{
+                beca = String(cString: sqlite3_column_text(stmt, 6))
+            }
+            
             let _like = sqlite3_column_int(stmt, 7)
             let floor = sqlite3_column_int(stmt, 8)
             let _promotion = sqlite3_column_int(stmt, 9)
             let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
             
             //adding values to list
-            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: "Test", room: room, floor: Int(floor), iconPhoto: iconPhoto)!)
+            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto)!)
         }
         
     }
@@ -237,14 +249,19 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let surname_2 = String(cString: sqlite3_column_text(stmt, 3))
             let career = String(cString: sqlite3_column_text(stmt, 4))
             let room = String(cString: sqlite3_column_text(stmt, 5))
-            //let beca = String(cString: sqlite3_column_text(stmt, 6)) //TO-DO: Proper handling of nils
+            
+            var beca = String("")
+            if sqlite3_column_text(stmt, 6) != nil{
+                beca = String(cString: sqlite3_column_text(stmt, 6))
+            }
+            
             let _like = sqlite3_column_int(stmt, 7)
             let floor = sqlite3_column_int(stmt, 8)
             let _promotion = sqlite3_column_int(stmt, 9)
             let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
             
             //adding values to list
-            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: "Test", room: room, floor: Int(floor), iconPhoto: iconPhoto)!)
+            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto)!)
         }
         
     }
