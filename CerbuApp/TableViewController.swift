@@ -52,6 +52,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cleanString = cleanString.replacingOccurrences(of: "ó", with: "o")
         cleanString = cleanString.replacingOccurrences(of: "ú", with: "u")
         cleanString = cleanString.replacingOccurrences(of: "ü", with: "u")
+        cleanString = cleanString.replacingOccurrences(of: "ñ", with: "n")
         return cleanString
     }
     
