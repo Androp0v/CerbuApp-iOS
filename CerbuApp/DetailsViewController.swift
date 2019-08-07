@@ -37,7 +37,12 @@ class DetailsViewController: UIViewController {
         
         let nameLabelText: String = (detailedPerson?.name ?? "") + " " + (detailedPerson?.surname_1 ?? "")
         nameLabel.text = nameLabelText + " " + (detailedPerson?.surname_2 ?? "")
-        careerLabel.text = detailedPerson?.career
+        
+        if detailedPerson?.beca.isEmpty ?? true {
+            careerLabel.text = detailedPerson?.career
+        }else{
+            careerLabel.text = (detailedPerson?.career ?? "") + " | " + (detailedPerson?.beca ?? "")
+        }
         
         hresPhoto.image = UIImage(named: (cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? "")))) ?? UIImage(named: "nohres")
     }

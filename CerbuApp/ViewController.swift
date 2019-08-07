@@ -16,10 +16,10 @@ extension UINavigationController {
     }
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet var orlaImageView: UIImageView!
-    @IBOutlet var ContainerView: UIView!
+    @IBOutlet var ContainerView: CardView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,26 @@ class ViewController: UIViewController {
         ContainerView.layer.shadowColor = UIColor.init(named: "LighOnlyShadow")?.cgColor
         ContainerView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         ContainerView.layer.shadowRadius = 12.0
-        ContainerView.layer.shadowOpacity = 0.7
+        ContainerView.layer.shadowOpacity = 0.5
+        
+        let tap = UILongPressGestureRecognizer(target: self, action: #selector(tapHandler))
+        tap.minimumPressDuration = 0.0
+        tap.cancelsTouchesInView = false
+        tap.delegate = self
+        ContainerView.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapHandler(gesture: UITapGestureRecognizer){
+        
+        let touchLocation = gesture.location(in: ContainerView)
+        
+        //Only perform segue on releasing button
+        if gesture.state == .ended {
+            //Only perform segue if tap is released inside button area (and not outside)
+            if ContainerView.bounds.contains(touchLocation) {
+                //Perform segue
+                self.performSegue(withIdentifier: "pushFromOrla", sender: self)
+            }
+        }
     }
 }
