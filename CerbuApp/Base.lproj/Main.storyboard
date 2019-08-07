@@ -22,7 +22,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iEc-o2-sZT">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNN-rP-EPT">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNN-rP-EPT" customClass="CardView" customModule="CerbuApp" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="374" height="248"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orlabackground" translatesAutoresizingMaskIntoConstraints="NO" id="bLj-jn-l4c">
