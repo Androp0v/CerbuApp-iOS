@@ -32,14 +32,18 @@ class CardView: UIView {
             UIView.animate(withDuration: 0.5,
                            delay: 0,
                            usingSpringWithDamping: 1,
-                           initialSpringVelocity: 0, animations: {
+                           initialSpringVelocity: 0,
+                           options: [.allowUserInteraction],
+                           animations: {
                             self.transform = .init(scaleX: 0.96, y: 0.96)
             }, completion: completion)
         } else {
             UIView.animate(withDuration: 0.5,
                            delay: 0,
                            usingSpringWithDamping: 1,
-                           initialSpringVelocity: 0, animations: {
+                           initialSpringVelocity: 0,
+                           options: [.allowUserInteraction],
+                           animations: {
                             self.transform = .identity
             }, completion: completion)
         }
