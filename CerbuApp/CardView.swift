@@ -29,16 +29,16 @@ class CardView: UIView {
         
         
         if isHighlighted {
-            UIView.animate(withDuration: 0.5,
+            UIView.animate(withDuration: 0.25,
                            delay: 0,
                            usingSpringWithDamping: 1,
                            initialSpringVelocity: 0,
                            options: [.allowUserInteraction],
                            animations: {
-                            self.transform = .init(scaleX: 0.96, y: 0.96)
+                            self.transform = .init(scaleX: 0.97, y: 0.97)
             }, completion: completion)
         } else {
-            UIView.animate(withDuration: 0.5,
+            UIView.animate(withDuration: 0.25,
                            delay: 0,
                            usingSpringWithDamping: 1,
                            initialSpringVelocity: 0,
