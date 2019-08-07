@@ -99,6 +99,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="eb9-Ax-JqC">
                     <connections>
+                        <action selector="TapOrla:" destination="BYZ-38-t0r" id="7RQ-xN-0SJ"/>
                         <segue destination="Nfi-JK-QUC" kind="show" id="gzf-DJ-mPA"/>
                     </connections>
                 </tapGestureRecognizer>
@@ -202,13 +203,12 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="2YX-gk-IUN" firstAttribute="leading" secondItem="3dt-zb-aP3" secondAttribute="leading" id="6SZ-Hy-iMg"/>
-                                                        <constraint firstItem="CmO-I6-KrS" firstAttribute="top" secondItem="3dt-zb-aP3" secondAttribute="top" constant="10" id="9ba-CO-tM0"/>
+                                                        <constraint firstItem="CmO-I6-KrS" firstAttribute="top" secondItem="3dt-zb-aP3" secondAttribute="top" id="9ba-CO-tM0"/>
                                                         <constraint firstItem="2YX-gk-IUN" firstAttribute="top" secondItem="3dt-zb-aP3" secondAttribute="top" id="Q6v-bz-dRQ"/>
-                                                        <constraint firstItem="CmO-I6-KrS" firstAttribute="leading" secondItem="wxL-WV-xGA" secondAttribute="trailing" id="VcY-kY-QHA"/>
                                                         <constraint firstAttribute="bottom" secondItem="wxL-WV-xGA" secondAttribute="bottom" id="d2c-U6-WWa"/>
                                                         <constraint firstItem="wxL-WV-xGA" firstAttribute="leading" secondItem="2YX-gk-IUN" secondAttribute="trailing" id="emj-2L-uLI"/>
                                                         <constraint firstAttribute="bottom" secondItem="2YX-gk-IUN" secondAttribute="bottom" id="gsi-Pf-Y9B"/>
-                                                        <constraint firstAttribute="bottom" secondItem="CmO-I6-KrS" secondAttribute="bottom" constant="10" id="mQL-3e-0lj"/>
+                                                        <constraint firstAttribute="bottom" secondItem="CmO-I6-KrS" secondAttribute="bottom" id="mQL-3e-0lj"/>
                                                         <constraint firstAttribute="trailing" secondItem="CmO-I6-KrS" secondAttribute="trailing" id="uIT-Sc-Qd6"/>
                                                         <constraint firstItem="wxL-WV-xGA" firstAttribute="top" secondItem="3dt-zb-aP3" secondAttribute="top" id="zbM-IX-Zu2"/>
                                                     </constraints>
