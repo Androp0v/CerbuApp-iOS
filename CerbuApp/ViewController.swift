@@ -16,10 +16,52 @@ extension UINavigationController {
     }
 }
 
-class ViewController: UIViewController, UIGestureRecognizerDelegate {
-
+class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet var orlaImageView: UIImageView!
     @IBOutlet var ContainerView: CardView!
+    @IBOutlet var mainTableView: UITableView!
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                
+        let cellIdentifier = "mainTableViewCellReuseID"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MainTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of PersonTableViewCell.")
+        }
+        
+        switch indexPath.row {
+        case 0:
+            cell.iconLabel.text = "Boletín semanal"
+            cell.iconPhoto.image = UIImage.init(named: "boletinicon")
+        case 1:
+            cell.iconLabel.text = "Menú de comedor"
+            cell.iconPhoto.image = UIImage.init(named: "menuicon")
+        case 2:
+            cell.iconLabel.text = "Revista Patio Interior"
+            cell.iconPhoto.image = UIImage.init(named: "nohres")
+        case 3:
+            cell.iconLabel.text = "Avisos"
+            cell.iconPhoto.image = UIImage.init(named: "nohres")
+        default:
+            cell.iconLabel.text = "Menu item 2"
+            cell.iconPhoto.image = UIImage.init(named: "nohres")
+        }
+    
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        mainTableView .deselectRow(at: indexPath, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +77,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         tap.cancelsTouchesInView = false
         tap.delegate = self
         ContainerView.addGestureRecognizer(tap)
+        
+        mainTableView.dataSource = self
+        mainTableView.delegate = self
+        self.mainTableView.tableFooterView = UIView()
     }
     
     @objc func tapHandler(gesture: UITapGestureRecognizer){

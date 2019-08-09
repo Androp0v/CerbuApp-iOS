@@ -20,6 +20,7 @@
 		C463F53622DFDFC3003E2C64 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */; };
 		C48D5AEB22F4A88A00695DB2 /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = C48D5AEA22F4984B00695DB2 /* database.db */; };
 		C49AFCD722FAE72E00A20C5D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD622FAE72E00A20C5D /* CardView.swift */; };
+		C49AFCD922FDA5FD00A20C5D /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */; };
 		C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */; };
 		C4F95C5A22F5E5FA00E3E5BD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F95C5922F5E5FA00E3E5BD /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C48D5AEA22F4984B00695DB2 /* database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.db; sourceTree = "<group>"; };
 		C49AFCD622FAE72E00A20C5D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		C4F95C5922F5E5FA00E3E5BD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 				C404058722DEA3D000259C86 /* Main.storyboard */,
 				C4F95C5922F5E5FA00E3E5BD /* DetailsViewController.swift */,
 				C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */,
+				C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */,
 				C446941D22DF69FB006027A8 /* TableViewController.swift */,
 				C49AFCD622FAE72E00A20C5D /* CardView.swift */,
 				C43B49EA22E62A1300DEF572 /* Person.swift */,
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C43B49EB22E62A1300DEF572 /* Person.swift in Sources */,
+				C49AFCD922FDA5FD00A20C5D /* MainTableViewCell.swift in Sources */,
 				C404058622DEA3D000259C86 /* ViewController.swift in Sources */,
 				C404058222DEA3D000259C86 /* AppDelegate.swift in Sources */,
 				C446941E22DF69FB006027A8 /* TableViewController.swift in Sources */,
