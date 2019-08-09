@@ -21,6 +21,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
     @IBOutlet var orlaImageView: UIImageView!
     @IBOutlet var ContainerView: CardView!
     @IBOutlet var mainTableView: UITableView!
+    @IBOutlet var test: UIView!
+    @IBOutlet var ParentContainer: UIView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
@@ -63,6 +65,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         mainTableView .deselectRow(at: indexPath, animated: true)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         orlaImageView.layer.cornerRadius = 20.0
@@ -81,6 +84,15 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         mainTableView.dataSource = self
         mainTableView.delegate = self
         self.mainTableView.tableFooterView = UIView()
+        
+        
+        //Height of ParentContainer has to be corrected programatically for some reason. Sorry for hacky fix
+        let correctedHeight = (UIScreen.main.bounds.width - 40)*(1273.0/1920.0) + 40
+        ParentContainer.frame = CGRect(x:0, y: 0, width:ContainerView.frame.width + 40, height: correctedHeight)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
     @objc func tapHandler(gesture: UITapGestureRecognizer){
