@@ -52,7 +52,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
             cell.iconPhoto.image = UIImage.init(named: "nohres")
         case 3:
             cell.iconLabel.text = "Avisos"
-            cell.iconPhoto.image = UIImage.init(named: "nohres")
+            cell.iconPhoto.image = UIImage.init(named: "AvisosIcon")
         default:
             cell.iconLabel.text = "Menu item 2"
             cell.iconPhoto.image = UIImage.init(named: "nohres")
@@ -75,8 +75,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         ContainerView.layer.shadowRadius = 12.0
         ContainerView.layer.shadowOpacity = 0.5
         
-        let tap = UILongPressGestureRecognizer(target: self, action: #selector(tapHandler))
-        tap.minimumPressDuration = 0.0
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
         tap.cancelsTouchesInView = false
         tap.delegate = self
         ContainerView.addGestureRecognizer(tap)

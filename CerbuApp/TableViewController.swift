@@ -103,7 +103,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         loadPeopleFromDatabase()
         
-        tableView.scrollToRow(at: NSIndexPath(row: 0, section: 0) as IndexPath, at: UITableView.ScrollPosition.top, animated: false)
+        //This migh not be needed (iOS 13 bug?)
+        tableView.reloadData()
+        
+        self.tableView.scrollToRow(at: NSIndexPath(row: 0, section: 0) as IndexPath, at:
+            UITableView.ScrollPosition.top, animated: false)
         
     }
     
