@@ -29,6 +29,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet var hresPhoto: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var careerLabel: UILabel!
+    @IBOutlet var becaImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +41,10 @@ class DetailsViewController: UIViewController {
         
         if detailedPerson?.beca.isEmpty ?? true {
             careerLabel.text = detailedPerson?.career
+            becaImageView = nil
         }else{
             careerLabel.text = (detailedPerson?.career ?? "") + " | " + (detailedPerson?.beca ?? "")
+            becaImageView.image = UIImage.init(named: "becario")
         }
         
         hresPhoto.image = UIImage(named: (cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? "")))) ?? UIImage(named: "nohres")

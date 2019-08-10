@@ -313,22 +313,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XEG-Zv-h63">
+                                <rect key="frame" x="175" y="552" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XEG-Zv-h63" secondAttribute="height" multiplier="1:1" id="bBz-rh-Wy7"/>
+                                    <constraint firstAttribute="height" constant="64" id="vj6-7a-xLh"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="p6b-OW-LPt" firstAttribute="top" secondItem="Bbx-mB-Usn" secondAttribute="bottom" constant="24" id="0WS-ms-WAc"/>
                             <constraint firstItem="Bbx-mB-Usn" firstAttribute="top" secondItem="2xL-hB-geI" secondAttribute="top" id="47Q-T8-L4h"/>
                             <constraint firstItem="UYe-pD-Sxg" firstAttribute="top" secondItem="p6b-OW-LPt" secondAttribute="bottom" constant="8" id="JXm-9n-mUF"/>
+                            <constraint firstItem="XEG-Zv-h63" firstAttribute="top" secondItem="UYe-pD-Sxg" secondAttribute="bottom" constant="10" id="KBd-Q0-drv"/>
                             <constraint firstItem="2xL-hB-geI" firstAttribute="trailing" secondItem="Bbx-mB-Usn" secondAttribute="trailing" id="MPD-9k-dyj"/>
                             <constraint firstItem="Bbx-mB-Usn" firstAttribute="leading" secondItem="2xL-hB-geI" secondAttribute="leading" id="MpM-Vi-Bp4"/>
                             <constraint firstItem="2xL-hB-geI" firstAttribute="trailing" secondItem="UYe-pD-Sxg" secondAttribute="trailing" constant="24" id="Xa3-JU-rXO"/>
                             <constraint firstAttribute="trailing" secondItem="p6b-OW-LPt" secondAttribute="trailing" constant="24" id="i6h-fa-wck"/>
                             <constraint firstItem="UYe-pD-Sxg" firstAttribute="leading" secondItem="2xL-hB-geI" secondAttribute="leading" constant="24" id="kkK-Xd-k8M"/>
+                            <constraint firstItem="XEG-Zv-h63" firstAttribute="centerX" secondItem="2xL-hB-geI" secondAttribute="centerX" id="z6B-7A-zEx"/>
                             <constraint firstItem="p6b-OW-LPt" firstAttribute="leading" secondItem="Gms-Pm-Q62" secondAttribute="leading" constant="24" id="zQP-jv-ixC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2xL-hB-geI"/>
                     </view>
                     <connections>
+                        <outlet property="becaImageView" destination="XEG-Zv-h63" id="Y63-Nf-DDN"/>
                         <outlet property="careerLabel" destination="UYe-pD-Sxg" id="WtO-UH-AvZ"/>
                         <outlet property="hresPhoto" destination="gDc-Yq-DJV" id="lq6-G5-hyW"/>
                         <outlet property="nameLabel" destination="p6b-OW-LPt" id="uVG-Gv-Bcg"/>
