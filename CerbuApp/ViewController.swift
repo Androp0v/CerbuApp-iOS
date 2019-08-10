@@ -86,8 +86,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         
         
         //Height of ParentContainer has to be corrected programatically for some reason. Sorry for hacky fix
-        let correctedHeight = (UIScreen.main.bounds.width - 40)*(1273.0/1920.0) + 40
-        ParentContainer.frame = CGRect(x:0, y: 0, width:ContainerView.frame.width + 40, height: correctedHeight)
+        let correctedHeight = (self.view.frame.width - 40)*(1273.0/1920.0) + 40
+        ParentContainer.frame = CGRect(x:0, y: 0, width: self.view.frame.width, height: correctedHeight)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator){
+        //Same hacky fix for splitView on iPads
+        let correctedHeight = (size.width - 40)*(1273.0/1920.0) + 40
+        ParentContainer.frame = CGRect(x:0, y: 0, width: size.width, height: correctedHeight)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
