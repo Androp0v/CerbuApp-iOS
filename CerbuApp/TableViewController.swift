@@ -110,6 +110,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.scrollToRow(at: NSIndexPath(row: 0, section: 0) as IndexPath, at:
             UITableView.ScrollPosition.top, animated: false)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadListOnChange), name: NSNotification.Name(rawValue: "DATABASE_CHANGED"), object: nil)
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -184,6 +186,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //MARK: Private Methods
     
+    @objc func reloadListOnChange(notification: NSNotification){
+        self.tableView.reloadData()
+    }
+    
     private func loadPeopleFromDatabase(){
         
         let photo1 = UIImage(named: "nohres")!
@@ -209,6 +215,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //traversing through all the records
         while(sqlite3_step(stmt) == SQLITE_ROW){
+            
+            let id = sqlite3_column_int(stmt, 0)
             let name = String(cString: sqlite3_column_text(stmt, 1))
             let surname_1 = String(cString: sqlite3_column_text(stmt, 2))
             let surname_2 = String(cString: sqlite3_column_text(stmt, 3))
@@ -233,7 +241,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
             
             //adding values to list
-            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
+            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
         }
         
     }
@@ -263,6 +271,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //traversing through all the records
         while(sqlite3_step(stmt) == SQLITE_ROW){
+            let id = sqlite3_column_int(stmt, 0)
             let name = String(cString: sqlite3_column_text(stmt, 1))
             let surname_1 = String(cString: sqlite3_column_text(stmt, 2))
             let surname_2 = String(cString: sqlite3_column_text(stmt, 3))
@@ -287,7 +296,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
             
             //adding values to list
-            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
+            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
         }
         
     }

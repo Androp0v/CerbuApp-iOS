@@ -12,6 +12,7 @@ class Person {
     
     //MARK: Properties
     
+    var id: Int
     var name: String
     var surname_1: String
     var surname_2: String
@@ -25,13 +26,14 @@ class Person {
     
     //MARK: Initialization
     
-    init?(name: String, surname_1: String, surname_2: String, career: String, beca: String, room: String,
+    init?(id: Int, name: String, surname_1: String, surname_2: String, career: String, beca: String, room: String,
           floor: Int, iconPhoto: UIImage, liked: Bool) {
         
         if name.isEmpty {
             return nil
         }
         
+        self.id = id
         self.name = name
         self.surname_1 = surname_1
         self.surname_2 = surname_2

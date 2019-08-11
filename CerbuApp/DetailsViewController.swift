@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SQLite3
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
     
     func cleanString(rawString: String) -> String{
         var cleanString = rawString
@@ -25,11 +26,13 @@ class DetailsViewController: UIViewController {
     }
     
     var detailedPerson: Person?
+    var db: OpaquePointer?
     
     @IBOutlet var hresPhoto: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var careerLabel: UILabel!
     @IBOutlet var becaImageView: UIImageView!
+    @IBOutlet var likedImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +50,57 @@ class DetailsViewController: UIViewController {
             becaImageView.image = UIImage.init(named: "becario")
         }
         
+        if detailedPerson?.liked ?? false{
+            likedImageView.image = UIImage.init(named: "HotIcon")
+        }else{
+            likedImageView.image = UIImage.init(named: "HotIconUnselected")
+        }
+        
         hresPhoto.image = UIImage(named: (cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? "")))) ?? UIImage(named: "nohres")
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
+        tap.cancelsTouchesInView = false
+        tap.delegate = self
+        likedImageView.isUserInteractionEnabled = true
+        likedImageView.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapHandler(gesture: UITapGestureRecognizer){
+        
+        let fileManager = FileManager.default
+        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent("database.db")
+        if sqlite3_open_v2(finalDatabaseURL.path, &db, SQLITE_OPEN_READWRITE, nil) != SQLITE_OK {
+            print("Error opening database")
+        }
+        
+        let impactFeedbackGenerator = UIImpactFeedbackGenerator()
+        impactFeedbackGenerator.impactOccurred()
+        
+        if detailedPerson?.liked ?? false{
+            detailedPerson?.liked = false
+            likedImageView.image = UIImage.init(named: "HotIconUnselected")
+            
+            let queryString = "UPDATE colegiales SET likes = 0 WHERE _id = " + String(detailedPerson!.id)
+            
+            if sqlite3_exec(db, queryString, nil, nil, nil) != SQLITE_OK {
+                let errmsg = String(cString: sqlite3_errmsg(db)!)
+                print("Error changing liked state: \(errmsg)")
+            }
+            
+        }else{
+            detailedPerson?.liked = true
+            likedImageView.image = UIImage.init(named: "HotIcon")
+            
+            let queryString = "UPDATE colegiales SET likes = 1 WHERE _id = " + String(detailedPerson!.id)
+            
+            if sqlite3_exec(db, queryString, nil, nil, nil) != SQLITE_OK {
+                let errmsg = String(cString: sqlite3_errmsg(db)!)
+                print("Error changing liked state: \(errmsg)")
+            }
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DATABASE_CHANGED"), object: nil)
     }
     
 
