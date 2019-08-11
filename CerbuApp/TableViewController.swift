@@ -83,6 +83,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: -0.5,left: 0,bottom: 0,right: 0)
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.tableFooterView = UIView()
         
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.label], for: .selected)
@@ -142,9 +143,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }else{
             cell.careerLabel.text = person.career + " | " + person.beca
             if person.liked{
-                cell.statusImageView.image = UIImage(named: "HotIcon")
-            }else{
                 cell.statusImageView.image = UIImage(named: "HotBecarioIcon")
+            }else{
+                cell.statusImageView.image = UIImage(named: "becario")
             }
         }
         
