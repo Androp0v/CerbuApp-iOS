@@ -19,13 +19,14 @@ class Person {
     var beca: String
     var room: String
     var floor: Int
+    var liked: Bool
 
     var iconPhoto: UIImage?
     
     //MARK: Initialization
     
     init?(name: String, surname_1: String, surname_2: String, career: String, beca: String, room: String,
-         floor: Int, iconPhoto: UIImage) {
+          floor: Int, iconPhoto: UIImage, liked: Bool) {
         
         if name.isEmpty {
             return nil
@@ -38,6 +39,7 @@ class Person {
         self.beca = beca
         self.room = room
         self.floor = floor
+        self.liked = liked
         
         self.iconPhoto = iconPhoto
         

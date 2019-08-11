@@ -134,11 +134,18 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
         if person.beca.isEmpty {
             cell.careerLabel.text = person.career
-            cell.statusImageView.image = nil
+            if person.liked{
+                cell.statusImageView.image = UIImage(named: "HotIcon")
+            }else{
+                cell.statusImageView.image = nil
+            }
         }else{
             cell.careerLabel.text = person.career + " | " + person.beca
-            cell.statusImageView.image = UIImage.init(named: "becario")
-            
+            if person.liked{
+                cell.statusImageView.image = UIImage(named: "HotIcon")
+            }else{
+                cell.statusImageView.image = UIImage(named: "HotBecarioIcon")
+            }
         }
         
         return cell
@@ -212,13 +219,20 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 beca = String(cString: sqlite3_column_text(stmt, 6))
             }
             
-            let _like = sqlite3_column_int(stmt, 7)
+            let likeTMP = sqlite3_column_int(stmt, 7)
+            var like = false
+            if likeTMP != 0{
+                like = true
+            }else{
+                like = false
+            }
+            
             let floor = sqlite3_column_int(stmt, 8)
             let _promotion = sqlite3_column_int(stmt, 9)
             let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
             
             //adding values to list
-            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto)!)
+            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
         }
         
     }
@@ -259,13 +273,20 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 beca = String(cString: sqlite3_column_text(stmt, 6))
             }
             
-            let _like = sqlite3_column_int(stmt, 7)
+            let likeTMP = sqlite3_column_int(stmt, 7)
+            var like = false
+            if likeTMP != 0{
+                like = true
+            }else{
+                like = false
+            }
+            
             let floor = sqlite3_column_int(stmt, 8)
             let _promotion = sqlite3_column_int(stmt, 9)
             let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
             
             //adding values to list
-            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto)!)
+            People.append(Person(name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
         }
         
     }
