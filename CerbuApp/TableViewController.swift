@@ -16,6 +16,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var db: OpaquePointer?
     let searchController = UISearchController(searchResultsController: nil)
     var searchActive = false
+    var isRemovingTextWithBackspace = false
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -46,15 +47,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         loadPeopleFromDatabase()
-        
-        /*// Setup the Search Controller
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.placeholder = "Buscar"
-        searchBarView.addSubview(searchController.searchBar)
-        searchController.searchBar.searchBarStyle = UISearchBar.Style.minimal
-        self.definesPresentationContext = true*/
         
         searchBar.delegate = self
         
@@ -156,9 +148,61 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //MARK: Private Methods
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         filteredPeople = [Person]()
-        filteredPeople.append(People[0])
+        let cleanedSearchString = cleanStringWithWhitespaces(rawString: searchText)
+        let searchWordsArray = cleanedSearchString.components(separatedBy: " ")
+        var approvedFlag = false
+        
+        for person in People {
+            approvedFlag = false
+            for i in 0..<searchWordsArray.count {
+                if cleanStringWithWhitespaces(rawString: person.name).hasPrefix(searchWordsArray[i])
+                || cleanStringWithWhitespaces(rawString: person.surname_1).hasPrefix(searchWordsArray[i])
+                || cleanStringWithWhitespaces(rawString: person.surname_2).hasPrefix(searchWordsArray[i])
+                || cleanStringWithWhitespaces(rawString: person.career).hasPrefix(searchWordsArray[i])
+                || cleanStringWithWhitespaces(rawString: person.beca).hasPrefix(searchWordsArray[i]){
+                    approvedFlag = true
+                }else{
+                    approvedFlag = false
+                    var tmpString = searchWordsArray[i]
+                    
+                    for j in 1..<(i+1){
+                        tmpString = searchWordsArray[i-j] + " " + tmpString
+                        
+                        if cleanStringWithWhitespaces(rawString: person.name).hasPrefix(tmpString)
+                            || cleanStringWithWhitespaces(rawString: person.surname_1).hasPrefix(tmpString)
+                            || cleanStringWithWhitespaces(rawString: person.surname_2).hasPrefix(tmpString)
+                            || cleanStringWithWhitespaces(rawString: person.career).hasPrefix(tmpString)
+                            || cleanStringWithWhitespaces(rawString: person.beca).hasPrefix(tmpString){
+                            
+                            approvedFlag = true
+                            break
+                        }
+                    }
+                }
+                
+                if !approvedFlag{
+                    break
+                }
+            }
+            
+            if approvedFlag{
+                filteredPeople.append(person)
+            }
+            
+        }
+        
         self.tableView.reloadData()
+        
+        if searchText.count == 0 && !isRemovingTextWithBackspace{
+            self.searchActive = false
+            self.searchBar.endEditing(true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.searchBar.resignFirstResponder()
+            }
+            return
+        }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -171,12 +215,19 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
+        self.searchBar.endEditing(true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
+        self.searchBar.endEditing(true)
     }
-
+    
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        isRemovingTextWithBackspace = text.isEmpty
+        return true
+    }
     
     @objc func reloadListOnChange(notification: NSNotification){
         self.tableView.reloadData()
@@ -186,15 +237,26 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let feedbackGenerator = UISelectionFeedbackGenerator.init()
         feedbackGenerator.prepare()
         let selectedSegment = segmentedControl.selectedSegmentIndex
+        
+        //searchBar.resignFirstResponder()
+        let reloadString = searchBar.text
+        
         switch selectedSegment {
-        case 0:
-            loadPeopleFromDatabase()
-        default:
-            loadPeopleFromDatabaseProm(promotion: selectedSegment)
+            case 0:
+                loadPeopleFromDatabase()
+            default:
+                loadPeopleFromDatabaseProm(promotion: selectedSegment)
         }
+
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+        
+        if searchActive{
+            //searchBar.becomeFirstResponder()
+            self.searchBar(self.searchBar, textDidChange: reloadString ?? "")
+        }
+        
         feedbackGenerator.selectionChanged()
     }
     
@@ -233,6 +295,20 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cleanString = cleanString.lowercased()
         
         cleanString = cleanString.replacingOccurrences(of: " ", with: "")
+        cleanString = cleanString.replacingOccurrences(of: "á", with: "a")
+        cleanString = cleanString.replacingOccurrences(of: "é", with: "e")
+        cleanString = cleanString.replacingOccurrences(of: "í", with: "i")
+        cleanString = cleanString.replacingOccurrences(of: "ó", with: "o")
+        cleanString = cleanString.replacingOccurrences(of: "ú", with: "u")
+        cleanString = cleanString.replacingOccurrences(of: "ü", with: "u")
+        cleanString = cleanString.replacingOccurrences(of: "ñ", with: "n")
+        return cleanString
+    }
+    
+    func cleanStringWithWhitespaces(rawString: String) -> String{
+        var cleanString = rawString
+        cleanString = cleanString.lowercased()
+        
         cleanString = cleanString.replacingOccurrences(of: "á", with: "a")
         cleanString = cleanString.replacingOccurrences(of: "é", with: "e")
         cleanString = cleanString.replacingOccurrences(of: "í", with: "i")
