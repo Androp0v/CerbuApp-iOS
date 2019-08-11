@@ -141,7 +141,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a0-fF-LoP">
+                            <toolbar clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a0-fF-LoP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                 <color key="backgroundColor" name="MainAppColor"/>
                                 <items>
@@ -170,18 +170,14 @@
                                 <rect key="frame" x="0.0" y="55" width="414" height="753"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="NRb-Dg-vx3">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Buscar" id="fhR-MC-TvN">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
-                                    <scopeButtonTitles>
-                                        <string>Title</string>
-                                        <string>Title</string>
-                                    </scopeButtonTitles>
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PersonTableViewCell" rowHeight="70" id="KIQ-aN-OpZ" customClass="PersonTableViewCell" customModule="CerbuApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="84" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="72" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KIQ-aN-OpZ" id="lC7-yT-7Rg">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -265,9 +261,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3fC-xQ-wSv"/>
                     </stackView>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <connections>
                         <outlet property="mainStackView" destination="vWh-Lw-SNL" id="egI-92-Lhd"/>
-                        <outlet property="searchBar" destination="NRb-Dg-vx3" id="ckY-IA-5mK"/>
+                        <outlet property="searchBar" destination="fhR-MC-TvN" id="NA0-NR-6b2"/>
                         <outlet property="segmentedControl" destination="6rm-24-dHW" id="VuM-5q-4Bv"/>
                         <outlet property="tableView" destination="SIX-g0-80Q" id="JBR-5T-J8m"/>
                         <segue destination="W9g-Aj-Mhi" kind="show" identifier="pushFromCell" id="Bo5-Hx-OhQ"/>

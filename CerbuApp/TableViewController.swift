@@ -9,71 +9,14 @@
 import UIKit
 import SQLite3
 
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
-    func copyDatabaseIfNeeded() {
-        // Move database file from bundle to documents folder
-        
-        let fileManager = FileManager.default
-        
-        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        
-        guard documentsUrl.count != 0 else {
-            return // Could not find documents URL
-        }
-        
-        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent("database.db")
-        
-        if !( (try? finalDatabaseURL.checkResourceIsReachable()) ?? false) {
-            print("DB does not exist in documents folder")
-            
-            let databaseURL = Bundle.main.resourceURL?.appendingPathComponent("database.db")
-            
-            do {
-                try fileManager.copyItem(atPath: (databaseURL?.path)!, toPath: finalDatabaseURL.path)
-            } catch let error as NSError {
-                print("Couldn't copy file to final location! Error:\(error.description)")
-            }
-            
-        } else {
-            print("Database file found at path: \(finalDatabaseURL.path)")
-        }
-        
-    }
-    
-    func cleanString(rawString: String) -> String{
-        var cleanString = rawString
-        cleanString = cleanString.lowercased()
-        
-        cleanString = cleanString.replacingOccurrences(of: " ", with: "")
-        cleanString = cleanString.replacingOccurrences(of: "á", with: "a")
-        cleanString = cleanString.replacingOccurrences(of: "é", with: "e")
-        cleanString = cleanString.replacingOccurrences(of: "í", with: "i")
-        cleanString = cleanString.replacingOccurrences(of: "ó", with: "o")
-        cleanString = cleanString.replacingOccurrences(of: "ú", with: "u")
-        cleanString = cleanString.replacingOccurrences(of: "ü", with: "u")
-        cleanString = cleanString.replacingOccurrences(of: "ñ", with: "n")
-        return cleanString
-    }
-    
-    @objc func onSegmentedControlHapticFeedback(sender: UISegmentedControl){
-        let feedbackGenerator = UISelectionFeedbackGenerator.init()
-        feedbackGenerator.prepare()
-        let selectedSegment = segmentedControl.selectedSegmentIndex
-        switch selectedSegment {
-        case 0:
-            loadPeopleFromDatabase()
-        default:
-            loadPeopleFromDatabaseProm(promotion: selectedSegment)
-        }
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-        feedbackGenerator.selectionChanged()
-    }
-    
-    var People = [Person]();
+    var People = [Person]()
+    var filteredPeople = [Person]()
     var db: OpaquePointer?
+    let searchController = UISearchController(searchResultsController: nil)
+    var searchActive = false
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var mainStackView: UIStackView!
@@ -104,6 +47,17 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         loadPeopleFromDatabase()
         
+        /*// Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar"
+        searchBarView.addSubview(searchController.searchBar)
+        searchController.searchBar.searchBarStyle = UISearchBar.Style.minimal
+        self.definesPresentationContext = true*/
+        
+        searchBar.delegate = self
+        
         //This migh not be needed (iOS 13 bug?)
         tableView.reloadData()
         
@@ -119,7 +73,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return People.count
+        
+        if searchActive {
+            return filteredPeople.count
+        }else{
+            return People.count
+        }
     }
     
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -129,9 +88,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PersonTableViewCell  else {
             fatalError("The dequeued cell is not an instance of PersonTableViewCell.")
         }
-        
-        let person = People[indexPath.row]
-        
+    
+        let person: Person
+        if searchActive {
+            person = filteredPeople[indexPath.row]
+        } else {
+            person = People[indexPath.row]
+        }
+    
         cell.nameLabel.text = person.name + " " + person.surname_1 + " " + person.surname_2
         cell.orlaImageView.image = person.iconPhoto
     
@@ -177,7 +141,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if (segue.identifier == "pushFromCell") {
             let controller = (segue.destination as! DetailsViewController)
             let row = (sender as! NSIndexPath).row; //we know that sender is an NSIndexPath here.
-            let selectedPerson = People[row]
+            let selectedPerson: Person
+            if searchActive{
+                selectedPerson = filteredPeople[row]
+            }else{
+                selectedPerson = People[row]
+            }
             controller.detailedPerson = selectedPerson
         }
         // Pass the selected object to the new view controller.
@@ -186,8 +155,92 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //MARK: Private Methods
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredPeople = [Person]()
+        filteredPeople.append(People[0])
+        self.tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+
+    
     @objc func reloadListOnChange(notification: NSNotification){
         self.tableView.reloadData()
+    }
+    
+    @objc func onSegmentedControlHapticFeedback(sender: UISegmentedControl){
+        let feedbackGenerator = UISelectionFeedbackGenerator.init()
+        feedbackGenerator.prepare()
+        let selectedSegment = segmentedControl.selectedSegmentIndex
+        switch selectedSegment {
+        case 0:
+            loadPeopleFromDatabase()
+        default:
+            loadPeopleFromDatabaseProm(promotion: selectedSegment)
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        feedbackGenerator.selectionChanged()
+    }
+    
+    func copyDatabaseIfNeeded() {
+        // Move database file from bundle to documents folder
+        
+        let fileManager = FileManager.default
+        
+        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        guard documentsUrl.count != 0 else {
+            return // Could not find documents URL
+        }
+        
+        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent("database.db")
+        
+        if !( (try? finalDatabaseURL.checkResourceIsReachable()) ?? false) {
+            print("DB does not exist in documents folder")
+            
+            let databaseURL = Bundle.main.resourceURL?.appendingPathComponent("database.db")
+            
+            do {
+                try fileManager.copyItem(atPath: (databaseURL?.path)!, toPath: finalDatabaseURL.path)
+            } catch let error as NSError {
+                print("Couldn't copy file to final location! Error:\(error.description)")
+            }
+            
+        } else {
+            print("Database file found at path: \(finalDatabaseURL.path)")
+        }
+        
+    }
+    
+    func cleanString(rawString: String) -> String{
+        var cleanString = rawString
+        cleanString = cleanString.lowercased()
+        
+        cleanString = cleanString.replacingOccurrences(of: " ", with: "")
+        cleanString = cleanString.replacingOccurrences(of: "á", with: "a")
+        cleanString = cleanString.replacingOccurrences(of: "é", with: "e")
+        cleanString = cleanString.replacingOccurrences(of: "í", with: "i")
+        cleanString = cleanString.replacingOccurrences(of: "ó", with: "o")
+        cleanString = cleanString.replacingOccurrences(of: "ú", with: "u")
+        cleanString = cleanString.replacingOccurrences(of: "ü", with: "u")
+        cleanString = cleanString.replacingOccurrences(of: "ñ", with: "n")
+        return cleanString
     }
     
     private func loadPeopleFromDatabase(){
