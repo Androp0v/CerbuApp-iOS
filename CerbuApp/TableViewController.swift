@@ -114,16 +114,17 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView .deselectRow(at: indexPath, animated: true)
         
-        //let selectedPerson = People[indexPath.row]
         
         // Create an instance of DetailViewController and pass the variable
         //let destinationViewController = DetailsViewController()
         //destinationViewController.detailedPerson = selectedPerson
         
-        self.performSegue(withIdentifier: "pushFromCell", sender: indexPath)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "pushFromCell", sender: indexPath)
+            self.searchBar.resignFirstResponder()
+        }
     }
     
-
     
     // MARK: - Navigation
 
@@ -141,7 +142,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             controller.detailedPerson = selectedPerson
         }
-        // Pass the selected object to the new view controller.
     }
     
     
@@ -238,7 +238,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         feedbackGenerator.prepare()
         let selectedSegment = segmentedControl.selectedSegmentIndex
         
-        //searchBar.resignFirstResponder()
         let reloadString = searchBar.text
         
         switch selectedSegment {
@@ -253,7 +252,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         if searchActive{
-            //searchBar.becomeFirstResponder()
             self.searchBar(self.searchBar, textDidChange: reloadString ?? "")
         }
         
