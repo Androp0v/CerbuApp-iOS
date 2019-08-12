@@ -126,6 +126,8 @@
                         <outlet property="mainTableView" destination="c90-Gj-SSh" id="QfH-QI-bCq"/>
                         <outlet property="orlaImageView" destination="bLj-jn-l4c" id="hFT-LJ-Trd"/>
                         <segue destination="Nfi-JK-QUC" kind="show" identifier="pushFromOrla" id="yZW-xo-feY"/>
+                        <segue destination="0BE-bK-eey" kind="show" identifier="pushToBoletin" id="fJL-QP-Xr5"/>
+                        <segue destination="1w5-Zn-rfs" kind="show" identifier="pushToMenu" id="dqS-Pg-R9r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -274,6 +276,75 @@
             </objects>
             <point key="canvasLocation" x="2021.7391304347827" y="107.8125"/>
         </scene>
+        <!--Boletín semanal-->
+        <scene sceneID="TqT-Ek-Zg5">
+            <objects>
+                <viewController title="Boletín semanal" id="0BE-bK-eey" customClass="BoletinViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Li2-N2-BbY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boletin_048" translatesAutoresizingMaskIntoConstraints="NO" id="C6G-ya-WA4">
+                                <rect key="frame" x="0.0" y="8" width="414" height="80.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="C6G-ya-WA4" secondAttribute="height" multiplier="1080:210" id="P0c-Su-c43"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boletin_content" translatesAutoresizingMaskIntoConstraints="NO" id="Dj4-Ap-PFf">
+                                <rect key="frame" x="0.0" y="88.5" width="414" height="637.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AbL-Ri-US5" firstAttribute="bottom" secondItem="Dj4-Ap-PFf" secondAttribute="bottom" constant="48" id="1KC-u9-8h9"/>
+                            <constraint firstItem="Dj4-Ap-PFf" firstAttribute="trailing" secondItem="AbL-Ri-US5" secondAttribute="trailing" id="722-Ds-hAA"/>
+                            <constraint firstItem="Dj4-Ap-PFf" firstAttribute="leading" secondItem="AbL-Ri-US5" secondAttribute="leading" id="F7I-uE-ItY"/>
+                            <constraint firstItem="C6G-ya-WA4" firstAttribute="leading" secondItem="AbL-Ri-US5" secondAttribute="leading" id="QmZ-fL-7NG"/>
+                            <constraint firstItem="Dj4-Ap-PFf" firstAttribute="trailing" secondItem="AbL-Ri-US5" secondAttribute="trailing" id="Zbr-gF-Qkr"/>
+                            <constraint firstItem="Dj4-Ap-PFf" firstAttribute="top" secondItem="C6G-ya-WA4" secondAttribute="bottom" id="dUa-0W-REb"/>
+                            <constraint firstItem="Dj4-Ap-PFf" firstAttribute="leading" secondItem="AbL-Ri-US5" secondAttribute="leading" id="gXr-fh-c0q"/>
+                            <constraint firstItem="C6G-ya-WA4" firstAttribute="top" secondItem="AbL-Ri-US5" secondAttribute="top" constant="8" id="soa-vP-lcE"/>
+                            <constraint firstItem="C6G-ya-WA4" firstAttribute="trailing" secondItem="AbL-Ri-US5" secondAttribute="trailing" id="vq2-5v-XMY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AbL-Ri-US5"/>
+                    </view>
+                    <connections>
+                        <outlet property="BoletinHeader" destination="C6G-ya-WA4" id="YAF-DX-4pc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6b1-fN-exT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2021.7391304347827" y="833.70535714285711"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="nYE-D7-pkN">
+            <objects>
+                <viewController id="1w5-Zn-rfs" customClass="MenuViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="joX-QQ-vrT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ZP-t1-xEw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="mGB-bB-aIK"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="6ZP-t1-xEw" id="iVv-ay-4Ui"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihm-cJ-g8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2021.7391304347827" y="1541.5178571428571"/>
+        </scene>
         <!--Details View Controller-->
         <scene sceneID="lOv-BR-0e3">
             <objects>
@@ -378,6 +449,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="boletin_048" width="1080" height="210"/>
+        <image name="boletin_content" width="562.5" height="842"/>
         <image name="nohres" width="1024" height="1024"/>
         <image name="orlabackground" width="1920" height="1273"/>
         <namedColor name="MainAppColor">

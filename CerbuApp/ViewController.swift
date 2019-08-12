@@ -62,6 +62,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+            case 0:
+                self.performSegue(withIdentifier: "pushToBoletin", sender: self)
+            case 1:
+                self.performSegue(withIdentifier: "pushToMenu", sender: self)
+            default:
+                print("Don't do anywhint")
+        }
         mainTableView .deselectRow(at: indexPath, animated: true)
     }
     
