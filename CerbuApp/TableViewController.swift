@@ -60,6 +60,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if searchActive{
+            searchBar.becomeFirstResponder()
+            let reloadString = self.searchBar.text
+            self.searchBar(self.searchBar, textDidChange: reloadString ?? "")
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -210,7 +218,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false;
+        searchActive = true;
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
