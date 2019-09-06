@@ -100,6 +100,17 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
             }
         }
         
+        likedImageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 6.0,
+                       options: .allowUserInteraction,
+                       animations: { [weak self] in
+                        self?.likedImageView.transform = .identity
+            },
+                       completion: nil)
+        
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DATABASE_CHANGED"), object: nil)
     }
     
