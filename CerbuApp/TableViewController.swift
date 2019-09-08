@@ -45,7 +45,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if sqlite3_open(finalDatabaseURL.path, &db) != SQLITE_OK {
             print("Error opening database")
         }
-        
+       
         loadPeopleFromDatabase()
         
         searchBar.delegate = self
@@ -379,6 +379,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
         }
         
+        People = People.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == ComparisonResult.orderedAscending }
+        
     }
     
     private func loadPeopleFromDatabaseProm(promotion: Int){
@@ -433,6 +435,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             //adding values to list
             People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
         }
+        
+        People = People.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == ComparisonResult.orderedAscending }
         
     }
 
