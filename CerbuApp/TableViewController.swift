@@ -258,6 +258,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func filterWithConstraints(){
         
+        cleanFilters()
+        
         if defaults.bool(forKey: "soloAdjuntos"){
             for (index, person) in People.enumerated().reversed(){
                 if person.beca.isEmpty{
@@ -348,16 +350,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc func onSegmentedControlHapticFeedback(sender: UISegmentedControl){
         let feedbackGenerator = UISelectionFeedbackGenerator.init()
         feedbackGenerator.prepare()
-        let selectedSegment = segmentedControl.selectedSegmentIndex
         
         let reloadString = searchBar.text
         
-        switch selectedSegment {
-            case 0:
-                loadPeopleFromDatabase()
-            default:
-                loadPeopleFromDatabaseProm(promotion: selectedSegment)
-        }
+        //This will also handle loading promotion data from SQL database (it calls loadPeopleDatabaseProm)
+        filterWithConstraints()
 
         DispatchQueue.main.async {
             self.tableView.reloadData()

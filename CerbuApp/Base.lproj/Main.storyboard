@@ -278,6 +278,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="filterStatus" destination="NMJ-bn-7U2" id="lIA-Nx-Srv"/>
                         <outlet property="mainStackView" destination="vWh-Lw-SNL" id="egI-92-Lhd"/>
                         <outlet property="searchBar" destination="fhR-MC-TvN" id="NA0-NR-6b2"/>
                         <outlet property="segmentedControl" destination="6rm-24-dHW" id="VuM-5q-4Bv"/>
