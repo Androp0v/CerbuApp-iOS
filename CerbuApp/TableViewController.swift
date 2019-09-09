@@ -23,6 +23,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var mainStackView: UIStackView!
     @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var filterStatus: UIBarButtonItem!
     
     override func viewDidLoad() {
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: -0.5,left: 0,bottom: 0,right: 0)
@@ -58,6 +59,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             UITableView.ScrollPosition.top, animated: false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadListOnChange), name: NSNotification.Name(rawValue: "DATABASE_CHANGED"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(filtersOnIconChange), name: NSNotification.Name(rawValue: "FILTERS_ON"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(filtersOffIconChange), name: NSNotification.Name(rawValue: "FILTERS_OFF"), object: nil)
         
     }
     
@@ -239,6 +243,83 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @objc func reloadListOnChange(notification: NSNotification){
+        self.tableView.reloadData()
+    }
+    
+    @objc func filtersOnIconChange(notification: NSNotification){
+        self.filterStatus.image = UIImage(systemName: "line.horizontal.3.decrease.circle.fill")
+        filterWithConstraints()
+    }
+    
+    @objc func filtersOffIconChange(notification: NSNotification){
+        self.filterStatus.image = UIImage(systemName: "line.horizontal.3.decrease.circle")
+        cleanFilters()
+    }
+    
+    func filterWithConstraints(){
+        
+        if defaults.bool(forKey: "soloAdjuntos"){
+            for (index, person) in People.enumerated().reversed(){
+                if person.beca.isEmpty{
+                    People.remove(at: index)
+                }
+            }
+        }
+        
+        if defaults.bool(forKey: "soloFavoritos"){
+            for (index, person) in People.enumerated().reversed(){
+                if !person.liked{
+                    People.remove(at: index)
+                }
+            }
+        }
+        
+        //Floor section is multiple choice
+                
+        if !defaults.bool(forKey: "100s"){
+            for (index, person) in People.enumerated().reversed(){
+                if person.floor == 100{
+                    People.remove(at: index)
+                }
+            }
+        }
+        
+        if !defaults.bool(forKey: "200s"){
+            for (index, person) in People.enumerated().reversed(){
+                if person.floor == 200{
+                    People.remove(at: index)
+                }
+            }
+        }
+        
+        if !defaults.bool(forKey: "300s"){
+            for (index, person) in People.enumerated().reversed(){
+                if person.floor == 300{
+                    People.remove(at: index)
+                }
+            }
+        }
+        
+        if !defaults.bool(forKey: "400s"){
+            for (index, person) in People.enumerated().reversed(){
+                if person.floor == 400{
+                    People.remove(at: index)
+                }
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    func cleanFilters(){
+        
+        switch segmentedControl.selectedSegmentIndex {
+            case 0:
+                loadPeopleFromDatabase()
+            default:
+                loadPeopleFromDatabaseProm(promotion: segmentedControl.selectedSegmentIndex)
+        }
+        
         self.tableView.reloadData()
     }
     

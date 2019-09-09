@@ -26,12 +26,29 @@ class FilterTableViewController: UITableViewController {
     @IBOutlet var threeSwitch: UISwitch!
     @IBOutlet var fourSwitch: UISwitch!
     
+    func checkIfNonDefaultFilters(){
+        if !defaults.bool(forKey: "soloAdjuntos") &&
+        !defaults.bool(forKey: "soloFavoritos") &&
+        defaults.bool(forKey: "male") &&
+        defaults.bool(forKey: "female") &&
+        defaults.bool(forKey: "nbothers") &&
+        defaults.bool(forKey: "100s") &&
+        defaults.bool(forKey: "200s") &&
+        defaults.bool(forKey: "300s") &&
+        defaults.bool(forKey: "400s"){
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FILTERS_OFF"), object: nil)
+        }else{
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FILTERS_ON"), object: nil)
+        }
+    }
+    
     @IBAction func soloAdjuntosSwitchChange(_ sender: Any) {
         if soloAdjuntosSwitch.isOn{
             defaults.set(true, forKey: "soloAdjuntos")
         }else{
             defaults.set(false, forKey: "soloAdjuntos")
         }
+        checkIfNonDefaultFilters()
     }
     @IBAction func soloFavoritosSwitchChange(_ sender: Any) {
         if soloFavoritosSwitch.isOn{
@@ -39,6 +56,7 @@ class FilterTableViewController: UITableViewController {
         }else{
             defaults.set(false, forKey: "soloFavoritos")
         }
+        checkIfNonDefaultFilters()
     }
     @IBAction func maleSwitchChange(_ sender: Any) {
         if maleSwitch.isOn{
@@ -46,6 +64,7 @@ class FilterTableViewController: UITableViewController {
         }else{
             defaults.set(false, forKey: "male")
         }
+        checkIfNonDefaultFilters()
     }
     @IBAction func femaleSwitchChange(_ sender: Any) {
         if femaleSwitch.isOn{
@@ -53,6 +72,7 @@ class FilterTableViewController: UITableViewController {
         }else{
             defaults.set(false, forKey: "female")
         }
+        checkIfNonDefaultFilters()
     }
     @IBAction func nbothersSwitchChange(_ sender: Any) {
         if nbotherSwitch.isOn{
@@ -60,6 +80,7 @@ class FilterTableViewController: UITableViewController {
         }else{
             defaults.set(false, forKey: "nbothers")
         }
+        checkIfNonDefaultFilters()
     }
     @IBAction func oneSwitchChange(_ sender: Any) {
         if oneSwitch.isOn{
@@ -67,6 +88,7 @@ class FilterTableViewController: UITableViewController {
         }else{
             defaults.set(false, forKey: "100s")
         }
+        checkIfNonDefaultFilters()
     }
     @IBAction func twoSwitchChange(_ sender: Any) {
         if twoSwitch.isOn{
@@ -74,6 +96,7 @@ class FilterTableViewController: UITableViewController {
         }else{
             defaults.set(false, forKey: "200s")
         }
+        checkIfNonDefaultFilters()
     }
     @IBAction func threeSwitchChange(_ sender: Any) {
         if threeSwitch.isOn{
@@ -81,6 +104,7 @@ class FilterTableViewController: UITableViewController {
         }else{
             defaults.set(false, forKey: "300s")
         }
+        checkIfNonDefaultFilters()
     }
     @IBAction func fourSwitchChange(_ sender: Any) {
         if fourSwitch.isOn{
@@ -88,6 +112,7 @@ class FilterTableViewController: UITableViewController {
         }else{
             defaults.set(false, forKey: "400s")
         }
+        checkIfNonDefaultFilters()
     }
     
     
