@@ -1,48 +1,47 @@
 //
-//  FilterTableViewController.swift
+//  SettingsViewController.swift
 //  CerbuApp
 //
-//  Created by Raúl Montón Pinillos on 08/09/2019.
+//  Created by Raúl Montón Pinillos on 09/09/2019.
 //  Copyright © 2019 Raúl Montón Pinillos. All rights reserved.
 //
 
 import UIKit
 
-class FilterTableViewController: UITableViewController {
+class SettingsViewController: UITableViewController {
     
-    @IBAction func dismissViewController(_ sender: Any?) {
-        dismiss(animated: true, completion: nil)
+    let defaults = UserDefaults.standard
+    
+    @IBOutlet var orderSwitch: UISwitch!
+    @IBAction func orderSwitchChanged(_ sender: Any) {
+        if orderSwitch.isOn{
+            defaults.set(false, forKey: "surnameFirst")
+        }else{
+            defaults.set(true, forKey: "surnameFirst")
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let surnameFirst = defaults.bool(forKey: "surnameFirst")
+        
+        if surnameFirst{
+            orderSwitch.isOn = false
+        }else{
+            orderSwitch.isOn = true
+        }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        switch section {
-        case 0:
-            return 2
-        case 1:
-            return 3
-        case 2:
-            return 4
-        default:
-            return 0
-        }
+        return 1
     }
 
     /*

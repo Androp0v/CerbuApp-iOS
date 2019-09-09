@@ -17,6 +17,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let searchController = UISearchController(searchResultsController: nil)
     var searchActive = false
     var isRemovingTextWithBackspace = false
+    let defaults = UserDefaults.standard
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -372,14 +373,18 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             let floor = sqlite3_column_int(stmt, 8)
-            let _promotion = sqlite3_column_int(stmt, 9)
+            //let _promotion = sqlite3_column_int(stmt, 9)
             let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
             
             //adding values to list
             People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
         }
         
-        People = People.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == ComparisonResult.orderedAscending }
+        if defaults.bool(forKey: "surnameFirst"){
+            People = People.sorted { $0.surname_1.localizedCaseInsensitiveCompare($1.surname_1) == ComparisonResult.orderedAscending }
+        }else{
+            People = People.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == ComparisonResult.orderedAscending }
+        }
         
     }
     
@@ -429,14 +434,18 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             let floor = sqlite3_column_int(stmt, 8)
-            let _promotion = sqlite3_column_int(stmt, 9)
+            //let _promotion = sqlite3_column_int(stmt, 9)
             let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
             
             //adding values to list
             People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
         }
         
-        People = People.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == ComparisonResult.orderedAscending }
+        if defaults.bool(forKey: "surnameFirst"){
+            People = People.sorted { $0.surname_1.localizedCaseInsensitiveCompare($1.surname_1) == ComparisonResult.orderedAscending }
+        }else{
+            People = People.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == ComparisonResult.orderedAscending }
+        }
         
     }
 
