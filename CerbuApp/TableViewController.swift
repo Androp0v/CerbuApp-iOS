@@ -274,7 +274,29 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
         
-        //Floor section is multiple choice
+        if !defaults.bool(forKey: "male"){
+            for (index, person) in People.enumerated().reversed(){
+                if person.gender == 0{
+                    People.remove(at: index)
+                }
+            }
+        }
+        
+        if !defaults.bool(forKey: "female"){
+            for (index, person) in People.enumerated().reversed(){
+                if person.gender == 1{
+                    People.remove(at: index)
+                }
+            }
+        }
+        
+        if !defaults.bool(forKey: "nbothers"){
+            for (index, person) in People.enumerated().reversed(){
+                if person.gender > 1{
+                    People.remove(at: index)
+                }
+            }
+        }
                 
         if !defaults.bool(forKey: "100s"){
             for (index, person) in People.enumerated().reversed(){
@@ -454,11 +476,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             let floor = sqlite3_column_int(stmt, 8)
-            //let _promotion = sqlite3_column_int(stmt, 9)
+            let gender = sqlite3_column_int(stmt, 10)
             let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
             
             //adding values to list
-            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
+            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like, gender: Int(gender))!)
         }
         
         if defaults.bool(forKey: "surnameFirst"){
@@ -515,11 +537,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             let floor = sqlite3_column_int(stmt, 8)
-            //let _promotion = sqlite3_column_int(stmt, 9)
+            let gender = sqlite3_column_int(stmt, 10)
             let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
             
             //adding values to list
-            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like)!)
+            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like, gender: Int(gender))!)
         }
         
         if defaults.bool(forKey: "surnameFirst"){
