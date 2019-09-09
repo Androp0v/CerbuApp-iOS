@@ -386,6 +386,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VZv-9J-Yhs">
                                                     <rect key="frame" x="345" y="9.5" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.050980392156862744" green="0.27843137254901962" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="soloAdjuntosSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="Jdd-9C-SZU"/>
+                                                    </connections>
                                                 </switch>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="becario" translatesAutoresizingMaskIntoConstraints="NO" id="LX7-V1-Hy9">
                                                     <rect key="frame" x="132" y="5" width="39" height="39"/>
@@ -418,6 +421,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ztz-In-PmH">
                                                     <rect key="frame" x="345" y="9.5" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.95686274509803915" green="0.50588235294117645" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="soloFavoritosSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="rE0-la-KXh"/>
+                                                    </connections>
                                                 </switch>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HotIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iYs-Zh-Cag">
                                                     <rect key="frame" x="133" y="5" width="39" height="39"/>
@@ -453,6 +459,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="199-s1-HMH">
                                                     <rect key="frame" x="345" y="9" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="maleSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="rRj-yf-Qw5"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -480,6 +489,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hin-E8-QhW">
                                                     <rect key="frame" x="345" y="9" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="femaleSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="fwE-4c-lB8"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -507,6 +519,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pE0-5U-zQd">
                                                     <rect key="frame" x="345" y="9" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="nbothersSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="uTs-AR-Gcl"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -538,6 +553,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yka-3b-oif">
                                                     <rect key="frame" x="345" y="9" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="oneSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="PO5-Yq-fcw"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -565,6 +583,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NGC-HO-b4Q">
                                                     <rect key="frame" x="345" y="9" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="twoSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="MjN-lF-Hud"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -592,6 +613,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWt-Cc-sGe">
                                                     <rect key="frame" x="345" y="9" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="threeSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="VBD-9J-0x5"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -619,6 +643,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CxX-g2-M4K">
                                                     <rect key="frame" x="345" y="9" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="fourSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="FOc-2d-WlL"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -645,6 +672,17 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="femaleSwitch" destination="hin-E8-QhW" id="z55-aZ-2Du"/>
+                        <outlet property="fourSwitch" destination="CxX-g2-M4K" id="UMA-BV-t71"/>
+                        <outlet property="maleSwitch" destination="199-s1-HMH" id="kXU-7Q-KiQ"/>
+                        <outlet property="nbotherSwitch" destination="pE0-5U-zQd" id="h0C-yw-zqa"/>
+                        <outlet property="oneSwitch" destination="yka-3b-oif" id="weY-lO-cOA"/>
+                        <outlet property="soloAdjuntosSwitch" destination="VZv-9J-Yhs" id="3YG-VS-1Lh"/>
+                        <outlet property="soloFavoritosSwitch" destination="ztz-In-PmH" id="AK2-Gs-oGS"/>
+                        <outlet property="threeSwitch" destination="wWt-Cc-sGe" id="UKQ-x0-PWB"/>
+                        <outlet property="twoSwitch" destination="NGC-HO-b4Q" id="key-B4-wBY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FcF-Aj-Eep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

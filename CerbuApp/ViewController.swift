@@ -18,6 +18,8 @@ extension UINavigationController {
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    let defaults = UserDefaults.standard
+    
     @IBOutlet var orlaImageView: UIImageView!
     @IBOutlet var ContainerView: CardView!
     @IBOutlet var mainTableView: UITableView!
@@ -92,6 +94,15 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         mainTableView.delegate = self
         self.mainTableView.tableFooterView = UIView()
         
+        defaults.set(false, forKey: "soloAdjuntos")
+        defaults.set(false, forKey: "soloFavoritos")
+        defaults.set(true, forKey: "male")
+        defaults.set(true, forKey: "female")
+        defaults.set(true, forKey: "nbothers")
+        defaults.set(true, forKey: "100s")
+        defaults.set(true, forKey: "200s")
+        defaults.set(true, forKey: "300s")
+        defaults.set(true, forKey: "400s")
         
         //Height of ParentContainer has to be corrected programatically for some reason. Sorry for hacky fix
         let correctedHeight = (self.view.frame.width - 40)*(1273.0/1920.0) + 40
