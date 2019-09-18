@@ -57,7 +57,20 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
             likedImageView.image = UIImage.init(named: "HotIconUnselected")
         }
         
-        hresPhoto.image = UIImage(named: (cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? "") + "hres"))) ?? UIImage(named: (cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? "")))) ?? UIImage(named: "nohres")
+        let testString1: String
+        testString1 = cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? "") + "hres")
+        
+        let testString2: String
+        let testString2a: String
+        let testString2b: String
+        testString2a = cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? ""))
+        testString2b = cleanString(rawString: (detailedPerson?.surname_2 ?? "")) + "hres"
+        testString2 = testString2a + testString2b
+        
+        let testString3: String
+        testString3 = cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? ""))
+        
+        hresPhoto.image = UIImage(named: testString1) ?? UIImage(named: testString2) ?? UIImage(named: testString3) ?? UIImage(named: "nohres")
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
         tap.cancelsTouchesInView = false

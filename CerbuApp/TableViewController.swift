@@ -474,7 +474,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let floor = sqlite3_column_int(stmt, 8)
             let gender = sqlite3_column_int(stmt, 10)
-            let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
+            let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? UIImage(named: (cleanString(rawString: name+surname_1+surname_2))) ?? photo1
             
             //adding values to list
             People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like, gender: Int(gender))!)
@@ -535,7 +535,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let floor = sqlite3_column_int(stmt, 8)
             let gender = sqlite3_column_int(stmt, 10)
-            let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? photo1
+            let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? UIImage(named: (cleanString(rawString: name+surname_1+surname_2))) ?? photo1
             
             //adding values to list
             People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like, gender: Int(gender))!)
