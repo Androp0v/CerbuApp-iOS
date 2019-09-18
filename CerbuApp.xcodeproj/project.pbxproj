@@ -16,6 +16,16 @@
 		C404059922DEA3D100259C86 /* CerbuAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404059822DEA3D100259C86 /* CerbuAppTests.swift */; };
 		C40405A422DEA3D100259C86 /* CerbuAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40405A322DEA3D100259C86 /* CerbuAppUITests.swift */; };
 		C43B49EB22E62A1300DEF572 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43B49EA22E62A1300DEF572 /* Person.swift */; };
+		C442F4C2233287E900DD85D8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C442F4C0233287E900DD85D8 /* Interface.storyboard */; };
+		C442F4C4233287EC00DD85D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C442F4C3233287EC00DD85D8 /* Assets.xcassets */; };
+		C442F4CB233287EC00DD85D8 /* CerbuApp Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C442F4CA233287EC00DD85D8 /* CerbuApp Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C442F4D0233287EC00DD85D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C442F4CF233287EC00DD85D8 /* ContentView.swift */; };
+		C442F4D4233287EC00DD85D8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C442F4D3233287EC00DD85D8 /* ExtensionDelegate.swift */; };
+		C442F4DA233287EC00DD85D8 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C442F4D9233287EC00DD85D8 /* ComplicationController.swift */; };
+		C442F4DC233287ED00DD85D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C442F4DB233287ED00DD85D8 /* Assets.xcassets */; };
+		C442F4DF233287ED00DD85D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C442F4DE233287ED00DD85D8 /* Preview Assets.xcassets */; };
+		C442F4E4233287ED00DD85D8 /* CerbuApp Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C442F4BE233287E900DD85D8 /* CerbuApp Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C442F4EE2332AAD100DD85D8 /* TableInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C442F4ED2332AAD100DD85D8 /* TableInterfaceController.swift */; };
 		C446941E22DF69FB006027A8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446941D22DF69FB006027A8 /* TableViewController.swift */; };
 		C4615BDA2325045500C04EE7 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4615BD92325045500C04EE7 /* FilterTableViewController.swift */; };
 		C463F53622DFDFC3003E2C64 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */; };
@@ -45,7 +55,46 @@
 			remoteGlobalIDString = C404057D22DEA3D000259C86;
 			remoteInfo = CerbuApp;
 		};
+		C442F4CC233287EC00DD85D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C404057622DEA3D000259C86 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C442F4C9233287EC00DD85D8;
+			remoteInfo = "CerbuApp Watch Extension";
+		};
+		C442F4E2233287ED00DD85D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C404057622DEA3D000259C86 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C442F4BD233287E900DD85D8;
+			remoteInfo = "CerbuApp Watch";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C442F4E8233287ED00DD85D8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C442F4CB233287EC00DD85D8 /* CerbuApp Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C442F4EC233287ED00DD85D8 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C442F4E4233287ED00DD85D8 /* CerbuApp Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C404057E22DEA3D000259C86 /* CerbuApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CerbuApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +113,19 @@
 		C40405A522DEA3D100259C86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40405B122DF441C00259C86 /* CerbuApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CerbuApp.entitlements; sourceTree = "<group>"; };
 		C43B49EA22E62A1300DEF572 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		C442F4BE233287E900DD85D8 /* CerbuApp Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CerbuApp Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C442F4C1233287E900DD85D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		C442F4C3233287EC00DD85D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C442F4C5233287EC00DD85D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C442F4CA233287EC00DD85D8 /* CerbuApp Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CerbuApp Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C442F4CF233287EC00DD85D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C442F4D3233287EC00DD85D8 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		C442F4D9233287EC00DD85D8 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		C442F4DB233287ED00DD85D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C442F4DE233287ED00DD85D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C442F4E0233287ED00DD85D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C442F4E1233287ED00DD85D8 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C442F4ED2332AAD100DD85D8 /* TableInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableInterfaceController.swift; sourceTree = "<group>"; };
 		C446941D22DF69FB006027A8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		C4615BD92325045500C04EE7 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -102,6 +164,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C442F4C7233287EC00DD85D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -111,6 +180,8 @@
 				C404058022DEA3D000259C86 /* CerbuApp */,
 				C404059722DEA3D100259C86 /* CerbuAppTests */,
 				C40405A222DEA3D100259C86 /* CerbuAppUITests */,
+				C442F4BF233287E900DD85D8 /* CerbuApp Watch */,
+				C442F4CE233287EC00DD85D8 /* CerbuApp Watch Extension */,
 				C404057F22DEA3D000259C86 /* Products */,
 				C463F53422DFDFAF003E2C64 /* Frameworks */,
 			);
@@ -122,6 +193,8 @@
 				C404057E22DEA3D000259C86 /* CerbuApp.app */,
 				C404059422DEA3D100259C86 /* CerbuAppTests.xctest */,
 				C404059F22DEA3D100259C86 /* CerbuAppUITests.xctest */,
+				C442F4BE233287E900DD85D8 /* CerbuApp Watch.app */,
+				C442F4CA233287EC00DD85D8 /* CerbuApp Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +243,39 @@
 			path = CerbuAppUITests;
 			sourceTree = "<group>";
 		};
+		C442F4BF233287E900DD85D8 /* CerbuApp Watch */ = {
+			isa = PBXGroup;
+			children = (
+				C442F4C0233287E900DD85D8 /* Interface.storyboard */,
+				C442F4C3233287EC00DD85D8 /* Assets.xcassets */,
+				C442F4C5233287EC00DD85D8 /* Info.plist */,
+			);
+			path = "CerbuApp Watch";
+			sourceTree = "<group>";
+		};
+		C442F4CE233287EC00DD85D8 /* CerbuApp Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C442F4CF233287EC00DD85D8 /* ContentView.swift */,
+				C442F4ED2332AAD100DD85D8 /* TableInterfaceController.swift */,
+				C442F4D3233287EC00DD85D8 /* ExtensionDelegate.swift */,
+				C442F4D9233287EC00DD85D8 /* ComplicationController.swift */,
+				C442F4DB233287ED00DD85D8 /* Assets.xcassets */,
+				C442F4E0233287ED00DD85D8 /* Info.plist */,
+				C442F4E1233287ED00DD85D8 /* PushNotificationPayload.apns */,
+				C442F4DD233287ED00DD85D8 /* Preview Content */,
+			);
+			path = "CerbuApp Watch Extension";
+			sourceTree = "<group>";
+		};
+		C442F4DD233287ED00DD85D8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C442F4DE233287ED00DD85D8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		C463F53422DFDFAF003E2C64 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,10 +295,12 @@
 				C404057A22DEA3D000259C86 /* Sources */,
 				C404057B22DEA3D000259C86 /* Frameworks */,
 				C404057C22DEA3D000259C86 /* Resources */,
+				C442F4EC233287ED00DD85D8 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C442F4E3233287ED00DD85D8 /* PBXTargetDependency */,
 			);
 			name = CerbuApp;
 			productName = CerbuApp;
@@ -235,6 +343,40 @@
 			productReference = C404059F22DEA3D100259C86 /* CerbuAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C442F4BD233287E900DD85D8 /* CerbuApp Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C442F4E9233287ED00DD85D8 /* Build configuration list for PBXNativeTarget "CerbuApp Watch" */;
+			buildPhases = (
+				C442F4BC233287E900DD85D8 /* Resources */,
+				C442F4E8233287ED00DD85D8 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C442F4CD233287EC00DD85D8 /* PBXTargetDependency */,
+			);
+			name = "CerbuApp Watch";
+			productName = "CerbuApp Watch";
+			productReference = C442F4BE233287E900DD85D8 /* CerbuApp Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		C442F4C9233287EC00DD85D8 /* CerbuApp Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C442F4E5233287ED00DD85D8 /* Build configuration list for PBXNativeTarget "CerbuApp Watch Extension" */;
+			buildPhases = (
+				C442F4C6233287EC00DD85D8 /* Sources */,
+				C442F4C7233287EC00DD85D8 /* Frameworks */,
+				C442F4C8233287EC00DD85D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CerbuApp Watch Extension";
+			productName = "CerbuApp Watch Extension";
+			productReference = C442F4CA233287EC00DD85D8 /* CerbuApp Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -256,6 +398,12 @@
 						CreatedOnToolsVersion = 11.0;
 						TestTargetID = C404057D22DEA3D000259C86;
 					};
+					C442F4BD233287E900DD85D8 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					C442F4C9233287EC00DD85D8 = {
+						CreatedOnToolsVersion = 11.0;
+					};
 				};
 			};
 			buildConfigurationList = C404057922DEA3D000259C86 /* Build configuration list for PBXProject "CerbuApp" */;
@@ -274,6 +422,8 @@
 				C404057D22DEA3D000259C86 /* CerbuApp */,
 				C404059322DEA3D100259C86 /* CerbuAppTests */,
 				C404059E22DEA3D100259C86 /* CerbuAppUITests */,
+				C442F4BD233287E900DD85D8 /* CerbuApp Watch */,
+				C442F4C9233287EC00DD85D8 /* CerbuApp Watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -301,6 +451,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C442F4BC233287E900DD85D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C442F4C4233287EC00DD85D8 /* Assets.xcassets in Resources */,
+				C442F4C2233287E900DD85D8 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C442F4C8233287EC00DD85D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C442F4DF233287ED00DD85D8 /* Preview Assets.xcassets in Resources */,
+				C442F4DC233287ED00DD85D8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +511,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C442F4C6233287EC00DD85D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C442F4D0233287EC00DD85D8 /* ContentView.swift in Sources */,
+				C442F4D4233287EC00DD85D8 /* ExtensionDelegate.swift in Sources */,
+				C442F4EE2332AAD100DD85D8 /* TableInterfaceController.swift in Sources */,
+				C442F4DA233287EC00DD85D8 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -355,6 +534,16 @@
 			isa = PBXTargetDependency;
 			target = C404057D22DEA3D000259C86 /* CerbuApp */;
 			targetProxy = C40405A022DEA3D100259C86 /* PBXContainerItemProxy */;
+		};
+		C442F4CD233287EC00DD85D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C442F4C9233287EC00DD85D8 /* CerbuApp Watch Extension */;
+			targetProxy = C442F4CC233287EC00DD85D8 /* PBXContainerItemProxy */;
+		};
+		C442F4E3233287ED00DD85D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C442F4BD233287E900DD85D8 /* CerbuApp Watch */;
+			targetProxy = C442F4E2233287ED00DD85D8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -373,6 +562,14 @@
 				C404058D22DEA3D100259C86 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C442F4C0233287E900DD85D8 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C442F4C1233287E900DD85D8 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -618,6 +815,92 @@
 			};
 			name = Release;
 		};
+		C442F4E6233287ED00DD85D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CerbuApp Watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 4ND4CZC2FK;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "CerbuApp Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		C442F4E7233287ED00DD85D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CerbuApp Watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 4ND4CZC2FK;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "CerbuApp Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		C442F4EA233287ED00DD85D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4ND4CZC2FK;
+				IBSC_MODULE = CerbuApp_Watch_Extension;
+				INFOPLIST_FILE = "CerbuApp Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		C442F4EB233287ED00DD85D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4ND4CZC2FK;
+				IBSC_MODULE = CerbuApp_Watch_Extension;
+				INFOPLIST_FILE = "CerbuApp Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -653,6 +936,24 @@
 			buildConfigurations = (
 				C40405AF22DEA3D100259C86 /* Debug */,
 				C40405B022DEA3D100259C86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C442F4E5233287ED00DD85D8 /* Build configuration list for PBXNativeTarget "CerbuApp Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C442F4E6233287ED00DD85D8 /* Debug */,
+				C442F4E7233287ED00DD85D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C442F4E9233287ED00DD85D8 /* Build configuration list for PBXNativeTarget "CerbuApp Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C442F4EA233287ED00DD85D8 /* Debug */,
+				C442F4EB233287ED00DD85D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

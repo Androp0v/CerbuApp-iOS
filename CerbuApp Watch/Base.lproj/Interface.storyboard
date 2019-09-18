@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14865.1" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZgB-dS-uLW">
+    <device id="watch42"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14642"/>
+    </dependencies>
+    <scenes>
+        <!--CerbuApp-->
+        <scene sceneID="l5a-9V-LhJ">
+            <objects>
+                <controller title="CerbuApp" id="ZgB-dS-uLW">
+                    <items>
+                        <table alignment="left" id="l7c-8n-wsV">
+                            <items>
+                                <tableRow id="Lkb-oL-bBA">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="hoY-tB-Pc7">
+                                        <items>
+                                            <group alignment="left" layout="vertical" spacing="0.0" id="TEs-CS-G5k">
+                                                <items>
+                                                    <group width="1" height="32" alignment="left" spacing="4" id="dBQ-TM-PSQ">
+                                                        <items>
+                                                            <label width="136" height="46" alignment="left" text="Nombre Apellido" id="Xr0-7S-iod"/>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                            <separator alignment="left" id="ben-L6-bMu">
+                                                <color key="color" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                            </separator>
+                                        </items>
+                                    </group>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="184" y="-262"/>
+        </scene>
+    </scenes>
+</document>
