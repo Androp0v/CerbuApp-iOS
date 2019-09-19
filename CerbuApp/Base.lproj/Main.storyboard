@@ -769,7 +769,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XEG-Zv-h63">
-                                <rect key="frame" x="175" y="552" width="64" height="64"/>
+                                <rect key="frame" x="175" y="581.5" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="XEG-Zv-h63" secondAttribute="height" multiplier="1:1" id="bBz-rh-Wy7"/>
                                     <constraint firstAttribute="height" constant="64" id="vj6-7a-xLh"/>
@@ -784,13 +784,22 @@
                                     <constraint firstAttribute="width" secondItem="Jhq-d1-uW8" secondAttribute="height" multiplier="1:1" id="u0f-8z-JMt"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNm-oQ-qeA">
+                                <rect key="frame" x="24" y="550" width="366" height="21.5"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gDc-Yq-DJV" firstAttribute="trailing" secondItem="2xL-hB-geI" secondAttribute="trailing" id="0l3-tw-Ncq"/>
                             <constraint firstItem="gDc-Yq-DJV" firstAttribute="leading" secondItem="2xL-hB-geI" secondAttribute="leading" id="351-Q2-ike"/>
+                            <constraint firstItem="kNm-oQ-qeA" firstAttribute="top" secondItem="UYe-pD-Sxg" secondAttribute="bottom" constant="8" id="3vE-rD-vwU"/>
+                            <constraint firstItem="2xL-hB-geI" firstAttribute="trailing" secondItem="kNm-oQ-qeA" secondAttribute="trailing" constant="24" id="Eh2-rC-yjf"/>
                             <constraint firstItem="UYe-pD-Sxg" firstAttribute="top" secondItem="p6b-OW-LPt" secondAttribute="bottom" constant="8" id="JXm-9n-mUF"/>
-                            <constraint firstItem="XEG-Zv-h63" firstAttribute="top" secondItem="UYe-pD-Sxg" secondAttribute="bottom" constant="10" id="KBd-Q0-drv"/>
+                            <constraint firstItem="kNm-oQ-qeA" firstAttribute="leading" secondItem="2xL-hB-geI" secondAttribute="leading" constant="24" id="Ku6-Wv-wHd"/>
+                            <constraint firstItem="XEG-Zv-h63" firstAttribute="top" secondItem="kNm-oQ-qeA" secondAttribute="bottom" constant="10" id="NaC-eE-j1F"/>
                             <constraint firstItem="Jhq-d1-uW8" firstAttribute="top" secondItem="2xL-hB-geI" secondAttribute="top" id="RtE-kx-f3p"/>
                             <constraint firstItem="2xL-hB-geI" firstAttribute="trailing" secondItem="UYe-pD-Sxg" secondAttribute="trailing" constant="24" id="Xa3-JU-rXO"/>
                             <constraint firstItem="p6b-OW-LPt" firstAttribute="top" secondItem="gDc-Yq-DJV" secondAttribute="bottom" constant="24" id="bsv-3M-cmx"/>
@@ -809,6 +818,7 @@
                         <outlet property="hresPhoto" destination="gDc-Yq-DJV" id="lq6-G5-hyW"/>
                         <outlet property="likedImageView" destination="Jhq-d1-uW8" id="3f1-hd-zM8"/>
                         <outlet property="nameLabel" destination="p6b-OW-LPt" id="uVG-Gv-Bcg"/>
+                        <outlet property="roomLabel" destination="kNm-oQ-qeA" id="aOj-L9-e8F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQx-MD-6ny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -852,11 +862,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2018 Raúl Montón" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="at5-1K-35a">
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019 © Raúl Montón" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="at5-1K-35a">
                             <rect key="frame" x="0.0" y="172" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" systemColor="tertiaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <sections>
@@ -909,15 +919,21 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostrar habitaciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N70-lD-aMd">
                                                     <rect key="frame" x="20" y="15" width="162" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" systemColor="tertiaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Yb9-wg-nIV">
                                                     <rect key="frame" x="345" y="10" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="lockSwitchChanged:" destination="nm4-15-wRh" eventType="valueChanged" id="wb6-Ur-OiB"/>
+                                                    </connections>
                                                 </switch>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eKf-ZV-LJw">
                                                     <rect key="frame" x="186" y="11.5" width="16" height="26"/>
-                                                    <color key="tintColor" systemColor="tertiaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                    </accessibility>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -946,6 +962,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Ajustes" id="182-4M-a5q"/>
                     <connections>
+                        <outlet property="lockImage" destination="eKf-ZV-LJw" id="lwm-Lv-BUj"/>
+                        <outlet property="lockLabel" destination="N70-lD-aMd" id="Z25-Vt-4NG"/>
+                        <outlet property="lockSwitch" destination="Yb9-wg-nIV" id="Jh3-7G-fOl"/>
                         <outlet property="orderSwitch" destination="xp2-uE-MsX" id="Jjw-jP-rIS"/>
                     </connections>
                 </tableViewController>

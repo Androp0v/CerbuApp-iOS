@@ -28,7 +28,9 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
     
     var detailedPerson: Person?
     var db: OpaquePointer?
+    let defaults = UserDefaults.standard
     
+    @IBOutlet var roomLabel: UILabel!
     @IBOutlet var hresPhoto: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var careerLabel: UILabel!
@@ -46,9 +48,13 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         if detailedPerson?.beca.isEmpty ?? true {
             careerLabel.text = detailedPerson?.career
             becaImageView = nil
+            if defaults.bool(forKey: "showRooms"){
+                roomLabel.text = "Habitación " + (detailedPerson?.room ?? "?")
+            }
         }else{
             careerLabel.text = (detailedPerson?.career ?? "") + " | " + (detailedPerson?.beca ?? "")
             becaImageView.image = UIImage.init(named: "becario")
+            roomLabel.text = "Habitación " + (detailedPerson?.room ?? "?")
         }
         
         if detailedPerson?.liked ?? false{

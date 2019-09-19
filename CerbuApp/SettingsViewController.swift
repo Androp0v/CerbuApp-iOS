@@ -12,7 +12,11 @@ class SettingsViewController: UITableViewController {
     
     let defaults = UserDefaults.standard
     
+    @IBOutlet var lockLabel: UILabel!
     @IBOutlet var orderSwitch: UISwitch!
+    @IBOutlet var lockImage: UIImageView!
+    @IBOutlet var lockSwitch: UISwitch!
+    
     @IBAction func orderSwitchChanged(_ sender: Any) {
         if orderSwitch.isOn{
             defaults.set(false, forKey: "surnameFirst")
@@ -21,16 +25,38 @@ class SettingsViewController: UITableViewController {
         }
     }
     
+    @IBAction func lockSwitchChanged(_ sender: Any) {
+        if lockSwitch.isOn{
+            defaults.set(true, forKey: "showRooms")
+        }else{
+            defaults.set(false, forKey: "showRooms")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         let surnameFirst = defaults.bool(forKey: "surnameFirst")
+        let becaUnlocked = defaults.bool(forKey: "becaUnlocked")
         
         if surnameFirst{
             orderSwitch.isOn = false
         }else{
             orderSwitch.isOn = true
         }
+        
+        if becaUnlocked{
+            lockImage.image = UIImage(systemName: "lock.open.fill")
+            lockLabel.textColor = .label
+            lockImage.tintColor = .label
+            lockSwitch.isEnabled = true
+        }else{
+            //Do nothing
+        }
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(lockTapped(tapGestureRecognizer:)))
+        lockImage.isUserInteractionEnabled = true
+        lockImage.addGestureRecognizer(tapGestureRecognizer)
 
     }
 
@@ -42,6 +68,44 @@ class SettingsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    @objc func lockTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        var alertController:UIAlertController?
+
+        alertController = UIAlertController(title: "Contraseña",
+            message: "Introduce la contraseña para desbloquear la base de datos para adjuntos a la dirección",
+            preferredStyle: .alert)
+        
+        alertController!.addTextField(configurationHandler: {(textField: UITextField!) in
+                textField.placeholder = "Enter something"
+        })
+        
+        alertController?.textFields?[0].isSecureTextEntry = true
+        
+        let action = UIAlertAction(title: "Submit",
+                                   style: UIAlertAction.Style.default,
+                                   handler: {[weak self]
+                                   (paramAction:UIAlertAction!) in
+            if let textFields = alertController?.textFields{
+                let theTextFields = textFields as [UITextField]
+                let enteredText = theTextFields[0].text
+                if enteredText == "Tungsteno"{
+                    self!.lockImage.image = UIImage(systemName: "lock.open.fill")
+                    self!.lockLabel.textColor = .label
+                    self!.lockImage.tintColor = .label
+                    self!.lockSwitch.isEnabled = true
+                    self!.defaults.set(true, forKey: "becaUnlocked")
+                }
+            }
+        })
+        
+        alertController?.addAction(action)
+        
+        self.present(alertController!, animated: true, completion: nil)
+        
+
     }
 
     /*
