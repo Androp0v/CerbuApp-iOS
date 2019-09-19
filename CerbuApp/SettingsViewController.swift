@@ -45,18 +45,19 @@ class SettingsViewController: UITableViewController {
             orderSwitch.isOn = true
         }
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(lockTapped(tapGestureRecognizer:)))
+        lockImage.isUserInteractionEnabled = true
+        lockImage.addGestureRecognizer(tapGestureRecognizer)
+        
         if becaUnlocked{
             lockImage.image = UIImage(systemName: "lock.open.fill")
             lockLabel.textColor = .label
             lockImage.tintColor = .label
             lockSwitch.isEnabled = true
+            lockImage.removeGestureRecognizer(tapGestureRecognizer)
         }else{
             //Do nothing
         }
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(lockTapped(tapGestureRecognizer:)))
-        lockImage.isUserInteractionEnabled = true
-        lockImage.addGestureRecognizer(tapGestureRecognizer)
 
     }
 
