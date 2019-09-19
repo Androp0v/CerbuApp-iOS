@@ -50,6 +50,8 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
             becaImageView = nil
             if defaults.bool(forKey: "showRooms"){
                 roomLabel.text = "Habitación " + (detailedPerson?.room ?? "?")
+            }else{
+                roomLabel.text = nil
             }
         }else{
             careerLabel.text = (detailedPerson?.career ?? "") + " | " + (detailedPerson?.beca ?? "")
