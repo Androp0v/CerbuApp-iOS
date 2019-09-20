@@ -195,6 +195,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     }
                 }
                 
+                let showRooms = defaults.bool(forKey: "showRooms")
+                if showRooms{
+                    if person.room.hasPrefix(searchWordsArray[i]){
+                        approvedFlag = true
+                    }
+                }
+                
                 if !approvedFlag{
                     break
                 }
