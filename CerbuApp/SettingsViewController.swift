@@ -38,11 +38,18 @@ class SettingsViewController: UITableViewController {
     
         let surnameFirst = defaults.bool(forKey: "surnameFirst")
         let becaUnlocked = defaults.bool(forKey: "becaUnlocked")
+        let showRooms = defaults.bool(forKey: "showRooms")
         
         if surnameFirst{
             orderSwitch.isOn = false
         }else{
             orderSwitch.isOn = true
+        }
+        
+        if showRooms{
+            lockSwitch.isOn = false
+        }else{
+            lockSwitch.isOn = true
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(lockTapped(tapGestureRecognizer:)))
