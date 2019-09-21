@@ -332,10 +332,10 @@
             </objects>
             <point key="canvasLocation" x="2021.7391304347827" y="833.70535714285711"/>
         </scene>
-        <!--Menu View Controller-->
+        <!--Menú de comedor-->
         <scene sceneID="nYE-D7-pkN">
             <objects>
-                <viewController id="1w5-Zn-rfs" customClass="MenuViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Menú de comedor" id="1w5-Zn-rfs" customClass="MenuViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="joX-QQ-vrT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,10 +361,10 @@
             </objects>
             <point key="canvasLocation" x="2021.7391304347827" y="1541.5178571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Revista Patio Interior-->
         <scene sceneID="wTj-MD-alg">
             <objects>
-                <viewController id="udk-Z7-nsr" sceneMemberID="viewController">
+                <viewController title="Revista Patio Interior" id="udk-Z7-nsr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IYV-OW-zi8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -387,7 +387,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ufu-38-vkl"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xEq-Q3-7Lr"/>
+                    <navigationItem key="navigationItem" title="Revista Patio Interior" id="xEq-Q3-7Lr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6i-M7-DF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1029,7 +1029,7 @@
             <objects>
                 <viewController id="eTj-LO-Whn" customClass="MagazineController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PnD-z3-h9o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="586"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="585.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gHC-6Z-4OO"/>

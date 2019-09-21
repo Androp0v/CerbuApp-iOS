@@ -56,7 +56,6 @@ class MagazineController: UIPageViewController, UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
             
         if let viewControllerIndex = self.pages.firstIndex(of: viewController) {
-            print(viewControllerIndex)
             if viewControllerIndex == 0 {
                 //Pass
             } else {
