@@ -339,6 +339,80 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
         
+        if searchActive{
+            if defaults.bool(forKey: "soloAdjuntos"){
+                for (index, person) in filteredPeople.enumerated().reversed(){
+                    if person.beca.isEmpty{
+                        filteredPeople.remove(at: index)
+                    }
+                }
+            }
+            
+            if defaults.bool(forKey: "soloFavoritos"){
+                for (index, person) in filteredPeople.enumerated().reversed(){
+                    if !person.liked{
+                        filteredPeople.remove(at: index)
+                    }
+                }
+            }
+            
+            if !defaults.bool(forKey: "male"){
+                for (index, person) in filteredPeople.enumerated().reversed(){
+                    if person.gender == 0{
+                        filteredPeople.remove(at: index)
+                    }
+                }
+            }
+            
+            if !defaults.bool(forKey: "female"){
+                for (index, person) in filteredPeople.enumerated().reversed(){
+                    if person.gender == 1{
+                        filteredPeople.remove(at: index)
+                    }
+                }
+            }
+            
+            if !defaults.bool(forKey: "nbothers"){
+                for (index, person) in filteredPeople.enumerated().reversed(){
+                    if person.gender > 1{
+                        filteredPeople.remove(at: index)
+                    }
+                }
+            }
+                    
+            if !defaults.bool(forKey: "100s"){
+                for (index, person) in filteredPeople.enumerated().reversed(){
+                    if person.floor == 100{
+                        filteredPeople.remove(at: index)
+                    }
+                }
+            }
+            
+            if !defaults.bool(forKey: "200s"){
+                for (index, person) in filteredPeople.enumerated().reversed(){
+                    if person.floor == 200{
+                        filteredPeople.remove(at: index)
+                    }
+                }
+            }
+            
+            if !defaults.bool(forKey: "300s"){
+                for (index, person) in filteredPeople.enumerated().reversed(){
+                    if person.floor == 300{
+                        filteredPeople.remove(at: index)
+                    }
+                }
+            }
+            
+            if !defaults.bool(forKey: "400s"){
+                for (index, person) in filteredPeople.enumerated().reversed(){
+                    if person.floor == 400{
+                        filteredPeople.remove(at: index)
+                    }
+                }
+            }
+        }
+        
         self.tableView.reloadData()
     }
     
@@ -349,6 +423,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 loadPeopleFromDatabase()
             default:
                 loadPeopleFromDatabaseProm(promotion: segmentedControl.selectedSegmentIndex)
+        }
+        
+        if searchActive{
+            filteredPeople = People
+            let reloadString = searchBar.text
+            self.searchBar(self.searchBar, textDidChange: reloadString ?? "")
         }
         
         self.tableView.reloadData()
