@@ -135,6 +135,7 @@
                         <segue destination="0BE-bK-eey" kind="show" identifier="pushToBoletin" id="fJL-QP-Xr5"/>
                         <segue destination="1w5-Zn-rfs" kind="show" identifier="pushToMenu" id="dqS-Pg-R9r"/>
                         <segue destination="gxJ-rO-yYO" kind="show" identifier="pushToNotifications" id="1mC-Q4-842"/>
+                        <segue destination="udk-Z7-nsr" kind="show" identifier="pushToMagazine" id="0BN-sr-Veh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -360,6 +361,38 @@
             </objects>
             <point key="canvasLocation" x="2021.7391304347827" y="1541.5178571428571"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="wTj-MD-alg">
+            <objects>
+                <viewController id="udk-Z7-nsr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IYV-OW-zi8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTa-4w-Rsc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="586"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bTa-4w-Rsc" secondAttribute="height" multiplier="210:297" id="6ic-5p-mFN"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="eTj-LO-Whn" kind="embed" id="B7y-a8-MgH"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ufu-38-vkl" firstAttribute="trailing" secondItem="bTa-4w-Rsc" secondAttribute="trailing" id="NG7-qg-BgU"/>
+                            <constraint firstItem="bTa-4w-Rsc" firstAttribute="top" secondItem="ufu-38-vkl" secondAttribute="top" id="xBd-ju-t4U"/>
+                            <constraint firstItem="bTa-4w-Rsc" firstAttribute="leading" secondItem="ufu-38-vkl" secondAttribute="leading" id="xCg-Zx-gKf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ufu-38-vkl"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xEq-Q3-7Lr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y6i-M7-DF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2022" y="2219"/>
+        </scene>
         <!--Avisos-->
         <scene sceneID="DXG-LJ-5E6">
             <objects>
@@ -410,7 +443,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="han-qo-blt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2022" y="2238"/>
+            <point key="canvasLocation" x="2022" y="2921"/>
         </scene>
         <!--Filtrar-->
         <scene sceneID="ueV-rl-nfm">
@@ -990,6 +1023,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bV-Oa-lCa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3050.7246376811595" y="-270.53571428571428"/>
+        </scene>
+        <!--Magazine Controller-->
+        <scene sceneID="g1y-z7-A9N">
+            <objects>
+                <viewController id="eTj-LO-Whn" customClass="MagazineController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PnD-z3-h9o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="586"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gHC-6Z-4OO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JH3-pa-kXQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3025" y="2219"/>
         </scene>
     </scenes>
     <resources>

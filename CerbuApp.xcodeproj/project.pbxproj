@@ -26,12 +26,16 @@
 		C442F4DF233287ED00DD85D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C442F4DE233287ED00DD85D8 /* Preview Assets.xcassets */; };
 		C442F4E4233287ED00DD85D8 /* CerbuApp Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C442F4BE233287E900DD85D8 /* CerbuApp Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C442F4EE2332AAD100DD85D8 /* TableInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C442F4ED2332AAD100DD85D8 /* TableInterfaceController.swift */; };
+		C442F4EF2332AC3C00DD85D8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43B49EA22E62A1300DEF572 /* Person.swift */; };
+		C442F4F32332AE0700DD85D8 /* PersonRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C442F4F22332AE0700DD85D8 /* PersonRowController.swift */; };
 		C446941E22DF69FB006027A8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446941D22DF69FB006027A8 /* TableViewController.swift */; };
 		C4615BDA2325045500C04EE7 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4615BD92325045500C04EE7 /* FilterTableViewController.swift */; };
 		C463F53622DFDFC3003E2C64 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */; };
 		C48D5AEB22F4A88A00695DB2 /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = C48D5AEA22F4984B00695DB2 /* database.db */; };
 		C49AFCD722FAE72E00A20C5D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD622FAE72E00A20C5D /* CardView.swift */; };
 		C49AFCD922FDA5FD00A20C5D /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */; };
+		C4ACF173233566CB00198891 /* MagazineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF172233566CB00198891 /* MagazineController.swift */; };
+		C4ACF1752335673A00198891 /* PatioInterior.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C4ACF1742335673900198891 /* PatioInterior.pdf */; };
 		C4B32CE123264F77007DC778 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B32CE023264F77007DC778 /* SettingsViewController.swift */; };
 		C4CD76E72300F1BB00964509 /* BoletinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD76E62300F1BB00964509 /* BoletinViewController.swift */; };
 		C4CD76E92300F82100964509 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CD76E82300F82100964509 /* WebKit.framework */; };
@@ -126,12 +130,16 @@
 		C442F4E0233287ED00DD85D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C442F4E1233287ED00DD85D8 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		C442F4ED2332AAD100DD85D8 /* TableInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableInterfaceController.swift; sourceTree = "<group>"; };
+		C442F4F22332AE0700DD85D8 /* PersonRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRowController.swift; sourceTree = "<group>"; };
+		C442F4F42332AF8E00DD85D8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.0.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		C446941D22DF69FB006027A8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		C4615BD92325045500C04EE7 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C48D5AEA22F4984B00695DB2 /* database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.db; sourceTree = "<group>"; };
 		C49AFCD622FAE72E00A20C5D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		C4ACF172233566CB00198891 /* MagazineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineController.swift; sourceTree = "<group>"; };
+		C4ACF1742335673900198891 /* PatioInterior.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = PatioInterior.pdf; path = ../../../../Cerbuna/PatioInterior.pdf; sourceTree = "<group>"; };
 		C4B32CE023264F77007DC778 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C4CD76E62300F1BB00964509 /* BoletinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoletinViewController.swift; sourceTree = "<group>"; };
 		C4CD76E82300F82100964509 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -215,11 +223,13 @@
 				C446941D22DF69FB006027A8 /* TableViewController.swift */,
 				C4615BD92325045500C04EE7 /* FilterTableViewController.swift */,
 				C4B32CE023264F77007DC778 /* SettingsViewController.swift */,
+				C4ACF172233566CB00198891 /* MagazineController.swift */,
 				C49AFCD622FAE72E00A20C5D /* CardView.swift */,
 				C43B49EA22E62A1300DEF572 /* Person.swift */,
 				C404058A22DEA3D100259C86 /* Assets.xcassets */,
 				C404058C22DEA3D100259C86 /* LaunchScreen.storyboard */,
 				C48D5AEA22F4984B00695DB2 /* database.db */,
+				C4ACF1742335673900198891 /* PatioInterior.pdf */,
 				C404058F22DEA3D100259C86 /* Info.plist */,
 			);
 			path = CerbuApp;
@@ -258,6 +268,7 @@
 			children = (
 				C442F4CF233287EC00DD85D8 /* ContentView.swift */,
 				C442F4ED2332AAD100DD85D8 /* TableInterfaceController.swift */,
+				C442F4F22332AE0700DD85D8 /* PersonRowController.swift */,
 				C442F4D3233287EC00DD85D8 /* ExtensionDelegate.swift */,
 				C442F4D9233287EC00DD85D8 /* ComplicationController.swift */,
 				C442F4DB233287ED00DD85D8 /* Assets.xcassets */,
@@ -279,6 +290,7 @@
 		C463F53422DFDFAF003E2C64 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C442F4F42332AF8E00DD85D8 /* libsqlite3.tbd */,
 				C4CD76E82300F82100964509 /* WebKit.framework */,
 				C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */,
 			);
@@ -436,6 +448,7 @@
 				C48D5AEB22F4A88A00695DB2 /* database.db in Resources */,
 				C404058E22DEA3D100259C86 /* LaunchScreen.storyboard in Resources */,
 				C404058B22DEA3D100259C86 /* Assets.xcassets in Resources */,
+				C4ACF1752335673A00198891 /* PatioInterior.pdf in Resources */,
 				C404058922DEA3D000259C86 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +505,7 @@
 				C4B32CE123264F77007DC778 /* SettingsViewController.swift in Sources */,
 				C49AFCD722FAE72E00A20C5D /* CardView.swift in Sources */,
 				C404058422DEA3D000259C86 /* SceneDelegate.swift in Sources */,
+				C4ACF173233566CB00198891 /* MagazineController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,8 +529,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C442F4EF2332AC3C00DD85D8 /* Person.swift in Sources */,
 				C442F4D0233287EC00DD85D8 /* ContentView.swift in Sources */,
 				C442F4D4233287EC00DD85D8 /* ExtensionDelegate.swift in Sources */,
+				C442F4F32332AE0700DD85D8 /* PersonRowController.swift in Sources */,
 				C442F4EE2332AAD100DD85D8 /* TableInterfaceController.swift in Sources */,
 				C442F4DA233287EC00DD85D8 /* ComplicationController.swift in Sources */,
 			);

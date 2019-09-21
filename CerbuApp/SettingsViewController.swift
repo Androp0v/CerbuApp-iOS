@@ -47,9 +47,9 @@ class SettingsViewController: UITableViewController {
         }
         
         if showRooms{
-            lockSwitch.isOn = false
-        }else{
             lockSwitch.isOn = true
+        }else{
+            lockSwitch.isOn = false
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(lockTapped(tapGestureRecognizer:)))

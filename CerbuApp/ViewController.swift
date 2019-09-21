@@ -51,7 +51,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
             cell.iconPhoto.image = UIImage.init(named: "menuicon")
         case 2:
             cell.iconLabel.text = "Revista Patio Interior"
-            cell.iconPhoto.image = UIImage.init(named: "nohres")
+            cell.iconPhoto.image = UIImage.init(named: "magazineicon")
         case 3:
             cell.iconLabel.text = "Avisos"
             cell.iconPhoto.image = UIImage.init(named: "AvisosIcon")
@@ -70,7 +70,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         case 1:
             self.performSegue(withIdentifier: "pushToMenu", sender: self)
         case 2:
-            print("Don't do anything")
+            self.performSegue(withIdentifier: "pushToMagazine", sender: self)
         case 3:
             self.performSegue(withIdentifier: "pushToNotifications", sender: self)
         default:
