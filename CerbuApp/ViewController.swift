@@ -27,7 +27,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
     @IBOutlet var ParentContainer: UIView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,9 +50,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
             cell.iconLabel.text = "Menú de comedor"
             cell.iconPhoto.image = UIImage.init(named: "menuicon")
         case 2:
+            cell.iconLabel.text = "Pase de comidas"
+            cell.iconPhoto.image = UIImage.init(named: "menuicon")
+        case 3:
             cell.iconLabel.text = "Revista Patio Interior"
             cell.iconPhoto.image = UIImage.init(named: "magazineicon")
-        case 3:
+        case 4:
             cell.iconLabel.text = "Avisos"
             cell.iconPhoto.image = UIImage.init(named: "AvisosIcon")
         default:
@@ -70,8 +73,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         case 1:
             self.performSegue(withIdentifier: "pushToMenu", sender: self)
         case 2:
-            self.performSegue(withIdentifier: "pushToMagazine", sender: self)
+            self.performSegue(withIdentifier: "pushToBarcode", sender: self)
         case 3:
+            self.performSegue(withIdentifier: "pushToMagazine", sender: self)
+        case 4:
             self.performSegue(withIdentifier: "pushToNotifications", sender: self)
         default:
             print("Don't do anything")

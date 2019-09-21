@@ -17,6 +17,9 @@ class MenuViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let urlpath = Bundle.main.path(forResource: "ld", ofType: "png");
+        
         webView.navigationDelegate = self
         webView.load(URLRequest(url: URL(string: "https://cerbuna.unizar.es/sites/cerbuna.unizar.es/files/users/temporales/menus_mayo.pdf")!))
     }
