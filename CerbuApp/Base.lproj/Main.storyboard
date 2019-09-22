@@ -374,24 +374,24 @@
                                 <rect key="frame" x="20" y="20" width="374" height="422"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="becarioWhite" translatesAutoresizingMaskIntoConstraints="NO" id="aLs-lo-lcy">
-                                        <rect key="frame" x="12" y="12" width="69" height="58"/>
+                                        <rect key="frame" x="12" y="12" width="34.5" height="29"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CMU Pedro Cerbuna" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFY-PF-pdM">
-                                        <rect key="frame" x="89" y="16" width="171" height="21"/>
+                                        <rect key="frame" x="54.5" y="16" width="171" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="stripFood" translatesAutoresizingMaskIntoConstraints="NO" id="EdN-C0-j00">
-                                        <rect key="frame" x="8" y="49" width="358" height="176"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stripFood" translatesAutoresizingMaskIntoConstraints="NO" id="EdN-C0-j00">
+                                        <rect key="frame" x="8" y="49" width="358" height="231"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="EdN-C0-j00" secondAttribute="height" multiplier="358:153" id="CJb-8L-1EF"/>
+                                            <constraint firstAttribute="width" secondItem="EdN-C0-j00" secondAttribute="height" multiplier="358:231" id="M5Y-S1-RBn"/>
                                         </constraints>
                                     </imageView>
                                     <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="gJG-BV-V3S">
                                         <rect key="frame" x="24" y="317" width="326" height="81"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eUD-QJ-o6o">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcode" translatesAutoresizingMaskIntoConstraints="NO" id="eUD-QJ-o6o">
                                                 <rect key="frame" x="67.5" y="22" width="191" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="191" id="P1K-lw-Knh"/>
@@ -1138,6 +1138,7 @@
     </scenes>
     <resources>
         <image name="HotIcon" width="165" height="165"/>
+        <image name="barcode" width="382" height="96"/>
         <image name="becario" width="165" height="165"/>
         <image name="becarioWhite" width="34.5" height="29"/>
         <image name="boletin_048" width="1080" height="210"/>

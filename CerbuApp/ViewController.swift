@@ -51,7 +51,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
             cell.iconPhoto.image = UIImage.init(named: "menuicon")
         case 2:
             cell.iconLabel.text = "Pase de comidas"
-            cell.iconPhoto.image = UIImage.init(named: "menuicon")
+            cell.iconPhoto.image = UIImage.init(named: "barcodeIcon")
         case 3:
             cell.iconLabel.text = "Revista Patio Interior"
             cell.iconPhoto.image = UIImage.init(named: "magazineicon")

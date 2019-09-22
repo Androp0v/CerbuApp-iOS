@@ -26,7 +26,7 @@ class BarcodeViewController: UIViewController{
         passView.layer.shadowColor = UIColor.init(named: "LighOnlyShadow")?.cgColor
         passView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         passView.layer.shadowRadius = 12.0
-        passView.layer.shadowOpacity = 0.2
+        passView.layer.shadowOpacity = 0.3
         
         barcodeContainer.layer.cornerRadius = 5
         //barcodeImage.layer.magnificationFilter = CALayerContentsFilter.nearest
@@ -57,7 +57,7 @@ class BarcodeViewController: UIViewController{
       }
 
       // image has not been created yet: create it, store it, return it
-      return UIImage()
+      return UIImage(named: "barcode")!
     }
     
 
