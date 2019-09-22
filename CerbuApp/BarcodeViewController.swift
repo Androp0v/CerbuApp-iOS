@@ -15,6 +15,20 @@ class BarcodeViewController: UIViewController{
     @IBOutlet var barcodeContainer: UIView!
     @IBOutlet var barcodeImage: UIImageView!
     var savedBrightness: CGFloat = 0.5
+    var invited: Bool = false
+    @IBOutlet var invitedButton: UIButton!
+    
+    @IBAction func invitedButtonPress(_ sender: Any) {
+        if invited{
+            invited = false
+            invitedButton.setTitle("Mostrar código de invitados", for: .normal)
+            barcodeImage.image = loadImageFromAppData()
+        }else{
+            invited = true
+            invitedButton.setTitle("Mostrar código de colegial", for: .normal)
+            barcodeImage.image = loadImageFromAppData()
+        }
+    }
     
     var imagePicker: ImagePicker!
         
@@ -57,20 +71,33 @@ class BarcodeViewController: UIViewController{
     }
     
     func loadImageFromAppData() -> UIImage {
-      // declare image location
-      let imageName = "barcode" // your image name here
-      let imagePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(imageName).png"
-      let imageUrl: URL = URL(fileURLWithPath: imagePath)
+        if !invited{
+            // declare image location
+            let imageName = "barcode" // your image name here
+            let imagePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(imageName).png"
+            let imageUrl: URL = URL(fileURLWithPath: imagePath)
 
-      // check if the image is stored already
-      if FileManager.default.fileExists(atPath: imagePath),
-         let imageData: Data = try? Data(contentsOf: imageUrl),
-         let image: UIImage = UIImage(data: imageData, scale: UIScreen.main.scale) {
-        return image
-      }
+            // check if the image is stored already
+            if FileManager.default.fileExists(atPath: imagePath),
+               let imageData: Data = try? Data(contentsOf: imageUrl),
+               let image: UIImage = UIImage(data: imageData, scale: UIScreen.main.scale) {
+              return image
+            }
+        }else{
+            // declare image location
+            let imageName = "barcodeInv" // your image name here
+            let imagePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(imageName).png"
+            let imageUrl: URL = URL(fileURLWithPath: imagePath)
 
-      // image has not been created yet: create it, store it, return it
-      return UIImage(named: "barcode")!
+            // check if the image is stored already
+            if FileManager.default.fileExists(atPath: imagePath),
+               let imageData: Data = try? Data(contentsOf: imageUrl),
+               let image: UIImage = UIImage(data: imageData, scale: UIScreen.main.scale) {
+              return image
+            }
+        }
+        // image has not been created yet: create it, store it, return it
+        return UIImage(named: "barcode")!
     }
     
 
@@ -95,12 +122,22 @@ extension BarcodeViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
         self.barcodeImage.image = image
         
-        //Store the image:
-        let imageName = "barcode" // your image name here
-        let imagePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(imageName).png"
-        let imageUrl: URL = URL(fileURLWithPath: imagePath)
-        
-        let newImage: UIImage = self.barcodeImage.image ?? UIImage(named: "barcode")!
-        try? newImage.pngData()?.write(to: imageUrl)
+        if !invited{
+            //Store the image:
+            let imageName = "barcode" // your image name here
+            let imagePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(imageName).png"
+            let imageUrl: URL = URL(fileURLWithPath: imagePath)
+            
+            let newImage: UIImage = self.barcodeImage.image ?? UIImage(named: "barcode")!
+            try? newImage.pngData()?.write(to: imageUrl)
+        }else{
+            //Store the image:
+            let imageName = "barcodeInv" // your image name here
+            let imagePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(imageName).png"
+            let imageUrl: URL = URL(fileURLWithPath: imagePath)
+            
+            let newImage: UIImage = self.barcodeImage.image ?? UIImage(named: "barcode")!
+            try? newImage.pngData()?.write(to: imageUrl)
+        }
     }
 }
