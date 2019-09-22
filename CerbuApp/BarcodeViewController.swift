@@ -14,6 +14,7 @@ class BarcodeViewController: UIViewController{
     @IBOutlet var passView: UIView!
     @IBOutlet var barcodeContainer: UIView!
     @IBOutlet var barcodeImage: UIImageView!
+    var savedBrightness: CGFloat = 0.5
     
     var imagePicker: ImagePicker!
         
@@ -36,6 +37,18 @@ class BarcodeViewController: UIViewController{
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(loadImage(tapGestureRecognizer:)))
         barcodeContainer.isUserInteractionEnabled = true
         barcodeContainer.addGestureRecognizer(tapGestureRecognizer)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        savedBrightness = UIScreen.main.brightness
+        UIScreen.animateBrightness(to: 1.0)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIScreen.animateBrightness(to: savedBrightness)
     }
     
     @objc func loadImage(tapGestureRecognizer: UITapGestureRecognizer){
@@ -61,6 +74,21 @@ class BarcodeViewController: UIViewController{
     }
     
 
+}
+
+extension UIScreen {
+    private static let step: CGFloat = 0.05
+
+    static func animateBrightness(to value: CGFloat) {
+        guard abs(UIScreen.main.brightness - value) > step else { return }
+
+        let delta = UIScreen.main.brightness > value ? -step : step
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            UIScreen.main.brightness += delta
+            animateBrightness(to: value)
+        }
+    }
 }
 
 extension BarcodeViewController: ImagePickerDelegate {
