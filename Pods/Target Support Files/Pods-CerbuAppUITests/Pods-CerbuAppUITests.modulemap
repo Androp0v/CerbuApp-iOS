@@ -1,0 +1,6 @@
+framework module Pods_CerbuAppUITests {
+  umbrella header "Pods-CerbuAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

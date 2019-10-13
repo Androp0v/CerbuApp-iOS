@@ -63,6 +63,14 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
             likedImageView.image = UIImage.init(named: "HotIcon")
         }else{
             likedImageView.image = UIImage.init(named: "HotIconUnselected")
+            
+            if detailedPerson?.name == "Raúl" && detailedPerson?.surname_1 == "Montón"{
+                if let filter = CIFilter(name: "CIColorInvert") {
+                    filter.setValue(CIImage(image: UIImage.init(named: "HotIconUnselected")!), forKey: kCIInputImageKey)
+                    let newImage = UIImage(ciImage: filter.outputImage!)
+                    likedImageView.image = newImage
+                }
+            }
         }
         
         let testString1: String
@@ -103,6 +111,14 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
             detailedPerson?.liked = false
             likedImageView.image = UIImage.init(named: "HotIconUnselected")
             
+            if detailedPerson?.name == "Raúl" && detailedPerson?.surname_1 == "Montón"{
+                if let filter = CIFilter(name: "CIColorInvert") {
+                    filter.setValue(CIImage(image: UIImage.init(named: "HotIconUnselected")!), forKey: kCIInputImageKey)
+                    let newImage = UIImage(ciImage: filter.outputImage!)
+                    likedImageView.image = newImage
+                }
+            }
+            
             let queryString = "UPDATE colegiales SET likes = 0 WHERE _id = " + String(detailedPerson!.id)
             
             if sqlite3_exec(db, queryString, nil, nil, nil) != SQLITE_OK {
@@ -134,6 +150,21 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
                        completion: nil)
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DATABASE_CHANGED"), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Show the navigation bar on other view controllers
+        if detailedPerson?.name == "Raúl" && detailedPerson?.surname_1 == "Montón"{
+            overrideUserInterfaceStyle = .dark
+            navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Show the navigation bar on other view controllers
+        navigationController?.navigationBar.barTintColor = UIColor.init(named: "MainAppColor")
     }
     
 

@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		393E8EC4DCB5972CD767B139 /* Pods_CerbuApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0753A93964E5C2BDA86EB8 /* Pods_CerbuApp.framework */; };
+		8A1C6EE80C09B0A02B6B8CD1 /* Pods_CerbuAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D5FDA5D36625C66C370E51 /* Pods_CerbuAppUITests.framework */; };
+		9A2228BAD04364445AD8A503 /* Pods_CerbuApp_Watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02AA4FFFD8F4237DA3616AD0 /* Pods_CerbuApp_Watch.framework */; };
 		C404058222DEA3D000259C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404058122DEA3D000259C86 /* AppDelegate.swift */; };
 		C404058422DEA3D000259C86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404058322DEA3D000259C86 /* SceneDelegate.swift */; };
 		C404058622DEA3D000259C86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404058522DEA3D000259C86 /* ViewController.swift */; };
@@ -33,6 +36,7 @@
 		C463F53622DFDFC3003E2C64 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */; };
 		C4729F6E233663400037222D /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4729F6D233663400037222D /* BarcodeViewController.swift */; };
 		C4729F702336A55B0037222D /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4729F6F2336A55B0037222D /* ImagePickerController.swift */; };
+		C48BD7FF233BB0E600FE1C69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C48BD7FE233BB0E600FE1C69 /* GoogleService-Info.plist */; };
 		C48D5AEB22F4A88A00695DB2 /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = C48D5AEA22F4984B00695DB2 /* database.db */; };
 		C49AFCD722FAE72E00A20C5D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD622FAE72E00A20C5D /* CardView.swift */; };
 		C49AFCD922FDA5FD00A20C5D /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */; };
@@ -44,6 +48,8 @@
 		C4CD76EB2300F86100964509 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD76EA2300F86100964509 /* MenuViewController.swift */; };
 		C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */; };
 		C4F95C5A22F5E5FA00E3E5BD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F95C5922F5E5FA00E3E5BD /* DetailsViewController.swift */; };
+		CD6FB2DE59F20C4F0E33EFE5 /* Pods_CerbuAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF28CAF2CAC04C83DB668F1 /* Pods_CerbuAppTests.framework */; };
+		E2E975864B29CEB056B54C4F /* Pods_CerbuApp_Watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2986DC7BE9A42B1ECDE1075B /* Pods_CerbuApp_Watch_Extension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +109,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02AA4FFFD8F4237DA3616AD0 /* Pods_CerbuApp_Watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CerbuApp_Watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2986DC7BE9A42B1ECDE1075B /* Pods_CerbuApp_Watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CerbuApp_Watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31A7BA85993E23A83BD18FC3 /* Pods-CerbuApp Watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuApp Watch.release.xcconfig"; path = "Target Support Files/Pods-CerbuApp Watch/Pods-CerbuApp Watch.release.xcconfig"; sourceTree = "<group>"; };
+		3A0753A93964E5C2BDA86EB8 /* Pods_CerbuApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CerbuApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CCE65D9807C2CB757E3B4ED /* Pods-CerbuAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuAppUITests.release.xcconfig"; path = "Target Support Files/Pods-CerbuAppUITests/Pods-CerbuAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		73D5FDA5D36625C66C370E51 /* Pods_CerbuAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CerbuAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C037290900C1183EF7EA80C /* Pods-CerbuAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuAppTests.release.xcconfig"; path = "Target Support Files/Pods-CerbuAppTests/Pods-CerbuAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		7FF28CAF2CAC04C83DB668F1 /* Pods_CerbuAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CerbuAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		897787430C88C6679727BF82 /* Pods-CerbuApp Watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuApp Watch.debug.xcconfig"; path = "Target Support Files/Pods-CerbuApp Watch/Pods-CerbuApp Watch.debug.xcconfig"; sourceTree = "<group>"; };
+		8FC78B6F16FC392481E794C5 /* Pods-CerbuApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuApp.debug.xcconfig"; path = "Target Support Files/Pods-CerbuApp/Pods-CerbuApp.debug.xcconfig"; sourceTree = "<group>"; };
+		9683DEC319ADA670A3FFCB3E /* Pods-CerbuAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-CerbuAppUITests/Pods-CerbuAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9EFF703FEDE6E9A340663624 /* Pods-CerbuApp Watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuApp Watch Extension.release.xcconfig"; path = "Target Support Files/Pods-CerbuApp Watch Extension/Pods-CerbuApp Watch Extension.release.xcconfig"; sourceTree = "<group>"; };
+		B270631D976E7C149B532F05 /* Pods-CerbuApp Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuApp Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-CerbuApp Watch Extension/Pods-CerbuApp Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		BF09ADEF7739AB828A42A96D /* Pods-CerbuAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CerbuAppTests/Pods-CerbuAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C404057E22DEA3D000259C86 /* CerbuApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CerbuApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C404058122DEA3D000259C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C404058322DEA3D000259C86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +159,7 @@
 		C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C4729F6D233663400037222D /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
 		C4729F6F2336A55B0037222D /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		C48BD7FE233BB0E600FE1C69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C48D5AEA22F4984B00695DB2 /* database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.db; sourceTree = "<group>"; };
 		C49AFCD622FAE72E00A20C5D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -150,15 +171,25 @@
 		C4CD76EA2300F86100964509 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		C4F95C5922F5E5FA00E3E5BD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		FAAE310FF88FBC3044498835 /* Pods-CerbuApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuApp.release.xcconfig"; path = "Target Support Files/Pods-CerbuApp/Pods-CerbuApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		31C0434C09F37938947202CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A2228BAD04364445AD8A503 /* Pods_CerbuApp_Watch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C404057B22DEA3D000259C86 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C4CD76E92300F82100964509 /* WebKit.framework in Frameworks */,
 				C463F53622DFDFC3003E2C64 /* libsqlite3.tbd in Frameworks */,
+				393E8EC4DCB5972CD767B139 /* Pods_CerbuApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD6FB2DE59F20C4F0E33EFE5 /* Pods_CerbuAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1C6EE80C09B0A02B6B8CD1 /* Pods_CerbuAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E975864B29CEB056B54C4F /* Pods_CerbuApp_Watch_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +230,7 @@
 				C442F4CE233287EC00DD85D8 /* CerbuApp Watch Extension */,
 				C404057F22DEA3D000259C86 /* Products */,
 				C463F53422DFDFAF003E2C64 /* Frameworks */,
+				D83FD5D16ECCE1F0C4413A1C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -236,6 +271,7 @@
 				C404058C22DEA3D100259C86 /* LaunchScreen.storyboard */,
 				C48D5AEA22F4984B00695DB2 /* database.db */,
 				C4ACF1742335673900198891 /* PatioInterior.pdf */,
+				C48BD7FE233BB0E600FE1C69 /* GoogleService-Info.plist */,
 				C404058F22DEA3D100259C86 /* Info.plist */,
 			);
 			path = CerbuApp;
@@ -299,8 +335,30 @@
 				C442F4F42332AF8E00DD85D8 /* libsqlite3.tbd */,
 				C4CD76E82300F82100964509 /* WebKit.framework */,
 				C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */,
+				3A0753A93964E5C2BDA86EB8 /* Pods_CerbuApp.framework */,
+				02AA4FFFD8F4237DA3616AD0 /* Pods_CerbuApp_Watch.framework */,
+				2986DC7BE9A42B1ECDE1075B /* Pods_CerbuApp_Watch_Extension.framework */,
+				7FF28CAF2CAC04C83DB668F1 /* Pods_CerbuAppTests.framework */,
+				73D5FDA5D36625C66C370E51 /* Pods_CerbuAppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D83FD5D16ECCE1F0C4413A1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FC78B6F16FC392481E794C5 /* Pods-CerbuApp.debug.xcconfig */,
+				FAAE310FF88FBC3044498835 /* Pods-CerbuApp.release.xcconfig */,
+				897787430C88C6679727BF82 /* Pods-CerbuApp Watch.debug.xcconfig */,
+				31A7BA85993E23A83BD18FC3 /* Pods-CerbuApp Watch.release.xcconfig */,
+				B270631D976E7C149B532F05 /* Pods-CerbuApp Watch Extension.debug.xcconfig */,
+				9EFF703FEDE6E9A340663624 /* Pods-CerbuApp Watch Extension.release.xcconfig */,
+				BF09ADEF7739AB828A42A96D /* Pods-CerbuAppTests.debug.xcconfig */,
+				7C037290900C1183EF7EA80C /* Pods-CerbuAppTests.release.xcconfig */,
+				9683DEC319ADA670A3FFCB3E /* Pods-CerbuAppUITests.debug.xcconfig */,
+				6CCE65D9807C2CB757E3B4ED /* Pods-CerbuAppUITests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,10 +368,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C40405A822DEA3D100259C86 /* Build configuration list for PBXNativeTarget "CerbuApp" */;
 			buildPhases = (
+				7A552AE4D57E9269F410FCD3 /* [CP] Check Pods Manifest.lock */,
 				C404057A22DEA3D000259C86 /* Sources */,
 				C404057B22DEA3D000259C86 /* Frameworks */,
 				C404057C22DEA3D000259C86 /* Resources */,
 				C442F4EC233287ED00DD85D8 /* Embed Watch Content */,
+				D422AE52B01EF42D3F8732BA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,6 +389,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C40405AB22DEA3D100259C86 /* Build configuration list for PBXNativeTarget "CerbuAppTests" */;
 			buildPhases = (
+				DCDF1F8AF637D8CC9763E2EA /* [CP] Check Pods Manifest.lock */,
 				C404059022DEA3D100259C86 /* Sources */,
 				C404059122DEA3D100259C86 /* Frameworks */,
 				C404059222DEA3D100259C86 /* Resources */,
@@ -347,6 +408,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C40405AE22DEA3D100259C86 /* Build configuration list for PBXNativeTarget "CerbuAppUITests" */;
 			buildPhases = (
+				DE375A76F96A805B8061915E /* [CP] Check Pods Manifest.lock */,
 				C404059B22DEA3D100259C86 /* Sources */,
 				C404059C22DEA3D100259C86 /* Frameworks */,
 				C404059D22DEA3D100259C86 /* Resources */,
@@ -365,8 +427,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C442F4E9233287ED00DD85D8 /* Build configuration list for PBXNativeTarget "CerbuApp Watch" */;
 			buildPhases = (
+				A4C8D91A3BCE926873D0A673 /* [CP] Check Pods Manifest.lock */,
 				C442F4BC233287E900DD85D8 /* Resources */,
 				C442F4E8233287ED00DD85D8 /* Embed App Extensions */,
+				31C0434C09F37938947202CD /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -382,6 +446,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C442F4E5233287ED00DD85D8 /* Build configuration list for PBXNativeTarget "CerbuApp Watch Extension" */;
 			buildPhases = (
+				DC94218304A14B950FC9CE69 /* [CP] Check Pods Manifest.lock */,
 				C442F4C6233287EC00DD85D8 /* Sources */,
 				C442F4C7233287EC00DD85D8 /* Frameworks */,
 				C442F4C8233287EC00DD85D8 /* Resources */,
@@ -456,6 +521,7 @@
 				C404058B22DEA3D100259C86 /* Assets.xcassets in Resources */,
 				C4ACF1752335673A00198891 /* PatioInterior.pdf in Resources */,
 				C404058922DEA3D000259C86 /* Main.storyboard in Resources */,
+				C48BD7FF233BB0E600FE1C69 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +558,136 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A552AE4D57E9269F410FCD3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CerbuApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4C8D91A3BCE926873D0A673 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CerbuApp Watch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D422AE52B01EF42D3F8732BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CerbuApp/Pods-CerbuApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CerbuApp/Pods-CerbuApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CerbuApp/Pods-CerbuApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC94218304A14B950FC9CE69 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CerbuApp Watch Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCDF1F8AF637D8CC9763E2EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CerbuAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE375A76F96A805B8061915E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CerbuAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C404057A22DEA3D000259C86 /* Sources */ = {
@@ -715,6 +911,7 @@
 		};
 		C40405A922DEA3D100259C86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FC78B6F16FC392481E794C5 /* Pods-CerbuApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CerbuApp/CerbuApp.entitlements;
@@ -737,6 +934,7 @@
 		};
 		C40405AA22DEA3D100259C86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAAE310FF88FBC3044498835 /* Pods-CerbuApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CerbuApp/CerbuApp.entitlements;
@@ -759,6 +957,7 @@
 		};
 		C40405AC22DEA3D100259C86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF09ADEF7739AB828A42A96D /* Pods-CerbuAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -780,6 +979,7 @@
 		};
 		C40405AD22DEA3D100259C86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C037290900C1183EF7EA80C /* Pods-CerbuAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -801,6 +1001,7 @@
 		};
 		C40405AF22DEA3D100259C86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9683DEC319ADA670A3FFCB3E /* Pods-CerbuAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -821,6 +1022,7 @@
 		};
 		C40405B022DEA3D100259C86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CCE65D9807C2CB757E3B4ED /* Pods-CerbuAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -841,6 +1043,7 @@
 		};
 		C442F4E6233287ED00DD85D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B270631D976E7C149B532F05 /* Pods-CerbuApp Watch Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -865,6 +1068,7 @@
 		};
 		C442F4E7233287ED00DD85D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EFF703FEDE6E9A340663624 /* Pods-CerbuApp Watch Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -889,6 +1093,7 @@
 		};
 		C442F4EA233287ED00DD85D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 897787430C88C6679727BF82 /* Pods-CerbuApp Watch.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -908,6 +1113,7 @@
 		};
 		C442F4EB233287ED00DD85D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31A7BA85993E23A83BD18FC3 /* Pods-CerbuApp Watch.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

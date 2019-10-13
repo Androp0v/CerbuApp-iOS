@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 extension UINavigationController {
     override open var preferredStatusBarStyle: UIStatusBarStyle {
@@ -27,7 +28,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
     @IBOutlet var ParentContainer: UIView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -93,6 +94,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         ContainerView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         ContainerView.layer.shadowRadius = 12.0
         ContainerView.layer.shadowOpacity = 0.5
+        
+        Messaging.messaging().subscribe(toTopic: "allIOS")
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
         tap.cancelsTouchesInView = false

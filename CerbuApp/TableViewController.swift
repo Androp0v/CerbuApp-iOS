@@ -518,7 +518,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let photo1 = UIImage(named: "nohres")!
         
         //this is our select query
-        let queryString = "SELECT * FROM colegiales ORDER BY names"
+        let queryString = "SELECT * FROM colegiales"
         
         //Perform collation on database
         
@@ -580,7 +580,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let photo1 = UIImage(named: "nohres")!
         
         //this is our select query
-        let queryString = "SELECT * FROM colegiales WHERE promotions = " + String(promotion) + " ORDER BY names"
+        let queryString = "SELECT * FROM colegiales WHERE promotions = " + String(promotion)
         
         //Perform collation on database
         
