@@ -883,6 +883,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PjS-FN-sUo">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gDc-Yq-DJV">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                 <constraints>
@@ -933,8 +937,10 @@
                             <constraint firstItem="UYe-pD-Sxg" firstAttribute="top" secondItem="p6b-OW-LPt" secondAttribute="bottom" constant="8" id="JXm-9n-mUF"/>
                             <constraint firstItem="kNm-oQ-qeA" firstAttribute="leading" secondItem="2xL-hB-geI" secondAttribute="leading" constant="24" id="Ku6-Wv-wHd"/>
                             <constraint firstItem="XEG-Zv-h63" firstAttribute="top" secondItem="kNm-oQ-qeA" secondAttribute="bottom" constant="10" id="NaC-eE-j1F"/>
+                            <constraint firstItem="PjS-FN-sUo" firstAttribute="width" secondItem="gDc-Yq-DJV" secondAttribute="width" id="RQu-eD-tMR"/>
                             <constraint firstItem="Jhq-d1-uW8" firstAttribute="top" secondItem="2xL-hB-geI" secondAttribute="top" id="RtE-kx-f3p"/>
                             <constraint firstItem="2xL-hB-geI" firstAttribute="trailing" secondItem="UYe-pD-Sxg" secondAttribute="trailing" constant="24" id="Xa3-JU-rXO"/>
+                            <constraint firstItem="PjS-FN-sUo" firstAttribute="height" secondItem="gDc-Yq-DJV" secondAttribute="height" id="bUX-G3-ygO"/>
                             <constraint firstItem="p6b-OW-LPt" firstAttribute="top" secondItem="gDc-Yq-DJV" secondAttribute="bottom" constant="24" id="bsv-3M-cmx"/>
                             <constraint firstAttribute="trailing" secondItem="p6b-OW-LPt" secondAttribute="trailing" constant="24" id="i6h-fa-wck"/>
                             <constraint firstItem="UYe-pD-Sxg" firstAttribute="leading" secondItem="2xL-hB-geI" secondAttribute="leading" constant="24" id="kkK-Xd-k8M"/>
@@ -949,6 +955,7 @@
                         <outlet property="becaImageView" destination="XEG-Zv-h63" id="Y63-Nf-DDN"/>
                         <outlet property="careerLabel" destination="UYe-pD-Sxg" id="WtO-UH-AvZ"/>
                         <outlet property="hresPhoto" destination="gDc-Yq-DJV" id="lq6-G5-hyW"/>
+                        <outlet property="hresPhotoBackground" destination="PjS-FN-sUo" id="8CQ-mc-4XY"/>
                         <outlet property="likedImageView" destination="Jhq-d1-uW8" id="3f1-hd-zM8"/>
                         <outlet property="nameLabel" destination="p6b-OW-LPt" id="uVG-Gv-Bcg"/>
                         <outlet property="roomLabel" destination="kNm-oQ-qeA" id="aOj-L9-e8F"/>
@@ -956,7 +963,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQx-MD-6ny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3051" y="434"/>
+            <point key="canvasLocation" x="3050.7246376811595" y="433.92857142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rvJ-wv-cAH">
@@ -1129,7 +1136,7 @@
             <objects>
                 <viewController id="eTj-LO-Whn" customClass="MagazineController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PnD-z3-h9o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="585.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gHC-6Z-4OO"/>

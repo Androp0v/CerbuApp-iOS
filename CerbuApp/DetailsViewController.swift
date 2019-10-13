@@ -29,6 +29,8 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
     var detailedPerson: Person?
     var db: OpaquePointer?
     let defaults = UserDefaults.standard
+    var originalImageCenter:CGPoint?
+    var isZooming = false
     
     @IBOutlet var roomLabel: UILabel!
     @IBOutlet var hresPhoto: UIImageView!
@@ -36,11 +38,20 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
     @IBOutlet var careerLabel: UILabel!
     @IBOutlet var becaImageView: UIImageView!
     @IBOutlet var likedImageView: UIImageView!
+    @IBOutlet var hresPhotoBackground: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Additional setup after loading the view.
+        
+        nameLabel.layer.zPosition = -1
+        careerLabel.layer.zPosition = -1
+        becaImageView.layer.zPosition = -1
+        roomLabel.layer.zPosition = -1
+        self.navigationController?.navigationBar.layer.zPosition = -1;
+        
+        hresPhotoBackground.backgroundColor = .systemBackground
         
         let nameLabelText: String = (detailedPerson?.name ?? "") + " " + (detailedPerson?.surname_1 ?? "")
         nameLabel.text = nameLabelText + " " + (detailedPerson?.surname_2 ?? "")
@@ -93,6 +104,69 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         tap.delegate = self
         likedImageView.isUserInteractionEnabled = true
         likedImageView.addGestureRecognizer(tap)
+        
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(pinch(sender:)))
+        hresPhoto.isUserInteractionEnabled = true
+        hresPhoto.addGestureRecognizer(pinch)
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(sender:)))
+        pan.delegate = self
+        hresPhoto.addGestureRecognizer(pan)
+
+    }
+   
+    @objc func pinch(sender:UIPinchGestureRecognizer) {
+        if sender.state == .began {
+            isZooming = true
+            self.originalImageCenter = sender.view?.center
+        } else if sender.state == .changed {
+            guard let view = sender.view else {return}
+            
+            let pinchCenter = CGPoint(x: sender.location(in: view).x - view.bounds.midX,
+            y: sender.location(in: view).y - view.bounds.midY)
+                        
+            let transform = view.transform.translatedBy(x: pinchCenter.x, y: pinchCenter.y)
+            .scaledBy(x: sender.scale, y: sender.scale)
+            .translatedBy(x: -pinchCenter.x, y: -pinchCenter.y)
+            
+            let currentScale = self.hresPhoto.frame.size.width / self.hresPhoto.bounds.size.width
+            var newScale = currentScale*sender.scale
+            
+            if newScale < 1 {
+                newScale = 1
+                let transform = CGAffineTransform(scaleX: newScale, y: newScale)
+                self.hresPhoto.transform = transform
+                sender.scale = 1
+            }else {
+                view.transform = transform
+                sender.scale = 1
+            }
+        }else if sender.state == .ended || sender.state == .failed || sender.state == .cancelled {
+            
+            guard let center = self.originalImageCenter else {return}
+            
+            UIView.animate(withDuration: 0.3, animations: {
+            self.hresPhoto.transform = CGAffineTransform.identity
+            self.hresPhoto.center = center
+            })
+            
+            isZooming = false
+
+        }
+    }
+    
+    @objc func pan(sender: UIPanGestureRecognizer) {
+        if sender.state == .began && isZooming{
+            //self.originalImageCenter = sender.view?.center
+        } else if sender.state == .changed && isZooming{
+            
+            let translation = sender.translation(in: view)
+            
+            if let view = sender.view {
+                view.center = CGPoint(x:view.center.x + translation.x, y:view.center.y + translation.y)
+            }
+            sender.setTranslation(CGPoint.zero, in: self.hresPhoto.superview)
+        }
     }
     
     @objc func tapHandler(gesture: UITapGestureRecognizer){
@@ -158,6 +232,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         if detailedPerson?.name == "Raúl" && detailedPerson?.surname_1 == "Montón"{
             overrideUserInterfaceStyle = .dark
             navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0)
+            hresPhotoBackground.backgroundColor = UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0)
         }
     }
     
@@ -165,6 +240,10 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         super.viewWillDisappear(animated)
         // Show the navigation bar on other view controllers
         navigationController?.navigationBar.barTintColor = UIColor.init(named: "MainAppColor")
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
 
