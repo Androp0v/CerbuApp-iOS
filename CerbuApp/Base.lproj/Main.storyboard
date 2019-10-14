@@ -374,16 +374,16 @@
                                 <rect key="frame" x="20" y="20" width="374" height="422"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="becarioWhite" translatesAutoresizingMaskIntoConstraints="NO" id="aLs-lo-lcy">
-                                        <rect key="frame" x="12" y="12" width="69" height="58"/>
+                                        <rect key="frame" x="12" y="12" width="34.5" height="29"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CMU Pedro Cerbuna" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFY-PF-pdM">
-                                        <rect key="frame" x="89" y="16" width="171" height="21"/>
+                                        <rect key="frame" x="54.5" y="16" width="171" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stripFood" translatesAutoresizingMaskIntoConstraints="NO" id="EdN-C0-j00">
-                                        <rect key="frame" x="0.0" y="78" width="370" height="238.5"/>
+                                        <rect key="frame" x="0.0" y="49" width="370" height="238.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="EdN-C0-j00" secondAttribute="height" multiplier="358:231" id="M5Y-S1-RBn"/>
                                         </constraints>
@@ -883,7 +883,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PjS-FN-sUo">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjS-FN-sUo">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
@@ -937,11 +937,13 @@
                             <constraint firstItem="UYe-pD-Sxg" firstAttribute="top" secondItem="p6b-OW-LPt" secondAttribute="bottom" constant="8" id="JXm-9n-mUF"/>
                             <constraint firstItem="kNm-oQ-qeA" firstAttribute="leading" secondItem="2xL-hB-geI" secondAttribute="leading" constant="24" id="Ku6-Wv-wHd"/>
                             <constraint firstItem="XEG-Zv-h63" firstAttribute="top" secondItem="kNm-oQ-qeA" secondAttribute="bottom" constant="10" id="NaC-eE-j1F"/>
+                            <constraint firstItem="PjS-FN-sUo" firstAttribute="top" secondItem="2xL-hB-geI" secondAttribute="top" id="Plm-GS-ac3"/>
                             <constraint firstItem="PjS-FN-sUo" firstAttribute="width" secondItem="gDc-Yq-DJV" secondAttribute="width" id="RQu-eD-tMR"/>
                             <constraint firstItem="Jhq-d1-uW8" firstAttribute="top" secondItem="2xL-hB-geI" secondAttribute="top" id="RtE-kx-f3p"/>
                             <constraint firstItem="2xL-hB-geI" firstAttribute="trailing" secondItem="UYe-pD-Sxg" secondAttribute="trailing" constant="24" id="Xa3-JU-rXO"/>
                             <constraint firstItem="PjS-FN-sUo" firstAttribute="height" secondItem="gDc-Yq-DJV" secondAttribute="height" id="bUX-G3-ygO"/>
                             <constraint firstItem="p6b-OW-LPt" firstAttribute="top" secondItem="gDc-Yq-DJV" secondAttribute="bottom" constant="24" id="bsv-3M-cmx"/>
+                            <constraint firstItem="PjS-FN-sUo" firstAttribute="centerX" secondItem="2xL-hB-geI" secondAttribute="centerX" id="dAv-Fy-hb5"/>
                             <constraint firstAttribute="trailing" secondItem="p6b-OW-LPt" secondAttribute="trailing" constant="24" id="i6h-fa-wck"/>
                             <constraint firstItem="UYe-pD-Sxg" firstAttribute="leading" secondItem="2xL-hB-geI" secondAttribute="leading" constant="24" id="kkK-Xd-k8M"/>
                             <constraint firstItem="2xL-hB-geI" firstAttribute="trailing" secondItem="Jhq-d1-uW8" secondAttribute="trailing" id="m29-fg-kJK"/>
@@ -1136,7 +1138,7 @@
             <objects>
                 <viewController id="eTj-LO-Whn" customClass="MagazineController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PnD-z3-h9o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="585.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gHC-6Z-4OO"/>
@@ -1161,10 +1163,10 @@
         <image name="orlabackground" width="1920" height="1273"/>
         <image name="stripFood" width="537" height="346.5"/>
         <namedColor name="MainAppColor">
-            <color red="0.013000000268220901" green="0.078000001609325409" blue="0.17900000512599945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.050999999046325684" green="0.27799999713897705" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ShadowMainAppColor">
-            <color red="0.0039215686274509803" green="0.086274509803921567" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.035294117647058823" green="0.19215686274509805" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -102,7 +102,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     
         cell.nameLabel.text = person.name + " " + person.surname_1 + " " + person.surname_2
-        cell.orlaImageView.image = person.iconPhoto
+    
+        let iconPhoto = UIImage(named: (cleanString(rawString: person.name+person.surname_1))) ?? UIImage(named: (cleanString(rawString: person.name+person.surname_1+person.surname_2))) ?? UIImage(named: "nohres")!
+    
+        cell.orlaImageView.image = iconPhoto
     
         if person.beca.isEmpty {
             cell.careerLabel.text = person.career
@@ -514,9 +517,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     private func loadPeopleFromDatabase(){
-        
-        let photo1 = UIImage(named: "nohres")!
-        
+                
         //this is our select query
         let queryString = "SELECT * FROM colegiales"
         
@@ -561,10 +562,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let floor = sqlite3_column_int(stmt, 8)
             let gender = sqlite3_column_int(stmt, 10)
-            let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? UIImage(named: (cleanString(rawString: name+surname_1+surname_2))) ?? photo1
             
             //adding values to list
-            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like, gender: Int(gender))!)
+            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), liked: like, gender: Int(gender))!)
         }
         
         if defaults.bool(forKey: "surnameFirst"){
@@ -576,9 +576,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     private func loadPeopleFromDatabaseProm(promotion: Int){
-        
-        let photo1 = UIImage(named: "nohres")!
-        
+                
         //this is our select query
         let queryString = "SELECT * FROM colegiales WHERE promotions = " + String(promotion)
         
@@ -622,10 +620,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let floor = sqlite3_column_int(stmt, 8)
             let gender = sqlite3_column_int(stmt, 10)
-            let iconPhoto = UIImage(named: (cleanString(rawString: name+surname_1))) ?? UIImage(named: (cleanString(rawString: name+surname_1+surname_2))) ?? photo1
             
             //adding values to list
-            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), iconPhoto: iconPhoto, liked: like, gender: Int(gender))!)
+            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), liked: like, gender: Int(gender))!)
         }
         
         if defaults.bool(forKey: "surnameFirst"){

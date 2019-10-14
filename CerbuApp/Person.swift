@@ -27,7 +27,7 @@ class Person {
     
     //MARK: Initialization
     
-    init?(id: Int, name: String, surname_1: String, surname_2: String, career: String, beca: String, room: String, floor: Int, iconPhoto: UIImage, liked: Bool, gender: Int) {
+    init?(id: Int, name: String, surname_1: String, surname_2: String, career: String, beca: String, room: String, floor: Int, liked: Bool, gender: Int) {
         
         if name.isEmpty {
             return nil
@@ -43,9 +43,7 @@ class Person {
         self.floor = floor
         self.liked = liked
         self.gender = gender
-        
-        self.iconPhoto = iconPhoto
-        
+                
     }
     
     func getName() -> String {
