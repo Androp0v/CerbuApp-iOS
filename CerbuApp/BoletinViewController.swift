@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import WebKit
 
-class BoletinViewController: UIViewController {
+class BoletinViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet var BoletinHeader: UIImageView!
-    
+    @IBOutlet var boletinContentWebView: WKWebView!
+    @IBOutlet var spinningWheel: UIActivityIndicatorView!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,9 +33,31 @@ class BoletinViewController: UIViewController {
         BoletinHeader.animationDuration = 1
         BoletinHeader.animationRepeatCount = 1
         BoletinHeader.startAnimating()
+        
+        boletinContentWebView.navigationDelegate = self
+        let urlString = "https://drive.google.com/uc?id=1raUqZ-P8zY1DiKIGwCvN8K65NFnaJk8Y"
+        let string = "<html><body marginwidth=\"0\" marginheight=\"0\" style=\"background-color: transparent\"><embed width=\"100%\" height=\"100%\" name=\"plugin\" src=\"\(urlString)\" type=\"application/pdf\"></body></html>"
+        boletinContentWebView.loadHTMLString(string, baseURL: nil)
+        boletinContentWebView.backgroundColor = UIColor.clear
+        boletinContentWebView.alpha = 0.0
+        boletinContentWebView.isOpaque = false
+        spinningWheel.stopAnimating()
+        
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // in half a second...
+            self.spinningWheel.startAnimating()
+        }
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        spinningWheel.stopAnimating()
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
+            self.boletinContentWebView.alpha = 1.0
+        }, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -8,6 +8,8 @@
 
 import UIKit
 import SQLite3
+import CoreSpotlight
+import MobileCoreServices
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -65,11 +67,69 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    func CutCircleOnUIImage(startingImage: UIImage) -> UIImage {
+        
+        // Create a context of the starting image size and set it as the current one
+        UIGraphicsBeginImageContext(startingImage.size)
+        let context = UIGraphicsGetCurrentContext()!
+
+        // Draw the starting image in the current context as background
+        let Rect: CGRect = CGRect(x: 0, y: 0, width: min(startingImage.size.width,startingImage.size.height), height: min(startingImage.size.width,startingImage.size.height))
+        let bezierPath = UIBezierPath(roundedRect: Rect, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: min(startingImage.size.width,startingImage.size.height),height: min(startingImage.size.width,startingImage.size.height)))
+        context.addPath(bezierPath.cgPath)
+        context.clip()
+        
+        context.drawPath(using: .fillStroke)
+        startingImage.draw(in: Rect)
+
+        // Save the context as a new UIImage
+        let circleImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        // Return modified image
+        return circleImage
+    }
+    
+    func loadDataForSpotlightIndexing(){
+        var searchableItems = [CSSearchableItem]()
+        
+        for i in 0...(People.count - 1){
+            
+            let searchableItemAttributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+            searchableItemAttributeSet.title = People[i].name + " " + People[i].surname_1 + " " + People[i].surname_2
+            
+            if People[i].beca.isEmpty {
+                searchableItemAttributeSet.contentDescription = People[i].career
+
+            }else{
+                searchableItemAttributeSet.contentDescription = People[i].career + " | " + People[i].beca
+            }
+            
+            let icon = UIImage(named: (cleanString(rawString: People[i].name+People[i].surname_1))) ?? UIImage(named: (cleanString(rawString: People[i].name+People[i].surname_1+People[i].surname_2))) ?? UIImage(named: "nohres")!
+            
+            searchableItemAttributeSet.thumbnailData = (CutCircleOnUIImage(startingImage: icon).pngData())
+            
+            let searchableItem = CSSearchableItem(uniqueIdentifier: "com.raulmonton.cerbuapp.\(i)", domainIdentifier: "people", attributeSet: searchableItemAttributeSet)
+
+            searchableItems.append(searchableItem)
+        }
+        
+        CSSearchableIndex.default().indexSearchableItems(searchableItems) { (error) -> Void in
+            if error != nil {
+                print(error?.localizedDescription as Any)
+            }
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         if searchActive{
             searchBar.becomeFirstResponder()
             let reloadString = self.searchBar.text
             self.searchBar(self.searchBar, textDidChange: reloadString ?? "")
+        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.loadDataForSpotlightIndexing()
         }
     }
     

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // Override point for customization after application launch.
         
-        /*
+        
         UNUserNotificationCenter.current().delegate = self
         
         UIApplication.shared.registerForRemoteNotifications()
@@ -30,8 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         application.registerForRemoteNotifications()
                 
         FirebaseApp.configure()
-         */
-                
+        
         return true
     }
 

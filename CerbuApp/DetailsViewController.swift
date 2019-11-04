@@ -125,8 +125,10 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
             let pinchCenter = CGPoint(x: sender.location(in: view).x - view.bounds.midX,
             y: sender.location(in: view).y - view.bounds.midY)
                         
+            let dampedScale = sender.scale //log(sender.scale + 1)
+                        
             let transform = view.transform.translatedBy(x: pinchCenter.x, y: pinchCenter.y)
-            .scaledBy(x: sender.scale, y: sender.scale)
+            .scaledBy(x: dampedScale, y: dampedScale)
             .translatedBy(x: -pinchCenter.x, y: -pinchCenter.y)
             
             let currentScale = self.hresPhoto.frame.size.width / self.hresPhoto.bounds.size.width
@@ -233,6 +235,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
             overrideUserInterfaceStyle = .dark
             navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0)
             hresPhotoBackground.backgroundColor = UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0)
+            roomLabel.text = "Habitación " + (detailedPerson?.room ?? "?")
         }
     }
     

@@ -16,6 +16,10 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var orderSwitch: UISwitch!
     @IBOutlet var lockImage: UIImageView!
     @IBOutlet var lockSwitch: UISwitch!
+    @IBOutlet var lockImageNotifs: UIImageView!
+    @IBOutlet var lockSwitchNotifs: UISwitch!
+    @IBOutlet var lockSwitchNotifLabel: UILabel!
+    
     
     @IBAction func orderSwitchChanged(_ sender: Any) {
         if orderSwitch.isOn{
@@ -33,12 +37,22 @@ class SettingsViewController: UITableViewController {
         }
     }
     
+    @IBAction func lockSwitchNotifsChanged(_ sender: Any) {
+        if lockSwitchNotifs.isOn{
+            defaults.set(true, forKey: "showNotifs")
+        }else{
+            defaults.set(false, forKey: "showNotifs")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         let surnameFirst = defaults.bool(forKey: "surnameFirst")
         let becaUnlocked = defaults.bool(forKey: "becaUnlocked")
+        let notifsUnlocked = defaults.bool(forKey: "notifsUnlocked")
         let showRooms = defaults.bool(forKey: "showRooms")
+        let showNotifs = defaults.bool(forKey: "showNotifs")
         
         if surnameFirst{
             orderSwitch.isOn = false
@@ -52,9 +66,19 @@ class SettingsViewController: UITableViewController {
             lockSwitch.isOn = false
         }
         
+        if showNotifs{
+            lockSwitchNotifs.isOn = true
+        }else{
+            lockSwitchNotifs.isOn = false
+        }
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(lockTapped(tapGestureRecognizer:)))
         lockImage.isUserInteractionEnabled = true
         lockImage.addGestureRecognizer(tapGestureRecognizer)
+        
+        let tapGestureRecognizerNotifs = UITapGestureRecognizer(target: self, action: #selector(lockTappedNotifs(tapGestureRecognizer:)))
+        lockImageNotifs.isUserInteractionEnabled = true
+        lockImageNotifs.addGestureRecognizer(tapGestureRecognizerNotifs)
         
         if becaUnlocked{
             lockImage.image = UIImage(systemName: "lock.open.fill")
@@ -62,8 +86,14 @@ class SettingsViewController: UITableViewController {
             lockImage.tintColor = .label
             lockSwitch.isEnabled = true
             lockImage.removeGestureRecognizer(tapGestureRecognizer)
-        }else{
-            //Do nothing
+        }
+        
+        if notifsUnlocked{
+            lockImageNotifs.image = UIImage(systemName: "lock.open.fill")
+            lockSwitchNotifLabel.textColor = .label
+            lockImageNotifs.tintColor = .label
+            lockSwitchNotifs.isEnabled = true
+            lockImageNotifs.removeGestureRecognizer(tapGestureRecognizerNotifs)
         }
 
     }
@@ -75,7 +105,12 @@ class SettingsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 0:
+            return 1
+        default:
+            return 2
+        }
     }
     
     @objc func lockTapped(tapGestureRecognizer: UITapGestureRecognizer)
@@ -113,7 +148,43 @@ class SettingsViewController: UITableViewController {
         
         self.present(alertController!, animated: true, completion: nil)
         
+    }
+    
+    @objc func lockTappedNotifs(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        var alertController:UIAlertController?
 
+        alertController = UIAlertController(title: "Contraseña",
+            message: "Introduce la contraseña para poder enviar avisos a todos los colegiales",
+            preferredStyle: .alert)
+        
+        alertController!.addTextField(configurationHandler: {(textField: UITextField!) in
+                textField.placeholder = "Enter something"
+        })
+        
+        alertController?.textFields?[0].isSecureTextEntry = true
+        
+        let action = UIAlertAction(title: "Submit",
+                                   style: UIAlertAction.Style.default,
+                                   handler: {[weak self]
+                                   (paramAction:UIAlertAction!) in
+            if let textFields = alertController?.textFields{
+                let theTextFields = textFields as [UITextField]
+                let enteredText = theTextFields[0].text
+                if enteredText == "Tungsteno"{
+                    self!.lockImageNotifs.image = UIImage(systemName: "lock.open.fill")
+                    self!.lockSwitchNotifLabel.textColor = .label
+                    self!.lockImageNotifs.tintColor = .label
+                    self!.lockSwitchNotifs.isEnabled = true
+                    self!.defaults.set(true, forKey: "notifsUnlocked")
+                }
+            }
+        })
+        
+        alertController?.addAction(action)
+        
+        self.present(alertController!, animated: true, completion: nil)
+        
     }
 
     /*
