@@ -24,11 +24,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
     @IBOutlet var orlaImageView: UIImageView!
     @IBOutlet var ContainerView: CardView!
     @IBOutlet var mainTableView: UITableView!
-    @IBOutlet var test: UIView!
     @IBOutlet var ParentContainer: UIView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,9 +53,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
             cell.iconLabel.text = "Pase de comidas"
             cell.iconPhoto.image = UIImage.init(named: "barcodeIcon")
         case 3:
+            cell.iconLabel.text = "Aforos"
+            cell.iconPhoto.image = UIImage.init(named: "aforoIcon")
+        case 4:
             cell.iconLabel.text = "Revista Patio Interior"
             cell.iconPhoto.image = UIImage.init(named: "magazineicon")
-        case 4:
+        case 5:
             cell.iconLabel.text = "Avisos"
             cell.iconPhoto.image = UIImage.init(named: "AvisosIcon")
         default:
@@ -76,8 +78,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         case 2:
             self.performSegue(withIdentifier: "pushToBarcode", sender: self)
         case 3:
-            self.performSegue(withIdentifier: "pushToMagazine", sender: self)
+            self.performSegue(withIdentifier: "pushToBarcode", sender: self)
         case 4:
+            self.performSegue(withIdentifier: "pushToMagazine", sender: self)
+        case 5:
             self.performSegue(withIdentifier: "pushToNotifications", sender: self)
         default:
             print("Don't do anything")
@@ -106,15 +110,41 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         mainTableView.delegate = self
         self.mainTableView.tableFooterView = UIView()
         
+        self.navigationController?.navigationBar.barStyle = .black
+        
         //Height of ParentContainer has to be corrected programatically for some reason. Sorry for hacky fix
         let correctedHeight = (self.view.frame.width - 40)*(1273.0/1920.0) + 40
         ParentContainer.frame = CGRect(x:0, y: 0, width: self.view.frame.width, height: correctedHeight)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        
+        let currentMonth = components.month
+        let currentDay = components.day
+        
+        //Christmas skin
+        if currentMonth == 12{
+            if currentDay! > 23{
+                orlaImageView.image = UIImage(named: "orlabackground_christmas.png")
+            }
+        }
+        if currentMonth == 1{
+            if currentDay! < 7{
+                orlaImageView.image = UIImage(named: "orlabackground_christmas.png")
+            }
+        }
+        
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator){
-        //Same hacky fix for splitView on iPads
-        let correctedHeight = (size.width - 40)*(1273.0/1920.0) + 40
-        ParentContainer.frame = CGRect(x:0, y: 0, width: size.width, height: correctedHeight)
+        #if !targetEnvironment(macCatalyst)
+            //Same hacky fix for splitView on iPads
+            let correctedHeight = (size.width - 40)*(1273.0/1920.0) + 40
+            ParentContainer.frame = CGRect(x:0, y: 0, width: size.width, height: correctedHeight)
+        #endif
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

@@ -35,19 +35,22 @@ class BoletinViewController: UIViewController, WKNavigationDelegate {
         BoletinHeader.startAnimating()
         
         boletinContentWebView.navigationDelegate = self
-        let urlString = "https://drive.google.com/uc?id=1raUqZ-P8zY1DiKIGwCvN8K65NFnaJk8Y"
-        let string = "<html><body marginwidth=\"0\" marginheight=\"0\" style=\"background-color: transparent\"><embed width=\"100%\" height=\"100%\" name=\"plugin\" src=\"\(urlString)\" type=\"application/pdf\"></body></html>"
+        let urlString = "https://drive.google.com/uc?id=1mqVm0maDENVejJuqvybHHOEgotN7wMNU"
+        let string = "<html><body marginwidth=\"0\" marginheight=\"0\" style=\"background-color: transparent\"><embed width=\"100%\" name=\"plugin\" src=\"\(urlString)\" type=\"application/pdf\"></body></html>"
         boletinContentWebView.loadHTMLString(string, baseURL: nil)
         boletinContentWebView.backgroundColor = UIColor.clear
         boletinContentWebView.alpha = 0.0
-        boletinContentWebView.isOpaque = false
+        boletinContentWebView.isOpaque = true
+        boletinContentWebView.layer.zPosition = 1
         spinningWheel.stopAnimating()
+        spinningWheel.layer.zPosition = 0
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // in half a second...
             self.spinningWheel.startAnimating()
+            self.spinningWheel.layer.zPosition = 0
         }
     }
     
