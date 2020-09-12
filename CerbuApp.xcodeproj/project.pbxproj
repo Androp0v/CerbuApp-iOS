@@ -17,6 +17,7 @@
 		C404058E22DEA3D100259C86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C404058C22DEA3D100259C86 /* LaunchScreen.storyboard */; };
 		C404059922DEA3D100259C86 /* CerbuAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404059822DEA3D100259C86 /* CerbuAppTests.swift */; };
 		C40405A422DEA3D100259C86 /* CerbuAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40405A322DEA3D100259C86 /* CerbuAppUITests.swift */; };
+		C409DCB8250C3E0400DC281B /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409DCB7250C3E0400DC281B /* QRScannerView.swift */; };
 		C433A76A235463C900C6E84F /* NotificationComposerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A769235463C900C6E84F /* NotificationComposerController.swift */; };
 		C433A76C2354790600C6E84F /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A76B2354790600C6E84F /* NotificationsTableViewController.swift */; };
 		C433A76E2354797000C6E84F /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A76D2354797000C6E84F /* NotificationCell.swift */; };
@@ -101,6 +102,7 @@
 		C40405A322DEA3D100259C86 /* CerbuAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CerbuAppUITests.swift; sourceTree = "<group>"; };
 		C40405A522DEA3D100259C86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40405B122DF441C00259C86 /* CerbuApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CerbuApp.entitlements; sourceTree = "<group>"; };
+		C409DCB7250C3E0400DC281B /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		C433A769235463C900C6E84F /* NotificationComposerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationComposerController.swift; sourceTree = "<group>"; };
 		C433A76B2354790600C6E84F /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		C433A76D2354797000C6E84F /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
@@ -200,9 +202,10 @@
 				C433A76B2354790600C6E84F /* NotificationsTableViewController.swift */,
 				C433A769235463C900C6E84F /* NotificationComposerController.swift */,
 				C4729F6F2336A55B0037222D /* ImagePickerController.swift */,
+				C404058A22DEA3D100259C86 /* Assets.xcassets */,
+				C409DCB7250C3E0400DC281B /* QRScannerView.swift */,
 				C49AFCD622FAE72E00A20C5D /* CardView.swift */,
 				C43B49EA22E62A1300DEF572 /* Person.swift */,
-				C404058A22DEA3D100259C86 /* Assets.xcassets */,
 				C404058C22DEA3D100259C86 /* LaunchScreen.storyboard */,
 				C48D5AEA22F4984B00695DB2 /* database.db */,
 				C4ACF1742335673900198891 /* PatioInterior.pdf */,
@@ -501,6 +504,7 @@
 				C4F95C5A22F5E5FA00E3E5BD /* DetailsViewController.swift in Sources */,
 				C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */,
 				C4B32CE123264F77007DC778 /* SettingsViewController.swift in Sources */,
+				C409DCB8250C3E0400DC281B /* QRScannerView.swift in Sources */,
 				C4729F702336A55B0037222D /* ImagePickerController.swift in Sources */,
 				C49AFCD722FAE72E00A20C5D /* CardView.swift in Sources */,
 				C404058422DEA3D000259C86 /* SceneDelegate.swift in Sources */,

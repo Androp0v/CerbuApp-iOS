@@ -78,7 +78,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         case 2:
             self.performSegue(withIdentifier: "pushToBarcode", sender: self)
         case 3:
-            self.performSegue(withIdentifier: "pushToBarcode", sender: self)
+            self.performSegue(withIdentifier: "pushToCapacity", sender: self)
         case 4:
             self.performSegue(withIdentifier: "pushToMagazine", sender: self)
         case 5:
