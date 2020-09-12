@@ -160,7 +160,7 @@
                                 <color key="backgroundColor" name="MainAppColor"/>
                                 <items>
                                     <barButtonItem style="plain" id="4er-36-nLU">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6rm-24-dHW">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6rm-24-dHW">
                                             <rect key="frame" x="20" y="6" width="374" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" name="ShadowMainAppColor"/>
@@ -1416,7 +1416,7 @@
             <objects>
                 <viewController id="eTj-LO-Whn" customClass="MagazineController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PnD-z3-h9o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="585.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="gHC-6Z-4OO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1441,7 +1441,7 @@
         <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
         <image name="stripFood" width="537" height="346.5"/>
         <namedColor name="MainAppColor">
-            <color red="0.050999999046325684" green="0.27799999713897705" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.050980392156862744" green="0.27843137254901962" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ShadowMainAppColor">
             <color red="0.035294117647058823" green="0.19215686274509805" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

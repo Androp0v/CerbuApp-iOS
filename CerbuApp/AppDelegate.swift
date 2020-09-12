@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // Override point for customization after application launch.
         
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
         UNUserNotificationCenter.current().delegate = self
         

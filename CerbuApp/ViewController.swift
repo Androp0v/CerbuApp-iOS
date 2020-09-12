@@ -109,15 +109,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         mainTableView.dataSource = self
         mainTableView.delegate = self
         self.mainTableView.tableFooterView = UIView()
-        
-        self.navigationController?.navigationBar.barStyle = .black
-        
+                        
         //Height of ParentContainer has to be corrected programatically for some reason. Sorry for hacky fix
         let correctedHeight = (self.view.frame.width - 40)*(1273.0/1920.0) + 40
         ParentContainer.frame = CGRect(x:0, y: 0, width: self.view.frame.width, height: correctedHeight)
     }
     
     override func viewDidAppear(_ animated: Bool) {
+                
         let date = Date()
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: date)
