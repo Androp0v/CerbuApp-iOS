@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c90-Gj-SSh">
@@ -301,7 +301,7 @@
             <objects>
                 <viewController title="Boletín semanal" id="0BE-bK-eey" customClass="BoletinViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Li2-N2-BbY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boletin_048" translatesAutoresizingMaskIntoConstraints="NO" id="C6G-ya-WA4">
@@ -352,7 +352,7 @@
             <objects>
                 <viewController title="Menú de comedor" id="1w5-Zn-rfs" customClass="MenuViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="joX-QQ-vrT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ZP-t1-xEw">
@@ -381,7 +381,7 @@
             <objects>
                 <viewController title="Pase de comidas" id="vCZ-NK-GrR" customClass="BarcodeViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sdw-6Q-Brx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGq-DY-Bw7">
@@ -480,7 +480,7 @@
             <objects>
                 <viewController title="Revista Patio Interior" id="udk-Z7-nsr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IYV-OW-zi8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTa-4w-Rsc">
@@ -512,7 +512,7 @@
             <objects>
                 <tableViewController id="gxJ-rO-yYO" customClass="NotificationsTableViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Twf-We-JFN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -580,7 +580,7 @@
             <objects>
                 <viewController id="sNt-SY-saf" customClass="NotificationComposerController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wRY-71-lZj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNB-ue-yTy">
@@ -657,7 +657,7 @@
             <objects>
                 <tableViewController id="1zf-YK-s5n" customClass="FilterTableViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="XTH-eS-gb7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -987,7 +987,7 @@
             <objects>
                 <viewController id="W9g-Aj-Mhi" customClass="DetailsViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gms-Pm-Q62">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjS-FN-sUo">
@@ -1079,11 +1079,58 @@
             <objects>
                 <viewController id="dRr-JN-IDh" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yrS-Vu-Qk0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="umN-4u-h7b">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rho-ev-n2T">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cC-6Z-je1">
+                                                <rect key="frame" x="24" y="24" width="366" height="66"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17h-8b-ifP">
+                                                        <rect key="frame" x="0.0" y="36" width="366" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemFillColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="SEc-rF-Hhr"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comedor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcH-mQ-2Ou">
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="32"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="17h-8b-ifP" secondAttribute="bottom" id="CHw-DW-bek"/>
+                                                    <constraint firstItem="17h-8b-ifP" firstAttribute="leading" secondItem="7cC-6Z-je1" secondAttribute="leading" id="DJO-QR-RX7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="17h-8b-ifP" secondAttribute="trailing" id="Wnf-zK-kVe"/>
+                                                    <constraint firstItem="EcH-mQ-2Ou" firstAttribute="top" secondItem="7cC-6Z-je1" secondAttribute="top" id="YTg-Dp-MxQ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="EcH-mQ-2Ou" secondAttribute="trailing" id="dQt-Gq-3fV"/>
+                                                    <constraint firstItem="EcH-mQ-2Ou" firstAttribute="leading" secondItem="7cC-6Z-je1" secondAttribute="leading" id="fZn-dd-JhN"/>
+                                                    <constraint firstItem="17h-8b-ifP" firstAttribute="top" secondItem="EcH-mQ-2Ou" secondAttribute="bottom" constant="4" id="whB-Zl-t49"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="7cC-6Z-je1" secondAttribute="trailing" constant="24" id="8d1-uo-z4w"/>
+                                            <constraint firstItem="7cC-6Z-je1" firstAttribute="leading" secondItem="rho-ev-n2T" secondAttribute="leading" constant="24" id="IdW-yl-PrP"/>
+                                            <constraint firstItem="7cC-6Z-je1" firstAttribute="top" secondItem="rho-ev-n2T" secondAttribute="top" constant="24" id="vbE-oH-qAs"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="W11-Xo-Nos" firstAttribute="bottom" secondItem="rho-ev-n2T" secondAttribute="bottom" id="9LS-2s-DwH"/>
+                                    <constraint firstItem="rho-ev-n2T" firstAttribute="leading" secondItem="W11-Xo-Nos" secondAttribute="leading" id="CXi-xm-rb8"/>
+                                    <constraint firstItem="W11-Xo-Nos" firstAttribute="trailing" secondItem="rho-ev-n2T" secondAttribute="trailing" id="lnG-TY-kPT"/>
+                                    <constraint firstItem="rho-ev-n2T" firstAttribute="top" secondItem="W11-Xo-Nos" secondAttribute="top" id="wLQ-yg-bR0"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="miU-CN-rIM"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="W11-Xo-Nos"/>
                             </scrollView>
@@ -1114,7 +1161,7 @@
             <objects>
                 <viewController id="Qam-4r-J2d" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4hW-si-n8s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddc-Hd-Fbe" customClass="QRScannerView" customModule="CerbuApp" customModuleProvider="target">
@@ -1185,7 +1232,7 @@
             <objects>
                 <tableViewController id="nm4-15-wRh" customClass="SettingsViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dqA-XU-NqF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019 © Raúl Montón Pinillos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="at5-1K-35a">
@@ -1410,6 +1457,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
