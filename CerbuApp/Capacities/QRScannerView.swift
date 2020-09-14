@@ -13,7 +13,7 @@ import AVFoundation
 /// Delegate callback for the QRScannerView.
 protocol QRScannerViewDelegate: class {
     func qrScanningDidFail()
-    func qrScanningSucceededWithCode(_ str: String?)
+    func qrScanningSucceededWithCode(code: String?)
     func qrScanningDidStop()
 }
 
@@ -101,7 +101,7 @@ extension QRScannerView {
     }
     
     func found(code: String) {
-        delegate?.qrScanningSucceededWithCode(code)
+        delegate?.qrScanningSucceededWithCode(code: code)
     }
     
 }
