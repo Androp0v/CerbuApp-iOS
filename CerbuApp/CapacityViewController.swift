@@ -56,18 +56,20 @@ class CapacityViewController: UIViewController {
             bibliotecaConstraint,
         ])
         
+        // Set progressbar colors
+        comedorProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: 0.8)
+        salaDeLecturaProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: 0.25)
+        bibliotecaProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: 0.6)
+        
         // Animate progress bars
         UIView.animate(withDuration: 0.8, animations: {
             self.comedorContainerView?.layoutIfNeeded()
-            self.comedorProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: 0.8)
             })
         UIView.animate(withDuration: 0.25, animations: {
             self.salaDeLecturaContainerView?.layoutIfNeeded()
-            self.salaDeLecturaProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: 0.25)
             })
         UIView.animate(withDuration: 0.6, animations: {
             self.bibliotecaContainerView?.layoutIfNeeded()
-            self.bibliotecaProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: 0.6)
             })
     }
     

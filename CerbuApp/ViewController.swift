@@ -26,6 +26,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
     @IBOutlet var mainTableView: UITableView!
     @IBOutlet var ParentContainer: UIView!
     
+    private func randomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
@@ -92,6 +97,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // UI tweaking
         orlaImageView.layer.cornerRadius = 20.0
         ContainerView.layer.cornerRadius = 20.0
         ContainerView.layer.shadowColor = UIColor.init(named: "LighOnlyShadow")?.cgColor
@@ -99,6 +106,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         ContainerView.layer.shadowRadius = 12.0
         ContainerView.layer.shadowOpacity = 0.5
         
+        // Create a "unique" user ID if none was set
+        if defaults.object(forKey: "userID") == nil{
+            defaults.setValue(randomString(length: 16), forKey: "userID")
+        }
+        
+        // Subscribe to Firebase topic "all" where "all" the notifications are streamed
         Messaging.messaging().subscribe(toTopic: "all")
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
