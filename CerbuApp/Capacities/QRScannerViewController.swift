@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     @IBOutlet weak var QRScannerView: QRScannerView!
     @IBOutlet weak var errorOverlay: UIView!
+    
+    let defaults = UserDefaults.standard
+    
+    var databaseReference: DatabaseReference!
     
     private func blurErrorOverlayBackground(){
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
@@ -30,6 +35,32 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
         }
     }
     
+    private func updateCheckIn(QRString: String){
+        
+        let userID = defaults.object(forKey: "userID") as! String
+        let epoch = NSDate().timeIntervalSince1970
+        
+        databaseReference.child(userID).observeSingleEvent(of: .value, with: { (userCheckIn) in
+            if userCheckIn.exists(){
+                // User already checked-in
+                print("User already checked-in")
+                self.databaseReference.child(userID).setValue([
+                                                                "Room": QRString,
+                                                                "Time": epoch
+                ])
+            }else{
+                // User hadn't checked-in
+                print("User hadn't checked-in")
+                self.databaseReference.child(userID).setValue([
+                                                                "Room": QRString,
+                                                                "Time": epoch
+                ])
+            }
+        })
+    }
+    
+    // QRScannerView delegate protocol implementation
+    
     func qrScanningDidFail() {
         errorAndExitQRScanner()
     }
@@ -37,10 +68,13 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     func qrScanningSucceededWithCode(code: String?) {
         if code == "Comedor"{
             dismiss(animated: true, completion: nil)
+            updateCheckIn(QRString: "Comedor")
         }else if code == "Sala de Lectura"{
             dismiss(animated: true, completion: nil)
+            updateCheckIn(QRString: "SalaDeLectura")
         }else if code == "Biblioteca"{
             dismiss(animated: true, completion: nil)
+            updateCheckIn(QRString: "Biblioteca")
         }else{
             errorAndExitQRScanner()
         }
@@ -56,6 +90,7 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
         
         // Do any additional setup after loading the view.
         QRScannerView.delegate = self
+        databaseReference = Database.database().reference().child("Capacities/Check-ins")
     }
     
 
