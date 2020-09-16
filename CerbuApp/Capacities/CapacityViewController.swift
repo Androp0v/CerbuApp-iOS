@@ -31,10 +31,6 @@ class CapacityViewController: UIViewController {
     
     var databaseReference: DatabaseReference!
     
-    var roomName = [String]()
-    var roomCapacityCurrent = [Int]()
-    var roomCapacityMax = [Int]()
-    
     private func getProgressBarColor(fractionNumber: Float) -> UIColor{
         
         if fractionNumber >= 0 && fractionNumber < 0.3 {
@@ -112,10 +108,6 @@ class CapacityViewController: UIViewController {
         databaseReference.queryLimited(toFirst: 10).observe(.value, with: { snapshot in
                                                                 
             let value = snapshot.value as! [String: Any]
-            
-            self.roomName = []
-            self.roomCapacityCurrent = []
-            self.roomCapacityMax = []
             
             let sortedKeys = Array(value.keys).sorted(by: >)
                         
