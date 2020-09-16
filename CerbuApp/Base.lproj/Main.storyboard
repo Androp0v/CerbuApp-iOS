@@ -1299,10 +1299,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bibliotecaContainerView" destination="CU1-DI-icK" id="VWM-KE-52O"/>
+                        <outlet property="bibliotecaDescription" destination="8eu-eU-oUe" id="lpA-dx-VOr"/>
                         <outlet property="bibliotecaProgressBar" destination="7Xv-ts-dn4" id="sxF-Ab-3Q6"/>
                         <outlet property="comedorContainerView" destination="17h-8b-ifP" id="n2w-w1-Osn"/>
+                        <outlet property="comedorDescription" destination="3Lh-vu-tH7" id="DC4-ei-jFU"/>
                         <outlet property="comedorProgressBar" destination="hpM-2Y-LU3" id="U0z-hP-eeW"/>
                         <outlet property="salaDeLecturaContainerView" destination="fnG-3Y-oiv" id="KJg-cY-iAm"/>
+                        <outlet property="salaDeLecturaDescription" destination="BNP-Ni-6IH" id="12F-6s-MUD"/>
                         <outlet property="salaDeLecturaProgressBar" destination="y2b-Mk-H86" id="zNZ-cD-nrV"/>
                     </connections>
                 </viewController>

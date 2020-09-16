@@ -81,7 +81,7 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     }
     
     func qrScanningDidStop() {
-        errorAndExitQRScanner()
+        // Do nothing
     }
     
 

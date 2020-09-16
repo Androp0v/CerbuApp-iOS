@@ -13,12 +13,15 @@ class CapacityViewController: UIViewController {
 
     @IBOutlet weak var comedorContainerView: UIView!
     @IBOutlet weak var comedorProgressBar: UIView!
+    @IBOutlet weak var comedorDescription: UILabel!
     
     @IBOutlet weak var salaDeLecturaContainerView: UIView!
     @IBOutlet weak var salaDeLecturaProgressBar: UIView!
+    @IBOutlet weak var salaDeLecturaDescription: UILabel!
     
     @IBOutlet weak var bibliotecaContainerView: UIView!
     @IBOutlet weak var bibliotecaProgressBar: UIView!
+    @IBOutlet weak var bibliotecaDescription: UILabel!
     
     let defaults = UserDefaults.standard
     
@@ -34,7 +37,7 @@ class CapacityViewController: UIViewController {
     
     private func getProgressBarColor(fractionNumber: Float) -> UIColor{
         
-        if fractionNumber < 0.3 {
+        if fractionNumber >= 0 && fractionNumber < 0.3 {
             return UIColor.systemGreen
         }else if fractionNumber >= 0.3 && fractionNumber < 0.6{
             return UIColor.systemYellow
@@ -44,6 +47,20 @@ class CapacityViewController: UIViewController {
             return UIColor.systemRed
         }else{
             return UIColor.systemGray
+        }
+    }
+    
+    private func getDescriptionString(fractionNumber: Float) -> String{
+        if fractionNumber >= 0 && fractionNumber < 0.3 {
+            return "Vacío o casi vacío"
+        }else if fractionNumber >= 0.3 && fractionNumber < 0.6{
+            return "Ocupación moderada o baja"
+        }else if fractionNumber >= 0.6 && fractionNumber < 0.8{
+            return "Ocupación moderada o alta"
+        }else if fractionNumber >= 0.8{
+            return "Lleno o casi lleno"
+        }else{
+            return "Ocupación desconocida"
         }
     }
     
@@ -61,10 +78,15 @@ class CapacityViewController: UIViewController {
             bibliotecaConstraint,
         ])
         
-        // Set initial progressbar colors
+        // Set progressbar colors
         comedorProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: comedorFractionNumber)
         salaDeLecturaProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: salaDeLecturaFractionNumber)
         bibliotecaProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: bibliotecaFractionNumber)
+        
+        // Set label descriptions
+        comedorDescription.text = getDescriptionString(fractionNumber: comedorFractionNumber)
+        salaDeLecturaDescription.text = getDescriptionString(fractionNumber: salaDeLecturaFractionNumber)
+        bibliotecaDescription.text = getDescriptionString(fractionNumber: bibliotecaFractionNumber)
         
         // Animate initial progress bar positions
         UIView.animate(withDuration: Double(max(0,comedorFractionNumber)), animations: {
