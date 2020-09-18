@@ -59,6 +59,12 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
         })
     }
     
+    private func checkOut(){
+        
+        let userID = defaults.object(forKey: "userID") as! String
+        databaseReference.child(userID).removeValue()
+    }
+    
     // QRScannerView delegate protocol implementation
     
     func qrScanningDidFail() {
@@ -75,6 +81,9 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
         }else if code == "Biblioteca"{
             dismiss(animated: true, completion: nil)
             updateCheckIn(QRString: "Biblioteca")
+        }else if code == "Salir"{
+            dismiss(animated: true, completion: nil)
+            checkOut()
         }else{
             errorAndExitQRScanner()
         }

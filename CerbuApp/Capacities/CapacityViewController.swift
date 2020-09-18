@@ -31,6 +31,10 @@ class CapacityViewController: UIViewController {
     
     var databaseReference: DatabaseReference!
     
+    var comedorConstraint = NSLayoutConstraint.init()
+    var salaDeLecturaConstraint = NSLayoutConstraint.init()
+    var bibliotecaConstraint = NSLayoutConstraint.init()
+    
     private func getProgressBarColor(fractionNumber: Float) -> UIColor{
         
         if fractionNumber >= 0 && fractionNumber < 0.3 {
@@ -62,10 +66,17 @@ class CapacityViewController: UIViewController {
     
     private func animateProgressBars(){
         
+        // Deactivate constraints
+        NSLayoutConstraint.deactivate([
+            comedorConstraint,
+            salaDeLecturaConstraint,
+            bibliotecaConstraint,
+        ])
+        
         // Create the constraints for the progressBars
-        let comedorConstraint = comedorProgressBar.widthAnchor.constraint(equalTo: comedorContainerView.widthAnchor, multiplier: CGFloat(max(0,comedorFractionNumber)))
-        let salaDeLecturaConstraint = salaDeLecturaProgressBar.widthAnchor.constraint(equalTo: salaDeLecturaContainerView.widthAnchor, multiplier: CGFloat(max(0,salaDeLecturaFractionNumber)))
-        let bibliotecaConstraint = bibliotecaProgressBar.widthAnchor.constraint(equalTo: bibliotecaContainerView.widthAnchor, multiplier: CGFloat(max(0,bibliotecaFractionNumber)))
+        comedorConstraint = comedorProgressBar.widthAnchor.constraint(equalTo: comedorContainerView.widthAnchor, multiplier: CGFloat(max(0,comedorFractionNumber)))
+        salaDeLecturaConstraint = salaDeLecturaProgressBar.widthAnchor.constraint(equalTo: salaDeLecturaContainerView.widthAnchor, multiplier: CGFloat(max(0,salaDeLecturaFractionNumber)))
+        bibliotecaConstraint = bibliotecaProgressBar.widthAnchor.constraint(equalTo: bibliotecaContainerView.widthAnchor, multiplier: CGFloat(max(0,bibliotecaFractionNumber)))
         
         // Activate constraint(s)
         NSLayoutConstraint.activate([
