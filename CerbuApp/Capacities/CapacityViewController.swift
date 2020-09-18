@@ -29,6 +29,10 @@ class CapacityViewController: UIViewController {
     var salaDeLecturaFractionNumber: Float = -1.0
     var bibliotecaFractionNumber: Float = -1.0
     
+    var comedorFractionNumberOld: Float = 0.0
+    var salaDeLecturaFractionNumberOld: Float = 0.0
+    var bibliotecaFractionNumberOld: Float = 0.0
+    
     var databaseReference: DatabaseReference!
     
     var comedorConstraint = NSLayoutConstraint.init()
@@ -96,15 +100,20 @@ class CapacityViewController: UIViewController {
         bibliotecaDescription.text = getDescriptionString(fractionNumber: bibliotecaFractionNumber)
         
         // Animate initial progress bar positions
-        UIView.animate(withDuration: Double(max(0,comedorFractionNumber)), animations: {
+        UIView.animate(withDuration: Double(abs(comedorFractionNumber-comedorFractionNumberOld)), animations: {
             self.comedorContainerView?.layoutIfNeeded()
             })
-        UIView.animate(withDuration: Double(max(0,salaDeLecturaFractionNumber)), animations: {
+        UIView.animate(withDuration: Double(abs(salaDeLecturaFractionNumber-salaDeLecturaFractionNumberOld)), animations: {
             self.salaDeLecturaContainerView?.layoutIfNeeded()
             })
-        UIView.animate(withDuration: Double(max(0,bibliotecaFractionNumber)), animations: {
+        UIView.animate(withDuration: Double(abs(bibliotecaFractionNumber-bibliotecaFractionNumberOld)), animations: {
             self.bibliotecaContainerView?.layoutIfNeeded()
             })
+        
+        // Update "old" fraction numbers
+        comedorFractionNumberOld = comedorFractionNumber
+        salaDeLecturaFractionNumberOld = salaDeLecturaFractionNumber
+        bibliotecaFractionNumberOld = bibliotecaFractionNumber
     }
     
     override func viewDidLoad() {
