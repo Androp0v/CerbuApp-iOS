@@ -23,6 +23,22 @@ class CapacityViewController: UIViewController {
     @IBOutlet weak var bibliotecaProgressBar: UIView!
     @IBOutlet weak var bibliotecaDescription: UILabel!
     
+    @IBOutlet weak var comedorCurrentLocationView: UIView!
+    @IBOutlet weak var salaDeLecturaCurrentLocationView: UIView!
+    @IBOutlet weak var bibliotecaCurrentLocationView: UIView!
+    
+    @IBAction func buttonCheckout(_ sender: Any) {
+        // Hide CurrentLocationViews
+        comedorCurrentLocationView.isHidden = true
+        salaDeLecturaCurrentLocationView.isHidden = true
+        bibliotecaCurrentLocationView.isHidden = true
+        
+        // Remove value from database
+        let userID = defaults.object(forKey: "userID") as! String
+        Database.database().reference().child("Capacities/Check-ins").child(userID).removeValue()
+    }
+    
+    
     let defaults = UserDefaults.standard
     
     var comedorFractionNumber: Float = -1.0
@@ -34,6 +50,7 @@ class CapacityViewController: UIViewController {
     var bibliotecaFractionNumberOld: Float = 0.0
     
     var databaseReference: DatabaseReference!
+    var databaseReferenceUser: DatabaseReference!
     
     var comedorConstraint = NSLayoutConstraint.init()
     var salaDeLecturaConstraint = NSLayoutConstraint.init()
@@ -123,8 +140,33 @@ class CapacityViewController: UIViewController {
         
         // Firebase Realtime Database reference
         databaseReference = Database.database().reference().child("Capacities/Count")
+        databaseReferenceUser = Database.database().reference().child("Capacities/Check-ins").child(defaults.object(forKey: "userID") as! String)
         
-        // Observe for changes in the database
+        // Observe for changes in the user location (if any)
+        databaseReferenceUser.observe(.value, with: {snapshot in
+            if !(snapshot.value is NSNull){
+                let value = snapshot.value as! [String: Any]
+                if value["Room"] as! String == "Comedor"{
+                    self.comedorCurrentLocationView.isHidden = false
+                }else{
+                    self.comedorCurrentLocationView.isHidden = true
+                }
+                
+                if value["Room"] as! String == "SalaDeLectura"{
+                    self.salaDeLecturaCurrentLocationView.isHidden = false
+                }else{
+                    self.salaDeLecturaCurrentLocationView.isHidden = true
+                }
+                
+                if value["Room"] as! String == "Biblioteca"{
+                    self.bibliotecaCurrentLocationView.isHidden = false
+                }else{
+                    self.bibliotecaCurrentLocationView.isHidden = true
+                }
+            }
+        })
+        
+        // Observe for changes in the counts database
         databaseReference.queryLimited(toFirst: 10).observe(.value, with: { snapshot in
                                                                 
             let value = snapshot.value as! [String: Any]
