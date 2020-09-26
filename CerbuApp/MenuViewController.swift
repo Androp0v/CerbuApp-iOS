@@ -19,7 +19,7 @@ class MenuViewController: UIViewController, WKNavigationDelegate {
         // Do any additional setup after loading the view.
                 
         webView.navigationDelegate = self
-        webView.load(URLRequest(url: URL(string: "https://cerbuna.unizar.es/sites/cerbuna.unizar.es/files/users/temporales/menu.pdf")!))
+        webView.load(URLRequest(url: URL(string: "https://cerbuna.unizar.es/sites/cerbuna.unizar.es/files/users/temporales/menu.pdf")!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData))
     }
     
 

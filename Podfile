@@ -7,6 +7,7 @@ target 'CerbuApp' do
 
   # Pods for CerbuApp
   pod 'Firebase/Messaging'
+  pod 'Firebase/Database'
 
   target 'CerbuAppTests' do
     inherit! :search_paths
@@ -17,21 +18,5 @@ target 'CerbuApp' do
     inherit! :search_paths
     # Pods for testing
   end
-
-end
-
-target 'CerbuApp Watch' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for CerbuApp Watch
-
-end
-
-target 'CerbuApp Watch Extension' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for CerbuApp Watch Extension
 
 end

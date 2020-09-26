@@ -93,23 +93,72 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func loadDataForSpotlightIndexing(){
         var searchableItems = [CSSearchableItem]()
         
-        for i in 0...(People.count - 1){
+        //this is our select query
+        let queryString = "SELECT * FROM colegiales"
+        
+        //Perform collation on database
+        
+        
+        //statement pointer
+        var stmt:OpaquePointer?
+        
+        //preparing the query
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert: \(errmsg)")
+            return
+        }
+        
+        //Empty the people list
+        var IndexablePeople = [Person]()
+        
+        //traversing through all the records
+        while(sqlite3_step(stmt) == SQLITE_ROW){
             
-            let searchableItemAttributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-            searchableItemAttributeSet.title = People[i].name + " " + People[i].surname_1 + " " + People[i].surname_2
+            let id = sqlite3_column_int(stmt, 0)
+            let name = String(cString: sqlite3_column_text(stmt, 1))
+            let surname_1 = String(cString: sqlite3_column_text(stmt, 2))
+            let surname_2 = String(cString: sqlite3_column_text(stmt, 3))
+            let career = String(cString: sqlite3_column_text(stmt, 4))
+            let room = String(cString: sqlite3_column_text(stmt, 5))
             
-            if People[i].beca.isEmpty {
-                searchableItemAttributeSet.contentDescription = People[i].career
-
-            }else{
-                searchableItemAttributeSet.contentDescription = People[i].career + " | " + People[i].beca
+            var beca = String("")
+            if sqlite3_column_text(stmt, 6) != nil{
+                beca = String(cString: sqlite3_column_text(stmt, 6))
             }
             
-            let icon = UIImage(named: (cleanString(rawString: People[i].name+People[i].surname_1))) ?? UIImage(named: (cleanString(rawString: People[i].name+People[i].surname_1+People[i].surname_2))) ?? UIImage(named: "nohres")!
+            let likeTMP = sqlite3_column_int(stmt, 7)
+            var like = false
+            if likeTMP != 0{
+                like = true
+            }else{
+                like = false
+            }
+            
+            let floor = sqlite3_column_int(stmt, 8)
+            let gender = sqlite3_column_int(stmt, 10)
+            
+            //adding values to list
+            IndexablePeople.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), liked: like, gender: Int(gender))!)
+        }
+        
+        for i in 0...(IndexablePeople.count - 1){
+            
+            let searchableItemAttributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+            searchableItemAttributeSet.title = IndexablePeople[i].name + " " + IndexablePeople[i].surname_1 + " " + IndexablePeople[i].surname_2
+            
+            if IndexablePeople[i].beca.isEmpty {
+                searchableItemAttributeSet.contentDescription = IndexablePeople[i].career
+
+            }else{
+                searchableItemAttributeSet.contentDescription = IndexablePeople[i].career + " | " + IndexablePeople[i].beca
+            }
+            
+            let icon = UIImage(named: (cleanString(rawString: IndexablePeople[i].name+IndexablePeople[i].surname_1))) ?? UIImage(named: (cleanString(rawString: IndexablePeople[i].name+IndexablePeople[i].surname_1+IndexablePeople[i].surname_2))) ?? UIImage(named: "nohres")!
             
             searchableItemAttributeSet.thumbnailData = (CutCircleOnUIImage(startingImage: icon).pngData())
             
-            let searchableItem = CSSearchableItem(uniqueIdentifier: "com.raulmonton.cerbuapp.\(i)", domainIdentifier: "people", attributeSet: searchableItemAttributeSet)
+            let searchableItem = CSSearchableItem(uniqueIdentifier: "com.raulmonton.CerbuApp.\(i)", domainIdentifier: "people", attributeSet: searchableItemAttributeSet)
 
             searchableItems.append(searchableItem)
         }
@@ -123,7 +172,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidAppear(_ animated: Bool) {
         if searchActive{
-            searchBar.becomeFirstResponder()
+            //searchBar.becomeFirstResponder()
             let reloadString = self.searchBar.text
             self.searchBar(self.searchBar, textDidChange: reloadString ?? "")
         }
@@ -224,7 +273,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //MARK: Private Methods
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+                
         filteredPeople = [Person]()
         let cleanedSearchString = cleanStringWithWhitespaces(rawString: searchText)
         let searchWordsArray = cleanedSearchString.components(separatedBy: " ")
@@ -289,20 +338,21 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
+        searchActive = true
+        filteredPeople = People
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
+        searchActive = true
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
+        searchActive = false
         self.searchBar.endEditing(true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
+        searchActive = false
         self.searchBar.endEditing(true)
     }
     
