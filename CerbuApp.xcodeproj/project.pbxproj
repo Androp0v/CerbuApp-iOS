@@ -27,6 +27,7 @@
 		C446941E22DF69FB006027A8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446941D22DF69FB006027A8 /* TableViewController.swift */; };
 		C4615BDA2325045500C04EE7 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4615BD92325045500C04EE7 /* FilterTableViewController.swift */; };
 		C463F53622DFDFC3003E2C64 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */; };
+		C464AD122515187D00548EB2 /* CapacityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C464AD112515187D00548EB2 /* CapacityDetailsViewController.swift */; };
 		C4729F6E233663400037222D /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4729F6D233663400037222D /* BarcodeViewController.swift */; };
 		C4729F702336A55B0037222D /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4729F6F2336A55B0037222D /* ImagePickerController.swift */; };
 		C48BD7FF233BB0E600FE1C69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C48BD7FE233BB0E600FE1C69 /* GoogleService-Info.plist */; };
@@ -115,6 +116,7 @@
 		C446941D22DF69FB006027A8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		C4615BD92325045500C04EE7 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		C463F53522DFDFAF003E2C64 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C464AD112515187D00548EB2 /* CapacityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityDetailsViewController.swift; sourceTree = "<group>"; };
 		C4729F6D233663400037222D /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
 		C4729F6F2336A55B0037222D /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		C48BD7FE233BB0E600FE1C69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				C409DCBB250E6D5200DC281B /* CapacityViewController.swift */,
+				C464AD112515187D00548EB2 /* CapacityDetailsViewController.swift */,
 				C409DCBE250F95F500DC281B /* QRScannerViewController.swift */,
 				C409DCB7250C3E0400DC281B /* QRScannerView.swift */,
 			);
@@ -516,6 +519,7 @@
 				C446941E22DF69FB006027A8 /* TableViewController.swift in Sources */,
 				C433A76C2354790600C6E84F /* NotificationsTableViewController.swift in Sources */,
 				C4615BDA2325045500C04EE7 /* FilterTableViewController.swift in Sources */,
+				C464AD122515187D00548EB2 /* CapacityDetailsViewController.swift in Sources */,
 				C409DCBF250F95F500DC281B /* QRScannerViewController.swift in Sources */,
 				C4F95C5A22F5E5FA00E3E5BD /* DetailsViewController.swift in Sources */,
 				C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */,
