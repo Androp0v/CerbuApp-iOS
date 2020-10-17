@@ -20,6 +20,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var searchActive = false
     var isRemovingTextWithBackspace = false
     let defaults = UserDefaults.standard
+    var footerView = UIView()
+    var footerLabel = UILabel()
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -31,7 +33,19 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: -0.5,left: 0,bottom: 0,right: 0)
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        self.tableView.tableFooterView = UIView()
+        
+        // Add footer label
+        footerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        footerLabel.textAlignment = .center
+        footerLabel.textColor = UIColor.secondaryLabel
+        footerView.addSubview(footerLabel)
+        self.tableView.tableFooterView = footerView
+        self.tableView.tableFooterView?.addSubview(footerLabel)
+        
+        // Adjust UITableView insets for footer
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        self.tableView.contentInset = insets
+        
         
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.label], for: .selected)
@@ -56,6 +70,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //This migh not be needed (iOS 13 bug?)
         tableView.reloadData()
+        updateFooter()
         
         self.tableView.scrollToRow(at: NSIndexPath(row: 0, section: 0) as IndexPath, at:
             UITableView.ScrollPosition.top, animated: false)
@@ -67,6 +82,46 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    func updateFooter() {
+        // Update footer asynchronously to avoid slowing the TableView
+        DispatchQueue.main.async {
+            
+            var footerText: String = String()
+            var peopleCount: Int = 0
+            var peopleString: String = "personas"
+            var favCount: Int = 0
+            var favString: String = "favoritos"
+            var becaCount: Int = 0
+            var becaString: String = "adjuntos"
+            
+            if self.searchActive {
+                peopleCount = self.filteredPeople.count
+                favCount = self.filteredPeople.filter{ $0.liked }.count
+                becaCount = self.filteredPeople.filter{ $0.beca != "" }.count
+            } else {
+                peopleCount = self.People.count
+                favCount = self.People.filter{ $0.liked }.count
+                becaCount = self.People.filter{ $0.beca != "" }.count
+            }
+            
+            // Make strings singular if there's only one match
+            if peopleCount == 1 {
+                peopleString = "persona"
+            }
+            if favCount == 1 {
+                favString = "favorito"
+            }
+            if becaCount == 1 {
+                becaString = "adjunto"
+            }
+            
+            // Set footer text
+            footerText = String(peopleCount) + " " + peopleString + " (" + String(favCount) + " " + favString + ", " + String(becaCount) + " " + becaString + ")"
+            
+            self.footerLabel.text = footerText
+        }
+    }
+        
     func CutCircleOnUIImage(startingImage: UIImage) -> UIImage {
         
         // Create a context of the starting image size and set it as the current one
@@ -326,6 +381,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         self.tableView.reloadData()
+        updateFooter()
         
         if searchText.count == 0 && !isRemovingTextWithBackspace{
             self.searchActive = false
@@ -364,6 +420,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @objc func reloadListOnChange(notification: NSNotification){
         self.tableView.reloadData()
+        updateFooter()
     }
     
     @objc func filtersOnIconChange(notification: NSNotification){
@@ -527,6 +584,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         self.tableView.reloadData()
+        updateFooter()
     }
     
     func cleanFilters(){
@@ -545,6 +603,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         self.tableView.reloadData()
+        updateFooter()
     }
     
     @objc func onSegmentedControlHapticFeedback(sender: UISegmentedControl){
@@ -558,6 +617,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.updateFooter()
         }
         
         if searchActive{

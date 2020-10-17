@@ -56,6 +56,10 @@ class CapacityViewController: UIViewController {
     var salaDeLecturaConstraint = NSLayoutConstraint.init()
     var bibliotecaConstraint = NSLayoutConstraint.init()
     
+    var comedorMax: Int = 0
+    var salaDeLecturaMax: Int = 0
+    var bibliotecaMax: Int = 0
+    
     private func getProgressBarColor(fractionNumber: Float) -> UIColor{
         
         if fractionNumber >= 0 && fractionNumber < 0.3 {
@@ -181,6 +185,7 @@ class CapacityViewController: UIViewController {
                         self.comedorFractionNumber = -1
                     }else{
                         self.comedorFractionNumber = Float(currentCapacity)/Float(maxCapacity)
+                        self.comedorMax = maxCapacity
                     }
                 }else if room == "SalaDeLectura"{
                     let currentCapacity = (value[room] as! [String: Int])["Current"] ?? 0
@@ -189,6 +194,7 @@ class CapacityViewController: UIViewController {
                         self.salaDeLecturaFractionNumber = -1
                     }else{
                         self.salaDeLecturaFractionNumber = Float(currentCapacity)/Float(maxCapacity)
+                        self.salaDeLecturaMax = maxCapacity
                     }
                 }else if room == "Biblioteca"{
                     let currentCapacity = (value[room] as! [String: Int])["Current"] ?? 0
@@ -197,6 +203,7 @@ class CapacityViewController: UIViewController {
                         self.bibliotecaFractionNumber = -1
                     }else{
                         self.bibliotecaFractionNumber = Float(currentCapacity)/Float(maxCapacity)
+                        self.bibliotecaMax = maxCapacity
                     }
                 }
             }
