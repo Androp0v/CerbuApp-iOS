@@ -20,6 +20,7 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var lockSwitchNotifs: UISwitch!
     @IBOutlet var lockSwitchNotifLabel: UILabel!
     
+    @IBOutlet weak var footerLabel: UILabel!
     
     @IBAction func orderSwitchChanged(_ sender: Any) {
         if orderSwitch.isOn{
@@ -43,6 +44,10 @@ class SettingsViewController: UITableViewController {
         }else{
             defaults.set(false, forKey: "showNotifs")
         }
+    }
+    
+    @objc func handleFooterTap(_ sender: UITapGestureRecognizer) {
+        self.performSegue(withIdentifier: "pushFromSettings", sender: nil)
     }
     
     override func viewDidLoad() {
@@ -95,6 +100,16 @@ class SettingsViewController: UITableViewController {
             lockSwitchNotifs.isEnabled = true
             lockImageNotifs.removeGestureRecognizer(tapGestureRecognizerNotifs)
         }
+        
+        // Add link to bottom label
+        let labelString = NSMutableAttributedString(string: "2020 © Raúl Montón Pinillos")
+        labelString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.secondaryLabel, range: NSRange(location:0,length:7))
+        labelString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location:7,length:20))
+        footerLabel.attributedText = labelString
+        
+        // Handle taps in footer
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleFooterTap(_:)))
+        footerLabel.addGestureRecognizer(tap)
 
     }
 
@@ -213,7 +228,7 @@ class SettingsViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -232,14 +247,17 @@ class SettingsViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "pushFromSettings") {
+            let authorViewController = (segue.destination as! DetailsViewController)
+            let author = Person(id: 0, name: "Raúl", surname_1: "Montón", surname_2: "Pinillos", career: "Física", beca: "Asociación de Antiguos Colegiales (2019-2020)", room: "Excolegial", floor: 300, liked: false, gender: 0)
+            authorViewController.detailedPerson = author
+        }
     }
-    */
-
+    
 }

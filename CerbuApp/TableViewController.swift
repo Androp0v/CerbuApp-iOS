@@ -294,11 +294,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView .deselectRow(at: indexPath, animated: true)
         
-        
-        // Create an instance of DetailViewController and pass the variable
-        //let destinationViewController = DetailsViewController()
-        //destinationViewController.detailedPerson = selectedPerson
-        
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "pushFromCell", sender: indexPath)
             self.searchBar.resignFirstResponder()

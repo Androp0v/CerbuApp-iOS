@@ -60,14 +60,14 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
             careerLabel.text = detailedPerson?.career
             becaImageView = nil
             if defaults.bool(forKey: "showRooms"){
-                roomLabel.text = "Habitación " + (detailedPerson?.room ?? "?")
+                roomLabel.text = "Habitación: " + (detailedPerson?.room ?? "?")
             }else{
                 roomLabel.text = nil
             }
         }else{
             careerLabel.text = (detailedPerson?.career ?? "") + " | " + (detailedPerson?.beca ?? "")
             becaImageView.image = UIImage.init(named: "becario")
-            roomLabel.text = "Habitación " + (detailedPerson?.room ?? "?")
+            roomLabel.text = "Habitación: " + (detailedPerson?.room ?? "?")
         }
         
         if detailedPerson?.liked ?? false{
@@ -235,7 +235,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
             overrideUserInterfaceStyle = .dark
             navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0)
             hresPhotoBackground.backgroundColor = UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0)
-            roomLabel.text = "Habitación " + (detailedPerson?.room ?? "?")
+            roomLabel.text = "Habitación: " + (detailedPerson?.room ?? "?")
         }
     }
     

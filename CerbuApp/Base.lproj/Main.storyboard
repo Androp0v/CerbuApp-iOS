@@ -1061,6 +1061,7 @@
                             <constraint firstItem="p6b-OW-LPt" firstAttribute="leading" secondItem="Gms-Pm-Q62" secondAttribute="leading" constant="24" id="zQP-jv-ixC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fAf-oy-s8X"/>
                     <connections>
                         <outlet property="becaImageView" destination="XEG-Zv-h63" id="Y63-Nf-DDN"/>
                         <outlet property="careerLabel" destination="UYe-pD-Sxg" id="WtO-UH-AvZ"/>
@@ -1635,12 +1636,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
-                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019 © Raúl Montón Pinillos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="at5-1K-35a">
+                        <label key="tableFooterView" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019 © Raúl Montón Pinillos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="at5-1K-35a">
                             <rect key="frame" x="0.0" y="222" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" systemColor="tertiaryLabelColor"/>
                             <nil key="highlightedColor"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="tED-d4-Ild" appends="YES" id="cro-9q-Bvf"/>
+                            </connections>
                         </label>
                         <sections>
                             <tableViewSection id="Rl8-on-j3p">
@@ -1779,6 +1784,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Ajustes" id="182-4M-a5q"/>
                     <connections>
+                        <outlet property="footerLabel" destination="at5-1K-35a" id="BuI-A4-SbA"/>
                         <outlet property="lockImage" destination="eKf-ZV-LJw" id="lwm-Lv-BUj"/>
                         <outlet property="lockImageNotifs" destination="FlJ-iw-efx" id="deK-Se-rfl"/>
                         <outlet property="lockLabel" destination="N70-lD-aMd" id="Z25-Vt-4NG"/>
@@ -1789,6 +1795,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZb-ji-K82" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer enabled="NO" cancelsTouchesInView="NO" id="tED-d4-Ild">
+                    <connections>
+                        <segue destination="W9g-Aj-Mhi" kind="show" identifier="pushFromSettings" id="vJM-TI-UPF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2021.7391304347827" y="-589.28571428571422"/>
         </scene>
@@ -1829,6 +1840,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="N97-c8-oOd"/>
+        <segue reference="vJM-TI-UPF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="HotIcon" width="165" height="165"/>
