@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CapacityViewController: UIViewController {
+class CapacityViewController: UIViewController, QRScannerViewControllerDelegate {
 
     @IBOutlet weak var salaPolivalenteContainerView: UIView!
     @IBOutlet weak var salaPolivalenteProgressBar: UIView!
@@ -27,6 +27,13 @@ class CapacityViewController: UIViewController {
     @IBOutlet weak var gimnasioProgressBar: UIView!
     @IBOutlet weak var gimnasioDescription: UILabel!
     
+    // Open scan QR view
+    @IBAction func openQRScanView(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let scanViewController = storyboard.instantiateViewController(withIdentifier: "QRScannerVC") as! QRScannerViewController
+        scanViewController.delegate = self
+        present(scanViewController, animated: true, completion: nil)
+    }
     
     // Location views
     
@@ -45,8 +52,11 @@ class CapacityViewController: UIViewController {
         // Remove value from database
         let userID = defaults.object(forKey: "userID") as! String
         Database.database().reference().child("Capacities/Check-ins").child(userID).removeValue()
+        
+        // Update progressbar locally
+        updateLocalDelta(room: "Out")
+        
     }
-    
     
     let defaults = UserDefaults.standard
     
@@ -72,6 +82,59 @@ class CapacityViewController: UIViewController {
     var salaDeLecturaMax: Int = 0
     var bibliotecaMax: Int = 0
     var gimnasioMax: Int = 0
+    
+    // Current room
+    var currentRoom: String = String()
+    
+    // Exit current room
+    func exitRoom() {
+        switch currentRoom {
+        case "SalaPolivalente":
+            salaPolivalenteLocalCheckin = -1
+        case "SalaDeLectura":
+            salaDeLecturaLocalCheckin = -1
+        case "Biblioteca":
+            bibliotecaLocalCheckin = -1
+        case "Gimnasio":
+            gimnasioLocalCheckin = -1
+        default:
+            print(currentRoom)
+        }
+    }
+    
+    // Store local check-ins not yet processed in the database
+    var salaPolivalenteLocalCheckin: Int = 0
+    var salaDeLecturaLocalCheckin: Int = 0
+    var bibliotecaLocalCheckin: Int = 0
+    var gimnasioLocalCheckin: Int = 0
+    
+    func updateLocalDelta(room: String) {
+        switch room {
+        case "SalaPolivalente":
+            salaPolivalenteLocalCheckin = 1
+        case "SalaDeLectura":
+            salaDeLecturaLocalCheckin = 1
+        case "Biblioteca":
+            bibliotecaLocalCheckin = 1
+        case "Gimnasio":
+            gimnasioLocalCheckin = 1
+        case "Out":
+            exitRoom()
+        default:
+            print(room)
+        }
+        
+        applyLocalDeltas()
+    }
+    
+    func applyLocalDeltas() {
+        salaPolivalenteFractionNumber = Float(Int(salaPolivalenteFractionNumber*Float(salaPolivalenteMax)) + salaPolivalenteLocalCheckin)/Float(salaPolivalenteMax)
+        salaDeLecturaFractionNumber = Float(Int(salaDeLecturaFractionNumber*Float(salaDeLecturaMax)) + salaDeLecturaLocalCheckin)/Float(salaDeLecturaMax)
+        bibliotecaFractionNumber = Float(Int(bibliotecaFractionNumber*Float(bibliotecaMax)) + bibliotecaLocalCheckin)/Float(bibliotecaMax)
+        gimnasioFractionNumber = Float(Int(gimnasioFractionNumber*Float(gimnasioMax)) + gimnasioLocalCheckin)/Float(gimnasioMax)
+        
+        animateProgressBars()
+    }
     
     private func getProgressBarColor(fractionNumber: Float) -> UIColor{
         
@@ -171,6 +234,11 @@ class CapacityViewController: UIViewController {
         databaseReferenceUser.observe(.value, with: {snapshot in
             if !(snapshot.value is NSNull){
                 let value = snapshot.value as! [String: Any]
+                
+                // Update current room
+                self.currentRoom = value["Room"] as? String ?? ""
+                
+                // Update UI
                 if value["Room"] as! String == "SalaPolivalente"{
                     self.salaPolivalenteLocationView.isHidden = false
                 }else{

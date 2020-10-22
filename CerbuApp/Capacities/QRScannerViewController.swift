@@ -9,10 +9,16 @@
 import UIKit
 import Firebase
 
+protocol QRScannerViewControllerDelegate: class {
+    func updateLocalDelta(room: String)
+}
+
 class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     @IBOutlet weak var QRScannerView: QRScannerView!
     @IBOutlet weak var errorOverlay: UIView!
     
+    weak var delegate: QRScannerViewControllerDelegate?
+
     let defaults = UserDefaults.standard
     
     // Define QR code strings
@@ -49,15 +55,13 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
         
         databaseReference.child(userID).observeSingleEvent(of: .value, with: { (userCheckIn) in
             if userCheckIn.exists(){
-                // User already checked-in
-                print("User already checked-in")
+                // User had already checked-in
                 self.databaseReference.child(userID).setValue([
                                                                 "Room": QRString,
                                                                 "Time": epoch
                 ])
             }else{
                 // User hadn't checked-in
-                print("User hadn't checked-in")
                 self.databaseReference.child(userID).setValue([
                                                                 "Room": QRString,
                                                                 "Time": epoch
@@ -82,17 +86,22 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
         if code == SALA_POLIVALENTE_QR{
             dismiss(animated: true, completion: nil)
             updateCheckIn(QRString: "SalaPolivalente")
+            delegate?.updateLocalDelta(room: "SalaPolivalente")
         }else if code == SALA_DE_LECTURA_QR{
             dismiss(animated: true, completion: nil)
             updateCheckIn(QRString: "SalaDeLectura")
+            delegate?.updateLocalDelta(room: "SalaDeLectura")
         }else if code == BIBLIOTECA_QR{
             dismiss(animated: true, completion: nil)
             updateCheckIn(QRString: "Biblioteca")
+            delegate?.updateLocalDelta(room: "Biblioteca")
         }else if code == GIMNASIO_QR{
             dismiss(animated: true, completion: nil)
             updateCheckIn(QRString: "Gimnasio")
+            delegate?.updateLocalDelta(room: "Gimnasio")
         }else if code == OUT_QR{
             dismiss(animated: true, completion: nil)
+            delegate?.updateLocalDelta(room: "Out")
             checkOut()
         }else{
             errorAndExitQRScanner()

@@ -161,7 +161,7 @@
                                 <color key="backgroundColor" name="MainAppColor"/>
                                 <items>
                                     <barButtonItem style="plain" id="4er-36-nLU">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6rm-24-dHW">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6rm-24-dHW">
                                             <rect key="frame" x="20" y="6" width="374" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" name="ShadowMainAppColor"/>
@@ -1477,6 +1477,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiT-W7-L2f">
                                                         <rect key="frame" x="346" y="70" width="20" height="22"/>
                                                         <state key="normal" image="info.circle" catalog="system"/>
+                                                        <connections>
+                                                            <segue destination="vim-hf-yJS" kind="presentation" id="yxK-B9-TFq"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ocupación desconocida" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixI-f4-QsN">
                                                         <rect key="frame" x="154" y="70" width="184" height="21"/>
@@ -1543,7 +1546,7 @@
                     <navigationItem key="navigationItem" title="Aforos" id="cXv-62-SUP">
                         <barButtonItem key="rightBarButtonItem" image="qrcode.viewfinder" catalog="system" id="1GV-Qx-zbX">
                             <connections>
-                                <segue destination="Qam-4r-J2d" kind="presentation" id="ca4-Dy-hPE"/>
+                                <action selector="openQRScanView:" destination="dRr-JN-IDh" id="9NL-8q-RCO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1567,13 +1570,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Z2-rZ-HKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer enabled="NO" id="W9M-c3-ba4">
+                    <connections>
+                        <segue destination="Qam-4r-J2d" kind="presentation" identifier="QRScanSegue" id="swo-sV-ty4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2021.7391304347827" y="3197.5446428571427"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="ycO-dL-zXh">
             <objects>
-                <viewController id="Qam-4r-J2d" customClass="QRScannerViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRScannerVC" id="Qam-4r-J2d" customClass="QRScannerViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4hW-si-n8s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1938,7 +1946,7 @@
             <objects>
                 <viewController id="eTj-LO-Whn" customClass="MagazineController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PnD-z3-h9o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="585.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="gHC-6Z-4OO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
