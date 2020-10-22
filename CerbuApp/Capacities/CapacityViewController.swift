@@ -88,6 +88,24 @@ class CapacityViewController: UIViewController, QRScannerViewControllerDelegate 
     
     // Exit current room
     func exitRoom() {
+        salaPolivalenteLocationView.isHidden = true
+        salaDeLecturaCurrentLocationView.isHidden = true
+        bibliotecaCurrentLocationView.isHidden = true
+        gimnasioCurrentLocationView.isHidden = true
+    }
+    
+    // Store local check-ins not yet processed in the database
+    var salaPolivalenteLocalCheckin: Int = 0
+    var salaDeLecturaLocalCheckin: Int = 0
+    var bibliotecaLocalCheckin: Int = 0
+    var gimnasioLocalCheckin: Int = 0
+    
+    func updateLocalDelta(room: String) {
+                
+        if room == currentRoom {
+            return
+        }
+        
         switch currentRoom {
         case "SalaPolivalente":
             salaPolivalenteLocalCheckin = -1
@@ -100,26 +118,23 @@ class CapacityViewController: UIViewController, QRScannerViewControllerDelegate 
         default:
             print(currentRoom)
         }
-    }
-    
-    // Store local check-ins not yet processed in the database
-    var salaPolivalenteLocalCheckin: Int = 0
-    var salaDeLecturaLocalCheckin: Int = 0
-    var bibliotecaLocalCheckin: Int = 0
-    var gimnasioLocalCheckin: Int = 0
-    
-    func updateLocalDelta(room: String) {
+        
         switch room {
         case "SalaPolivalente":
             salaPolivalenteLocalCheckin = 1
+            currentRoom = room
         case "SalaDeLectura":
             salaDeLecturaLocalCheckin = 1
+            currentRoom = room
         case "Biblioteca":
             bibliotecaLocalCheckin = 1
+            currentRoom = room
         case "Gimnasio":
             gimnasioLocalCheckin = 1
+            currentRoom = room
         case "Out":
             exitRoom()
+            currentRoom = String()
         default:
             print(room)
         }
@@ -128,10 +143,12 @@ class CapacityViewController: UIViewController, QRScannerViewControllerDelegate 
     }
     
     func applyLocalDeltas() {
-        salaPolivalenteFractionNumber = Float(Int(salaPolivalenteFractionNumber*Float(salaPolivalenteMax)) + salaPolivalenteLocalCheckin)/Float(salaPolivalenteMax)
-        salaDeLecturaFractionNumber = Float(Int(salaDeLecturaFractionNumber*Float(salaDeLecturaMax)) + salaDeLecturaLocalCheckin)/Float(salaDeLecturaMax)
-        bibliotecaFractionNumber = Float(Int(bibliotecaFractionNumber*Float(bibliotecaMax)) + bibliotecaLocalCheckin)/Float(bibliotecaMax)
-        gimnasioFractionNumber = Float(Int(gimnasioFractionNumber*Float(gimnasioMax)) + gimnasioLocalCheckin)/Float(gimnasioMax)
+        print("Gimnasio FN: " + String(gimnasioFractionNumber))
+        salaPolivalenteFractionNumber = Float(Int(salaPolivalenteFractionNumberOld*Float(salaPolivalenteMax)) + salaPolivalenteLocalCheckin)/Float(salaPolivalenteMax)
+        salaDeLecturaFractionNumber = Float(Int(salaDeLecturaFractionNumberOld*Float(salaDeLecturaMax)) + salaDeLecturaLocalCheckin)/Float(salaDeLecturaMax)
+        bibliotecaFractionNumber = Float(Int(bibliotecaFractionNumberOld*Float(bibliotecaMax)) + bibliotecaLocalCheckin)/Float(bibliotecaMax)
+        gimnasioFractionNumber = Float(Int(gimnasioFractionNumberOld*Float(gimnasioMax)) + gimnasioLocalCheckin)/Float(gimnasioMax)
+        print("Gimnasio FN updated: " + String(gimnasioFractionNumber))
         
         animateProgressBars()
     }
@@ -172,8 +189,9 @@ class CapacityViewController: UIViewController, QRScannerViewControllerDelegate 
             salaPolivalenteConstraint,
             salaDeLecturaConstraint,
             bibliotecaConstraint,
+            gimnasioConstraint,
         ])
-        
+
         // Create the constraints for the progressBars
         salaPolivalenteConstraint = salaPolivalenteProgressBar.widthAnchor.constraint(equalTo: salaPolivalenteContainerView.widthAnchor, multiplier: CGFloat(max(0,salaPolivalenteFractionNumber)))
         salaDeLecturaConstraint = salaDeLecturaProgressBar.widthAnchor.constraint(equalTo: salaDeLecturaContainerView.widthAnchor, multiplier: CGFloat(max(0,salaDeLecturaFractionNumber)))
