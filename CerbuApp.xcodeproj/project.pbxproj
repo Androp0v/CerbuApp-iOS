@@ -30,6 +30,8 @@
 		C464AD122515187D00548EB2 /* CapacityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C464AD112515187D00548EB2 /* CapacityDetailsViewController.swift */; };
 		C4729F6E233663400037222D /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4729F6D233663400037222D /* BarcodeViewController.swift */; };
 		C4729F702336A55B0037222D /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4729F6F2336A55B0037222D /* ImagePickerController.swift */; };
+		C482D65D25419DC900DA3C3F /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C482D65C25419DC900DA3C3F /* Readme.md */; };
+		C482D66225419E5000DA3C3F /* CerbuAppMockup.png in Resources */ = {isa = PBXBuildFile; fileRef = C482D66125419E5000DA3C3F /* CerbuAppMockup.png */; };
 		C48BD7FF233BB0E600FE1C69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C48BD7FE233BB0E600FE1C69 /* GoogleService-Info.plist */; };
 		C48D5AEB22F4A88A00695DB2 /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = C48D5AEA22F4984B00695DB2 /* database.db */; };
 		C49AFCD722FAE72E00A20C5D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD622FAE72E00A20C5D /* CardView.swift */; };
@@ -119,6 +121,8 @@
 		C464AD112515187D00548EB2 /* CapacityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityDetailsViewController.swift; sourceTree = "<group>"; };
 		C4729F6D233663400037222D /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
 		C4729F6F2336A55B0037222D /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		C482D65C25419DC900DA3C3F /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		C482D66125419E5000DA3C3F /* CerbuAppMockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CerbuAppMockup.png; sourceTree = "<group>"; };
 		C48BD7FE233BB0E600FE1C69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C48D5AEA22F4984B00695DB2 /* database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.db; sourceTree = "<group>"; };
 		C49AFCD622FAE72E00A20C5D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 		C404057522DEA3D000259C86 = {
 			isa = PBXGroup;
 			children = (
+				C482D65C25419DC900DA3C3F /* Readme.md */,
+				C482D66125419E5000DA3C3F /* CerbuAppMockup.png */,
 				C404058022DEA3D000259C86 /* CerbuApp */,
 				C404059722DEA3D100259C86 /* CerbuAppTests */,
 				C40405A222DEA3D100259C86 /* CerbuAppUITests */,
@@ -391,11 +397,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C482D65D25419DC900DA3C3F /* Readme.md in Resources */,
 				C48D5AEB22F4A88A00695DB2 /* database.db in Resources */,
 				C404058E22DEA3D100259C86 /* LaunchScreen.storyboard in Resources */,
 				C404058B22DEA3D100259C86 /* Assets.xcassets in Resources */,
 				C4ACF1752335673A00198891 /* PatioInterior.pdf in Resources */,
 				C404058922DEA3D000259C86 /* Main.storyboard in Resources */,
+				C482D66225419E5000DA3C3F /* CerbuAppMockup.png in Resources */,
 				C48BD7FF233BB0E600FE1C69 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
