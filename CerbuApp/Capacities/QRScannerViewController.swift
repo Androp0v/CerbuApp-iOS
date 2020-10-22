@@ -15,6 +15,13 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     
     let defaults = UserDefaults.standard
     
+    // Define QR code strings
+    let SALA_POLIVALENTE_QR = "gNc98aMN"
+    let SALA_DE_LECTURA_QR = "tHWL45Pg"
+    let BIBLIOTECA_QR = "gFJtN3HS"
+    let GIMNASIO_QR = "ATPi0bjz"
+    let OUT_QR = "SVOWE1Kd"
+    
     var databaseReference: DatabaseReference!
     
     private func blurErrorOverlayBackground(){
@@ -72,16 +79,19 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     }
     
     func qrScanningSucceededWithCode(code: String?) {
-        if code == "Comedor"{
+        if code == SALA_POLIVALENTE_QR{
             dismiss(animated: true, completion: nil)
-            updateCheckIn(QRString: "Comedor")
-        }else if code == "Sala de Lectura"{
+            updateCheckIn(QRString: "SalaPolivalente")
+        }else if code == SALA_DE_LECTURA_QR{
             dismiss(animated: true, completion: nil)
             updateCheckIn(QRString: "SalaDeLectura")
-        }else if code == "Biblioteca"{
+        }else if code == BIBLIOTECA_QR{
             dismiss(animated: true, completion: nil)
             updateCheckIn(QRString: "Biblioteca")
-        }else if code == "Salir"{
+        }else if code == GIMNASIO_QR{
+            dismiss(animated: true, completion: nil)
+            updateCheckIn(QRString: "Gimnasio")
+        }else if code == OUT_QR{
             dismiss(animated: true, completion: nil)
             checkOut()
         }else{

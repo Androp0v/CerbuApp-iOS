@@ -16,7 +16,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c90-Gj-SSh">
@@ -302,7 +302,7 @@
             <objects>
                 <viewController title="Boletín semanal" id="0BE-bK-eey" customClass="BoletinViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Li2-N2-BbY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boletin_048" translatesAutoresizingMaskIntoConstraints="NO" id="C6G-ya-WA4">
@@ -353,7 +353,7 @@
             <objects>
                 <viewController title="Menú de comedor" id="1w5-Zn-rfs" customClass="MenuViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="joX-QQ-vrT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ZP-t1-xEw">
@@ -382,7 +382,7 @@
             <objects>
                 <viewController title="Pase de comidas" id="vCZ-NK-GrR" customClass="BarcodeViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sdw-6Q-Brx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGq-DY-Bw7">
@@ -481,7 +481,7 @@
             <objects>
                 <viewController title="Revista Patio Interior" id="udk-Z7-nsr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IYV-OW-zi8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTa-4w-Rsc">
@@ -513,7 +513,7 @@
             <objects>
                 <tableViewController id="gxJ-rO-yYO" customClass="NotificationsTableViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Twf-We-JFN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -581,7 +581,7 @@
             <objects>
                 <viewController id="sNt-SY-saf" customClass="NotificationComposerController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wRY-71-lZj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNB-ue-yTy">
@@ -658,7 +658,7 @@
             <objects>
                 <tableViewController id="1zf-YK-s5n" customClass="FilterTableViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="XTH-eS-gb7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -988,7 +988,7 @@
             <objects>
                 <viewController id="W9g-Aj-Mhi" customClass="DetailsViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gms-Pm-Q62">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjS-FN-sUo">
@@ -1081,7 +1081,7 @@
             <objects>
                 <viewController id="dRr-JN-IDh" customClass="CapacityViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yrS-Vu-Qk0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="umN-4u-h7b">
@@ -1552,14 +1552,18 @@
                         <outlet property="bibliotecaCurrentLocationView" destination="PRv-Xn-RRm" id="Gkx-9Q-LgZ"/>
                         <outlet property="bibliotecaDescription" destination="8eu-eU-oUe" id="lpA-dx-VOr"/>
                         <outlet property="bibliotecaProgressBar" destination="7Xv-ts-dn4" id="sxF-Ab-3Q6"/>
-                        <outlet property="comedorContainerView" destination="17h-8b-ifP" id="n2w-w1-Osn"/>
-                        <outlet property="comedorCurrentLocationView" destination="6qg-vS-rkK" id="cRS-Ax-Xe7"/>
-                        <outlet property="comedorDescription" destination="3Lh-vu-tH7" id="DC4-ei-jFU"/>
-                        <outlet property="comedorProgressBar" destination="hpM-2Y-LU3" id="U0z-hP-eeW"/>
+                        <outlet property="gimnasioContainerView" destination="ora-MZ-k63" id="wKX-yn-n4o"/>
+                        <outlet property="gimnasioCurrentLocationView" destination="caE-53-7RE" id="uVW-Cp-vEK"/>
+                        <outlet property="gimnasioDescription" destination="ixI-f4-QsN" id="LEM-RD-HpN"/>
+                        <outlet property="gimnasioProgressBar" destination="fy3-zf-AUX" id="4sC-1K-QNb"/>
                         <outlet property="salaDeLecturaContainerView" destination="fnG-3Y-oiv" id="KJg-cY-iAm"/>
                         <outlet property="salaDeLecturaCurrentLocationView" destination="vtF-vp-0fa" id="Rk9-H1-VMR"/>
                         <outlet property="salaDeLecturaDescription" destination="BNP-Ni-6IH" id="12F-6s-MUD"/>
                         <outlet property="salaDeLecturaProgressBar" destination="y2b-Mk-H86" id="zNZ-cD-nrV"/>
+                        <outlet property="salaPolivalenteContainerView" destination="17h-8b-ifP" id="n2w-w1-Osn"/>
+                        <outlet property="salaPolivalenteDescription" destination="3Lh-vu-tH7" id="DC4-ei-jFU"/>
+                        <outlet property="salaPolivalenteLocationView" destination="6qg-vS-rkK" id="cRS-Ax-Xe7"/>
+                        <outlet property="salaPolivalenteProgressBar" destination="hpM-2Y-LU3" id="U0z-hP-eeW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Z2-rZ-HKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1571,7 +1575,7 @@
             <objects>
                 <viewController id="Qam-4r-J2d" customClass="QRScannerViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4hW-si-n8s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddc-Hd-Fbe" customClass="QRScannerView" customModule="CerbuApp" customModuleProvider="target">
@@ -1638,7 +1642,7 @@
             <objects>
                 <viewController id="vim-hf-yJS" customClass="CapacityDetailsViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UQH-P5-anM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX de XX personas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYM-ni-CoM">
@@ -1740,7 +1744,7 @@
             <objects>
                 <tableViewController id="nm4-15-wRh" customClass="SettingsViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dqA-XU-NqF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <label key="tableFooterView" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019 © Raúl Montón Pinillos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="at5-1K-35a">
@@ -1934,7 +1938,7 @@
             <objects>
                 <viewController id="eTj-LO-Whn" customClass="MagazineController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PnD-z3-h9o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="585.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="gHC-6Z-4OO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -11,9 +11,9 @@ import Firebase
 
 class CapacityViewController: UIViewController {
 
-    @IBOutlet weak var comedorContainerView: UIView!
-    @IBOutlet weak var comedorProgressBar: UIView!
-    @IBOutlet weak var comedorDescription: UILabel!
+    @IBOutlet weak var salaPolivalenteContainerView: UIView!
+    @IBOutlet weak var salaPolivalenteProgressBar: UIView!
+    @IBOutlet weak var salaPolivalenteDescription: UILabel!
     
     @IBOutlet weak var salaDeLecturaContainerView: UIView!
     @IBOutlet weak var salaDeLecturaProgressBar: UIView!
@@ -23,15 +23,24 @@ class CapacityViewController: UIViewController {
     @IBOutlet weak var bibliotecaProgressBar: UIView!
     @IBOutlet weak var bibliotecaDescription: UILabel!
     
-    @IBOutlet weak var comedorCurrentLocationView: UIView!
+    @IBOutlet weak var gimnasioContainerView: UIView!
+    @IBOutlet weak var gimnasioProgressBar: UIView!
+    @IBOutlet weak var gimnasioDescription: UILabel!
+    
+    
+    // Location views
+    
+    @IBOutlet weak var salaPolivalenteLocationView: UIView!
     @IBOutlet weak var salaDeLecturaCurrentLocationView: UIView!
     @IBOutlet weak var bibliotecaCurrentLocationView: UIView!
+    @IBOutlet weak var gimnasioCurrentLocationView: UIView!
     
     @IBAction func buttonCheckout(_ sender: Any) {
         // Hide CurrentLocationViews
-        comedorCurrentLocationView.isHidden = true
+        salaPolivalenteLocationView.isHidden = true
         salaDeLecturaCurrentLocationView.isHidden = true
         bibliotecaCurrentLocationView.isHidden = true
+        gimnasioCurrentLocationView.isHidden = true
         
         // Remove value from database
         let userID = defaults.object(forKey: "userID") as! String
@@ -41,24 +50,28 @@ class CapacityViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
-    var comedorFractionNumber: Float = -1.0
+    var salaPolivalenteFractionNumber: Float = -1.0
     var salaDeLecturaFractionNumber: Float = -1.0
     var bibliotecaFractionNumber: Float = -1.0
+    var gimnasioFractionNumber: Float = -1.0
     
-    var comedorFractionNumberOld: Float = 0.0
+    var salaPolivalenteFractionNumberOld: Float = 0.0
     var salaDeLecturaFractionNumberOld: Float = 0.0
     var bibliotecaFractionNumberOld: Float = 0.0
+    var gimnasioFractionNumberOld: Float = 0.0
     
     var databaseReference: DatabaseReference!
     var databaseReferenceUser: DatabaseReference!
     
-    var comedorConstraint = NSLayoutConstraint.init()
+    var salaPolivalenteConstraint = NSLayoutConstraint.init()
     var salaDeLecturaConstraint = NSLayoutConstraint.init()
     var bibliotecaConstraint = NSLayoutConstraint.init()
+    var gimnasioConstraint = NSLayoutConstraint.init()
     
-    var comedorMax: Int = 0
+    var salaPolivalenteMax: Int = 0
     var salaDeLecturaMax: Int = 0
     var bibliotecaMax: Int = 0
+    var gimnasioMax: Int = 0
     
     private func getProgressBarColor(fractionNumber: Float) -> UIColor{
         
@@ -93,36 +106,40 @@ class CapacityViewController: UIViewController {
         
         // Deactivate constraints
         NSLayoutConstraint.deactivate([
-            comedorConstraint,
+            salaPolivalenteConstraint,
             salaDeLecturaConstraint,
             bibliotecaConstraint,
         ])
         
         // Create the constraints for the progressBars
-        comedorConstraint = comedorProgressBar.widthAnchor.constraint(equalTo: comedorContainerView.widthAnchor, multiplier: CGFloat(max(0,comedorFractionNumber)))
+        salaPolivalenteConstraint = salaPolivalenteProgressBar.widthAnchor.constraint(equalTo: salaPolivalenteContainerView.widthAnchor, multiplier: CGFloat(max(0,salaPolivalenteFractionNumber)))
         salaDeLecturaConstraint = salaDeLecturaProgressBar.widthAnchor.constraint(equalTo: salaDeLecturaContainerView.widthAnchor, multiplier: CGFloat(max(0,salaDeLecturaFractionNumber)))
         bibliotecaConstraint = bibliotecaProgressBar.widthAnchor.constraint(equalTo: bibliotecaContainerView.widthAnchor, multiplier: CGFloat(max(0,bibliotecaFractionNumber)))
+        gimnasioConstraint = gimnasioProgressBar.widthAnchor.constraint(equalTo: gimnasioContainerView.widthAnchor, multiplier: CGFloat(max(0,gimnasioFractionNumber)))
         
         // Activate constraint(s)
         NSLayoutConstraint.activate([
-            comedorConstraint,
+            salaPolivalenteConstraint,
             salaDeLecturaConstraint,
             bibliotecaConstraint,
+            gimnasioConstraint,
         ])
         
         // Set progressbar colors
-        comedorProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: comedorFractionNumber)
+        salaPolivalenteProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: salaPolivalenteFractionNumber)
         salaDeLecturaProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: salaDeLecturaFractionNumber)
         bibliotecaProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: bibliotecaFractionNumber)
+        gimnasioProgressBar.backgroundColor = self.getProgressBarColor(fractionNumber: gimnasioFractionNumber)
         
         // Set label descriptions
-        comedorDescription.text = getDescriptionString(fractionNumber: comedorFractionNumber)
+        salaPolivalenteDescription.text = getDescriptionString(fractionNumber: salaPolivalenteFractionNumber)
         salaDeLecturaDescription.text = getDescriptionString(fractionNumber: salaDeLecturaFractionNumber)
         bibliotecaDescription.text = getDescriptionString(fractionNumber: bibliotecaFractionNumber)
+        gimnasioDescription.text = getDescriptionString(fractionNumber: gimnasioFractionNumber)
         
         // Animate initial progress bar positions
-        UIView.animate(withDuration: Double(abs(comedorFractionNumber-comedorFractionNumberOld)), animations: {
-            self.comedorContainerView?.layoutIfNeeded()
+        UIView.animate(withDuration: Double(abs(salaPolivalenteFractionNumber-salaPolivalenteFractionNumberOld)), animations: {
+            self.salaPolivalenteContainerView?.layoutIfNeeded()
             })
         UIView.animate(withDuration: Double(abs(salaDeLecturaFractionNumber-salaDeLecturaFractionNumberOld)), animations: {
             self.salaDeLecturaContainerView?.layoutIfNeeded()
@@ -130,11 +147,15 @@ class CapacityViewController: UIViewController {
         UIView.animate(withDuration: Double(abs(bibliotecaFractionNumber-bibliotecaFractionNumberOld)), animations: {
             self.bibliotecaContainerView?.layoutIfNeeded()
             })
+        UIView.animate(withDuration: Double(abs(gimnasioFractionNumber-gimnasioFractionNumberOld)), animations: {
+            self.gimnasioContainerView?.layoutIfNeeded()
+            })
         
         // Update "old" fraction numbers
-        comedorFractionNumberOld = comedorFractionNumber
+        salaPolivalenteFractionNumberOld = salaPolivalenteFractionNumber
         salaDeLecturaFractionNumberOld = salaDeLecturaFractionNumber
         bibliotecaFractionNumberOld = bibliotecaFractionNumber
+        gimnasioFractionNumberOld = gimnasioFractionNumber
     }
     
     override func viewDidLoad() {
@@ -150,10 +171,10 @@ class CapacityViewController: UIViewController {
         databaseReferenceUser.observe(.value, with: {snapshot in
             if !(snapshot.value is NSNull){
                 let value = snapshot.value as! [String: Any]
-                if value["Room"] as! String == "Comedor"{
-                    self.comedorCurrentLocationView.isHidden = false
+                if value["Room"] as! String == "SalaPolivalente"{
+                    self.salaPolivalenteLocationView.isHidden = false
                 }else{
-                    self.comedorCurrentLocationView.isHidden = true
+                    self.salaPolivalenteLocationView.isHidden = true
                 }
                 
                 if value["Room"] as! String == "SalaDeLectura"{
@@ -167,6 +188,12 @@ class CapacityViewController: UIViewController {
                 }else{
                     self.bibliotecaCurrentLocationView.isHidden = true
                 }
+                
+                if value["Room"] as! String == "Gimnasio"{
+                    self.gimnasioCurrentLocationView.isHidden = false
+                }else{
+                    self.gimnasioCurrentLocationView.isHidden = true
+                }
             }
         })
         
@@ -178,16 +205,16 @@ class CapacityViewController: UIViewController {
             let sortedKeys = Array(value.keys).sorted(by: >)
                         
             for (room) in sortedKeys{
-                if room == "Comedor"{
+                if room == "SalaPolivalente" {
                     let currentCapacity = (value[room] as! [String: Int])["Current"] ?? 0
                     let maxCapacity = (value[room] as! [String: Int])["Max"] ?? 0
                     if maxCapacity == -1{
-                        self.comedorFractionNumber = -1
+                        self.salaPolivalenteFractionNumber = -1
                     }else{
-                        self.comedorFractionNumber = Float(currentCapacity)/Float(maxCapacity)
-                        self.comedorMax = maxCapacity
+                        self.salaPolivalenteFractionNumber = Float(currentCapacity)/Float(maxCapacity)
+                        self.salaPolivalenteMax = maxCapacity
                     }
-                }else if room == "SalaDeLectura"{
+                } else if room == "SalaDeLectura" {
                     let currentCapacity = (value[room] as! [String: Int])["Current"] ?? 0
                     let maxCapacity = (value[room] as! [String: Int])["Max"] ?? 0
                     if maxCapacity == -1{
@@ -196,7 +223,7 @@ class CapacityViewController: UIViewController {
                         self.salaDeLecturaFractionNumber = Float(currentCapacity)/Float(maxCapacity)
                         self.salaDeLecturaMax = maxCapacity
                     }
-                }else if room == "Biblioteca"{
+                } else if room == "Biblioteca"{
                     let currentCapacity = (value[room] as! [String: Int])["Current"] ?? 0
                     let maxCapacity = (value[room] as! [String: Int])["Max"] ?? 0
                     if maxCapacity == -1{
@@ -204,6 +231,15 @@ class CapacityViewController: UIViewController {
                     }else{
                         self.bibliotecaFractionNumber = Float(currentCapacity)/Float(maxCapacity)
                         self.bibliotecaMax = maxCapacity
+                    }
+                } else if room == "Gimnasio" {
+                    let currentCapacity = (value[room] as! [String: Int])["Current"] ?? 0
+                    let maxCapacity = (value[room] as! [String: Int])["Max"] ?? 0
+                    if maxCapacity == -1{
+                        self.gimnasioFractionNumber = -1
+                    }else{
+                        self.gimnasioFractionNumber = Float(currentCapacity)/Float(maxCapacity)
+                        self.gimnasioMax = maxCapacity
                     }
                 }
             }
@@ -214,9 +250,10 @@ class CapacityViewController: UIViewController {
         })
         
         // Fix weird layout constraints mistakenly being animated
-        self.comedorContainerView?.layoutIfNeeded()
+        self.salaPolivalenteContainerView?.layoutIfNeeded()
         self.salaDeLecturaContainerView?.layoutIfNeeded()
         self.bibliotecaContainerView?.layoutIfNeeded()
+        self.gimnasioContainerView?.layoutIfNeeded()
         
         // Animate progressbars with initial values
         animateProgressBars()
