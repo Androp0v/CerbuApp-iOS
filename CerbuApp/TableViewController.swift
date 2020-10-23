@@ -743,7 +743,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     private func loadPeopleFromDatabaseProm(promotion: Int){
                 
         //this is our select query
-        let queryString = "SELECT * FROM colegiales WHERE promotions = " + String(promotion)
+        var queryString = String()
+        if promotion == 5 {
+            queryString = "SELECT * FROM colegiales WHERE promotions >= " + String(promotion)
+        } else {
+            queryString = "SELECT * FROM colegiales WHERE promotions = " + String(promotion)
+        }
         
         //Perform collation on database
         
