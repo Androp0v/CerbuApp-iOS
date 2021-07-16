@@ -19,10 +19,47 @@ class CapacityDetailsViewController: UIViewController {
     @IBOutlet weak var sheetTitle: UILabel!
     @IBOutlet weak var sheetDescription: UILabel!
     
+    private func getProgressBarColor(fractionNumber: Float) -> UIColor{
+        
+        if fractionNumber >= 0 && fractionNumber < 0.3 {
+            return UIColor.systemGreen
+        }else if fractionNumber >= 0.3 && fractionNumber < 0.6{
+            return UIColor.systemYellow
+        }else if fractionNumber >= 0.6 && fractionNumber < 0.8{
+            return UIColor.systemOrange
+        }else if fractionNumber >= 0.8{
+            return UIColor.systemRed
+        }else{
+            return UIColor.systemGray
+        }
+    }
+    
+    private func animateProgressBar(){
+        
+        // Create the constraints for the progressBars
+        let progressbarConstraint = progressbarBar.widthAnchor.constraint(equalTo: progressbarContainer.widthAnchor, multiplier: CGFloat(max(0,fractionNumber)))
+        
+        // Activate constraint(s)
+        NSLayoutConstraint.activate([
+            progressbarConstraint
+        ])
+        
+        // Set progressbar colors
+        progressbarBar.backgroundColor = getProgressBarColor(fractionNumber: fractionNumber)
+        
+        // Animate initial progress bar positions
+        UIView.animate(withDuration: Double(abs(fractionNumber)), animations: {
+            self.progressbarContainer?.layoutIfNeeded()
+            })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        sheetTitle.text = String( Int(round(fractionNumber * Float(maxCapacity))) ) + " de " + String(maxCapacity) + " personas"
+        
+        animateProgressBar()
+        
     }
     
 

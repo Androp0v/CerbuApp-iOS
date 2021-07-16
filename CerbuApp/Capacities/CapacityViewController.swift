@@ -143,12 +143,10 @@ class CapacityViewController: UIViewController, QRScannerViewControllerDelegate 
     }
     
     func applyLocalDeltas() {
-        print("Gimnasio FN: " + String(gimnasioFractionNumber))
         salaPolivalenteFractionNumber = Float(Int(salaPolivalenteFractionNumberOld*Float(salaPolivalenteMax)) + salaPolivalenteLocalCheckin)/Float(salaPolivalenteMax)
         salaDeLecturaFractionNumber = Float(Int(salaDeLecturaFractionNumberOld*Float(salaDeLecturaMax)) + salaDeLecturaLocalCheckin)/Float(salaDeLecturaMax)
         bibliotecaFractionNumber = Float(Int(bibliotecaFractionNumberOld*Float(bibliotecaMax)) + bibliotecaLocalCheckin)/Float(bibliotecaMax)
         gimnasioFractionNumber = Float(Int(gimnasioFractionNumberOld*Float(gimnasioMax)) + gimnasioLocalCheckin)/Float(gimnasioMax)
-        print("Gimnasio FN updated: " + String(gimnasioFractionNumber))
         
         animateProgressBars()
     }
@@ -346,14 +344,33 @@ class CapacityViewController: UIViewController, QRScannerViewControllerDelegate 
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        let destinationVC = segue.destination as! CapacityDetailsViewController
+        
+        switch segue.identifier {
+        case "salaPolivalenteSegue":
+            destinationVC.fractionNumber = salaPolivalenteFractionNumber
+            destinationVC.maxCapacity = salaPolivalenteMax
+        case "salaDeLecturaSegue":
+            destinationVC.fractionNumber = salaDeLecturaFractionNumber
+            destinationVC.maxCapacity = salaDeLecturaMax
+        case "bibliotecaSegue":
+            destinationVC.fractionNumber = bibliotecaFractionNumber
+            destinationVC.maxCapacity = bibliotecaMax
+        case "gimnasioSegue":
+            destinationVC.fractionNumber = gimnasioFractionNumber
+            destinationVC.maxCapacity = gimnasioMax
+        default:
+            destinationVC.fractionNumber = -1
+            destinationVC.maxCapacity = -1
+        }
+        
     }
-    */
+    
 
 }

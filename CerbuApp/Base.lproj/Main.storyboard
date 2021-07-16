@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pqh-Ra-bw3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pqh-Ra-bw3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -290,7 +290,8 @@
                         <outlet property="searchBar" destination="fhR-MC-TvN" id="NA0-NR-6b2"/>
                         <outlet property="segmentedControl" destination="6rm-24-dHW" id="VuM-5q-4Bv"/>
                         <outlet property="tableView" destination="SIX-g0-80Q" id="JBR-5T-J8m"/>
-                        <segue destination="W9g-Aj-Mhi" kind="show" identifier="pushFromCell" id="Bo5-Hx-OhQ"/>
+                        <segue destination="W9g-Aj-Mhi" kind="show" identifier="pushFromCellBKP" id="Bo5-Hx-OhQ"/>
+                        <segue destination="xI3-NG-Ijm" kind="show" identifier="pushFromCell" id="HQn-yn-FgS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJ9-bJ-eGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -848,6 +849,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yka-3b-oif">
                                                     <rect key="frame" x="345" y="9" width="51" height="31"/>
+                                                    <color key="onTintColor" red="1" green="0.82271201871715183" blue="0.074376399342606758" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <connections>
                                                         <action selector="oneSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="PO5-Yq-fcw"/>
                                                     </connections>
@@ -878,6 +880,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NGC-HO-b4Q">
                                                     <rect key="frame" x="345" y="9" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.1442699452150665" green="0.49098721074126944" blue="0.78772449493408203" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <connections>
                                                         <action selector="twoSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="MjN-lF-Hud"/>
                                                     </connections>
@@ -908,6 +911,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWt-Cc-sGe">
                                                     <rect key="frame" x="345" y="9" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.98740688882222993" green="0.41919878587978532" blue="0.35860586661268423" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <connections>
                                                         <action selector="threeSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="VBD-9J-0x5"/>
                                                     </connections>
@@ -938,6 +942,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CxX-g2-M4K">
                                                     <rect key="frame" x="345" y="9" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.32472238985375468" green="0.59744298458099365" blue="0.35594843271525201" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <connections>
                                                         <action selector="fourSwitchChange:" destination="1zf-YK-s5n" eventType="valueChanged" id="FOc-2d-WlL"/>
                                                     </connections>
@@ -986,7 +991,7 @@
         <!--Details View Controller-->
         <scene sceneID="lOv-BR-0e3">
             <objects>
-                <viewController id="W9g-Aj-Mhi" customClass="DetailsViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="W9g-Aj-Mhi" customClass="DetailsViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gms-Pm-Q62">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1075,6 +1080,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQx-MD-6ny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3050.7246376811595" y="433.92857142857139"/>
+        </scene>
+        <!--Details Page View Controller-->
+        <scene sceneID="ETB-N5-XHI">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="xI3-NG-Ijm" customClass="DetailsPageViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="PKe-gS-Nli"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yTJ-RO-RK2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3826" y="434"/>
         </scene>
         <!--Aforos-->
         <scene sceneID="NRi-zq-OxV">
@@ -1172,7 +1187,7 @@
                                                         <rect key="frame" x="346" y="70" width="20" height="22"/>
                                                         <state key="normal" image="info.circle" catalog="system"/>
                                                         <connections>
-                                                            <segue destination="vim-hf-yJS" kind="presentation" identifier="comedorSegue" id="Jof-cG-No9"/>
+                                                            <segue destination="vim-hf-yJS" kind="presentation" identifier="salaPolivalenteSegue" id="Jof-cG-No9"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1478,7 +1493,7 @@
                                                         <rect key="frame" x="346" y="70" width="20" height="22"/>
                                                         <state key="normal" image="info.circle" catalog="system"/>
                                                         <connections>
-                                                            <segue destination="vim-hf-yJS" kind="presentation" id="yxK-B9-TFq"/>
+                                                            <segue destination="vim-hf-yJS" kind="presentation" identifier="gimnasioSegue" id="yxK-B9-TFq"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ocupación desconocida" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixI-f4-QsN">
@@ -1958,8 +1973,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="N97-c8-oOd"/>
-        <segue reference="vJM-TI-UPF"/>
+        <segue reference="yxK-B9-TFq"/>
+        <segue reference="Bo5-Hx-OhQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="HotIcon" width="165" height="165"/>

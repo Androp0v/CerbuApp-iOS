@@ -11,7 +11,53 @@ import SQLite3
 import CoreSpotlight
 import MobileCoreServices
 
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIPageViewControllerDataSource {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        let index = (viewController as! DetailsViewController).pageIndex
+        
+        if index! > 0 {
+            let detailedController = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
+            let selectedPerson: Person
+            if searchActive{
+                selectedPerson = filteredPeople[index! - 1]
+            }else{
+                selectedPerson = People[index! - 1]
+            }
+            detailedController.detailedPerson = selectedPerson
+            detailedController.pageIndex = index! - 1
+            
+            return detailedController
+        } else {
+            return nil
+        }
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        let index = (viewController as! DetailsViewController).pageIndex
+        
+        let detailedController = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
+        let selectedPerson: Person
+        if searchActive{
+            if index! < (filteredPeople.count - 1) {
+                selectedPerson = filteredPeople[index! + 1]
+            } else {
+                return nil
+            }
+        }else{
+            if index! < (People.count - 1) {
+                selectedPerson = People[index! + 1]
+            } else {
+                return nil
+            }
+        }
+        detailedController.detailedPerson = selectedPerson
+        detailedController.pageIndex = index! + 1
+        
+        return detailedController
+        
+    }
+    
     
     var People = [Person]()
     var filteredPeople = [Person]()
@@ -22,6 +68,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let defaults = UserDefaults.standard
     var footerView = UIView()
     var footerLabel = UILabel()
+    var selectedIndex: Int?
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -43,7 +90,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.tableFooterView?.addSubview(footerLabel)
         
         // Adjust UITableView insets for footer
-        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
         self.tableView.contentInset = insets
         
         
@@ -80,6 +127,39 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         NotificationCenter.default.addObserver(self, selector: #selector(filtersOnIconChange), name: NSNotification.Name(rawValue: "FILTERS_ON"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(filtersOffIconChange), name: NSNotification.Name(rawValue: "FILTERS_OFF"), object: nil)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let willSelectIndex = selectedIndex else { return }
+        tableView.selectRow(at: NSIndexPath(row: willSelectIndex, section: 0) as IndexPath, animated: false, scrollPosition: .none)
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            if let coordinator = transitionCoordinator {
+                coordinator.animate(alongsideTransition: { context in
+                    self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+                }) { context in
+                    if context.isCancelled {
+                        self.tableView.selectRow(at: selectedIndexPath, animated: false, scrollPosition: .none)
+                    }
+                }
+            } else {
+                self.tableView.deselectRow(at: selectedIndexPath, animated: animated)
+            }
+        }
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if searchActive{
+            //searchBar.becomeFirstResponder()
+            let reloadString = self.searchBar.text
+            self.searchBar(self.searchBar, textDidChange: reloadString ?? "")
+        }
+                
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.loadDataForSpotlightIndexing()
+        }
     }
     
     func updateFooter() {
@@ -224,19 +304,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if searchActive{
-            //searchBar.becomeFirstResponder()
-            let reloadString = self.searchBar.text
-            self.searchBar(self.searchBar, textDidChange: reloadString ?? "")
-        }
         
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.loadDataForSpotlightIndexing()
-        }
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -292,8 +360,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView .deselectRow(at: indexPath, animated: true)
-        
+        //tableView .deselectRow(at: indexPath, animated: true)
+        selectedIndex = indexPath.row
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "pushFromCell", sender: indexPath)
             self.searchBar.resignFirstResponder()
@@ -307,7 +375,25 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         if (segue.identifier == "pushFromCell") {
-            let controller = (segue.destination as! DetailsViewController)
+            let controller = (segue.destination as! DetailsPageViewController)
+            let row = (sender as! NSIndexPath).row
+            
+            controller.viewControllerIndex = row
+            controller.dataSource = self
+            
+            let detailedController = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
+            let selectedPerson: Person
+            if searchActive{
+                selectedPerson = filteredPeople[row]
+            }else{
+                selectedPerson = People[row]
+            }
+            detailedController.detailedPerson = selectedPerson
+            detailedController.pageIndex = row
+            
+            controller.setViewControllers([detailedController], direction: .forward, animated: true, completion: nil)
+            
+            /*let controller = (segue.destination as! DetailsViewController)
             let row = (sender as! NSIndexPath).row; //we know that sender is an NSIndexPath here.
             let selectedPerson: Person
             if searchActive{
@@ -315,7 +401,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }else{
                 selectedPerson = People[row]
             }
-            controller.detailedPerson = selectedPerson
+            controller.detailedPerson = selectedPerson*/
         }
     }
     
@@ -664,6 +750,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cleanString = cleanString.replacingOccurrences(of: "ú", with: "u")
         cleanString = cleanString.replacingOccurrences(of: "ü", with: "u")
         cleanString = cleanString.replacingOccurrences(of: "ñ", with: "n")
+        cleanString = cleanString.replacingOccurrences(of: "ç", with: "c")
         return cleanString
     }
     
@@ -678,6 +765,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cleanString = cleanString.replacingOccurrences(of: "ú", with: "u")
         cleanString = cleanString.replacingOccurrences(of: "ü", with: "u")
         cleanString = cleanString.replacingOccurrences(of: "ñ", with: "n")
+        cleanString = cleanString.replacingOccurrences(of: "ç", with: "c")
         return cleanString
     }
     

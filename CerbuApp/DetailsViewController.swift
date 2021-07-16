@@ -23,6 +23,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         cleanString = cleanString.replacingOccurrences(of: "ú", with: "u")
         cleanString = cleanString.replacingOccurrences(of: "ü", with: "u")
         cleanString = cleanString.replacingOccurrences(of: "ñ", with: "n")
+        cleanString = cleanString.replacingOccurrences(of: "ç", with: "c")
         return cleanString
     }
     
@@ -31,6 +32,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
     let defaults = UserDefaults.standard
     var originalImageCenter:CGPoint?
     var isZooming = false
+    var pageIndex: Int?
     
     @IBOutlet var roomLabel: UILabel!
     @IBOutlet var hresPhoto: UIImageView!
