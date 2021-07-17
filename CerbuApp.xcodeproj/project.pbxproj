@@ -17,6 +17,8 @@
 		C404058E22DEA3D100259C86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C404058C22DEA3D100259C86 /* LaunchScreen.storyboard */; };
 		C404059922DEA3D100259C86 /* CerbuAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404059822DEA3D100259C86 /* CerbuAppTests.swift */; };
 		C40405A422DEA3D100259C86 /* CerbuAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40405A322DEA3D100259C86 /* CerbuAppUITests.swift */; };
+		C40800E226A2437400711785 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40800E126A2437400711785 /* CardComponent.swift */; };
+		C40800E526A2446A00711785 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40800E426A2446A00711785 /* InputField.swift */; };
 		C409DCB8250C3E0400DC281B /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409DCB7250C3E0400DC281B /* QRScannerView.swift */; };
 		C409DCBC250E6D5200DC281B /* CapacityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409DCBB250E6D5200DC281B /* CapacityViewController.swift */; };
 		C409DCBF250F95F500DC281B /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409DCBE250F95F500DC281B /* QRScannerViewController.swift */; };
@@ -109,6 +111,8 @@
 		C40405A322DEA3D100259C86 /* CerbuAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CerbuAppUITests.swift; sourceTree = "<group>"; };
 		C40405A522DEA3D100259C86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40405B122DF441C00259C86 /* CerbuApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CerbuApp.entitlements; sourceTree = "<group>"; };
+		C40800E126A2437400711785 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
+		C40800E426A2446A00711785 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		C409DCB7250C3E0400DC281B /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		C409DCBB250E6D5200DC281B /* CapacityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityViewController.swift; sourceTree = "<group>"; };
 		C409DCBE250F95F500DC281B /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
@@ -202,7 +206,8 @@
 				C40405B122DF441C00259C86 /* CerbuApp.entitlements */,
 				C404058122DEA3D000259C86 /* AppDelegate.swift */,
 				C404058322DEA3D000259C86 /* SceneDelegate.swift */,
-				C49B3AE326A1F5D3005D1931 /* LoginView.swift */,
+				C40800E626A258AC00711785 /* Login */,
+				C40800E326A2442B00711785 /* UIElements */,
 				C404058522DEA3D000259C86 /* ViewController.swift */,
 				C404058722DEA3D000259C86 /* Main.storyboard */,
 				C409DCBD250F95C500DC281B /* Capacities */,
@@ -249,6 +254,23 @@
 				C40405A522DEA3D100259C86 /* Info.plist */,
 			);
 			path = CerbuAppUITests;
+			sourceTree = "<group>";
+		};
+		C40800E326A2442B00711785 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				C40800E126A2437400711785 /* CardComponent.swift */,
+				C40800E426A2446A00711785 /* InputField.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		C40800E626A258AC00711785 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C49B3AE326A1F5D3005D1931 /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		C409DCBD250F95C500DC281B /* Capacities */ = {
@@ -523,6 +545,7 @@
 			files = (
 				C409DCBC250E6D5200DC281B /* CapacityViewController.swift in Sources */,
 				C433A76A235463C900C6E84F /* NotificationComposerController.swift in Sources */,
+				C40800E526A2446A00711785 /* InputField.swift in Sources */,
 				C43B49EB22E62A1300DEF572 /* Person.swift in Sources */,
 				C49AFCD922FDA5FD00A20C5D /* MainTableViewCell.swift in Sources */,
 				C4C65B5B25753A85008E2FFB /* DetailsPageViewController.swift in Sources */,
@@ -532,6 +555,7 @@
 				C404058222DEA3D000259C86 /* AppDelegate.swift in Sources */,
 				C433A76E2354797000C6E84F /* NotificationCell.swift in Sources */,
 				C446941E22DF69FB006027A8 /* TableViewController.swift in Sources */,
+				C40800E226A2437400711785 /* CardComponent.swift in Sources */,
 				C433A76C2354790600C6E84F /* NotificationsTableViewController.swift in Sources */,
 				C4615BDA2325045500C04EE7 /* FilterTableViewController.swift in Sources */,
 				C49B3AE426A1F5D3005D1931 /* LoginView.swift in Sources */,
@@ -731,9 +755,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuAppTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_UIKITFORMAC = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -754,9 +778,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuAppTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_UIKITFORMAC = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

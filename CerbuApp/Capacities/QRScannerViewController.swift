@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-protocol QRScannerViewControllerDelegate: class {
+protocol QRScannerViewControllerDelegate: AnyObject {
     func updateLocalDelta(room: String)
 }
 
