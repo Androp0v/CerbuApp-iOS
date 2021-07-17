@@ -36,6 +36,7 @@
 		C482D66225419E5000DA3C3F /* CerbuAppMockup.png in Resources */ = {isa = PBXBuildFile; fileRef = C482D66125419E5000DA3C3F /* CerbuAppMockup.png */; };
 		C48BD7FF233BB0E600FE1C69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C48BD7FE233BB0E600FE1C69 /* GoogleService-Info.plist */; };
 		C48D5AEB22F4A88A00695DB2 /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = C48D5AEA22F4984B00695DB2 /* database.db */; };
+		C4959EFA26A26BDF00F86D1A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959EF926A26BDF00F86D1A /* LoginViewModel.swift */; };
 		C49AFCD722FAE72E00A20C5D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD622FAE72E00A20C5D /* CardView.swift */; };
 		C49AFCD922FDA5FD00A20C5D /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */; };
 		C49B3AE426A1F5D3005D1931 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49B3AE326A1F5D3005D1931 /* LoginView.swift */; };
@@ -131,6 +132,7 @@
 		C482D66125419E5000DA3C3F /* CerbuAppMockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CerbuAppMockup.png; sourceTree = "<group>"; };
 		C48BD7FE233BB0E600FE1C69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C48D5AEA22F4984B00695DB2 /* database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.db; sourceTree = "<group>"; };
+		C4959EF926A26BDF00F86D1A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C49AFCD622FAE72E00A20C5D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		C49B3AE326A1F5D3005D1931 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				C49B3AE326A1F5D3005D1931 /* LoginView.swift */,
+				C4959EF926A26BDF00F86D1A /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				C409DCBF250F95F500DC281B /* QRScannerViewController.swift in Sources */,
 				C4F95C5A22F5E5FA00E3E5BD /* DetailsViewController.swift in Sources */,
 				C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */,
+				C4959EFA26A26BDF00F86D1A /* LoginViewModel.swift in Sources */,
 				C4B32CE123264F77007DC778 /* SettingsViewController.swift in Sources */,
 				C409DCB8250C3E0400DC281B /* QRScannerView.swift in Sources */,
 				C4729F702336A55B0037222D /* ImagePickerController.swift in Sources */,
@@ -755,7 +759,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuAppTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
@@ -778,7 +782,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuAppTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
