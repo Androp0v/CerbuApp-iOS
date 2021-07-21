@@ -208,10 +208,10 @@
 				C40405B122DF441C00259C86 /* CerbuApp.entitlements */,
 				C404058122DEA3D000259C86 /* AppDelegate.swift */,
 				C404058322DEA3D000259C86 /* SceneDelegate.swift */,
-				C40800E626A258AC00711785 /* Login */,
 				C40800E326A2442B00711785 /* UIElements */,
 				C404058522DEA3D000259C86 /* ViewController.swift */,
 				C404058722DEA3D000259C86 /* Main.storyboard */,
+				C40800E626A258AC00711785 /* Login */,
 				C409DCBD250F95C500DC281B /* Capacities */,
 				C4CD76E62300F1BB00964509 /* BoletinViewController.swift */,
 				C4CD76EA2300F86100964509 /* MenuViewController.swift */,
@@ -755,15 +755,16 @@
 				DEVELOPMENT_TEAM = 4ND4CZC2FK;
 				INFOPLIST_FILE = CerbuApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -778,15 +779,16 @@
 				DEVELOPMENT_TEAM = 4ND4CZC2FK;
 				INFOPLIST_FILE = CerbuApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raulmonton.CerbuApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};

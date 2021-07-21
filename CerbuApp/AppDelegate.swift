@@ -52,8 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // Firebase Delegates:
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        print("didReceiveRemoteNotification called")
-        //print(userInfo)
 
     }
     
@@ -68,15 +66,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         //Called when notification arrives while app is in the foreground
-        print("UserNotificationCenter willPresent")
-        //print("\(notification.request.content.userInfo)")
         completionHandler([.alert, .badge, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         //Called when tapping on the notification
-        print("UserNotificationCenter didReceive")
-        //print("\(response.notification.request.content.userInfo)")
         completionHandler()
     }
 

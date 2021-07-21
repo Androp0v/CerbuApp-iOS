@@ -117,15 +117,19 @@ class SettingsViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 1
-        default:
+        case 1:
             return 2
+        case 2:
+            return 1
+        default:
+            return 0
         }
     }
     

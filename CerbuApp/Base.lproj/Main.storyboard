@@ -278,7 +278,8 @@
                     </stackView>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Orla colegial" id="1Pb-VW-tKa">
-                        <barButtonItem key="rightBarButtonItem" title="Filter" image="line.horizontal.3.decrease.circle" catalog="system" id="NMJ-bn-7U2">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="NMJ-bn-7U2">
+                            <imageReference key="image" image="line.3.horizontal.decrease.circle" catalog="system"/>
                             <connections>
                                 <segue destination="Tng-Gx-KcG" kind="presentation" id="Jsz-e0-T6X"/>
                             </connections>
@@ -320,8 +321,12 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="t1u-nH-AUf">
-                                <rect key="frame" x="136" y="337" width="142" height="135"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="t1u-nH-AUf">
+                                <rect key="frame" x="136" y="377.5" width="142" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="142" id="7VK-SR-zJR"/>
+                                    <constraint firstAttribute="height" constant="142" id="QRq-tR-QdG"/>
+                                </constraints>
                                 <color key="color" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -1773,7 +1778,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <label key="tableFooterView" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019 © Raúl Montón Pinillos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="at5-1K-35a">
-                            <rect key="frame" x="0.0" y="222" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="308" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <gestureRecognizers/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1912,6 +1917,34 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="ymx-Gc-6jQ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="mGW-gk-z5V">
+                                        <rect key="frame" x="0.0" y="240" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mGW-gk-z5V" id="6dY-gr-KdN">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wv-rd-BlN">
+                                                    <rect key="frame" x="4" y="4" width="406" height="42"/>
+                                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Cerrar sesión"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="3Wv-rd-BlN" secondAttribute="trailing" constant="4" id="1Oa-An-DGO"/>
+                                                <constraint firstItem="3Wv-rd-BlN" firstAttribute="leading" secondItem="6dY-gr-KdN" secondAttribute="leading" constant="4" id="BAK-jZ-wVY"/>
+                                                <constraint firstItem="3Wv-rd-BlN" firstAttribute="top" secondItem="6dY-gr-KdN" secondAttribute="top" constant="4" id="bna-Ky-YAq"/>
+                                                <constraint firstAttribute="bottom" secondItem="3Wv-rd-BlN" secondAttribute="bottom" constant="4" id="qs7-ji-K8P"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="nm4-15-wRh" id="P49-za-tz6"/>
@@ -1976,7 +2009,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="yxK-B9-TFq"/>
-        <segue reference="Bo5-Hx-OhQ"/>
+        <segue reference="vJM-TI-UPF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="HotIcon" width="165" height="165"/>
@@ -1986,7 +2019,7 @@
         <image name="boletin_048" width="1080" height="210"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
+        <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="multiply.circle.fill" catalog="system" width="128" height="121"/>

@@ -17,7 +17,8 @@ struct LoginView: View {
         ZStack {
 
             // Background gradient
-            LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "MainAppColor")!),                                                      Color(UIColor(named: "ShadowMainAppColor")!)]),
+            LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "MainAppColor")!),
+                                                       Color(UIColor(named: "ShadowMainAppColor")!)]),
                            startPoint: .top,
                            endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
@@ -67,7 +68,7 @@ struct LoginView: View {
                             .cornerRadius(12)
 
                         Text("¿Has olvidado tu contraseña?")
-                            .foregroundColor(Color(UIColor.secondarySystemBackground))
+                            .foregroundColor(Color(UIColor.secondaryLabel))
                             .padding()
                     }
                     .padding()
