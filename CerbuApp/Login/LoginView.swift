@@ -23,9 +23,8 @@ struct LoginView: View {
                            endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
 
-            // Login form content
-            VStack(alignment: .center) {
-
+            // App title
+            VStack {
                 Spacer()
                     .frame(height: 24)
 
@@ -36,52 +35,33 @@ struct LoginView: View {
                         .font(.system(size: 30, weight: .bold))
                         .foregroundColor(.white)
                 }
+                .frame(height: 24)
                 .shadow(color: Color.black.opacity(0.1),
                         radius: 8,
                         x: 8,
                         y: 8)
                 .padding()
+                // Disable Dynamic Type for title
+                .environment(\.sizeCategory, .large)
 
                 Spacer()
-                    .frame(height: 24)
-
-                ZStack {
-
-                    VStack() {
-                        VStack(spacing: 12) {
-                            InputField(icon: Image(systemName: "person.fill"),
-                                       prompt: "Usuario",
-                                       fieldValue: $user)
-                            InputField(icon: Image(systemName: "lock.fill"),
-                                       prompt: "Contraseña",
-                                       secure: true,
-                                       fieldValue: $password)
-                        }
-                        .padding(.bottom, 16)
-
-                        Button("Acceder", action: {})
-                            .frame(maxWidth: .infinity)
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color(UIColor.systemBlue))
-                            .cornerRadius(12)
-
-                        Text("¿Has olvidado tu contraseña?")
-                            .foregroundColor(Color(UIColor.secondaryLabel))
-                            .padding()
-                    }
-                    .padding()
-                    .background(
-                        CardComponent()
-                    )
-                }
-
-                Spacer()
-
             }
-            .frame(maxWidth: 600)
-            .padding(.horizontal, 24)
+
+            // Login form content
+            ScrollView {
+                VStack(alignment: .center) {
+
+                    Spacer()
+                        .frame(height: 112)
+
+                    LoginCardView(user: $user, password: $password)
+
+                    Spacer()
+
+                }
+                .frame(maxWidth: 450)
+                .padding(.horizontal, 24)
+            }
 
         }
     }

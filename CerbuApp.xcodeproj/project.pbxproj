@@ -22,6 +22,7 @@
 		C409DCB8250C3E0400DC281B /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409DCB7250C3E0400DC281B /* QRScannerView.swift */; };
 		C409DCBC250E6D5200DC281B /* CapacityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409DCBB250E6D5200DC281B /* CapacityViewController.swift */; };
 		C409DCBF250F95F500DC281B /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409DCBE250F95F500DC281B /* QRScannerViewController.swift */; };
+		C425A98726AB346E00B31359 /* LoginCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C425A98626AB346E00B31359 /* LoginCardView.swift */; };
 		C433A76A235463C900C6E84F /* NotificationComposerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A769235463C900C6E84F /* NotificationComposerController.swift */; };
 		C433A76C2354790600C6E84F /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A76B2354790600C6E84F /* NotificationsTableViewController.swift */; };
 		C433A76E2354797000C6E84F /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A76D2354797000C6E84F /* NotificationCell.swift */; };
@@ -117,6 +118,7 @@
 		C409DCB7250C3E0400DC281B /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		C409DCBB250E6D5200DC281B /* CapacityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityViewController.swift; sourceTree = "<group>"; };
 		C409DCBE250F95F500DC281B /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		C425A98626AB346E00B31359 /* LoginCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCardView.swift; sourceTree = "<group>"; };
 		C433A769235463C900C6E84F /* NotificationComposerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationComposerController.swift; sourceTree = "<group>"; };
 		C433A76B2354790600C6E84F /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		C433A76D2354797000C6E84F /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				C49B3AE326A1F5D3005D1931 /* LoginView.swift */,
+				C425A98626AB346E00B31359 /* LoginCardView.swift */,
 				C4959EF926A26BDF00F86D1A /* LoginViewModel.swift */,
 			);
 			path = Login;
@@ -550,6 +553,7 @@
 				C433A76A235463C900C6E84F /* NotificationComposerController.swift in Sources */,
 				C40800E526A2446A00711785 /* InputField.swift in Sources */,
 				C43B49EB22E62A1300DEF572 /* Person.swift in Sources */,
+				C425A98726AB346E00B31359 /* LoginCardView.swift in Sources */,
 				C49AFCD922FDA5FD00A20C5D /* MainTableViewCell.swift in Sources */,
 				C4C65B5B25753A85008E2FFB /* DetailsPageViewController.swift in Sources */,
 				C4CD76E72300F1BB00964509 /* BoletinViewController.swift in Sources */,
