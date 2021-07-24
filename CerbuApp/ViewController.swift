@@ -106,6 +106,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UITableView
         ContainerView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         ContainerView.layer.shadowRadius = 12.0
         ContainerView.layer.shadowOpacity = 0.5
+
+        // Navigation bar styling
+        self.navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor : UIColor.white]
+        self.navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor(named: "MainAppColor")
+        self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
         
         // Create a "unique" user ID if none was set
         if defaults.object(forKey: "userID") == nil{
