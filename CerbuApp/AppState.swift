@@ -13,7 +13,7 @@ class AppState: ObservableObject {
     static let shared = AppState()
 
     // MARK: - Properties
-
+    
     @Published var isLoggedIn: Bool = false
 
 }

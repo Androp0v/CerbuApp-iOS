@@ -1930,6 +1930,9 @@
                                                     <rect key="frame" x="4" y="4" width="406" height="42"/>
                                                     <color key="tintColor" systemColor="systemRedColor"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Cerrar sesión"/>
+                                                    <connections>
+                                                        <action selector="signOutButtonTap:" destination="nm4-15-wRh" eventType="touchUpInside" id="atT-SB-MPh"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1996,7 +1999,7 @@
             <objects>
                 <viewController id="eTj-LO-Whn" customClass="MagazineController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PnD-z3-h9o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="585.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="gHC-6Z-4OO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

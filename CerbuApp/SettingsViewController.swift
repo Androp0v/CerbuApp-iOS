@@ -6,8 +6,10 @@
 //  Copyright © 2019 Raúl Montón Pinillos. All rights reserved.
 //
 
+import FirebaseAuth
 import UIKit
 import SQLite3
+import SwiftUI
 
 class SettingsViewController: UITableViewController {
     
@@ -46,11 +48,22 @@ class SettingsViewController: UITableViewController {
             defaults.set(false, forKey: "showNotifs")
         }
     }
-    
+
+    @IBAction func signOutButtonTap(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            withAnimation {
+                AppState.shared.isLoggedIn = false
+            }
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+    }
+
     @objc func handleFooterTap(_ sender: UITapGestureRecognizer) {
         self.performSegue(withIdentifier: "pushFromSettings", sender: nil)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     
