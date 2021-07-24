@@ -10,9 +10,6 @@ import SwiftUI
 
 struct LoginView: View {
 
-    @State private var user: String = ""
-    @State private var password: String = ""
-
     var body: some View {
         ZStack {
 
@@ -54,7 +51,7 @@ struct LoginView: View {
                     Spacer()
                         .frame(height: 112)
 
-                    LoginCardView(user: $user, password: $password)
+                    LoginCardView()
 
                     Spacer()
 

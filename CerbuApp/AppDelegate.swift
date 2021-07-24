@@ -6,8 +6,9 @@
 //  Copyright © 2019 Raúl Montón Pinillos. All rights reserved.
 //
 
-import UIKit
 import Firebase
+import FirebaseAuth
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate{
@@ -31,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         application.registerForRemoteNotifications()
                 
         FirebaseApp.configure()
+
+        AppState.shared.isLoggedIn = Auth.auth().currentUser?.uid != nil
         
         return true
     }

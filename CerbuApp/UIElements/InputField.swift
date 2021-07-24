@@ -10,16 +10,18 @@ import SwiftUI
 
 struct InputField: View {
 
-    var icon: Image?
-    let prompt: String
-    var secure: Bool = false
     @Binding var fieldValue: String
+    @Binding var hasError: Bool
+
+    let prompt: String
+    var icon: Image?
+    var secure: Bool = false
 
     var body: some View {
         HStack {
             if let icon = icon {
                 icon
-                    .foregroundColor(Color(UIColor.label))
+                    .foregroundColor( hasError ? .red : Color(UIColor.label) )
             }
             if !secure {
                 TextField(prompt, text: $fieldValue)
@@ -29,17 +31,23 @@ struct InputField: View {
         }
         .padding()
         .background(
-            Rectangle()
-                .foregroundColor(Color(UIColor.systemBackground).opacity(0.8))
-                .cornerRadius(12)
+            ZStack {
+                if hasError {
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(.red, lineWidth: 4.0)
+                }
+                RoundedRectangle(cornerRadius: 12)
+                    .foregroundColor(Color(UIColor.systemBackground).opacity(0.8))
+            }
         )
     }
 }
 
 struct InputField_Previews: PreviewProvider {
     static var previews: some View {
-        InputField(icon: Image(systemName: "person.fill"),
+        InputField(fieldValue: .constant(""),
+                   hasError: .constant(true),
                    prompt: "Prompt",
-                   fieldValue: .constant(""))
+                   icon: Image(systemName: "person.fill"))
     }
 }

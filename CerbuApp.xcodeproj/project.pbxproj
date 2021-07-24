@@ -23,6 +23,8 @@
 		C409DCBC250E6D5200DC281B /* CapacityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409DCBB250E6D5200DC281B /* CapacityViewController.swift */; };
 		C409DCBF250F95F500DC281B /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409DCBE250F95F500DC281B /* QRScannerViewController.swift */; };
 		C425A98726AB346E00B31359 /* LoginCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C425A98626AB346E00B31359 /* LoginCardView.swift */; };
+		C425A98B26AB923200B31359 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C425A98A26AB923200B31359 /* AppState.swift */; };
+		C425A98D26AB944400B31359 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C425A98C26AB944400B31359 /* InitialView.swift */; };
 		C433A76A235463C900C6E84F /* NotificationComposerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A769235463C900C6E84F /* NotificationComposerController.swift */; };
 		C433A76C2354790600C6E84F /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A76B2354790600C6E84F /* NotificationsTableViewController.swift */; };
 		C433A76E2354797000C6E84F /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A76D2354797000C6E84F /* NotificationCell.swift */; };
@@ -37,7 +39,7 @@
 		C482D66225419E5000DA3C3F /* CerbuAppMockup.png in Resources */ = {isa = PBXBuildFile; fileRef = C482D66125419E5000DA3C3F /* CerbuAppMockup.png */; };
 		C48BD7FF233BB0E600FE1C69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C48BD7FE233BB0E600FE1C69 /* GoogleService-Info.plist */; };
 		C48D5AEB22F4A88A00695DB2 /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = C48D5AEA22F4984B00695DB2 /* database.db */; };
-		C4959EFA26A26BDF00F86D1A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959EF926A26BDF00F86D1A /* LoginViewModel.swift */; };
+		C4959EFA26A26BDF00F86D1A /* LoginCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959EF926A26BDF00F86D1A /* LoginCardViewModel.swift */; };
 		C49AFCD722FAE72E00A20C5D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD622FAE72E00A20C5D /* CardView.swift */; };
 		C49AFCD922FDA5FD00A20C5D /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */; };
 		C49B3AE426A1F5D3005D1931 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49B3AE326A1F5D3005D1931 /* LoginView.swift */; };
@@ -119,6 +121,8 @@
 		C409DCBB250E6D5200DC281B /* CapacityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityViewController.swift; sourceTree = "<group>"; };
 		C409DCBE250F95F500DC281B /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		C425A98626AB346E00B31359 /* LoginCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCardView.swift; sourceTree = "<group>"; };
+		C425A98A26AB923200B31359 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		C425A98C26AB944400B31359 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		C433A769235463C900C6E84F /* NotificationComposerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationComposerController.swift; sourceTree = "<group>"; };
 		C433A76B2354790600C6E84F /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		C433A76D2354797000C6E84F /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
@@ -134,7 +138,7 @@
 		C482D66125419E5000DA3C3F /* CerbuAppMockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CerbuAppMockup.png; sourceTree = "<group>"; };
 		C48BD7FE233BB0E600FE1C69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C48D5AEA22F4984B00695DB2 /* database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.db; sourceTree = "<group>"; };
-		C4959EF926A26BDF00F86D1A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		C4959EF926A26BDF00F86D1A /* LoginCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCardViewModel.swift; sourceTree = "<group>"; };
 		C49AFCD622FAE72E00A20C5D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		C49B3AE326A1F5D3005D1931 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				C40405B122DF441C00259C86 /* CerbuApp.entitlements */,
 				C404058122DEA3D000259C86 /* AppDelegate.swift */,
 				C404058322DEA3D000259C86 /* SceneDelegate.swift */,
+				C425A98A26AB923200B31359 /* AppState.swift */,
+				C425A98C26AB944400B31359 /* InitialView.swift */,
 				C40800E326A2442B00711785 /* UIElements */,
 				C404058522DEA3D000259C86 /* ViewController.swift */,
 				C404058722DEA3D000259C86 /* Main.storyboard */,
@@ -274,7 +280,7 @@
 			children = (
 				C49B3AE326A1F5D3005D1931 /* LoginView.swift */,
 				C425A98626AB346E00B31359 /* LoginCardView.swift */,
-				C4959EF926A26BDF00F86D1A /* LoginViewModel.swift */,
+				C4959EF926A26BDF00F86D1A /* LoginCardViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -564,13 +570,15 @@
 				C446941E22DF69FB006027A8 /* TableViewController.swift in Sources */,
 				C40800E226A2437400711785 /* CardComponent.swift in Sources */,
 				C433A76C2354790600C6E84F /* NotificationsTableViewController.swift in Sources */,
+				C425A98D26AB944400B31359 /* InitialView.swift in Sources */,
 				C4615BDA2325045500C04EE7 /* FilterTableViewController.swift in Sources */,
 				C49B3AE426A1F5D3005D1931 /* LoginView.swift in Sources */,
 				C464AD122515187D00548EB2 /* CapacityDetailsViewController.swift in Sources */,
 				C409DCBF250F95F500DC281B /* QRScannerViewController.swift in Sources */,
 				C4F95C5A22F5E5FA00E3E5BD /* DetailsViewController.swift in Sources */,
 				C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */,
-				C4959EFA26A26BDF00F86D1A /* LoginViewModel.swift in Sources */,
+				C425A98B26AB923200B31359 /* AppState.swift in Sources */,
+				C4959EFA26A26BDF00F86D1A /* LoginCardViewModel.swift in Sources */,
 				C4B32CE123264F77007DC778 /* SettingsViewController.swift in Sources */,
 				C409DCB8250C3E0400DC281B /* QRScannerView.swift in Sources */,
 				C4729F702336A55B0037222D /* ImagePickerController.swift in Sources */,
