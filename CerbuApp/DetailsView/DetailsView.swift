@@ -17,13 +17,21 @@ struct DetailsView: View {
 
     var body: some View {
         if detailedPerson.isAuthor() {
-            DetailsViewContent(detailedPerson: detailedPerson, pageIndex: personIndex)
-                .edgesIgnoringSafeArea(.bottom)
-                .customNavigationBarColor(color: UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0))
+            ZStack {
+                Color(UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0))
+                    .edgesIgnoringSafeArea(.all)
+                DetailsViewContent(detailedPerson: detailedPerson, pageIndex: personIndex)
+                    .edgesIgnoringSafeArea(.bottom)
+                    .customNavigationBarColor(color: .clear)
+            }
         } else {
-            DetailsViewContent(detailedPerson: detailedPerson, pageIndex: personIndex)
-                .edgesIgnoringSafeArea(.bottom)
-                .globalNavigationBarColor()
+            ZStack {
+                Color(UIColor(named: "MainAppColor")!)
+                    .edgesIgnoringSafeArea(.all)
+                DetailsViewContent(detailedPerson: detailedPerson, pageIndex: personIndex)
+                    .edgesIgnoringSafeArea(.bottom)
+                    .customNavigationBarColor(color: .clear)
+            }
         }
     }
 }
@@ -57,7 +65,6 @@ struct DetailsViewContent: UIViewControllerRepresentable {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detailedController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
         detailedController.detailedPerson = detailedPerson
-        detailedController.pageIndex = pageIndex
         return detailedController
     }
 
@@ -89,45 +96,38 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
     let defaults = UserDefaults.standard
     var originalImageCenter:CGPoint?
     var isZooming = false
-    var pageIndex: Int?
-    
-    @IBOutlet var roomLabel: UILabel!
+
     @IBOutlet var hresPhoto: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var careerLabel: UILabel!
-    @IBOutlet var becaImageView: UIImageView!
     @IBOutlet var likedImageView: UIImageView!
     @IBOutlet var hresPhotoBackground: UIView!
-    
+
+    @IBOutlet weak var detailsFooterContainer: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Additional setup after loading the view.
-        
-        nameLabel.layer.zPosition = -1
-        careerLabel.layer.zPosition = -1
-        becaImageView.layer.zPosition = -1
-        roomLabel.layer.zPosition = -1
         self.navigationController?.navigationBar.layer.zPosition = -1;
         
         hresPhotoBackground.backgroundColor = .systemBackground
-        
-        let nameLabelText: String = (detailedPerson?.name ?? "") + " " + (detailedPerson?.surname_1 ?? "")
-        nameLabel.text = nameLabelText + " " + (detailedPerson?.surname_2 ?? "")
-        
-        if detailedPerson?.beca.isEmpty ?? true {
-            careerLabel.text = detailedPerson?.career
-            becaImageView = nil
-            if defaults.bool(forKey: "showRooms"){
-                roomLabel.text = "Habitación: " + (detailedPerson?.room ?? "?")
-            }else{
-                roomLabel.text = nil
-            }
-        }else{
-            careerLabel.text = (detailedPerson?.career ?? "") + " | " + (detailedPerson?.beca ?? "")
-            becaImageView.image = UIImage.init(named: "becario")
-            roomLabel.text = "Habitación: " + (detailedPerson?.room ?? "?")
+
+        // Setup SwiftUI footer
+        if let detailedPerson = detailedPerson {
+            let swiftUIView = DetailsFooterView(model: DetailsFooterViewModel(person: detailedPerson))
+            let hostingController = UIHostingController(rootView: swiftUIView)
+            addChild(hostingController)
+            detailsFooterContainer.addSubview(hostingController.view)
+            hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+            let constraints = [
+                hostingController.view.topAnchor.constraint(equalTo: detailsFooterContainer.topAnchor),
+                hostingController.view.leftAnchor.constraint(equalTo: detailsFooterContainer.leftAnchor),
+                hostingController.view.bottomAnchor.constraint(equalTo: detailsFooterContainer.bottomAnchor),
+                hostingController.view.rightAnchor.constraint(equalTo: detailsFooterContainer.rightAnchor)
+            ]
+            NSLayoutConstraint.activate(constraints)
+            hostingController.didMove(toParent: self)
         }
+
+        // Like button
         
         if detailedPerson?.liked ?? false{
             likedImageView.image = UIImage.init(named: "HotIcon")
@@ -176,11 +176,12 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         if detailedPerson?.isAuthor() ?? false {
             overrideUserInterfaceStyle = .dark
             hresPhotoBackground.backgroundColor = UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0)
-            roomLabel.text = "Habitación: " + (detailedPerson?.room ?? "?")
         }
 
     }
-   
+
+    //MARK: - Zooming
+
     @objc func pinch(sender:UIPinchGestureRecognizer) {
         if sender.state == .began {
             isZooming = true
@@ -294,25 +295,8 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DATABASE_CHANGED"), object: nil)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // Show the navigation bar on other view controllers
-        // FIXME: navigationController?.navigationBar.barTintColor = UIColor.init(named: "MainAppColor")
-    }
-    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

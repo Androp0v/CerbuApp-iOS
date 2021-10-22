@@ -292,7 +292,7 @@ class SettingsViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         if (segue.identifier == "pushFromSettings") {
             let authorViewController = (segue.destination as! DetailsViewController)
-            let author = Person(id: 0, name: "Raúl", surname_1: "Montón", surname_2: "Pinillos", career: "Física", beca: "Asociación de Antiguos Colegiales (2019-2020)", room: "Ex-colegial", floor: 300, liked: false, gender: 0)
+            let author = Person(id: 0, name: "Raúl", surname_1: "Montón", surname_2: "Pinillos", career: "Física", beca: "Asociación de Antiguos Colegiales (2019-2020)", room: "Ex-colegial", floor: 300, liked: false, gender: 0, promotion: 99)
             authorViewController.detailedPerson = author
         }
         

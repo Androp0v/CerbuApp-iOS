@@ -47,6 +47,8 @@
 		C49AFCD922FDA5FD00A20C5D /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */; };
 		C49B3AE426A1F5D3005D1931 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49B3AE326A1F5D3005D1931 /* LoginView.swift */; };
 		C4A5D2172722D3150035CD24 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5D2162722D3150035CD24 /* NavigationBarModifier.swift */; };
+		C4A5D21A2722F9510035CD24 /* DetailsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5D2192722F9510035CD24 /* DetailsFooterView.swift */; };
+		C4A5D21C2722FBC10035CD24 /* DetailsFooterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5D21B2722FBC10035CD24 /* DetailsFooterViewModel.swift */; };
 		C4ACF173233566CB00198891 /* MagazineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF172233566CB00198891 /* MagazineController.swift */; };
 		C4B32CE123264F77007DC778 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B32CE023264F77007DC778 /* SettingsViewController.swift */; };
 		C4C65B5B25753A85008E2FFB /* DetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C65B5A25753A85008E2FFB /* DetailsPageViewController.swift */; };
@@ -57,7 +59,7 @@
 		C4D397932722170A00F2C2BB /* OrlaRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D397922722170A00F2C2BB /* OrlaRowView.swift */; };
 		C4D3979527222FF400F2C2BB /* OrlaRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D3979427222FF400F2C2BB /* OrlaRowViewModel.swift */; };
 		C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */; };
-		C4F95C5A22F5E5FA00E3E5BD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F95C5922F5E5FA00E3E5BD /* DetailsViewController.swift */; };
+		C4F95C5A22F5E5FA00E3E5BD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F95C5922F5E5FA00E3E5BD /* DetailsView.swift */; };
 		CD6FB2DE59F20C4F0E33EFE5 /* Pods_CerbuAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF28CAF2CAC04C83DB668F1 /* Pods_CerbuAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +154,8 @@
 		C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		C49B3AE326A1F5D3005D1931 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C4A5D2162722D3150035CD24 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		C4A5D2192722F9510035CD24 /* DetailsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFooterView.swift; sourceTree = "<group>"; };
+		C4A5D21B2722FBC10035CD24 /* DetailsFooterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFooterViewModel.swift; sourceTree = "<group>"; };
 		C4ACF172233566CB00198891 /* MagazineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineController.swift; sourceTree = "<group>"; };
 		C4B32CE023264F77007DC778 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C4C65B5A25753A85008E2FFB /* DetailsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewController.swift; sourceTree = "<group>"; };
@@ -162,7 +166,7 @@
 		C4D397922722170A00F2C2BB /* OrlaRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrlaRowView.swift; sourceTree = "<group>"; };
 		C4D3979427222FF400F2C2BB /* OrlaRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrlaRowViewModel.swift; sourceTree = "<group>"; };
 		C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
-		C4F95C5922F5E5FA00E3E5BD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		C4F95C5922F5E5FA00E3E5BD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		FAAE310FF88FBC3044498835 /* Pods-CerbuApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuApp.release.xcconfig"; path = "Target Support Files/Pods-CerbuApp/Pods-CerbuApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,22 +234,21 @@
 				C425A98C26AB944400B31359 /* InitialView.swift */,
 				C4A5D2162722D3150035CD24 /* NavigationBarModifier.swift */,
 				C425A99226ACC7EE00B31359 /* Home */,
+				C4CD76E62300F1BB00964509 /* BoletinViewController.swift */,
+				C4CD76EA2300F86100964509 /* MenuViewController.swift */,
+				C4729F6D233663400037222D /* BarcodeViewController.swift */,
+				C4ACF172233566CB00198891 /* MagazineController.swift */,
 				C40800E326A2442B00711785 /* UIElements */,
 				C404058522DEA3D000259C86 /* ViewController.swift */,
 				C404058722DEA3D000259C86 /* Main.storyboard */,
 				C40800E626A258AC00711785 /* Login */,
 				C409DCBD250F95C500DC281B /* Capacities */,
-				C4CD76E62300F1BB00964509 /* BoletinViewController.swift */,
-				C4CD76EA2300F86100964509 /* MenuViewController.swift */,
-				C4C65B5A25753A85008E2FFB /* DetailsPageViewController.swift */,
-				C4F95C5922F5E5FA00E3E5BD /* DetailsViewController.swift */,
+				C4A5D2182722F7FD0035CD24 /* DetailsView */,
 				C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */,
 				C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */,
 				C446941D22DF69FB006027A8 /* TableViewController.swift */,
 				C4615BD92325045500C04EE7 /* FilterTableViewController.swift */,
 				C4B32CE023264F77007DC778 /* SettingsViewController.swift */,
-				C4ACF172233566CB00198891 /* MagazineController.swift */,
-				C4729F6D233663400037222D /* BarcodeViewController.swift */,
 				C433A76D2354797000C6E84F /* NotificationCell.swift */,
 				C433A76B2354790600C6E84F /* NotificationsTableViewController.swift */,
 				C433A769235463C900C6E84F /* NotificationComposerController.swift */,
@@ -335,6 +338,17 @@
 				73D5FDA5D36625C66C370E51 /* Pods_CerbuAppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4A5D2182722F7FD0035CD24 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				C4C65B5A25753A85008E2FFB /* DetailsPageViewController.swift */,
+				C4F95C5922F5E5FA00E3E5BD /* DetailsView.swift */,
+				C4A5D2192722F9510035CD24 /* DetailsFooterView.swift */,
+				C4A5D21B2722FBC10035CD24 /* DetailsFooterViewModel.swift */,
+			);
+			path = DetailsView;
 			sourceTree = "<group>";
 		};
 		D83FD5D16ECCE1F0C4413A1C /* Pods */ = {
@@ -585,7 +599,9 @@
 				C433A76A235463C900C6E84F /* NotificationComposerController.swift in Sources */,
 				C425A99826ACCDC900B31359 /* HomeContent.swift in Sources */,
 				C40800E526A2446A00711785 /* InputField.swift in Sources */,
+				C4A5D21A2722F9510035CD24 /* DetailsFooterView.swift in Sources */,
 				C43B49EB22E62A1300DEF572 /* Person.swift in Sources */,
+				C4A5D21C2722FBC10035CD24 /* DetailsFooterViewModel.swift in Sources */,
 				C425A98726AB346E00B31359 /* LoginCardView.swift in Sources */,
 				C425A99426ACCD9100B31359 /* HomeView.swift in Sources */,
 				C4D3979527222FF400F2C2BB /* OrlaRowViewModel.swift in Sources */,
@@ -606,7 +622,7 @@
 				C4D397932722170A00F2C2BB /* OrlaRowView.swift in Sources */,
 				C464AD122515187D00548EB2 /* CapacityDetailsViewController.swift in Sources */,
 				C409DCBF250F95F500DC281B /* QRScannerViewController.swift in Sources */,
-				C4F95C5A22F5E5FA00E3E5BD /* DetailsViewController.swift in Sources */,
+				C4F95C5A22F5E5FA00E3E5BD /* DetailsView.swift in Sources */,
 				C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */,
 				C425A98B26AB923200B31359 /* AppState.swift in Sources */,
 				C4959EFA26A26BDF00F86D1A /* LoginCardViewModel.swift in Sources */,

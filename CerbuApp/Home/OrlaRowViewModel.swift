@@ -25,15 +25,11 @@ struct OrlaRowViewModel {
         self.imageName = "orlabackground"
 
         // Christmas skin: 23rd of December to 7th of January
-        if currentMonth == 12{
-            if currentDay! > 23{
-                self.imageName = "orlabackground_christmas.png"
-            }
+        if currentMonth == 12 && currentDay! > 23 {
+            self.imageName = "orlabackground_christmas"
         }
-        if currentMonth == 1{
-            if currentDay! < 7{
-                self.imageName = "orlabackground_christmas.png"
-            }
+        if currentMonth == 1 && currentDay! < 7 {
+            self.imageName = "orlabackground_christmas"
         }
     }
 

@@ -44,6 +44,20 @@ struct OrlaView: View {
                     FiltersView()
                 }
             }
+            .onDisappear(perform: {
+                let defaults = UserDefaults.standard
+
+                //Clear filters
+                defaults.set(false, forKey: "soloAdjuntos")
+                defaults.set(false, forKey: "soloFavoritos")
+                defaults.set(true, forKey: "male")
+                defaults.set(true, forKey: "female")
+                defaults.set(true, forKey: "nbothers")
+                defaults.set(true, forKey: "100s")
+                defaults.set(true, forKey: "200s")
+                defaults.set(true, forKey: "300s")
+                defaults.set(true, forKey: "400s")
+            })
     }
 }
 /// Wrapper to present the view  inside a SwiftUI view
@@ -318,10 +332,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             let floor = sqlite3_column_int(stmt, 8)
+            let promotion = sqlite3_column_int(stmt, 9)
             let gender = sqlite3_column_int(stmt, 10)
             
             //adding values to list
-            IndexablePeople.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), liked: like, gender: Int(gender))!)
+            IndexablePeople.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), liked: like, gender: Int(gender), promotion: Int(promotion))!)
         }
         
         for i in 0...(IndexablePeople.count - 1){
@@ -430,53 +445,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.navigationController?.pushViewController(detailedPageViewController, animated: true)
         self.searchBar.resignFirstResponder()
-        // FIXME: This
-        /*DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "pushFromCell", sender: indexPath)
-            self.searchBar.resignFirstResponder()
-        }*/
     }
-    
-    
-    // MARK: - Navigation
 
-    // FIXME:
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        if (segue.identifier == "pushFromCell") {
-            let controller = (segue.destination as! DetailsPageViewController)
-            let row = (sender as! NSIndexPath).row
-            
-            controller.viewControllerIndex = row
-            controller.dataSource = self
-            
-            let detailedController = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
-            let selectedPerson: Person
-            if searchActive{
-                selectedPerson = filteredPeople[row]
-            }else{
-                selectedPerson = People[row]
-            }
-            detailedController.detailedPerson = selectedPerson
-            detailedController.pageIndex = row
-            
-            controller.setViewControllers([detailedController], direction: .forward, animated: true, completion: nil)
-            
-            /*let controller = (segue.destination as! DetailsViewController)
-            let row = (sender as! NSIndexPath).row; //we know that sender is an NSIndexPath here.
-            let selectedPerson: Person
-            if searchActive{
-                selectedPerson = filteredPeople[row]
-            }else{
-                selectedPerson = People[row]
-            }
-            controller.detailedPerson = selectedPerson*/
-        }
-    }*/
-    
-    
     //MARK: Private Methods
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -885,10 +855,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             let floor = sqlite3_column_int(stmt, 8)
+            let promotion = sqlite3_column_int(stmt, 9)
             let gender = sqlite3_column_int(stmt, 10)
             
             //adding values to list
-            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), liked: like, gender: Int(gender))!)
+            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), liked: like, gender: Int(gender), promotion: Int(promotion))!)
         }
         
         if defaults.bool(forKey: "surnameFirst"){
@@ -948,10 +919,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             let floor = sqlite3_column_int(stmt, 8)
+            let promotion = sqlite3_column_int(stmt, 9)
             let gender = sqlite3_column_int(stmt, 10)
             
             //adding values to list
-            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), liked: like, gender: Int(gender))!)
+            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), liked: like, gender: Int(gender), promotion: Int(promotion))!)
         }
         
         if defaults.bool(forKey: "surnameFirst"){
