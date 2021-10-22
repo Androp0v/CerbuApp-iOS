@@ -27,6 +27,14 @@ struct LoginCardView: View {
 
         let userEmail = userName + "@" + LoginCardView.workaroundDomain
 
+        // Locally validate errors for empty fields
+        if userName.isEmpty && password.isEmpty {
+            userError = true
+            passwordError = true
+            return
+        }
+
+        // Authentication request
         Auth.auth().signIn(withEmail: userEmail, password: password) { authResult, error in
 
             // Check for errors
@@ -79,14 +87,19 @@ struct LoginCardView: View {
                 }
                 .padding(.bottom, 16)
 
-                Button("Acceder", action: {
+                Button(action: {
                     signIn(userName: user, password: password)
+                }, label: {
+                    Text("Acceder")
+                        .frame(maxWidth: .infinity)
                 })
+                    .buttonStyle(.borderedProminent)
+                    .tint(Color(UIColor.systemBlue))
+                    .controlSize(.large)
                     .frame(maxWidth: .infinity)
                     .font(.headline)
                     .foregroundColor(.white)
-                    .padding()
-                    .background(Color(UIColor.systemBlue))
+                    .keyboardShortcut(.defaultAction)
                     .cornerRadius(12)
 
                 Text("¿Has olvidado tu contraseña?")

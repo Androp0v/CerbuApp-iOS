@@ -11,6 +11,20 @@ import UIKit
 import SQLite3
 import SwiftUI
 
+/// Wrapper to present the Storyboard view inside a SwiftUI view
+struct SettingsView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "SettingsView")
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // No need to update this VC from SwiftUI as of now
+    }
+}
+
 class SettingsViewController: UITableViewController {
     
     let defaults = UserDefaults.standard

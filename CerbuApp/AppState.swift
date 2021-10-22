@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AppState: ObservableObject {
 
@@ -15,5 +16,6 @@ class AppState: ObservableObject {
     // MARK: - Properties
     
     @Published var isLoggedIn: Bool = false
+    static let navigationBarColor: UIColor = UIColor(named: "MainAppColor")!
 
 }

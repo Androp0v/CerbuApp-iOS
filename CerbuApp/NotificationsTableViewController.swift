@@ -6,8 +6,23 @@
 //  Copyright © 2019 Raúl Montón Pinillos. All rights reserved.
 //
 
-import UIKit
 import Firebase
+import UIKit
+import SwiftUI
+
+/// Wrapper to present the Storyboard view inside a SwiftUI view
+struct NotificationsView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "NotificationsView")
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // No need to update this VC from SwiftUI as of now
+    }
+}
 
 class NotificationsTableViewController: UITableViewController {
     

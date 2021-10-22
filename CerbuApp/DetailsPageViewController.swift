@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class DetailsPageViewController: UIPageViewController {
     

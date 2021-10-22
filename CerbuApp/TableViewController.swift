@@ -10,22 +10,73 @@ import UIKit
 import SQLite3
 import CoreSpotlight
 import MobileCoreServices
+import SwiftUI
+
+struct OrlaView: View {
+
+    @State var showFilters = false
+    @State var filtersIconName = "line.horizontal.3.decrease.circle"
+
+    var body: some View {
+        OrlaViewContent()
+            .navigationBarTitle("Orla Colegial")
+            .globalNavigationBarColor()
+            .navigationBarTitleDisplayMode(.inline)
+            .edgesIgnoringSafeArea(.bottom)
+            .toolbar {
+                Button(action: {
+                    showFilters.toggle()
+                }) {
+                    Image(systemName: filtersIconName)
+                        .font(Font.system(size: 14, weight: .medium))
+                        .foregroundColor(Color.white)
+                }
+                // Listen for filters off toggle
+                .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("FILTERS_OFF"))) { obj in
+                   filtersIconName = "line.horizontal.3.decrease.circle"
+                }
+                // Listen for filters on toggle
+                .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("FILTERS_ON"))) { obj in
+                   filtersIconName = "line.horizontal.3.decrease.circle.fill"
+                }
+                // Present sheet on button tap
+                .sheet(isPresented: $showFilters) {
+                    FiltersView()
+                }
+            }
+    }
+}
+/// Wrapper to present the view  inside a SwiftUI view
+struct OrlaViewContent: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "OrlaView")
+    }
+
+    func presentFiltersModal() {
+        // Do nothing for now
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // No need to update this VC from SwiftUI as of now
+    }
+}
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let index = (viewController as! DetailsViewController).pageIndex
+        let index = (viewController as! DetailsViewHostingController).personIndex
         
-        if index! > 0 {
-            let detailedController = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
+        if index > 0 {
             let selectedPerson: Person
             if searchActive{
-                selectedPerson = filteredPeople[index! - 1]
+                selectedPerson = filteredPeople[index - 1]
             }else{
-                selectedPerson = People[index! - 1]
+                selectedPerson = People[index - 1]
             }
-            detailedController.detailedPerson = selectedPerson
-            detailedController.pageIndex = index! - 1
+            let detailedController = DetailsViewHostingController(person: selectedPerson, index: index - 1)
             
             return detailedController
         } else {
@@ -34,31 +85,26 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let index = (viewController as! DetailsViewController).pageIndex
-        
-        let detailedController = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
+        let index = (viewController as! DetailsViewHostingController).personIndex
+
         let selectedPerson: Person
         if searchActive{
-            if index! < (filteredPeople.count - 1) {
-                selectedPerson = filteredPeople[index! + 1]
+            if index < (filteredPeople.count - 1) {
+                selectedPerson = filteredPeople[index + 1]
             } else {
                 return nil
             }
         }else{
-            if index! < (People.count - 1) {
-                selectedPerson = People[index! + 1]
+            if index < (People.count - 1) {
+                selectedPerson = People[index + 1]
             } else {
                 return nil
             }
         }
-        detailedController.detailedPerson = selectedPerson
-        detailedController.pageIndex = index! + 1
-        
+        let detailedController = DetailsViewHostingController(person: selectedPerson, index: index + 1)
         return detailedController
-        
     }
-    
-    
+
     var People = [Person]()
     var filteredPeople = [Person]()
     var db: OpaquePointer?
@@ -77,7 +123,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var filterStatus: UIBarButtonItem!
     
     override func viewDidLoad() {
-        self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: -0.5,left: 0,bottom: 0,right: 0)
+        self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: -0.5, left: 0, bottom: 0, right: 0)
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
@@ -156,10 +202,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let reloadString = self.searchBar.text
             self.searchBar(self.searchBar, textDidChange: reloadString ?? "")
         }
-                
-        DispatchQueue.global(qos: .userInitiated).async {
+
+        // FIXME: Re-enable avoiding memory issues
+        /*DispatchQueue.global(qos: .userInitiated).async {
             self.loadDataForSpotlightIndexing()
-        }
+        }*/
     }
     
     func updateFooter() {
@@ -360,17 +407,41 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableView .deselectRow(at: indexPath, animated: true)
         selectedIndex = indexPath.row
-        DispatchQueue.main.async {
+
+        guard let selectedIndex = selectedIndex else {
+            return
+        }
+
+        let detailedPageViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsPageView") as! DetailsPageViewController
+        detailedPageViewController.viewControllerIndex = selectedIndex
+        detailedPageViewController.dataSource = self
+
+        let selectedPerson: Person
+        if searchActive{
+            selectedPerson = filteredPeople[selectedIndex]
+        }else{
+            selectedPerson = People[selectedIndex]
+        }
+
+        let detailedController = DetailsViewHostingController(person: selectedPerson, index: selectedIndex)
+
+        detailedPageViewController.setViewControllers([detailedController], direction: .forward, animated: true, completion: nil)
+        
+        self.navigationController?.pushViewController(detailedPageViewController, animated: true)
+        self.searchBar.resignFirstResponder()
+        // FIXME: This
+        /*DispatchQueue.main.async {
             self.performSegue(withIdentifier: "pushFromCell", sender: indexPath)
             self.searchBar.resignFirstResponder()
-        }
+        }*/
     }
     
     
     // MARK: - Navigation
 
+    // FIXME:
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -403,7 +474,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             controller.detailedPerson = selectedPerson*/
         }
-    }
+    }*/
     
     
     //MARK: Private Methods
@@ -885,7 +956,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if defaults.bool(forKey: "surnameFirst"){
             People = People.sorted { $0.surname_1.localizedCaseInsensitiveCompare($1.surname_1) == ComparisonResult.orderedAscending }
-        }else{
+        } else {
             People = People.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == ComparisonResult.orderedAscending }
         }
         

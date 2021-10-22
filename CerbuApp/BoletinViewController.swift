@@ -7,7 +7,22 @@
 //
 
 import UIKit
+import SwiftUI
 import WebKit
+
+/// Wrapper to present the Storyboard view inside a SwiftUI view
+struct BoletinView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "BoletinView")
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // No need to update this VC from SwiftUI as of now
+    }
+}
 
 class BoletinViewController: UIViewController, WKNavigationDelegate {
 

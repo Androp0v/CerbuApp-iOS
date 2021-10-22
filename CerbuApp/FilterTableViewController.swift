@@ -7,6 +7,32 @@
 //
 
 import UIKit
+import SwiftUI
+
+struct FiltersView: View {
+    var body: some View {
+        NavigationView {
+            FiltersViewContent()
+                .navigationBarTitle("Filtros")
+                .customNavigationBarColor(color: UIColor(named: "MainAppColor")!)
+                .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+}
+
+/// Wrapper to present the view  inside a SwiftUI view
+struct FiltersViewContent: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "FiltersView")
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // No need to update this VC from SwiftUI as of now
+    }
+}
 
 class FilterTableViewController: UITableViewController {
     

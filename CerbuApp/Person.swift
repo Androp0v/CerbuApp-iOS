@@ -49,5 +49,12 @@ class Person {
     func getName() -> String {
         return self.name
     }
+
+    func isAuthor() -> Bool {
+        if self.name == "Raúl" && self.surname_1 == "Montón" && self.surname_2 == "Pinillos" {
+            return true
+        }
+        return false
+    }
     
 }

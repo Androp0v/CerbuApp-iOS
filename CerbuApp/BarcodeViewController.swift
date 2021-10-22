@@ -7,7 +7,21 @@
 //
 
 import UIKit
+import SwiftUI
 
+/// Wrapper to present the Storyboard view inside a SwiftUI view
+struct BarcodeView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "BarcodeView")
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // No need to update this VC from SwiftUI as of now
+    }
+}
 
 class BarcodeViewController: UIViewController{
 

@@ -8,6 +8,63 @@
 
 import UIKit
 import SQLite3
+import SwiftUI
+
+
+struct DetailsView: View {
+    @State var detailedPerson: Person
+    @State var personIndex: Int
+
+    var body: some View {
+        if detailedPerson.isAuthor() {
+            DetailsViewContent(detailedPerson: detailedPerson, pageIndex: personIndex)
+                .edgesIgnoringSafeArea(.bottom)
+                .customNavigationBarColor(color: UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0))
+        } else {
+            DetailsViewContent(detailedPerson: detailedPerson, pageIndex: personIndex)
+                .edgesIgnoringSafeArea(.bottom)
+                .globalNavigationBarColor()
+        }
+    }
+}
+
+/// Wrapper to present DetailsView inside a UIKit context
+class DetailsViewHostingController: UIHostingController<DetailsView> {
+
+    var detailedPerson: Person
+    var personIndex: Int
+
+    init(person: Person, index: Int) {
+        detailedPerson = person
+        personIndex = index
+        super.init(rootView: DetailsView(detailedPerson: person, personIndex: index))
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Not implemented")
+    }
+}
+
+/// Wrapper to present the view  inside a SwiftUI view
+struct DetailsViewContent: UIViewControllerRepresentable {
+
+    @State var detailedPerson: Person?
+    @State var pageIndex: Int?
+
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailedController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        detailedController.detailedPerson = detailedPerson
+        detailedController.pageIndex = pageIndex
+        return detailedController
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // No need to update this VC from SwiftUI as of now
+    }
+}
 
 class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
     
@@ -114,6 +171,13 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(sender:)))
         pan.delegate = self
         hresPhoto.addGestureRecognizer(pan)
+
+        // Author
+        if detailedPerson?.isAuthor() ?? false {
+            overrideUserInterfaceStyle = .dark
+            hresPhotoBackground.backgroundColor = UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0)
+            roomLabel.text = "Habitación: " + (detailedPerson?.room ?? "?")
+        }
 
     }
    
@@ -229,22 +293,11 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DATABASE_CHANGED"), object: nil)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Show the navigation bar on other view controllers
-        if detailedPerson?.name == "Raúl" && detailedPerson?.surname_1 == "Montón"{
-            overrideUserInterfaceStyle = .dark
-            navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0)
-            hresPhotoBackground.backgroundColor = UIColor(displayP3Red: 9/255, green: 10/255, blue: 12/255, alpha: 1.0)
-            roomLabel.text = "Habitación: " + (detailedPerson?.room ?? "?")
-        }
-    }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Show the navigation bar on other view controllers
-        navigationController?.navigationBar.barTintColor = UIColor.init(named: "MainAppColor")
+        // FIXME: navigationController?.navigationBar.barTintColor = UIColor.init(named: "MainAppColor")
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

@@ -8,6 +8,21 @@
 
 import UIKit
 import PDFKit
+import SwiftUI
+
+/// Wrapper to present the Storyboard view inside a SwiftUI view
+struct MagazineView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UIViewController
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "MagazineView")
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // No need to update this VC from SwiftUI as of now
+    }
+}
 
 class MagazineController: UIPageViewController, UIPageViewControllerDataSource {
     

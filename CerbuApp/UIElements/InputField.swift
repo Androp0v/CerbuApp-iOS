@@ -22,14 +22,16 @@ struct InputField: View {
             if let icon = icon {
                 icon
                     .foregroundColor( hasError ? .red : Color(UIColor.label) )
+                    .padding(.leading)
             }
             if !secure {
                 TextField(prompt, text: $fieldValue)
+                    .padding(.vertical)
             } else {
                 SecureField(prompt, text: $fieldValue)
+                    .padding(.vertical)
             }
         }
-        .padding()
         .background(
             ZStack {
                 if hasError {

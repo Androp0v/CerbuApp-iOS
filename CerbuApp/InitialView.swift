@@ -33,7 +33,9 @@ struct InitialView: View {
 
     var body: some View {
         if appState.isLoggedIn {
-            MainView()
+            /*MainView()
+                .edgesIgnoringSafeArea(.all)*/
+            HomeView()
                 .edgesIgnoringSafeArea(.all)
         } else {
             LoginView()
