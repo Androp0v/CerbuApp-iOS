@@ -63,6 +63,7 @@ struct HomeView: View {
                             Image(systemName: "gearshape.fill")
                                 .font(Font.system(size: 14, weight: .medium))
                                 .foregroundColor(Color.white)
+                                .padding()
                         }
                     }
 
@@ -101,6 +102,7 @@ struct HomeView: View {
                             Image(systemName: "gearshape.fill")
                                 .font(Font.system(size: 14, weight: .medium))
                                 .foregroundColor(Color.white)
+                                .padding()
                         }
                     }
 

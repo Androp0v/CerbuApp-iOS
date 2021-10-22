@@ -30,6 +30,7 @@ struct OrlaView: View {
                     Image(systemName: filtersIconName)
                         .font(Font.system(size: 14, weight: .medium))
                         .foregroundColor(Color.white)
+                        .padding()
                 }
                 // Listen for filters off toggle
                 .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("FILTERS_OFF"))) { obj in
