@@ -344,7 +344,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 searchableItemAttributeSet.contentDescription = IndexablePeople[i].career + " | " + IndexablePeople[i].beca
             }
             
-            let icon = UIImage(named: (cleanString(rawString: IndexablePeople[i].name+IndexablePeople[i].surname_1))) ?? UIImage(named: (cleanString(rawString: IndexablePeople[i].name+IndexablePeople[i].surname_1+IndexablePeople[i].surname_2))) ?? UIImage(named: "nohres")!
+            let icon = UIImage(encryptedFilename: (cleanString(rawString: IndexablePeople[i].name + IndexablePeople[i].surname_1)))
+            ?? UIImage(encryptedFilename: (cleanString(rawString: IndexablePeople[i].name+IndexablePeople[i].surname_1+IndexablePeople[i].surname_2)))
+            ?? UIImage(named: (cleanString(rawString: IndexablePeople[i].name + IndexablePeople[i].surname_1)))
+            ?? UIImage(named: "nohres")!
             
             searchableItemAttributeSet.thumbnailData = (CutCircleOnUIImage(startingImage: icon).pngData())
             
@@ -390,7 +393,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
         cell.nameLabel.text = person.name + " " + person.surname_1 + " " + person.surname_2
     
-        let iconPhoto = UIImage(named: (cleanString(rawString: person.name+person.surname_1))) ?? UIImage(named: (cleanString(rawString: person.name+person.surname_1+person.surname_2))) ?? UIImage(named: "nohres")!
+        let iconPhoto = UIImage(encryptedFilename: (cleanString(rawString: person.name+person.surname_1)))
+        ?? UIImage(encryptedFilename: (cleanString(rawString: person.name+person.surname_1+person.surname_2)))
+        ?? UIImage(named: (cleanString(rawString: person.name+person.surname_1)))
+        ?? UIImage(named: "nohres")!
     
         cell.orlaImageView.image = iconPhoto
     

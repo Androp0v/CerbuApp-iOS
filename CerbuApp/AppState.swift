@@ -19,12 +19,14 @@ class AppState: ObservableObject {
 
     @Published var isLoggedIn: Bool = false
     var peopleDatabase: PeopleDatabaseManager?
+    var decryptionManager: DecryptionManager?
 
 
     // MARK: - Initialization
 
     init(){
         peopleDatabase = PeopleDatabaseManager()
+        decryptionManager = DecryptionManager()
     }
 
 }

@@ -50,6 +50,11 @@
 		C4A5D21A2722F9510035CD24 /* DetailsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5D2192722F9510035CD24 /* DetailsFooterView.swift */; };
 		C4A5D21C2722FBC10035CD24 /* DetailsFooterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5D21B2722FBC10035CD24 /* DetailsFooterViewModel.swift */; };
 		C4A5D21E272338D50035CD24 /* PeopleDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5D21D272338D50035CD24 /* PeopleDatabaseManager.swift */; };
+		C4AAF11B2724906800D0D1F6 /* TestImageEncrypted.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4AAF11A2724906800D0D1F6 /* TestImageEncrypted.jpg */; };
+		C4AAF11E2724982700D0D1F6 /* acheregido.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4AAF11C2724982700D0D1F6 /* acheregido.jpg */; };
+		C4AAF11F2724982700D0D1F6 /* acheregidohres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4AAF11D2724982700D0D1F6 /* acheregidohres.jpg */; };
+		C4AAF12227249A3F00D0D1F6 /* aliciabaldellouhres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4AAF12027249A3E00D0D1F6 /* aliciabaldellouhres.jpg */; };
+		C4AAF12327249A3F00D0D1F6 /* aliciabaldellou.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4AAF12127249A3F00D0D1F6 /* aliciabaldellou.jpg */; };
 		C4ACF173233566CB00198891 /* MagazineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF172233566CB00198891 /* MagazineController.swift */; };
 		C4B32CE123264F77007DC778 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B32CE023264F77007DC778 /* SettingsViewController.swift */; };
 		C4C65B5B25753A85008E2FFB /* DetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C65B5A25753A85008E2FFB /* DetailsPageViewController.swift */; };
@@ -61,6 +66,7 @@
 		C4D3979527222FF400F2C2BB /* OrlaRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D3979427222FF400F2C2BB /* OrlaRowViewModel.swift */; };
 		C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */; };
 		C4F95C5A22F5E5FA00E3E5BD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F95C5922F5E5FA00E3E5BD /* DetailsView.swift */; };
+		C4FC8CF827248BC800BFD7A4 /* DecryptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC8CF727248BC800BFD7A4 /* DecryptionManager.swift */; };
 		CD6FB2DE59F20C4F0E33EFE5 /* Pods_CerbuAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF28CAF2CAC04C83DB668F1 /* Pods_CerbuAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,8 +139,8 @@
 		C425A98A26AB923200B31359 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		C425A98C26AB944400B31359 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		C425A99026AC8B9500B31359 /* MainRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRow.swift; sourceTree = "<group>"; };
-		C425A99326ACCD9100B31359 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = /Users/raul/Developer/CerbuApp/CerbuApp/CerbuApp/Home/HomeView.swift; sourceTree = "<absolute>"; };
-		C425A99726ACCDC900B31359 /* HomeContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeContent.swift; path = /Users/raul/Developer/CerbuApp/CerbuApp/CerbuApp/Home/HomeContent.swift; sourceTree = "<absolute>"; };
+		C425A99326ACCD9100B31359 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = /Users/raul/Developer/CerbuApp/CerbuApp/CerbuApp/Views/Home/HomeView.swift; sourceTree = "<absolute>"; };
+		C425A99726ACCDC900B31359 /* HomeContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeContent.swift; path = /Users/raul/Developer/CerbuApp/CerbuApp/CerbuApp/Views/Home/HomeContent.swift; sourceTree = "<absolute>"; };
 		C433A769235463C900C6E84F /* NotificationComposerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationComposerController.swift; sourceTree = "<group>"; };
 		C433A76B2354790600C6E84F /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		C433A76D2354797000C6E84F /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
@@ -158,6 +164,11 @@
 		C4A5D2192722F9510035CD24 /* DetailsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFooterView.swift; sourceTree = "<group>"; };
 		C4A5D21B2722FBC10035CD24 /* DetailsFooterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFooterViewModel.swift; sourceTree = "<group>"; };
 		C4A5D21D272338D50035CD24 /* PeopleDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDatabaseManager.swift; sourceTree = "<group>"; };
+		C4AAF11A2724906800D0D1F6 /* TestImageEncrypted.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TestImageEncrypted.jpg; sourceTree = "<group>"; };
+		C4AAF11C2724982700D0D1F6 /* acheregido.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = acheregido.jpg; sourceTree = "<group>"; };
+		C4AAF11D2724982700D0D1F6 /* acheregidohres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = acheregidohres.jpg; sourceTree = "<group>"; };
+		C4AAF12027249A3E00D0D1F6 /* aliciabaldellouhres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aliciabaldellouhres.jpg; sourceTree = "<group>"; };
+		C4AAF12127249A3F00D0D1F6 /* aliciabaldellou.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aliciabaldellou.jpg; sourceTree = "<group>"; };
 		C4ACF172233566CB00198891 /* MagazineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineController.swift; sourceTree = "<group>"; };
 		C4B32CE023264F77007DC778 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C4C65B5A25753A85008E2FFB /* DetailsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +180,7 @@
 		C4D3979427222FF400F2C2BB /* OrlaRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrlaRowViewModel.swift; sourceTree = "<group>"; };
 		C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		C4F95C5922F5E5FA00E3E5BD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		C4FC8CF727248BC800BFD7A4 /* DecryptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecryptionManager.swift; sourceTree = "<group>"; };
 		FAAE310FF88FBC3044498835 /* Pods-CerbuApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuApp.release.xcconfig"; path = "Target Support Files/Pods-CerbuApp/Pods-CerbuApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,31 +246,11 @@
 				C404058322DEA3D000259C86 /* SceneDelegate.swift */,
 				C425A98A26AB923200B31359 /* AppState.swift */,
 				C4A5D21D272338D50035CD24 /* PeopleDatabaseManager.swift */,
-				C425A98C26AB944400B31359 /* InitialView.swift */,
-				C4A5D2162722D3150035CD24 /* NavigationBarModifier.swift */,
-				C425A99226ACC7EE00B31359 /* Home */,
-				C4CD76E62300F1BB00964509 /* BoletinViewController.swift */,
-				C4CD76EA2300F86100964509 /* MenuViewController.swift */,
-				C4729F6D233663400037222D /* BarcodeViewController.swift */,
-				C4ACF172233566CB00198891 /* MagazineController.swift */,
-				C40800E326A2442B00711785 /* UIElements */,
-				C404058522DEA3D000259C86 /* ViewController.swift */,
-				C404058722DEA3D000259C86 /* Main.storyboard */,
-				C40800E626A258AC00711785 /* Login */,
-				C409DCBD250F95C500DC281B /* Capacities */,
-				C4A5D2182722F7FD0035CD24 /* DetailsView */,
-				C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */,
-				C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */,
-				C446941D22DF69FB006027A8 /* TableViewController.swift */,
-				C4615BD92325045500C04EE7 /* FilterTableViewController.swift */,
-				C4B32CE023264F77007DC778 /* SettingsViewController.swift */,
-				C433A76D2354797000C6E84F /* NotificationCell.swift */,
-				C433A76B2354790600C6E84F /* NotificationsTableViewController.swift */,
-				C433A769235463C900C6E84F /* NotificationComposerController.swift */,
-				C4729F6F2336A55B0037222D /* ImagePickerController.swift */,
-				C404058A22DEA3D100259C86 /* Assets.xcassets */,
-				C49AFCD622FAE72E00A20C5D /* CardView.swift */,
+				C4FC8CF727248BC800BFD7A4 /* DecryptionManager.swift */,
 				C43B49EA22E62A1300DEF572 /* Person.swift */,
+				C4FC8CF627248B8B00BFD7A4 /* Views */,
+				C4AAF1192724903300D0D1F6 /* EncryptedImages */,
+				C404058A22DEA3D100259C86 /* Assets.xcassets */,
 				C404058C22DEA3D100259C86 /* LaunchScreen.storyboard */,
 				C4C65B652575A4EE008E2FFB /* PatioInterior.pdf */,
 				C48D5AEA22F4984B00695DB2 /* database.db */,
@@ -352,6 +344,48 @@
 				C4A5D21B2722FBC10035CD24 /* DetailsFooterViewModel.swift */,
 			);
 			path = DetailsView;
+			sourceTree = "<group>";
+		};
+		C4AAF1192724903300D0D1F6 /* EncryptedImages */ = {
+			isa = PBXGroup;
+			children = (
+				C4AAF11A2724906800D0D1F6 /* TestImageEncrypted.jpg */,
+				C4AAF11C2724982700D0D1F6 /* acheregido.jpg */,
+				C4AAF11D2724982700D0D1F6 /* acheregidohres.jpg */,
+				C4AAF12127249A3F00D0D1F6 /* aliciabaldellou.jpg */,
+				C4AAF12027249A3E00D0D1F6 /* aliciabaldellouhres.jpg */,
+			);
+			path = EncryptedImages;
+			sourceTree = "<group>";
+		};
+		C4FC8CF627248B8B00BFD7A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C425A98C26AB944400B31359 /* InitialView.swift */,
+				C4A5D2162722D3150035CD24 /* NavigationBarModifier.swift */,
+				C425A99226ACC7EE00B31359 /* Home */,
+				C4CD76E62300F1BB00964509 /* BoletinViewController.swift */,
+				C4CD76EA2300F86100964509 /* MenuViewController.swift */,
+				C4729F6D233663400037222D /* BarcodeViewController.swift */,
+				C4ACF172233566CB00198891 /* MagazineController.swift */,
+				C40800E326A2442B00711785 /* UIElements */,
+				C404058522DEA3D000259C86 /* ViewController.swift */,
+				C404058722DEA3D000259C86 /* Main.storyboard */,
+				C40800E626A258AC00711785 /* Login */,
+				C409DCBD250F95C500DC281B /* Capacities */,
+				C4A5D2182722F7FD0035CD24 /* DetailsView */,
+				C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */,
+				C49AFCD822FDA5FD00A20C5D /* MainTableViewCell.swift */,
+				C446941D22DF69FB006027A8 /* TableViewController.swift */,
+				C4615BD92325045500C04EE7 /* FilterTableViewController.swift */,
+				C4B32CE023264F77007DC778 /* SettingsViewController.swift */,
+				C433A76D2354797000C6E84F /* NotificationCell.swift */,
+				C433A76B2354790600C6E84F /* NotificationsTableViewController.swift */,
+				C433A769235463C900C6E84F /* NotificationComposerController.swift */,
+				C4729F6F2336A55B0037222D /* ImagePickerController.swift */,
+				C49AFCD622FAE72E00A20C5D /* CardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D83FD5D16ECCE1F0C4413A1C /* Pods */ = {
@@ -483,8 +517,13 @@
 				C482D65D25419DC900DA3C3F /* Readme.md in Resources */,
 				C48D5AEB22F4A88A00695DB2 /* database.db in Resources */,
 				C4C65B662575A4EE008E2FFB /* PatioInterior.pdf in Resources */,
+				C4AAF12327249A3F00D0D1F6 /* aliciabaldellou.jpg in Resources */,
+				C4AAF12227249A3F00D0D1F6 /* aliciabaldellouhres.jpg in Resources */,
 				C404058E22DEA3D100259C86 /* LaunchScreen.storyboard in Resources */,
+				C4AAF11B2724906800D0D1F6 /* TestImageEncrypted.jpg in Resources */,
 				C404058B22DEA3D100259C86 /* Assets.xcassets in Resources */,
+				C4AAF11F2724982700D0D1F6 /* acheregidohres.jpg in Resources */,
+				C4AAF11E2724982700D0D1F6 /* acheregido.jpg in Resources */,
 				C404058922DEA3D000259C86 /* Main.storyboard in Resources */,
 				C482D66225419E5000DA3C3F /* CerbuAppMockup.png in Resources */,
 				C48BD7FF233BB0E600FE1C69 /* GoogleService-Info.plist in Resources */,
@@ -633,6 +672,7 @@
 				C4B32CE123264F77007DC778 /* SettingsViewController.swift in Sources */,
 				C409DCB8250C3E0400DC281B /* QRScannerView.swift in Sources */,
 				C4729F702336A55B0037222D /* ImagePickerController.swift in Sources */,
+				C4FC8CF827248BC800BFD7A4 /* DecryptionManager.swift in Sources */,
 				C4A5D21E272338D50035CD24 /* PeopleDatabaseManager.swift in Sources */,
 				C49AFCD722FAE72E00A20C5D /* CardView.swift in Sources */,
 				C404058422DEA3D000259C86 /* SceneDelegate.swift in Sources */,

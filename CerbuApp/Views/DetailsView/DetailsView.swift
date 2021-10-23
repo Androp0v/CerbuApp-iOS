@@ -155,9 +155,13 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         
         let testString3: String
         testString3 = cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? ""))
-        
-        hresPhoto.image = UIImage(named: testString1) ?? UIImage(named: testString2) ?? UIImage(named: testString3) ?? UIImage(named: "nohres")
-        
+
+        hresPhoto.image = UIImage(encryptedFilename: testString1)
+                            ?? UIImage(encryptedFilename: testString2)
+                            ?? UIImage(encryptedFilename: testString3)
+                            ?? UIImage(named: testString1)
+                            ?? UIImage(named: "nohres")
+
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
         tap.cancelsTouchesInView = false
         tap.delegate = self
