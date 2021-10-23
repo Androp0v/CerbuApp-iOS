@@ -49,6 +49,7 @@
 		C4A5D2172722D3150035CD24 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5D2162722D3150035CD24 /* NavigationBarModifier.swift */; };
 		C4A5D21A2722F9510035CD24 /* DetailsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5D2192722F9510035CD24 /* DetailsFooterView.swift */; };
 		C4A5D21C2722FBC10035CD24 /* DetailsFooterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5D21B2722FBC10035CD24 /* DetailsFooterViewModel.swift */; };
+		C4A5D21E272338D50035CD24 /* PeopleDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5D21D272338D50035CD24 /* PeopleDatabaseManager.swift */; };
 		C4ACF173233566CB00198891 /* MagazineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF172233566CB00198891 /* MagazineController.swift */; };
 		C4B32CE123264F77007DC778 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B32CE023264F77007DC778 /* SettingsViewController.swift */; };
 		C4C65B5B25753A85008E2FFB /* DetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C65B5A25753A85008E2FFB /* DetailsPageViewController.swift */; };
@@ -156,6 +157,7 @@
 		C4A5D2162722D3150035CD24 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		C4A5D2192722F9510035CD24 /* DetailsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFooterView.swift; sourceTree = "<group>"; };
 		C4A5D21B2722FBC10035CD24 /* DetailsFooterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFooterViewModel.swift; sourceTree = "<group>"; };
+		C4A5D21D272338D50035CD24 /* PeopleDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDatabaseManager.swift; sourceTree = "<group>"; };
 		C4ACF172233566CB00198891 /* MagazineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineController.swift; sourceTree = "<group>"; };
 		C4B32CE023264F77007DC778 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C4C65B5A25753A85008E2FFB /* DetailsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				C404058122DEA3D000259C86 /* AppDelegate.swift */,
 				C404058322DEA3D000259C86 /* SceneDelegate.swift */,
 				C425A98A26AB923200B31359 /* AppState.swift */,
+				C4A5D21D272338D50035CD24 /* PeopleDatabaseManager.swift */,
 				C425A98C26AB944400B31359 /* InitialView.swift */,
 				C4A5D2162722D3150035CD24 /* NavigationBarModifier.swift */,
 				C425A99226ACC7EE00B31359 /* Home */,
@@ -630,6 +633,7 @@
 				C4B32CE123264F77007DC778 /* SettingsViewController.swift in Sources */,
 				C409DCB8250C3E0400DC281B /* QRScannerView.swift in Sources */,
 				C4729F702336A55B0037222D /* ImagePickerController.swift in Sources */,
+				C4A5D21E272338D50035CD24 /* PeopleDatabaseManager.swift in Sources */,
 				C49AFCD722FAE72E00A20C5D /* CardView.swift in Sources */,
 				C404058422DEA3D000259C86 /* SceneDelegate.swift in Sources */,
 				C4ACF173233566CB00198891 /* MagazineController.swift in Sources */,
