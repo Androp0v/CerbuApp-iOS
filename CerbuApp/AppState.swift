@@ -14,8 +14,17 @@ class AppState: ObservableObject {
     static let shared = AppState()
 
     // MARK: - Properties
-    
-    @Published var isLoggedIn: Bool = false
+
     static let navigationBarColor: UIColor = UIColor(named: "MainAppColor")!
+
+    @Published var isLoggedIn: Bool = false
+    var peopleDatabase: PeopleDatabaseManager?
+
+
+    // MARK: - Initialization
+
+    init(){
+        peopleDatabase = PeopleDatabaseManager()
+    }
 
 }

@@ -89,7 +89,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if searchActive{
                 selectedPerson = filteredPeople[index - 1]
             }else{
-                selectedPerson = People[index - 1]
+                selectedPerson = people[index - 1]
             }
             let detailedController = DetailsViewHostingController(person: selectedPerson, index: index - 1)
             
@@ -110,8 +110,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 return nil
             }
         }else{
-            if index < (People.count - 1) {
-                selectedPerson = People[index + 1]
+            if index < (people.count - 1) {
+                selectedPerson = people[index + 1]
             } else {
                 return nil
             }
@@ -120,7 +120,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return detailedController
     }
 
-    var People = [Person]()
+    var people = [Person]()
     var filteredPeople = [Person]()
     var db: OpaquePointer?
     let searchController = UISearchController(searchResultsController: nil)
@@ -160,18 +160,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         segmentedControl.addTarget(self, action: #selector(TableViewController.onSegmentedControlHapticFeedback(sender:)), for:.valueChanged)
         
-        copyDatabaseIfNeeded()
-        
-        let fileManager = FileManager.default
-        
-        let databaseURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        
-        let finalDatabaseURL = databaseURL.first!.appendingPathComponent("database.db")
-        
-        if sqlite3_open(finalDatabaseURL.path, &db) != SQLITE_OK {
-            print("Error opening database")
-        }
-       
         loadPeopleFromDatabase()
         
         searchBar.delegate = self
@@ -179,10 +167,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //This migh not be needed (iOS 13 bug?)
         tableView.reloadData()
         updateFooter()
-        
+
+        // Scroll the tableview to hide search bar initially
+        if tableView.numberOfRows(inSection: 0) > 0 {
         self.tableView.scrollToRow(at: NSIndexPath(row: 0, section: 0) as IndexPath, at:
             UITableView.ScrollPosition.top, animated: false)
-        
+        }
+
+        // Register for notifications on filter or database changes
         NotificationCenter.default.addObserver(self, selector: #selector(reloadListOnChange), name: NSNotification.Name(rawValue: "DATABASE_CHANGED"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(filtersOnIconChange), name: NSNotification.Name(rawValue: "FILTERS_ON"), object: nil)
@@ -241,9 +233,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 favCount = self.filteredPeople.filter{ $0.liked }.count
                 becaCount = self.filteredPeople.filter{ $0.beca != "" }.count
             } else {
-                peopleCount = self.People.count
-                favCount = self.People.filter{ $0.liked }.count
-                becaCount = self.People.filter{ $0.beca != "" }.count
+                peopleCount = self.people.count
+                favCount = self.people.filter{ $0.liked }.count
+                becaCount = self.people.filter{ $0.beca != "" }.count
             }
             
             // Make strings singular if there's only one match
@@ -377,7 +369,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if searchActive {
             return filteredPeople.count
         }else{
-            return People.count
+            return people.count
         }
     }
     
@@ -393,7 +385,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if searchActive {
             person = filteredPeople[indexPath.row]
         } else {
-            person = People[indexPath.row]
+            person = people[indexPath.row]
         }
     
         cell.nameLabel.text = person.name + " " + person.surname_1 + " " + person.surname_2
@@ -437,7 +429,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if searchActive{
             selectedPerson = filteredPeople[selectedIndex]
         }else{
-            selectedPerson = People[selectedIndex]
+            selectedPerson = people[selectedIndex]
         }
 
         let detailedController = DetailsViewHostingController(person: selectedPerson, index: selectedIndex)
@@ -457,7 +449,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let searchWordsArray = cleanedSearchString.components(separatedBy: " ")
         var approvedFlag = false
         
-        for person in People {
+        for person in people {
             approvedFlag = false
             for i in 0..<searchWordsArray.count {
                 if cleanStringWithWhitespaces(rawString: person.name).hasPrefix(searchWordsArray[i])
@@ -518,7 +510,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
-        filteredPeople = People
+        filteredPeople = people
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -561,73 +553,73 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cleanFilters()
         
         if defaults.bool(forKey: "soloAdjuntos"){
-            for (index, person) in People.enumerated().reversed(){
+            for (index, person) in people.enumerated().reversed(){
                 if person.beca.isEmpty{
-                    People.remove(at: index)
+                    people.remove(at: index)
                 }
             }
         }
         
         if defaults.bool(forKey: "soloFavoritos"){
-            for (index, person) in People.enumerated().reversed(){
+            for (index, person) in people.enumerated().reversed(){
                 if !person.liked{
-                    People.remove(at: index)
+                    people.remove(at: index)
                 }
             }
         }
         
         if !defaults.bool(forKey: "male"){
-            for (index, person) in People.enumerated().reversed(){
+            for (index, person) in people.enumerated().reversed(){
                 if person.gender == 0{
-                    People.remove(at: index)
+                    people.remove(at: index)
                 }
             }
         }
         
         if !defaults.bool(forKey: "female"){
-            for (index, person) in People.enumerated().reversed(){
+            for (index, person) in people.enumerated().reversed(){
                 if person.gender == 1{
-                    People.remove(at: index)
+                    people.remove(at: index)
                 }
             }
         }
         
         if !defaults.bool(forKey: "nbothers"){
-            for (index, person) in People.enumerated().reversed(){
+            for (index, person) in people.enumerated().reversed(){
                 if person.gender > 1{
-                    People.remove(at: index)
+                    people.remove(at: index)
                 }
             }
         }
                 
         if !defaults.bool(forKey: "100s"){
-            for (index, person) in People.enumerated().reversed(){
+            for (index, person) in people.enumerated().reversed(){
                 if person.floor == 100{
-                    People.remove(at: index)
+                    people.remove(at: index)
                 }
             }
         }
         
         if !defaults.bool(forKey: "200s"){
-            for (index, person) in People.enumerated().reversed(){
+            for (index, person) in people.enumerated().reversed(){
                 if person.floor == 200{
-                    People.remove(at: index)
+                    people.remove(at: index)
                 }
             }
         }
         
         if !defaults.bool(forKey: "300s"){
-            for (index, person) in People.enumerated().reversed(){
+            for (index, person) in people.enumerated().reversed(){
                 if person.floor == 300{
-                    People.remove(at: index)
+                    people.remove(at: index)
                 }
             }
         }
         
         if !defaults.bool(forKey: "400s"){
-            for (index, person) in People.enumerated().reversed(){
+            for (index, person) in people.enumerated().reversed(){
                 if person.floor == 400{
-                    People.remove(at: index)
+                    people.remove(at: index)
                 }
             }
         }
@@ -720,7 +712,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         if searchActive{
-            filteredPeople = People
+            filteredPeople = people
             let reloadString = searchBar.text
             self.searchBar(self.searchBar, textDidChange: reloadString ?? "")
         }
@@ -749,37 +741,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         feedbackGenerator.selectionChanged()
     }
-    
-    func copyDatabaseIfNeeded() {
-        // Move database file from bundle to documents folder
-        
-        let fileManager = FileManager.default
-        
-        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        
-        guard documentsUrl.count != 0 else {
-            return // Could not find documents URL
-        }
-        
-        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent("database.db")
-        
-        if !( (try? finalDatabaseURL.checkResourceIsReachable()) ?? false) {
-            print("DB does not exist in documents folder")
-            
-            let databaseURL = Bundle.main.resourceURL?.appendingPathComponent("database.db")
-            
-            do {
-                try fileManager.copyItem(atPath: (databaseURL?.path)!, toPath: finalDatabaseURL.path)
-            } catch let error as NSError {
-                print("Couldn't copy file to final location! Error:\(error.description)")
-            }
-            
-        } else {
-            print("Database file found at path: \(finalDatabaseURL.path)")
-        }
-        
-    }
-    
+
     func cleanString(rawString: String) -> String{
         var cleanString = rawString
         cleanString = cleanString.lowercased()
@@ -812,127 +774,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     private func loadPeopleFromDatabase(){
-                
-        //this is our select query
-        let queryString = "SELECT * FROM colegiales"
-        
-        //Perform collation on database
-        
-        
-        //statement pointer
-        var stmt:OpaquePointer?
-        
-        //preparing the query
-        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("error preparing insert: \(errmsg)")
-            return
-        }
-        
-        //Empty the people list
-        People = [Person]()
-        
-        //traversing through all the records
-        while(sqlite3_step(stmt) == SQLITE_ROW){
-            
-            let id = sqlite3_column_int(stmt, 0)
-            let name = String(cString: sqlite3_column_text(stmt, 1))
-            let surname_1 = String(cString: sqlite3_column_text(stmt, 2))
-            let surname_2 = String(cString: sqlite3_column_text(stmt, 3))
-            let career = String(cString: sqlite3_column_text(stmt, 4))
-            let room = String(cString: sqlite3_column_text(stmt, 5))
-            
-            var beca = String("")
-            if sqlite3_column_text(stmt, 6) != nil{
-                beca = String(cString: sqlite3_column_text(stmt, 6))
-            }
-            
-            let likeTMP = sqlite3_column_int(stmt, 7)
-            var like = false
-            if likeTMP != 0{
-                like = true
-            }else{
-                like = false
-            }
-            
-            let floor = sqlite3_column_int(stmt, 8)
-            let promotion = sqlite3_column_int(stmt, 9)
-            let gender = sqlite3_column_int(stmt, 10)
-            
-            //adding values to list
-            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), liked: like, gender: Int(gender), promotion: Int(promotion))!)
-        }
-        
-        if defaults.bool(forKey: "surnameFirst"){
-            People = People.sorted { $0.surname_1.localizedCaseInsensitiveCompare($1.surname_1) == ComparisonResult.orderedAscending }
-        }else{
-            People = People.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == ComparisonResult.orderedAscending }
-        }
-        
+        people = AppState.shared.peopleDatabase?.getSortedPeople() ?? [Person]()
     }
     
     private func loadPeopleFromDatabaseProm(promotion: Int){
-                
-        //this is our select query
-        var queryString = String()
-        if promotion == 5 {
-            queryString = "SELECT * FROM colegiales WHERE promotions >= " + String(promotion)
-        } else {
-            queryString = "SELECT * FROM colegiales WHERE promotions = " + String(promotion)
-        }
-        
-        //Perform collation on database
-        
-        
-        //statement pointer
-        var stmt:OpaquePointer?
-        
-        //preparing the query
-        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("error preparing insert: \(errmsg)")
-            return
-        }
-        
-        //Empty the people list
-        People = [Person]()
-        
-        //traversing through all the records
-        while(sqlite3_step(stmt) == SQLITE_ROW){
-            let id = sqlite3_column_int(stmt, 0)
-            let name = String(cString: sqlite3_column_text(stmt, 1))
-            let surname_1 = String(cString: sqlite3_column_text(stmt, 2))
-            let surname_2 = String(cString: sqlite3_column_text(stmt, 3))
-            let career = String(cString: sqlite3_column_text(stmt, 4))
-            let room = String(cString: sqlite3_column_text(stmt, 5))
-            
-            var beca = String("")
-            if sqlite3_column_text(stmt, 6) != nil{
-                beca = String(cString: sqlite3_column_text(stmt, 6))
-            }
-            
-            let likeTMP = sqlite3_column_int(stmt, 7)
-            var like = false
-            if likeTMP != 0{
-                like = true
-            }else{
-                like = false
-            }
-            
-            let floor = sqlite3_column_int(stmt, 8)
-            let promotion = sqlite3_column_int(stmt, 9)
-            let gender = sqlite3_column_int(stmt, 10)
-            
-            //adding values to list
-            People.append(Person(id: Int(id), name: name, surname_1: surname_1, surname_2: surname_2, career: career, beca: beca, room: room, floor: Int(floor), liked: like, gender: Int(gender), promotion: Int(promotion))!)
-        }
-        
-        if defaults.bool(forKey: "surnameFirst"){
-            People = People.sorted { $0.surname_1.localizedCaseInsensitiveCompare($1.surname_1) == ComparisonResult.orderedAscending }
-        } else {
-            People = People.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == ComparisonResult.orderedAscending }
-        }
-        
+        people = AppState.shared.peopleDatabase?.getSortedPromotion(promotion: promotion) ?? [Person]()
     }
 
 }

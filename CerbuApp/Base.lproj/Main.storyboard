@@ -1740,10 +1740,9 @@
         <scene sceneID="Roo-2x-vi7">
             <objects>
                 <tableViewController storyboardIdentifier="SettingsView" id="nm4-15-wRh" customClass="SettingsViewController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dqA-XU-NqF">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dqA-XU-NqF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <label key="tableFooterView" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019 © Raúl Montón Pinillos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="at5-1K-35a">
                             <rect key="frame" x="0.0" y="308" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1759,10 +1758,10 @@
                             <tableViewSection id="Rl8-on-j3p">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="5K0-En-8K7">
-                                        <rect key="frame" x="0.0" y="18" width="414" height="50"/>
+                                        <rect key="frame" x="20" y="18" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5K0-En-8K7" id="7wm-SY-48a">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ordenar por nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zA-aX-Ye6">
@@ -1772,7 +1771,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xp2-uE-MsX">
-                                                    <rect key="frame" x="345" y="10" width="51" height="31"/>
+                                                    <rect key="frame" x="305" y="10" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="orderSwitchChanged:" destination="nm4-15-wRh" eventType="valueChanged" id="TA6-Oy-wIH"/>
                                                     </connections>
@@ -1796,10 +1795,10 @@
                             <tableViewSection id="HGa-0l-fsP">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="bKL-sS-EI5">
-                                        <rect key="frame" x="0.0" y="104" width="414" height="50"/>
+                                        <rect key="frame" x="20" y="104" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bKL-sS-EI5" id="RDi-1T-bcm">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostrar habitaciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N70-lD-aMd">
@@ -1809,7 +1808,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Yb9-wg-nIV">
-                                                    <rect key="frame" x="345" y="10" width="51" height="31"/>
+                                                    <rect key="frame" x="305" y="10" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="lockSwitchChanged:" destination="nm4-15-wRh" eventType="valueChanged" id="wb6-Ur-OiB"/>
                                                     </connections>
@@ -1839,10 +1838,10 @@
                                         </accessibility>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="hB3-kK-Kt7">
-                                        <rect key="frame" x="0.0" y="154" width="414" height="50"/>
+                                        <rect key="frame" x="20" y="154" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hB3-kK-Kt7" id="wJR-TF-RUZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escribir avisos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oo-Jg-ldW">
@@ -1852,7 +1851,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VCx-8Y-072">
-                                                    <rect key="frame" x="345" y="10" width="51" height="31"/>
+                                                    <rect key="frame" x="305" y="10" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="lockSwitchChanged:" destination="nm4-15-wRh" eventType="valueChanged" id="A14-aw-cy6"/>
                                                         <action selector="lockSwitchNotifsChanged:" destination="nm4-15-wRh" eventType="valueChanged" id="eC7-hH-avL"/>
@@ -1887,21 +1886,24 @@
                             <tableViewSection id="ymx-Gc-6jQ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="mGW-gk-z5V">
-                                        <rect key="frame" x="0.0" y="240" width="414" height="50"/>
+                                        <rect key="frame" x="20" y="240" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mGW-gk-z5V" id="6dY-gr-KdN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wv-rd-BlN">
-                                                    <rect key="frame" x="4" y="4" width="406" height="42"/>
-                                                    <color key="tintColor" systemColor="systemRedColor"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Cerrar sesión"/>
+                                                    <rect key="frame" x="4" y="4" width="366" height="42"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Cerrar sesión">
+                                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                                                    </buttonConfiguration>
                                                     <connections>
                                                         <action selector="signOutButtonTap:" destination="nm4-15-wRh" eventType="touchUpInside" id="atT-SB-MPh"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemRedColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="3Wv-rd-BlN" secondAttribute="trailing" constant="4" id="1Oa-An-DGO"/>
                                                 <constraint firstItem="3Wv-rd-BlN" firstAttribute="leading" secondItem="6dY-gr-KdN" secondAttribute="leading" constant="4" id="BAK-jZ-wVY"/>
@@ -1966,7 +1968,7 @@
             <objects>
                 <viewController id="eTj-LO-Whn" customClass="MagazineController" customModule="CerbuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PnD-z3-h9o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="585.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="gHC-6Z-4OO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2003,9 +2005,6 @@
         <namedColor name="ShadowMainAppColor">
             <color red="0.035294117647058823" green="0.19215686274509805" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

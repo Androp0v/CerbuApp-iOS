@@ -299,85 +299,11 @@ class SettingsViewController: UITableViewController {
     }
     
     func isAuthorPresent() -> Bool {
-        
-        let fileManager = FileManager.default
-        let databaseURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        let finalDatabaseURL = databaseURL.first!.appendingPathComponent("database.db")
-        var db: OpaquePointer?
-        
-        if sqlite3_open(finalDatabaseURL.path, &db) != SQLITE_OK {
-            print("Error opening database")
-        }
-        
-        let queryString = "SELECT * FROM colegiales WHERE names = 'Raúl' AND surnames_1 = 'Montón' AND surnames_2 = 'Pinillos' "
-        var stmt:OpaquePointer?
-        
-        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("error preparing insert: \(errmsg)")
-            return false
-        }
-        
-        if sqlite3_step(stmt) == SQLITE_ROW {
-            print("YES AUTHOR IS IN DATABASE WEE")
-            return true
-        } else {
-            print("NO AUTHOR IS NOT IN DATABASE, SAD")
-            return false
-        }
-        
+        return defaults.bool(forKey: "InjectAuthor")
     }
     
     func addAuthor() {
-        
-        let fileManager = FileManager.default
-        let databaseURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        let finalDatabaseURL = databaseURL.first!.appendingPathComponent("database.db")
-        var db: OpaquePointer?
-        
-        if sqlite3_open(finalDatabaseURL.path, &db) != SQLITE_OK {
-            print("Error opening database")
-        }
-        
-        let insertStatementString = "INSERT INTO colegiales (_id, names, surnames_1, surnames_2, careers, rooms, becas, likes, floors, promotions, gender) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
-        var insertStatement: OpaquePointer?
-        
-        if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
-            let _id: Int32 = 999
-            let names: NSString = "Raúl"
-            let surnames_1: NSString = "Montón"
-            let surnames_2: NSString = "Pinillos"
-            let careers: NSString = "Física"
-            let rooms: NSString = "Ex-Colegial"
-            let becas: NSString = "Asociación de Antiguos Colegiales (2019-2020)"
-            let likes: Int32 = 0
-            let floors: Int32 = 300
-            let promotions: Int32 = 5
-            let gender: Int32 = 0
-
-            sqlite3_bind_int(insertStatement, 1, _id)
-            sqlite3_bind_text(insertStatement, 2, names.utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 3, surnames_1.utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 4, surnames_2.utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 5, careers.utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 6, rooms.utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 7, becas.utf8String, -1, nil)
-            sqlite3_bind_int(insertStatement, 8, likes)
-            sqlite3_bind_int(insertStatement, 9, floors)
-            sqlite3_bind_int(insertStatement, 10, promotions)
-            sqlite3_bind_int(insertStatement, 11, gender)
-            
-            if sqlite3_step(insertStatement) == SQLITE_DONE {
-              print("\nSuccessfully inserted row.")
-            } else {
-              print("\nCould not insert row.")
-            }
-          } else {
-            print("\nINSERT statement is not prepared.")
-          }
-          // 5
-          sqlite3_finalize(insertStatement)
-        
+        defaults.set(true, forKey: "InjectAuthor")
     }
     
 }
