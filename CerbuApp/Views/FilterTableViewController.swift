@@ -141,8 +141,8 @@ class FilterTableViewController: UITableViewController {
         checkIfNonDefaultFilters()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         refreshFilters()
     }
     

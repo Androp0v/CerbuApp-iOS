@@ -109,34 +109,34 @@ struct HomeView: View {
                 }
             }
             .globalNavigationBarColor()
+            .onAppear {
+                
+                let defaults = UserDefaults.standard
+
+                // Create a "unique" user ID if none was set
+                if defaults.object(forKey: "userID") == nil{
+                    defaults.setValue(randomString(length: 16), forKey: "userID")
+                }
+
+                // Subscribe to Firebase topic "all" where "all" the notifications are streamed
+                Messaging.messaging().subscribe(toTopic: "all")
+
+                //Clear filters
+                defaults.set(false, forKey: "soloAdjuntos")
+                defaults.set(false, forKey: "soloFavoritos")
+                defaults.set(true, forKey: "male")
+                defaults.set(true, forKey: "female")
+                defaults.set(true, forKey: "nbothers")
+                defaults.set(true, forKey: "100s")
+                defaults.set(true, forKey: "200s")
+                defaults.set(true, forKey: "300s")
+                defaults.set(true, forKey: "400s")
+            }
 
             // Initial view in master-detail mode
             OrlaView()
         }
         .edgesIgnoringSafeArea(.all)
-        .onAppear {
-            
-            let defaults = UserDefaults.standard
-
-            // Create a "unique" user ID if none was set
-            if defaults.object(forKey: "userID") == nil{
-                defaults.setValue(randomString(length: 16), forKey: "userID")
-            }
-
-            // Subscribe to Firebase topic "all" where "all" the notifications are streamed
-            Messaging.messaging().subscribe(toTopic: "all")
-
-            //Clear filters
-            defaults.set(false, forKey: "soloAdjuntos")
-            defaults.set(false, forKey: "soloFavoritos")
-            defaults.set(true, forKey: "male")
-            defaults.set(true, forKey: "female")
-            defaults.set(true, forKey: "nbothers")
-            defaults.set(true, forKey: "100s")
-            defaults.set(true, forKey: "200s")
-            defaults.set(true, forKey: "300s")
-            defaults.set(true, forKey: "400s")
-        }
     }
 }
 

@@ -61,6 +61,10 @@
 		C4E847CD22DFA27700F82843 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */; };
 		C4F95C5A22F5E5FA00E3E5BD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F95C5922F5E5FA00E3E5BD /* DetailsView.swift */; };
 		C4FC8CF827248BC800BFD7A4 /* DecryptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC8CF727248BC800BFD7A4 /* DecryptionManager.swift */; };
+		C50988E3272C5AB200578203 /* andreaabajohres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C50988E1272C5AB200578203 /* andreaabajohres.jpg */; };
+		C50988E4272C5AB200578203 /* andreaabajo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C50988E2272C5AB200578203 /* andreaabajo.jpg */; };
+		C50988E7272C5ABF00578203 /* carlosmartin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C50988E5272C5ABF00578203 /* carlosmartin.jpg */; };
+		C50988E8272C5ABF00578203 /* carlosmartinhres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C50988E6272C5ABF00578203 /* carlosmartinhres.jpg */; };
 		C5400995272C185000AED008 /* jorgecrespohres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C54007A2272C184000AED008 /* jorgecrespohres.jpg */; };
 		C5400996272C185000AED008 /* carloslopez.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C54007A3272C184000AED008 /* carloslopez.jpg */; };
 		C5400997272C185000AED008 /* rubenrubiohres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C54007A4272C184000AED008 /* rubenrubiohres.jpg */; };
@@ -660,6 +664,10 @@
 		C4E847CC22DFA27700F82843 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		C4F95C5922F5E5FA00E3E5BD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		C4FC8CF727248BC800BFD7A4 /* DecryptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecryptionManager.swift; sourceTree = "<group>"; };
+		C50988E1272C5AB200578203 /* andreaabajohres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = andreaabajohres.jpg; sourceTree = "<group>"; };
+		C50988E2272C5AB200578203 /* andreaabajo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = andreaabajo.jpg; sourceTree = "<group>"; };
+		C50988E5272C5ABF00578203 /* carlosmartin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carlosmartin.jpg; sourceTree = "<group>"; };
+		C50988E6272C5ABF00578203 /* carlosmartinhres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carlosmartinhres.jpg; sourceTree = "<group>"; };
 		C54007A2272C184000AED008 /* jorgecrespohres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jorgecrespohres.jpg; sourceTree = "<group>"; };
 		C54007A3272C184000AED008 /* carloslopez.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carloslopez.jpg; sourceTree = "<group>"; };
 		C54007A4272C184000AED008 /* rubenrubiohres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rubenrubiohres.jpg; sourceTree = "<group>"; };
@@ -1420,6 +1428,8 @@
 				C5400854272C184400AED008 /* anapuyhres.jpg */,
 				C5400864272C184500AED008 /* ancavlad.jpg */,
 				C5400804272C184100AED008 /* ancavladhres.jpg */,
+				C50988E2272C5AB200578203 /* andreaabajo.jpg */,
+				C50988E1272C5AB200578203 /* andreaabajohres.jpg */,
 				C54007DE272C184100AED008 /* andresmartinez.jpg */,
 				C54008DC272C184700AED008 /* andresmartinezhres.jpg */,
 				C5400870272C184500AED008 /* angelacastillon.jpg */,
@@ -1468,6 +1478,8 @@
 				C540086A272C184500AED008 /* carlosgimenezhres.jpg */,
 				C54007A3272C184000AED008 /* carloslopez.jpg */,
 				C5400951272C184D00AED008 /* carloslopezhres.jpg */,
+				C50988E5272C5ABF00578203 /* carlosmartin.jpg */,
+				C50988E6272C5ABF00578203 /* carlosmartinhres.jpg */,
 				C5400915272C184B00AED008 /* carmenborobio.jpg */,
 				C54007CC272C184100AED008 /* carmenborobiohres.jpg */,
 				C5400868272C184500AED008 /* carmencubero.jpg */,
@@ -2148,6 +2160,7 @@
 				C54009C5272C185000AED008 /* acheregidohres.jpg in Resources */,
 				C5400B55272C185000AED008 /* javiersanz.jpg in Resources */,
 				C54009B5272C185000AED008 /* claudiapavon.jpg in Resources */,
+				C50988E8272C5ABF00578203 /* carlosmartinhres.jpg in Resources */,
 				C54009D4272C185000AED008 /* angelalaguna.jpg in Resources */,
 				C5400B41272C185000AED008 /* josemartinpalacinhres.jpg in Resources */,
 				C54009D2272C185000AED008 /* elisalanuzahres.jpg in Resources */,
@@ -2230,6 +2243,7 @@
 				C5400995272C185000AED008 /* jorgecrespohres.jpg in Resources */,
 				C5400A51272C185000AED008 /* ikerbaztan.jpg in Resources */,
 				C5400A26272C185000AED008 /* albertomendoza.jpg in Resources */,
+				C50988E4272C5AB200578203 /* andreaabajo.jpg in Resources */,
 				C54009CC272C185000AED008 /* juanmanuellopez.jpg in Resources */,
 				C54009A1272C185000AED008 /* pablojoaquingraciahres.jpg in Resources */,
 				C5400A9A272C185000AED008 /* alejandrocaudevillahres.jpg in Resources */,
@@ -2346,6 +2360,7 @@
 				C5400A6E272C185000AED008 /* lucascalderon.jpg in Resources */,
 				C5400A44272C185000AED008 /* nalanibouillonhres.jpg in Resources */,
 				C5400AE0272C185000AED008 /* larapolohres.jpg in Resources */,
+				C50988E3272C5AB200578203 /* andreaabajohres.jpg in Resources */,
 				C5400B1D272C185000AED008 /* jorgecasanovahres.jpg in Resources */,
 				C5400B7A272C185000AED008 /* blancadominguezhres.jpg in Resources */,
 				C54009D3272C185000AED008 /* yoelpozohres.jpg in Resources */,
@@ -2422,6 +2437,7 @@
 				C54009C8272C185000AED008 /* carlaarino.jpg in Resources */,
 				C5400AD5272C185000AED008 /* elenasierra.jpg in Resources */,
 				C5400B25272C185000AED008 /* inesnasarre.jpg in Resources */,
+				C50988E7272C5ABF00578203 /* carlosmartin.jpg in Resources */,
 				C5400B5C272C185000AED008 /* ruthpalacioshres.jpg in Resources */,
 				C5400AFC272C185000AED008 /* alvarolopezhres.jpg in Resources */,
 				C5400A80272C185000AED008 /* albalorenzohres.jpg in Resources */,
