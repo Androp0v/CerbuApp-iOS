@@ -96,6 +96,13 @@ class DetailsFooterViewModel {
         }
         return false
     }
+    
+    func shouldShowBeca() -> Bool {
+        if !(detailedPerson?.beca.isEmpty ?? true) {
+            return true
+        }
+        return false
+    }
 
     func shouldEnablePromotionsButton() -> Bool {
         guard let detailedPerson = detailedPerson else {

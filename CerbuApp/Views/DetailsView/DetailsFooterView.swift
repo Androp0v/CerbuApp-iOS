@@ -59,10 +59,12 @@ struct DetailsFooterView: View {
                         .foregroundColor(Color(UIColor.secondaryLabel))
                         .multilineTextAlignment(.center)
                 }
-
-                Image("becario")
-                    .resizable()
-                    .frame(width: 48, height: 48)
+                
+                if model.shouldShowBeca() {
+                    Image("becario")
+                        .resizable()
+                        .frame(width: 48, height: 48)
+                }
 
                 Spacer()
             }
