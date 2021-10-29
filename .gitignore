@@ -11,8 +11,15 @@
 # Icon must end with two \r
 Icon
 
+# Private keys
+*.p8
+
 # Thumbnails
 ._*
+
+# (Encrypted) Images
+CerbuApp/EncryptedImages/
+Pods/
 
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100

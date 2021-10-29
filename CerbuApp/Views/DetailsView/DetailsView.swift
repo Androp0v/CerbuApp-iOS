@@ -88,6 +88,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         cleanString = cleanString.replacingOccurrences(of: "ü", with: "u")
         cleanString = cleanString.replacingOccurrences(of: "ñ", with: "n")
         cleanString = cleanString.replacingOccurrences(of: "ç", with: "c")
+        cleanString = cleanString.replacingOccurrences(of: "-", with: "")
         return cleanString
     }
     
@@ -244,17 +245,10 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
     
     @objc func tapHandler(gesture: UITapGestureRecognizer){
         
-        let fileManager = FileManager.default
-        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent("database.db")
-        if sqlite3_open_v2(finalDatabaseURL.path, &db, SQLITE_OPEN_READWRITE, nil) != SQLITE_OK {
-            print("Error opening database")
-        }
-        
         let impactFeedbackGenerator = UIImpactFeedbackGenerator()
         impactFeedbackGenerator.impactOccurred()
         
-        if detailedPerson?.liked ?? false{
+        if detailedPerson?.liked ?? false {
             detailedPerson?.liked = false
             likedImageView.image = UIImage.init(named: "HotIconUnselected")
             
@@ -265,24 +259,19 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
                     likedImageView.image = newImage
                 }
             }
+                        
+            // Set liked status
+            let defaults = UserDefaults.standard
+            defaults.set(false, forKey: String(detailedPerson!.id) + "liked")
             
-            let queryString = "UPDATE colegiales SET likes = 0 WHERE _id = " + String(detailedPerson!.id)
             
-            if sqlite3_exec(db, queryString, nil, nil, nil) != SQLITE_OK {
-                let errmsg = String(cString: sqlite3_errmsg(db)!)
-                print("Error changing liked state: \(errmsg)")
-            }
-            
-        }else{
+        } else {
             detailedPerson?.liked = true
             likedImageView.image = UIImage.init(named: "HotIcon")
             
-            let queryString = "UPDATE colegiales SET likes = 1 WHERE _id = " + String(detailedPerson!.id)
-            
-            if sqlite3_exec(db, queryString, nil, nil, nil) != SQLITE_OK {
-                let errmsg = String(cString: sqlite3_errmsg(db)!)
-                print("Error changing liked state: \(errmsg)")
-            }
+            // Set liked status
+            let defaults = UserDefaults.standard
+            defaults.set(true, forKey: String(detailedPerson!.id) + "liked")
         }
         
         likedImageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)

@@ -141,11 +141,12 @@ class FilterTableViewController: UITableViewController {
         checkIfNonDefaultFilters()
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        refreshFilters()
+    }
+    
+    func refreshFilters() {
         if defaults.bool(forKey: "soloAdjuntos"){
             soloAdjuntosSwitch.isOn = true
         }else{
@@ -199,7 +200,6 @@ class FilterTableViewController: UITableViewController {
         }else{
             fourSwitch.isOn = false
         }
-        
     }
 
     // MARK: - Table view data source

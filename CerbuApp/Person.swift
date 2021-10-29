@@ -47,9 +47,9 @@ class Person {
         self.promotion = promotion
     }
 
-    init?(id: String, data: NSDictionary) {
+    init?(data: NSDictionary) {
 
-        guard let id = Int(id) else { return nil }
+        guard let id = data["id"] as? Int else { return nil }
         guard let name = data["name"] as? String else { return nil }
 
         self.id = id
@@ -60,9 +60,16 @@ class Person {
         self.beca = data["beca"] as? String ?? ""
         self.room = data["room"] as? String ?? ""
         self.floor = data["floor"] as? Int ?? 0
-        self.liked = false // TO-DO
         self.gender = data["gender"] as? Int ?? 0
         self.promotion = data["promotion"] as? Int ?? 0
+        
+        // Get liked status
+        let defaults = UserDefaults.standard
+        if defaults.bool(forKey: String(id) + "liked") {
+            self.liked = true
+        } else {
+            self.liked = false
+        }
     }
 
     // MARK: - Getters

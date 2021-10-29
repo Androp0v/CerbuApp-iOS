@@ -105,14 +105,13 @@ class PeopleDatabaseManager {
                 }
 
                 // Retrieve person id and data
-                let personId = personSnapshot.key
                 let personDict = personSnapshot.value as? NSDictionary
                 guard let personDict = personDict else {
                     continue
                 }
 
                 // Create a the person object
-                let person = Person(id: personId, data: personDict)
+                let person = Person(data: personDict)
                 guard let person = person else {
                     continue
                 }

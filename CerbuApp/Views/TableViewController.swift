@@ -45,20 +45,6 @@ struct OrlaView: View {
                     FiltersView()
                 }
             }
-            .onDisappear(perform: {
-                let defaults = UserDefaults.standard
-
-                //Clear filters
-                defaults.set(false, forKey: "soloAdjuntos")
-                defaults.set(false, forKey: "soloFavoritos")
-                defaults.set(true, forKey: "male")
-                defaults.set(true, forKey: "female")
-                defaults.set(true, forKey: "nbothers")
-                defaults.set(true, forKey: "100s")
-                defaults.set(true, forKey: "200s")
-                defaults.set(true, forKey: "300s")
-                defaults.set(true, forKey: "400s")
-            })
     }
 }
 /// Wrapper to present the view  inside a SwiftUI view
@@ -761,6 +747,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cleanString = cleanString.replacingOccurrences(of: "ü", with: "u")
         cleanString = cleanString.replacingOccurrences(of: "ñ", with: "n")
         cleanString = cleanString.replacingOccurrences(of: "ç", with: "c")
+        cleanString = cleanString.replacingOccurrences(of: "-", with: "")
         return cleanString
     }
     
