@@ -707,6 +707,7 @@
 		C5400B85272C185000AED008 /* belenlanda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5400992272C185000AED008 /* belenlanda.jpg */; };
 		C5400B86272C185000AED008 /* juanpaul.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5400993272C185000AED008 /* juanpaul.jpg */; };
 		C5400B87272C185000AED008 /* ferminlloret.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5400994272C185000AED008 /* ferminlloret.jpg */; };
+		C5BFF999272C80AE0021930C /* PrivacyPolicy.md in Resources */ = {isa = PBXBuildFile; fileRef = C5BFF998272C80AE0021930C /* PrivacyPolicy.md */; };
 		E8AF5AED9DAD1145A33AEC6B /* Pods_CerbuApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2237E3AB7D2A493613EEFA7 /* Pods_CerbuApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -1453,6 +1454,7 @@
 		C5400992272C185000AED008 /* belenlanda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = belenlanda.jpg; sourceTree = "<group>"; };
 		C5400993272C185000AED008 /* juanpaul.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = juanpaul.jpg; sourceTree = "<group>"; };
 		C5400994272C185000AED008 /* ferminlloret.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ferminlloret.jpg; sourceTree = "<group>"; };
+		C5BFF998272C80AE0021930C /* PrivacyPolicy.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PrivacyPolicy.md; sourceTree = "<group>"; };
 		C9505C4CF0A7B269F684F11A /* Pods-CerbuApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuApp.release.xcconfig"; path = "Target Support Files/Pods-CerbuApp/Pods-CerbuApp.release.xcconfig"; sourceTree = "<group>"; };
 		D3C7F1D4EFBDCD2AD29D7A76 /* Pods-CerbuAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CerbuAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-CerbuAppUITests/Pods-CerbuAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E2237E3AB7D2A493613EEFA7 /* Pods_CerbuApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CerbuApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1492,6 +1494,7 @@
 			isa = PBXGroup;
 			children = (
 				C482D65C25419DC900DA3C3F /* Readme.md */,
+				C5BFF998272C80AE0021930C /* PrivacyPolicy.md */,
 				C482D66125419E5000DA3C3F /* CerbuAppMockup.png */,
 				C404058022DEA3D000259C86 /* CerbuApp */,
 				C404059722DEA3D100259C86 /* CerbuAppTests */,
@@ -2762,6 +2765,7 @@
 				C5400A72272C185000AED008 /* claudiavozmediano.jpg in Resources */,
 				C54009A2272C185000AED008 /* ingridtrallerohres.jpg in Resources */,
 				C50989B9272C6F0D00578203 /* juanmanuelcastillejohres2020.jpg in Resources */,
+				C5BFF999272C80AE0021930C /* PrivacyPolicy.md in Resources */,
 				C54009AB272C185000AED008 /* angelaperezhres.jpg in Resources */,
 				C5400AEB272C185000AED008 /* angeldepedro.jpg in Resources */,
 				C54009BB272C185000AED008 /* marinacallejahres.jpg in Resources */,
@@ -3421,6 +3425,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CerbuApp/CerbuApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 4ND4CZC2FK;
 				INFOPLIST_FILE = CerbuApp/Info.plist;
@@ -3444,6 +3449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CerbuApp/CerbuApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 4ND4CZC2FK;
 				INFOPLIST_FILE = CerbuApp/Info.plist;
