@@ -6,8 +6,9 @@
 //  Copyright © 2019 Raúl Montón Pinillos. All rights reserved.
 //
 
-import UIKit
 import Firebase
+import FirebaseAuth
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate{
@@ -19,18 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
-        UNUserNotificationCenter.current().delegate = self
-        
-        UIApplication.shared.registerForRemoteNotifications()
-        
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-        options: authOptions,
-        completionHandler: {_, _ in })
-        
-        application.registerForRemoteNotifications()
-                
         FirebaseApp.configure()
+        
+        if Auth.auth().currentUser?.uid != nil {
+            AppState.shared.loginStatus = .loggedIn
+            
+            UNUserNotificationCenter.current().delegate = self
+            
+            UIApplication.shared.registerForRemoteNotifications()
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(options: authOptions,
+                                                                    completionHandler: {_, _ in })
+            
+            application.registerForRemoteNotifications()
+        }
         
         return true
     }
@@ -52,8 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // Firebase Delegates:
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        print("didReceiveRemoteNotification called")
-        //print(userInfo)
 
     }
     
@@ -68,15 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         //Called when notification arrives while app is in the foreground
-        print("UserNotificationCenter willPresent")
-        //print("\(notification.request.content.userInfo)")
         completionHandler([.alert, .badge, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         //Called when tapping on the notification
-        print("UserNotificationCenter didReceive")
-        //print("\(response.notification.request.content.userInfo)")
         completionHandler()
     }
 

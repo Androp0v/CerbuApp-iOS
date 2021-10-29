@@ -8,6 +8,7 @@ target 'CerbuApp' do
   # Pods for CerbuApp
   pod 'Firebase/Messaging'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
   target 'CerbuAppTests' do
     inherit! :search_paths
