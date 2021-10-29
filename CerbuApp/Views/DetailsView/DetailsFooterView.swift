@@ -11,7 +11,6 @@ import SwiftUI
 struct DetailsFooterView: View {
 
     @State var showingPhotoPicker: Bool = false
-    @State var selection: Int = 0
     var model: DetailsFooterViewModel
     var container: DetailsViewController?
 
@@ -46,13 +45,11 @@ struct DetailsFooterView: View {
                 .confirmationDialog("Elije una promoción",
                                     isPresented: $showingPhotoPicker,
                                     titleVisibility: .visible) {
-                    Button("2021-2022") {
-                        selection = 0
+                    Button(model.getPromotionString()) {
                         container?.loadHresImage(year: "2021")
                     }
 
-                    Button("2020-2021") {
-                        selection = 1
+                    Button(model.getPastPromotionString(yearsBack: 1)) {
                         container?.loadHresImage(year: "2020")
                     }
                 }

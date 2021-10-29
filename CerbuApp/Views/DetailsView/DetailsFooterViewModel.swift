@@ -55,35 +55,15 @@ class DetailsFooterViewModel {
         roomString.append(room)
         return roomString
     }
+    
+    func getPastPromotionString(yearsBack: Int) -> String {
+        guard let promotion = detailedPerson?.promotion else { return "Desconocido" }
+        return formatPromotionString(promotion: promotion - yearsBack)
+    }
 
     func getPromotionString() -> String {
-
-        switch detailedPerson?.promotion {
-        case 1:
-            return "Primera promoción"
-        case 2:
-            return "Segunda promoción"
-        case 3:
-            return "Tercera promoción"
-        case 4:
-            return "Cuarta promoción"
-        case 5:
-            return "Quinta promoción"
-        case 6:
-            return "Sexta promoción"
-        case 7:
-            return "Séptima promoción"
-        case 8:
-            return "Octava promoción"
-        case 9:
-            return "Novena promoción"
-        case 10:
-            return "Décima promoción"
-        case 99:
-            return "Excolegial"
-        default:
-            return "Desconocido"
-        }
+        guard let promotion = detailedPerson?.promotion else { return "Desconocido" }
+        return formatPromotionString(promotion: promotion)
     }
 
     func shouldShowRoom() -> Bool {
@@ -114,5 +94,36 @@ class DetailsFooterViewModel {
         }
 
         return true
+    }
+}
+
+private extension DetailsFooterViewModel {
+    func formatPromotionString(promotion: Int) -> String {
+        switch promotion {
+        case 1:
+            return "Primera promoción"
+        case 2:
+            return "Segunda promoción"
+        case 3:
+            return "Tercera promoción"
+        case 4:
+            return "Cuarta promoción"
+        case 5:
+            return "Quinta promoción"
+        case 6:
+            return "Sexta promoción"
+        case 7:
+            return "Séptima promoción"
+        case 8:
+            return "Octava promoción"
+        case 9:
+            return "Novena promoción"
+        case 10:
+            return "Décima promoción"
+        case 99:
+            return "Excolegial"
+        default:
+            return "Desconocido"
+        }
     }
 }
