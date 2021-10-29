@@ -13,7 +13,7 @@ import Foundation
 class PeopleDatabaseManager {
 
     /// Wether the database has loaded
-    var databaseStatus: DatabaseStatus = .notLoaded
+    @Published var databaseStatus: DatabaseStatus = .notLoaded
     public enum DatabaseStatus {
         case notLoaded
         case loading
@@ -34,9 +34,6 @@ class PeopleDatabaseManager {
             NSLog("Unable to open database: User not logged in")
             return nil
         }
-
-        // Enable on-disk persistency
-        Database.database().isPersistenceEnabled = true
 
         self.peopleRoot = Database.database().reference().child("People")
         self.currentYearNode = peopleRoot.child("20202021")
@@ -119,9 +116,10 @@ class PeopleDatabaseManager {
                 // Append person to list
                 self.peopleList.append(person)
 
-                // Mark the database as loaded
-                self.databaseStatus = .loaded
             }
+            
+            // Mark the database as loaded
+            self.databaseStatus = .loaded
         })
 
         // Inject author if discovered

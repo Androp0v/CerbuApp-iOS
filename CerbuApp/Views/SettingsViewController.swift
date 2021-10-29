@@ -67,7 +67,7 @@ class SettingsViewController: UITableViewController {
         do {
             try Auth.auth().signOut()
             withAnimation {
-                AppState.shared.isLoggedIn = false
+                AppState.shared.loginStatus = .notLoggedIn
             }
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)

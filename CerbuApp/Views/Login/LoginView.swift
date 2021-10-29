@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct LoginView: View {
+    
+    @State var cardOffset: CGFloat = .zero
+    @State var showSpinner: Bool = false
 
     var body: some View {
         ZStack {
@@ -43,6 +46,25 @@ struct LoginView: View {
 
                 Spacer()
             }
+            
+            // Logging-in view
+            
+            if showSpinner {
+                VStack(alignment: .center) {
+
+                    Spacer()
+                        .frame(height: 152)
+
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
+
+                    Spacer()
+
+                }
+                .frame(maxWidth: 450)
+                .padding(.horizontal, 24)
+            }
+            
 
             // Login form content
             ScrollView {
@@ -52,14 +74,25 @@ struct LoginView: View {
                         .frame(height: 112)
 
                     LoginCardView()
+                        .edgesIgnoringSafeArea(.all)
 
                     Spacer()
 
                 }
                 .frame(maxWidth: 450)
                 .padding(.horizontal, 24)
+                .offset(y: cardOffset)
+                .onReceive(AppState.shared.$loginStatus, perform: { status in
+                    if status == .loggingIn {
+                        withAnimation(.easeIn(duration: 1)) {
+                            self.cardOffset = -5000
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                            self.showSpinner = true
+                        })
+                    }
+                })
             }
-
         }
     }
 }

@@ -32,9 +32,7 @@ struct InitialView: View {
     @ObservedObject private var appState = AppState.shared
 
     var body: some View {
-        if appState.isLoggedIn {
-            /*MainView()
-                .edgesIgnoringSafeArea(.all)*/
+        if appState.loginStatus == .loggedIn {
             HomeView()
                 .edgesIgnoringSafeArea(.all)
         } else {

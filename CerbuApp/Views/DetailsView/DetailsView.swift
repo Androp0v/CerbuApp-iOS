@@ -10,7 +10,26 @@ import UIKit
 import SQLite3
 import SwiftUI
 
+// MARK: - ViewHostingController
 
+/// Wrapper to present DetailsView inside a UIKit context
+class DetailsViewHostingController: UIHostingController<DetailsView> {
+
+    var detailedPerson: Person
+    var personIndex: Int
+
+    init(person: Person, index: Int) {
+        detailedPerson = person
+        personIndex = index
+        super.init(rootView: DetailsView(detailedPerson: person, personIndex: index))
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Not implemented")
+    }
+}
+
+// MARK: - View
 struct DetailsView: View {
     @State var detailedPerson: Person
     @State var personIndex: Int
@@ -36,23 +55,7 @@ struct DetailsView: View {
     }
 }
 
-/// Wrapper to present DetailsView inside a UIKit context
-class DetailsViewHostingController: UIHostingController<DetailsView> {
-
-    var detailedPerson: Person
-    var personIndex: Int
-
-    init(person: Person, index: Int) {
-        detailedPerson = person
-        personIndex = index
-        super.init(rootView: DetailsView(detailedPerson: person, personIndex: index))
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("Not implemented")
-    }
-}
-
+// MARK: - Content view
 /// Wrapper to present the view  inside a SwiftUI view
 struct DetailsViewContent: UIViewControllerRepresentable {
 
@@ -73,7 +76,9 @@ struct DetailsViewContent: UIViewControllerRepresentable {
     }
 }
 
-class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
+// MARK: - UIViewController
+
+class DetailsViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func cleanString(rawString: String) -> String{
         var cleanString = rawString
@@ -93,7 +98,6 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     
     var detailedPerson: Person?
-    var db: OpaquePointer?
     let defaults = UserDefaults.standard
     var originalImageCenter:CGPoint?
     var isZooming = false
@@ -103,7 +107,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
     @IBOutlet var hresPhotoBackground: UIView!
 
     @IBOutlet weak var detailsFooterContainer: UIView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -113,7 +117,8 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
 
         // Setup SwiftUI footer
         if let detailedPerson = detailedPerson {
-            let swiftUIView = DetailsFooterView(model: DetailsFooterViewModel(person: detailedPerson))
+            let swiftUIView = DetailsFooterView(model: DetailsFooterViewModel(person: detailedPerson),
+                                                container: self)
             let hostingController = UIHostingController(rootView: swiftUIView)
             addChild(hostingController)
             detailsFooterContainer.addSubview(hostingController.view)
@@ -144,25 +149,10 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
             }
         }
         
-        let testString1: String
-        testString1 = cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? "") + "hres")
+        // Load image
+        loadHresImage()
         
-        let testString2: String
-        let testString2a: String
-        let testString2b: String
-        testString2a = cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? ""))
-        testString2b = cleanString(rawString: (detailedPerson?.surname_2 ?? "")) + "hres"
-        testString2 = testString2a + testString2b
-        
-        let testString3: String
-        testString3 = cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? ""))
-
-        hresPhoto.image = UIImage(encryptedFilename: testString1)
-                            ?? UIImage(encryptedFilename: testString2)
-                            ?? UIImage(encryptedFilename: testString3)
-                            ?? UIImage(named: testString1)
-                            ?? UIImage(named: "nohres")
-
+        // Gesture & tap handling
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
         tap.cancelsTouchesInView = false
         tap.delegate = self
@@ -184,8 +174,39 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         }
 
     }
+    
+    // MARK: - Image loading
+    
+    func loadHresImage(year: String = AppState.shared.currentYear) {
+        
+        // Image filename creation
+        
+        var testString1: String
+        testString1 = cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? "") + "hres")
+        
+        var testString2: String
+        testString2 = cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? ""))
+                        + cleanString(rawString: (detailedPerson?.surname_2 ?? ""))
+                        + "hres"
+        
+        var testString3: String
+        testString3 = cleanString(rawString: (detailedPerson?.name ?? "") + (detailedPerson?.surname_1 ?? ""))
+        
+        if year != AppState.shared.currentYear {
+            testString1 += year
+            testString2 += year
+            testString3 += year
+        }
+        
+        // Setting the image
+        hresPhoto.image = UIImage(encryptedFilename: testString1)
+                            ?? UIImage(encryptedFilename: testString2)
+                            ?? UIImage(encryptedFilename: testString3)
+                            ?? UIImage(named: testString1)
+                            ?? UIImage(named: "nohres")
+    }
 
-    //MARK: - Zooming
+    // MARK: - Zooming
 
     @objc func pinch(sender:UIPinchGestureRecognizer) {
         if sender.state == .began {
@@ -242,6 +263,8 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
             sender.setTranslation(CGPoint.zero, in: self.hresPhoto.superview)
         }
     }
+    
+    // MARK: - Favourite tap
     
     @objc func tapHandler(gesture: UITapGestureRecognizer){
         

@@ -20,20 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
-        UNUserNotificationCenter.current().delegate = self
-        
-        UIApplication.shared.registerForRemoteNotifications()
-        
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-        options: authOptions,
-        completionHandler: {_, _ in })
-        
-        application.registerForRemoteNotifications()
-                
         FirebaseApp.configure()
-
-        AppState.shared.isLoggedIn = Auth.auth().currentUser?.uid != nil
+        
+        if Auth.auth().currentUser?.uid != nil {
+            AppState.shared.loginStatus = .loggedIn
+            
+            UNUserNotificationCenter.current().delegate = self
+            
+            UIApplication.shared.registerForRemoteNotifications()
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(options: authOptions,
+                                                                    completionHandler: {_, _ in })
+            
+            application.registerForRemoteNotifications()
+        }
         
         return true
     }

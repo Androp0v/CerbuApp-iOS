@@ -14,6 +14,13 @@ import UIKit
 class DecryptionManager {
 
     private var decryptionKey: SymmetricKey?
+    
+    /// Wether the decryption key has been retrieved
+    @Published var decryptionKeyStatus: DecryptionKeyStatus = .notRetrieved
+    public enum DecryptionKeyStatus {
+        case notRetrieved
+        case retrieved
+    }
 
     init?() {
         initializeDecryptionKey()
@@ -70,6 +77,9 @@ class DecryptionManager {
 
             // Create the symmetric key from the plaintext password
             self.decryptionKey = SymmetricKey(data: paddedPassword.data(using: String.Encoding.utf8)!)
+            
+            // Notify the decryption key has been loaded
+            self.decryptionKeyStatus = .retrieved
         })
     }
 }

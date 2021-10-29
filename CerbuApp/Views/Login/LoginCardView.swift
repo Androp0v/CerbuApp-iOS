@@ -59,10 +59,9 @@ struct LoginCardView: View {
 
             // No error directly returned from Firebase Auth
             if authResult?.user != nil {
-                // Authentication succeeded
-                withAnimation {
-                    AppState.shared.isLoggedIn = true
-                }
+                // Authentication succeeded, but database may not be ready
+                AppState.shared.loginStatus = .loggingIn
+                AppState.shared.waitForNonEmptyData()
             } else {
                 // Authentication failed
 
