@@ -13,11 +13,13 @@
       "size" : "20x20"
     },
     {
+      "filename" : "Cerbulogo29x29@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "Cerbulogo29x29@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
