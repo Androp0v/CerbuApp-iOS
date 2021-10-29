@@ -15,6 +15,7 @@ struct LoginCardView: View {
     @State private var userError: Bool = false
     @State private var password: String = ""
     @State private var passwordError: Bool = false
+    @State private var showForgotPasswordAlert: Bool = false
 
     // MARK: - Sign in
 
@@ -101,9 +102,14 @@ struct LoginCardView: View {
                     .keyboardShortcut(.defaultAction)
                     .cornerRadius(12)
 
-                Text("¿Has olvidado tu contraseña?")
-                    .foregroundColor(Color(UIColor.secondaryLabel))
-                    .padding()
+                Button("¿Has olvidado tu contraseña?", action: {
+                    showForgotPasswordAlert = true
+                })
+                .foregroundColor(Color(UIColor.secondaryLabel))
+                .padding()
+                .alert("Contacta con un subdirector", isPresented: $showForgotPasswordAlert) {
+                    Button("OK", role: .cancel) { }
+                }
             }
             .padding()
             .background(
