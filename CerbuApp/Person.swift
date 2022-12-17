@@ -10,7 +10,7 @@ import UIKit
 
 class Person {
     
-    //MARK: Properties
+    // MARK: - Properties
     
     var id: Int
     var name: String
@@ -26,7 +26,7 @@ class Person {
 
     var iconPhoto: UIImage?
     
-    //MARK: Initialization
+    // MARK: - Initialization
     
     init?(id: Int, name: String, surname_1: String, surname_2: String, career: String, beca: String, room: String, floor: Int, liked: Bool, gender: Int, promotion: Int) {
         

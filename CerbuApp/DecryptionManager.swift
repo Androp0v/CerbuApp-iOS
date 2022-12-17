@@ -84,6 +84,8 @@ class DecryptionManager {
     }
 }
 
+// MARK: - UIImage extension
+
 extension UIImage {
     convenience init?(encryptedFilename: String) {
         let decryptionManager = AppState.shared.decryptionManager

@@ -25,7 +25,7 @@ class CardView: UIView {
         animate(isHighlighted: false)
     }
     
-    func animate(isHighlighted: Bool, completion: ((Bool) -> Void)?=nil) {
+    func animate(isHighlighted: Bool, completion: ((Bool) -> Void)? = nil) {
         
         if isHighlighted {
             UIView.animate(withDuration: 0.25,

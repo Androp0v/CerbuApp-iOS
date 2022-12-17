@@ -36,7 +36,15 @@ class PeopleDatabaseManager {
         }
 
         self.peopleRoot = Database.database().reference().child("People")
+        #if DEBUG
         self.currentYearNode = peopleRoot.child("20202021")
+        // AppStore screenshot mockup
+        /*
+        self.currentYearNode = peopleRoot.child("Mock")
+        */
+        #else
+        self.currentYearNode = peopleRoot.child("20202021")
+        #endif
 
         // Keep people data synced
         self.peopleRoot.keepSynced(true)
@@ -62,7 +70,7 @@ class PeopleDatabaseManager {
         }
     }
 
-    // MARK: - sortedPeople functions
+    // MARK: - Private functions
 
     private func sortedPeople(people: [Person]) -> [Person]? {
         

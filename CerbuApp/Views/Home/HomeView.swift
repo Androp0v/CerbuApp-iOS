@@ -136,6 +136,7 @@ struct HomeView: View {
             // Initial view in master-detail mode
             OrlaView()
         }
+        .accentColor(.white)
         .edgesIgnoringSafeArea(.all)
     }
 }

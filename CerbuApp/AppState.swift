@@ -37,11 +37,14 @@ class AppState: ObservableObject {
     init(){
         // Enable on-disk persistency
         Database.database().isPersistenceEnabled = true
+        
         // Initialize managers
         peopleDatabase = PeopleDatabaseManager()
         decryptionManager = DecryptionManager()
     }
     
+    /// Called when the login is successful. Ensures that the database has data and that the photo decryption
+    /// key can be retrieved, to avoid opening an empty tableview with no people.
     func waitForNonEmptyData() {
         peopleDatabase = PeopleDatabaseManager()
         databaseCancellable = peopleDatabase?.$databaseStatus.sink(receiveValue: { databaseStatus in
